@@ -1,13 +1,7 @@
 #!/usr/bin/env python3
 # Language dictionary extracted from neon.py
 
-TRANSLATIONS_EN = {'language.title': '=== LANGUAGE SELECTION ===',
- 'language.subtitle': 'Available codes:',
- 'language.option': '- {code} : {name}',
- 'language.prompt': 'Language (fr/en/it/es) > ',
- 'language.selected': 'Active language: {code} ({name})',
- 'language.invalid': 'Invalid code. Use fr, en, it, es.',
- 'statusline.compact': 'HP:{hp} EN:{energy} HK:{hack} AL:{alarm} CR:{credits} FR:{fragments}/3',
+TRANSLATIONS_EN = {'statusline.compact': 'HP:{hp} EN:{energy} HK:{hack} AL:{alarm} CR:{credits} FR:{fragments}/3',
  'leaderboard.title': '=== LEADERBOARD ===',
  'leaderboard.entry': '#{idx} {line}',
  'leaderboard.none': 'No score recorded.',
@@ -15,6 +9,23 @@ TRANSLATIONS_EN = {'language.title': '=== LANGUAGE SELECTION ===',
  'startup.launching': 'Launching game...',
  'startup.player_name_prompt': 'Player name: ',
  'startup.player_name_echo': 'Player: {name}',
+ 'profile.access_granted': 'Dataset hacker access granted... data retrieval.',
+ 'profile.new_hacker': 'New hacker inside the system... creating dataset.',
+ 'profile.title': '=== HACKER PROFILE ===',
+ 'profile.no_data': 'No profile data available.',
+ 'profile.name': 'Name: {value}',
+ 'profile.total_runs': 'Megastructures infiltrated: {value}',
+ 'profile.megastructures': 'Megastructures visited: {value}',
+ 'profile.wins': 'Wins: {value}',
+ 'profile.losses': 'Losses: {value}',
+ 'profile.deaths': 'Deaths: {value}',
+ 'profile.abandons': 'Abandons: {value}',
+ 'profile.play_time': 'Total play time: {value}',
+ 'profile.hacks_success': 'Successful hacks: {value}',
+ 'profile.hacks_failed': 'Failed hacks: {value}',
+ 'profile.rooms_visited': 'Rooms visited: {value}',
+ 'profile.fragments': 'ROM fragments collected: {value}',
+ 'profile.last_status': 'Last status: {value}',
  'startup.difficulty_title': '=== DIFFICULTY SELECTION ===',
  'startup.difficulty_1': '1. Cyber walk   - Hack: 60s  Combat: 10s  Reflex: 6s  Score multiplier: 1x',
  'startup.difficulty_2': '2. Cyber trial  - Hack: 45s  Combat: 6s   Reflex: 4s  Score multiplier: 2x',
@@ -138,7 +149,7 @@ TRANSLATIONS_EN = {'language.title': '=== LANGUAGE SELECTION ===',
  'status.line': 'HP (Heal Points):{hp} EN (Energy):{energy} HK (Hack):{hack} AL (Alarm):{alarm} CR (Credits):{credits}',
  'status.fragments': 'ROM fragments: {count}/3',
  'help.commands': 'Commands: n s e w | scan/sc | echo/ec | hack/h | attack/at | take/t | use/u <item> | inventory/inv '
-                  '| map/m | status/stat | fragments/fra | shop/sh | help/he | quit/q',
+                  '| map/m | status/stat | profile/pro | fragments/fra | shop/sh | help/he | quit/q',
  'shop.title': '=== SHOP ===',
  'shop.credits': 'Available credits: {credits}',
  'shop.items': 'Available items:',
@@ -181,7 +192,7 @@ TRANSLATIONS_EN = {'language.title': '=== LANGUAGE SELECTION ===',
  'error.unhandled': 'An error occurred: {error}',
  'intro.full': '\n'
                '==============================\n'
-               '    NEON NODE v6\n'
+               '     NEON CORE\n'
                '==============================\n'
                '\n'
                'Infiltrate the megastructure.\n'
@@ -226,6 +237,7 @@ TRANSLATIONS_EN = {'language.title': '=== LANGUAGE SELECTION ===',
                ' map / m : display the level map (P = position, C = core, . = visited room, # = unvisited room)\n'
                ' inventory / inv : display inventory\n'
                ' status / stat : display status and upgrades\n'
+               ' profile / pro : display player profile statistics\n'
                ' fragments / fra : display collected ROM fragments and the story file\n'
                ' shop / sh : open the shop to buy upgrades with credits\n'
                ' help / he : display commands\n'

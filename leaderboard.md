@@ -8,3 +8,4 @@
 2026-03-09 22:46 | pyro | score:8656 | rooms:2 | 105s | status:QUIT
 2026-03-09 22:47 | pyro | score:9036 | rooms:1 | 67s | status:QUIT
 2026-03-10 00:17 | pyro | score:58978 | rooms:45 | 1226s | status:LOOSE
+2026-03-10 15:53 | pyro | score:73881 | rooms:26 | 753s | status:LOOSE

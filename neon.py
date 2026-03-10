@@ -4,6 +4,8 @@ import os
 import sys
 import time
 import string
+import json
+import re
 from datetime import datetime
 
 from fr import TRANSLATIONS_FR
@@ -21,6 +23,15 @@ COMBAT_TIME = 4
 REFLEX_TIME = 2
 DIFFICULTY_MULTIPLIER = 1
 ROM_BONUS_SCORE = 15000
+SAVES_DIR = "saves"
+
+INTRO_ASCII_ART = r"""
+ _   _ _____ ___  _   _    ____ ___  ____  _____
+| \ | | ____/ _ \| \ | |  / ___/ _ \|  _ \| ____|
+|  \| |  _|| | | |  \| | | |  | | | | |_) |  _|
+| |\  | |__| |_| | |\  | | |__| |_| |  _ <| |___
+|_| \_|_____\___/|_| \_|  \____\___/|_| \_\_____|
+"""
 
 DEFAULT_LANGUAGE = "fr"
 CURRENT_LANGUAGE = DEFAULT_LANGUAGE
@@ -40,6 +51,8 @@ TRANSLATIONS = {
 }
 
 HEX_VALUES = ['7A', '3F', '9C', 'BD', 'E1', '55', '2D', '8B', '4E', 'AA', '6C', 'F2', '1D', 'C7', 'B4', '0F', 'D9', 'A3', '5E', '91']
+player_profile = None
+player_profile_path = None
 
 class Room:
     def __init__(self, x, y):
@@ -102,24 +115,137 @@ def get_intro_text():
 
 def choose_language():
     global CURRENT_LANGUAGE
-    print("\n" + tr("language.title"))
-    print(tr("language.subtitle"))
+    print("\n=== LANGUAGE SELECTION ===")
+    print("Available codes:")
     for code in SUPPORTED_LANGUAGES:
-        print(tr("language.option", code=code, name=LANGUAGE_LABELS[code]))
+        print(f"- {code} : {LANGUAGE_LABELS[code]}")
 
     while True:
-        choice = input(tr("language.prompt")).strip().lower()
+        choice = input("Language (fr/en/it/es) > ").strip().lower()
         if choice in SUPPORTED_LANGUAGES:
             CURRENT_LANGUAGE = choice
-            print(tr("language.selected", code=choice, name=LANGUAGE_LABELS[choice]))
+            print(f"Active language: {choice} ({LANGUAGE_LABELS[choice]})")
             return
-        print(tr("language.invalid"))
+        print("Invalid code. Use fr, en, it, es.")
+
+
+def sanitize_player_name(name):
+    cleaned = re.sub(r"[^A-Za-z0-9._-]+", "_", name.strip())
+    return cleaned or "ANON"
+
+
+def get_player_profile_path(name):
+    safe_name = sanitize_player_name(name)
+    return os.path.join(SAVES_DIR, f"{safe_name}.json")
+
+
+def default_player_profile(name):
+    now = datetime.now().isoformat(timespec="seconds")
+    return {
+        "player_name": name,
+        "created_at": now,
+        "last_seen": now,
+        "total_runs": 0,
+        "megastructures_visited": 0,
+        "wins": 0,
+        "losses": 0,
+        "deaths": 0,
+        "abandons": 0,
+        "total_play_time_seconds": 0,
+        "total_hacks_success": 0,
+        "total_hacks_failed": 0,
+        "total_rooms_visited": 0,
+        "total_rom_fragments_collected": 0,
+        "last_status": "NONE",
+    }
+
+
+def save_player_profile(profile, path):
+    profile["last_seen"] = datetime.now().isoformat(timespec="seconds")
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(profile, f, ensure_ascii=False, indent=2)
+
+
+def load_or_create_player_profile(name):
+    os.makedirs(SAVES_DIR, exist_ok=True)
+    path = get_player_profile_path(name)
+    defaults = default_player_profile(name)
+
+    if os.path.exists(path):
+        try:
+            with open(path, "r", encoding="utf-8") as f:
+                stored = json.load(f)
+            if not isinstance(stored, dict):
+                stored = {}
+        except (json.JSONDecodeError, OSError):
+            stored = {}
+
+        profile = defaults.copy()
+        profile.update(stored)
+        profile["player_name"] = name
+        if "created_at" not in profile or not profile["created_at"]:
+            profile["created_at"] = defaults["created_at"]
+        save_player_profile(profile, path)
+        return profile, path, False
+
+    profile = defaults.copy()
+    save_player_profile(profile, path)
+    return profile, path, True
+
+
+def update_profile_after_run(status, duration, end_reason=None):
+    global player_profile, player_profile_path
+    if not player_profile or not player_profile_path:
+        return
+
+    player_profile["total_runs"] = int(player_profile.get("total_runs", 0)) + 1
+    player_profile["megastructures_visited"] = int(player_profile.get("megastructures_visited", 0)) + 1
+    player_profile["total_play_time_seconds"] = int(player_profile.get("total_play_time_seconds", 0)) + int(duration)
+    player_profile["total_hacks_success"] = int(player_profile.get("total_hacks_success", 0)) + int(player.get("hacks_success", 0))
+    player_profile["total_hacks_failed"] = int(player_profile.get("total_hacks_failed", 0)) + int(player.get("hacks_failed", 0))
+    player_profile["total_rooms_visited"] = int(player_profile.get("total_rooms_visited", 0)) + int(player.get("rooms_visited", 0))
+    player_profile["total_rom_fragments_collected"] = int(player_profile.get("total_rom_fragments_collected", 0)) + len(player.get("rom_fragments", []))
+    player_profile["last_status"] = status
+
+    if status == "WIN":
+        player_profile["wins"] = int(player_profile.get("wins", 0)) + 1
+    elif status == "QUIT":
+        player_profile["abandons"] = int(player_profile.get("abandons", 0)) + 1
+    elif status == "LOOSE":
+        player_profile["losses"] = int(player_profile.get("losses", 0)) + 1
+
+    if end_reason == "death":
+        player_profile["deaths"] = int(player_profile.get("deaths", 0)) + 1
+
+    save_player_profile(player_profile, player_profile_path)
 
 
 def round_int(value):
     if value >= 0:
         return int(value + 0.5)
     return int(value - 0.5)
+
+
+def format_duration_hms(total_seconds):
+    total_seconds = max(0, int(total_seconds))
+    hours = total_seconds // 3600
+    minutes = (total_seconds % 3600) // 60
+    seconds = total_seconds % 60
+    return f"{hours:02d}:{minutes:02d}:{seconds:02d}"
+
+
+def typewriter_print(text, char_delay=0.003, line_delay=0.04, speed_factor=0.7):
+    # speed_factor < 1.0 means slower output
+    safe_speed = max(0.01, float(speed_factor))
+    effective_char_delay = char_delay / safe_speed
+    effective_line_delay = line_delay / safe_speed
+    for ch in str(text):
+        sys.stdout.write(ch)
+        sys.stdout.flush()
+        time.sleep(effective_char_delay)
+    sys.stdout.write("\n")
+    sys.stdout.flush()
+    time.sleep(effective_line_delay)
 
 
 def normalize_credits():
@@ -760,6 +886,39 @@ def status():
     print(tr("status.fragments", count=len(player['rom_fragments'])))
 
 
+def show_profile_stats(typewriter=False):
+    if not player_profile:
+        if typewriter:
+            typewriter_print(tr("profile.no_data"))
+        else:
+            print(tr("profile.no_data"))
+        return
+
+    lines = [
+        "\n" + tr("profile.title"),
+        tr("profile.name", value=player_profile.get("player_name", player_name)),
+        tr("profile.total_runs", value=player_profile.get("total_runs", 0)),
+        tr("profile.megastructures", value=player_profile.get("megastructures_visited", 0)),
+        tr("profile.wins", value=player_profile.get("wins", 0)),
+        tr("profile.losses", value=player_profile.get("losses", 0)),
+        tr("profile.deaths", value=player_profile.get("deaths", 0)),
+        tr("profile.abandons", value=player_profile.get("abandons", 0)),
+        tr("profile.play_time", value=format_duration_hms(player_profile.get("total_play_time_seconds", 0))),
+        tr("profile.hacks_success", value=player_profile.get("total_hacks_success", 0)),
+        tr("profile.hacks_failed", value=player_profile.get("total_hacks_failed", 0)),
+        tr("profile.rooms_visited", value=player_profile.get("total_rooms_visited", 0)),
+        tr("profile.fragments", value=player_profile.get("total_rom_fragments_collected", 0)),
+        tr("profile.last_status", value=player_profile.get("last_status", "NONE")),
+    ]
+
+    if typewriter:
+        for line in lines:
+            typewriter_print(line)
+    else:
+        for line in lines:
+            print(line)
+
+
 def help_cmd():
     print(tr("help.commands"))
 
@@ -830,7 +989,7 @@ def enemy_turn():
         print(tr("enemy_turn.reinforcement"))
 
 
-def save_score(status="QUIT"):
+def save_score(status="QUIT", end_reason=None):
     normalize_primary_stats()
     normalize_credits()
     duration = int(time.time() - player['start_time'])
@@ -875,6 +1034,7 @@ def save_score(status="QUIT"):
     print(line)
     if rank:
         print(tr("score.rank", rank=rank))
+    update_profile_after_run(status=status, duration=duration, end_reason=end_reason)
 
 
 
@@ -882,17 +1042,25 @@ def core_check():
     room = current_room()
     if room.core and not room.enemy and player['core_hacked']:
         print("\n" + tr("core.pirated"))
-        save_score(status="WIN")
+        save_score(status="WIN", end_reason="win")
         return True
     return False
 
 
 def main():
+    clear()
+    print(INTRO_ASCII_ART)
     choose_language()
     print(tr("startup.launching"))
-    global world, player, player_name, core_x, core_y, HACK_TIME, COMBAT_TIME, REFLEX_TIME, DIFFICULTY_MULTIPLIER
+    global world, player, player_name, core_x, core_y, HACK_TIME, COMBAT_TIME, REFLEX_TIME, DIFFICULTY_MULTIPLIER, player_profile, player_profile_path
     player_name = input(tr("startup.player_name_prompt")).strip() or "ANON"
     print(tr("startup.player_name_echo", name=player_name))
+    player_profile, player_profile_path, is_new_profile = load_or_create_player_profile(player_name)
+    if is_new_profile:
+        print(tr("profile.new_hacker"))
+    else:
+        print(tr("profile.access_granted"))
+        show_profile_stats(typewriter=True)
     
     # Difficulty selection
     print("\n" + tr("startup.difficulty_title"))
@@ -994,11 +1162,11 @@ def main():
     while True:
         if player['hp'] <= 0:
             print(tr("main.death"))
-            save_score(status="LOOSE")
+            save_score(status="LOOSE", end_reason="death")
             break
         if player['alarm'] >= 5:
             print(tr("main.alarm_game_over"))
-            save_score(status="LOOSE")
+            save_score(status="LOOSE", end_reason="alarm")
             break
         if core_check():
             break
@@ -1030,6 +1198,8 @@ def main():
             inventory()
         elif cmd in ('status', 'stat'):
             status()
+        elif cmd in ('profile', 'pro'):
+            show_profile_stats()
         elif cmd in ('fragments', 'fra'):
             fragments_menu()
         elif cmd in ('map', 'm'):
@@ -1044,7 +1214,7 @@ def main():
             confirm = input(tr("ui.quit_confirm")).strip().lower()
             if confirm == 'y':
                 player['status'] = 'QUIT'
-                save_score(status='QUIT')
+                save_score(status='QUIT', end_reason='quit')
                 break
         else:
             print(tr("ui.unknown_command"))

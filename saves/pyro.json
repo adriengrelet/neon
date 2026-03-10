@@ -1,0 +1,17 @@
+{
+  "player_name": "pyro",
+  "created_at": "2026-03-10T12:39:59",
+  "last_seen": "2026-03-10T15:53:20",
+  "total_runs": 1,
+  "megastructures_visited": 1,
+  "wins": 0,
+  "losses": 1,
+  "deaths": 1,
+  "abandons": 0,
+  "total_play_time_seconds": 753,
+  "total_hacks_success": 8,
+  "total_hacks_failed": 2,
+  "total_rooms_visited": 26,
+  "total_rom_fragments_collected": 3,
+  "last_status": "LOOSE"
+}

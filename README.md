@@ -1,4 +1,4 @@
-# NEON NODE
+# NEON CORE
 
 A terminal-based cyber infiltration game written in Python.
 
@@ -89,6 +89,7 @@ Important thresholds:
 ### Information and Meta
 - `inventory` / `inv`
 - `status` / `stat`
+- `profile` / `pro`
 - `fragments` / `fra`
 - `shop` / `sh`
 - `leaderboard` / `lead`
