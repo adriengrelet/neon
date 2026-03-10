@@ -1,0 +1,424 @@
+#!/usr/bin/env python3
+# Language dictionary extracted from neon.py
+
+TRANSLATIONS_ES = {'language.title': '=== SELECCION DE IDIOMA ===',
+ 'language.subtitle': 'Codigos disponibles:',
+ 'language.option': '- {code} : {name}',
+ 'language.prompt': 'Idioma (fr/en/it/es) > ',
+ 'language.selected': 'Idioma activo: {code} ({name})',
+ 'language.invalid': 'Codigo invalido. Usa fr, en, it, es.',
+ 'statusline.compact': 'HP:{hp} EN:{energy} HK:{hack} AL:{alarm} CR:{credits} FR:{fragments}/3',
+ 'leaderboard.title': '=== CLASIFICACION ===',
+ 'leaderboard.entry': '#{idx} {line}',
+ 'leaderboard.none': 'No hay puntuaciones registradas.',
+ 'intro.press_enter': 'Pulsa Enter para empezar...',
+ 'startup.launching': 'Iniciando juego...',
+ 'startup.player_name_prompt': 'Nombre del jugador: ',
+ 'startup.player_name_echo': 'Jugador: {name}',
+ 'startup.difficulty_title': '=== SELECCION DE DIFICULTAD ===',
+ 'startup.difficulty_1': '1. Paseo cyber - Hack: 60s  Combate: 10s  Reflejo: 6s  Multiplicador de puntos: 1x',
+ 'startup.difficulty_2': '2. Prueba cyber - Hack: 45s  Combate: 6s   Reflejo: 4s  Multiplicador de puntos: 2x',
+ 'startup.difficulty_3': '3. Sudor cyber - Hack: 30s  Combate: 4s   Reflejo: 2s  Multiplicador de puntos: 3x',
+ 'startup.difficulty_4': '4. Violencia cyber - Hack: 20s  Combate: 3s   Reflejo: 3s  Multiplicador de puntos: 4x',
+ 'startup.difficulty_prompt': 'Elige nivel (1-4): ',
+ 'startup.difficulty_invalid': 'Nivel invalido, se selecciona dificultad 3 por defecto.',
+ 'map.title': '=== MAPA ===',
+ 'map.legend': 'Leyenda: P=Jugador | C=Core | .=Sala visitada | E=Enemigo | L=Loot | F=Fragmento | M=Multi | '
+               '#=Desconocida',
+ 'describe.enemy_present': '⚠ Enemigo presente: {enemy}',
+ 'describe.core_hp': 'HP del CORE Sentinel: {hp}',
+ 'describe.locked': '🔒 Sala bloqueada.',
+ 'describe.terminal': '💻 Terminal detectado.',
+ 'describe.item_visible': '📦 Objeto visible: {item}',
+ 'describe.fragment_visible': '🧩 Fragmento ROM detectado: {fragment_id}',
+ 'describe.core_detected': '===== ☢ CORE CENTRAL detectado! =====',
+ 'move.locked_exit': '🔒 No puedes salir: bloqueo activo.',
+ 'move.wall': 'Muro estructural.',
+ 'scan.title': '=== ESCANEO PROFUNDO ===',
+ 'scan.cost': 'Costo de energia del escaneo: {cost}',
+ 'scan.object_found': 'Objeto oculto detectado: {item}',
+ 'scan.lock_pulse': 'El bloqueo pulsa con frecuencia variable.',
+ 'scan.ports_open': 'Puertos de intrusion aun abiertos.',
+ 'scan.rom_signature': 'Firma ROM fragmentaria detectada en la sala.',
+ 'scan.nothing': 'No se detecta nada nuevo.',
+ 'echo.title': '=== ECHO EXTENDIDO ===',
+ 'echo.cost': 'Costo de energia del echo: {cost}',
+ 'echo.detected': 'Firmas tacticas detectadas a tu alrededor: {count}',
+ 'echo.none': 'No se detecta ninguna firma tactica a tu alrededor.',
+ 'story.title': '=== ARCHIVO ROM DESCIFRADO ===',
+ 'story.id': 'ID: {id}',
+ 'story.name': 'Titulo: {title}',
+ 'story.hacker': 'Hacker: {hacker}',
+ 'story.context': 'Contexto: {context}',
+ 'story.logs': '--- LOGS ---',
+ 'story.epilogue': '--- EPILOGO ---',
+ 'fragments.title': '=== FRAGMENTOS ROM ===',
+ 'fragments.count': 'Recolectado: {found}/{total}',
+ 'fragments.line': '[{mark}] {id} - {label}',
+ 'fragments.unlocked': 'Acceso al dossier narrativo completo desbloqueado.',
+ 'fragments.read_prompt': 'Leer la historia ahora? (y/n) ',
+ 'fragments.incomplete': 'Recoge los 3 fragmentos para descifrar la historia completa.',
+ 'hack.matrix.title': '=== MATRIZ DE INTRUSION ===',
+ 'hack.matrix.sequence': 'Secuencia objetivo: {sequence}',
+ 'hack.matrix.rules': 'Paso 1 libre | Paso 2 misma columna | Paso 3 misma fila',
+ 'hack.matrix.step_prompt': 'Paso {step} > ',
+ 'hack.matrix.timeout': 'Tiempo agotado',
+ 'hack.matrix.incorrect': 'Codigo incorrecto',
+ 'hack.matrix.same_column': 'Se requiere misma columna',
+ 'hack.matrix.same_row': 'Se requiere misma fila',
+ 'core_hint.east': 'PISTA: El core esta al este.',
+ 'core_hint.west': 'PISTA: El core esta al oeste.',
+ 'core_hint.south': 'PISTA: El core esta al sur.',
+ 'core_hint.north': 'PISTA: El core esta al norte.',
+ 'hack.blocked_core': 'El CORE esta protegido. Neutraliza primero al enemigo presente.',
+ 'hack.nothing': 'No hay nada que hackear aqui.',
+ 'hack.title': '=== HACK ===',
+ 'hack.cost': 'Costo de energia: {cost}',
+ 'hack.alarm_triggered': '⚠ Atencion: alarma nivel {alarm} activada!',
+ 'hack.alarm_enemy': '🚨 Enemigo de alarma desplegado en esta sala!',
+ 'hack.reduced': 'Hack reducido a {hack}',
+ 'hack.standard_success': '💻 Hack estandar completado. Elige loot:',
+ 'hack.fragment_ping': '🛰️ Intel de terminal: firmas ROM mapeadas ({count}).',
+ 'hack.fragment_ping_none': 'Intel de terminal: no hay firmas ROM desconocidas por revelar.',
+ 'hack.loot.a': 'A. Creditos',
+ 'hack.loot.b': 'B. Curacion neurocyber (+25 HP)',
+ 'hack.loot.c': 'C. Mejora de hack (+5 HK)',
+ 'hack.loot.prompt': 'Loot > ',
+ 'hack.loot.heal': '🧠 Curacion aplicada: +25 HP',
+ 'hack.loot.upgrade': '⚙ Mejora de hack aplicada: +5 HK',
+ 'hack.loot.credits': '💰 Loot de creditos obtenido: +{credits}',
+ 'hack.success.credits': '💻 Hack completado! +{credits} creditos',
+ 'hack.alarm_reduced': 'Alarma reducida en 1.',
+ 'hack.unlock_room': '🔓 Sala desbloqueada.',
+ 'hack.core_pirated': '☢ CORE hackeado. Extraccion posible.',
+ 'hack.done_ms': 'Hack realizado en {ms} ms',
+ 'attack.no_target': 'Sin objetivo.',
+ 'attack.stance.aggressive': 'El enemigo carga con agresividad, listo para golpear fuerte.',
+ 'attack.stance.defensive': 'El enemigo se atrinchera tras defensas solidas.',
+ 'attack.stance.unstable': 'El enemigo se mueve de forma erratica e impredecible.',
+ 'attack.prompt': 'Combate: A frontal | B finta | C sobrecarga (elige en {time}s)',
+ 'attack.choice_prompt': 'Eleccion > ',
+ 'attack.timeout': 'Tiempo de reaccion demasiado largo: accion aleatoria seleccionada.',
+ 'attack.reflex_prompt': '⚡ Reflejo: escribe {char} rapido',
+ 'attack.reflex.success': 'Exito en {ms} ms! Bonus: dano reducido.',
+ 'attack.reflex.failure': 'Fallo en {ms} ms! Penalizacion: dano aumentado.',
+ 'attack.bonus.surcharge': 'Sobrecarga activada: dano reducido!',
+ 'attack.bonus.force': 'Aumento de fuerza activado: dano reducido!',
+ 'attack.bonus.vitesse': 'Aumento de velocidad activado: dano reducido!',
+ 'attack.core.hit': 'Atacas al CORE Sentinel! Dano: {damage}',
+ 'attack.core.hp': 'HP del CORE Sentinel: {hp}',
+ 'attack.core.counter': 'El CORE Sentinel contraataca! Recibes {damage} de dano.',
+ 'attack.core.neutralized': 'CORE Sentinel neutralizado!',
+ 'attack.core.remaining_hack': 'El Sentinel cayo, pero aun debes hackear el CORE.',
+ 'attack.neutralize': 'Neutralizas a {enemy}',
+ 'attack.taken': 'Recibes {damage} de dano',
+ 'enemy_attack.core': '⚠️ El CORE Sentinel te ataca! Recibes {damage} de dano.',
+ 'enemy_attack.normal': '⚠️ {enemy} te ataca! Recibes {damage} de dano.',
+ 'take.fragment': 'Fragmento ROM recuperado: {fragment_id} ({count}/3)',
+ 'take.item': 'Recogido: {item}',
+ 'take.none': 'Nada que recoger.',
+ 'use.absent': 'Objeto ausente.',
+ 'use.used': '{item} usado.',
+ 'inventory.title': 'Inventario:',
+ 'inventory.empty': 'Vacio',
+ 'inventory.medkit': '- medkit: restaura 25 HP',
+ 'inventory.energy_cell': '- energy_cell: restaura 25 energia',
+ 'inventory.exploit_chip': '- exploit_chip: +10 hack',
+ 'status.title': '=== EQUIPO AUMENTADO ===',
+ 'status.synaptique': '- Aumento sinaptico: +10s al tiempo de hack',
+ 'status.surcharge': '- Aumento de sobrecarga: mejora sobrecarga en combate',
+ 'status.interface': '- Interfaz neuronal de hacker aumentada: matriz reducida en 1',
+ 'status.combat_chip': '- Chip de combate: duplica el tiempo de accion en combate',
+ 'status.force': '- Aumento de fuerza: mejora ataque frontal',
+ 'status.vitesse': '- Aumento de velocidad: mejora finta',
+ 'status.dissipateur': '- Disipador energetico: reduce a la mitad los costos de energia de las acciones',
+ 'status.none': 'Ninguno',
+ 'status.characteristics': '=== CARACTERISTICAS ===',
+ 'status.line': 'HP (Heal Points):{hp} EN (Energy):{energy} HK (Hack):{hack} AL (Alarm):{alarm} CR (Credits):{credits}',
+ 'status.fragments': 'Fragmentos ROM: {count}/3',
+ 'help.commands': 'Comandos: n s e w | scan/sc | echo/ec | hack/h | attack/at | take/t | use/u <objeto> | '
+                  'inventory/inv | map/m | status/stat | fragments/fra | shop/sh | help/he | quit/q',
+ 'shop.title': '=== TIENDA ===',
+ 'shop.credits': 'Creditos disponibles: {credits}',
+ 'shop.items': 'Objetos disponibles:',
+ 'shop.item.1': '1. Aumento sinaptico - 100 creditos: +10s al tiempo de hack',
+ 'shop.item.2': '2. Aumento de sobrecarga - 100 creditos: mejora sobrecarga en combate',
+ 'shop.item.3': '3. Interfaz neuronal de hacker aumentada - 150 creditos: matriz reducida en 1',
+ 'shop.item.4': '4. Chip de combate - 150 creditos: duplica el tiempo para actuar en combate',
+ 'shop.item.5': '5. Aumento de fuerza - 100 creditos: mejora ataque frontal',
+ 'shop.item.6': '6. Aumento de velocidad - 100 creditos: mejora finta',
+ 'shop.item.7': '7. Disipador energetico - 300 creditos: reduce a la mitad los costos EN de las acciones',
+ 'shop.item.0': '0. Salir',
+ 'shop.prompt': 'Eleccion > ',
+ 'shop.buy.1': 'Aumento sinaptico comprado! +10s al tiempo de hack.',
+ 'shop.buy.2': 'Aumento de sobrecarga comprado! Sobrecarga mejorada en combate.',
+ 'shop.buy.3': 'Interfaz neuronal comprada! Matriz reducida en 1.',
+ 'shop.buy.4': 'Chip de combate comprado! Tiempo de combate duplicado.',
+ 'shop.buy.5': 'Aumento de fuerza comprado! Ataque frontal mejorado.',
+ 'shop.buy.6': 'Aumento de velocidad comprado! Finta mejorada.',
+ 'shop.buy.7': 'Disipador energetico comprado! Los costos EN de las acciones ahora se reducen a la mitad.',
+ 'shop.invalid': 'Eleccion invalida o creditos insuficientes.',
+ 'enemy_turn.reinforcement': '⚠ Refuerzo del sistema detectado',
+ 'score.title': '=== PUNTUACION FINAL ===',
+ 'score.base': 'Puntuacion base: {score}',
+ 'score.rom_bonus': 'Bonus de fragmentos ROM: {bonus}',
+ 'score.time_bonus': 'Bonus de tiempo total: {bonus}',
+ 'score.hack_bonus': 'Bonus de tiempo de hack: {bonus}',
+ 'score.rank': 'Tu puntuacion te coloca en el puesto #{rank}.',
+ 'core.pirated': '=== CORE HACKEADO ===',
+ 'main.spawn': 'posicion de spawn {x},{y}',
+ 'main.core': 'posicion del core {x},{y}',
+ 'main.story_channel': 'Canal ROM detectado: dossier {story_id} fragmentado en 3 caches.',
+ 'main.death': 'Caes en la red.',
+ 'main.alarm_game_over': '🚨 Alarma maxima alcanzada! Game over.',
+ 'ui.choice_prompt': 'Eleccion > ',
+ 'ui.reflex_input_prompt': '> ',
+ 'ui.command_prompt': '\n> ',
+ 'ui.quit_confirm': 'Quieres salir de la partida actual? (y/n) ',
+ 'ui.replay_prompt': 'Jugar otra vez? (y/n) ',
+ 'ui.unknown_command': 'Comando desconocido.',
+ 'error.unhandled': 'Ha ocurrido un error: {error}',
+ 'intro.full': '\n'
+               '==============================\n'
+               '    NEON NODE v6\n'
+               '==============================\n'
+               '\n'
+               'Infiltrate en la megaestructura.\n'
+               'Llega al CORE central, hackealo y sal con vida.\n'
+               '\n'
+               'Para los hacks:\n'
+               '- Cuanto mas alto sea tu hack, mas pequena sera la matriz.\n'
+               '- Paso 1: encuentra libremente el valor hex correcto en la matriz (debe coincidir con el primer valor '
+               'pedido).\n'
+               '- Paso 2: debe estar en la misma columna que el paso 1.\n'
+               '- Paso 3: debe estar en la misma fila que el paso 2.\n'
+               '\n'
+               'El tiempo es limitado para completar el hack; fallar aumenta tu alarma y reduce tu hack.\n'
+               '\n'
+               'Los creditos se ganan hackeando terminales y pueden usarse para comprar mejoras en la tienda.\n'
+               'Cuanto mas rapido hackees, mas creditos ganas.\n'
+               '\n'
+               'Comandos:\n'
+               ' north / n : moverse al norte\n'
+               ' south / s : moverse al sur\n'
+               ' east / e : moverse al este\n'
+               ' west / w  : moverse al oeste\n'
+               ' scan / sc : escanear la sala para encontrar objetos ocultos o pistas\n'
+               ' echo / ec : sondear salas cercanas y revelar marcadores tacticos en el mapa\n'
+               ' hack / h : intentar hackear un terminal o desactivar un bloqueo\n'
+               ' attack : iniciar combate contra un enemigo presente\n'
+               ' take / t : recoger un objeto visible en la sala o encontrado con scan\n'
+               ' use <objeto> / u <objeto> : usar un objeto del inventario (ej: use medkit)\n'
+               ' map / m : mostrar el mapa del nivel (P = posicion, C = core, . = sala visitada, # = sala no '
+               'visitada)\n'
+               ' inventory / inv : mostrar inventario\n'
+               ' status / stat : mostrar estado y mejoras\n'
+               ' fragments / fra : mostrar fragmentos ROM recogidos y el dossier narrativo\n'
+               ' shop / sh : abrir la tienda para comprar mejoras con creditos\n'
+               ' help / he : mostrar comandos\n'
+               ' quit / q : salir del juego\n',
+ 'content.rom_story_archive': [{'id': 'ROM-AX13',
+                                'title': 'AX13 // Ultima Deriva',
+                                'hacker': 'Mara Voss (ella)',
+                                'bio': 'Ex ingeniera de red de Kheiron Dynamics, desaparecida tras intentar filtrar '
+                                       'codigo interno.',
+                                'fragments': [{'id': 'AX13-1', 'label': 'Bootlog de Bunker'},
+                                              {'id': 'AX13-2', 'label': 'Diario de Progreso'},
+                                              {'id': 'AX13-3', 'label': 'Senal Final'}],
+                                'logs': ['[2091-04-12 22:13] Infiltracion por acceso de nivel C. El ruido de drones es '
+                                         'mas alto de lo previsto.',
+                                         '[2091-04-12 22:17] La compuerta sigue oliendo a ozono. Disene este protocolo '
+                                         'hace seis anos. Verlo aqui me revuelve el estomago.',
+                                         '[2091-04-12 22:24] Una camara me siguio sin disparar alerta. O ya estoy '
+                                         'marcada o alguien frena el sistema.',
+                                         '[2091-04-12 22:31] Bloqueo termico neutralizado. Perdi el 30% de mis '
+                                         'herramientas.',
+                                         '[2091-04-12 22:38] Lian decia que acabamos viviendo dentro de las '
+                                         'estructuras que odiamos. Creo que tenia razon.',
+                                         '[2091-04-12 22:49] Vi al Sentinel a distancia. No es un bot estandar. Duda '
+                                         'antes de fijar la optica sobre mi.',
+                                         '[2091-04-12 23:02] Alarmas en cascada. Los pasillos se reconfiguran en '
+                                         'bucle.',
+                                         '[2091-04-12 23:05] Paradoja: entre para sabotear este sistema, pero cada '
+                                         'puerta abierta demuestra que mi codigo viejo resiste mas que yo.',
+                                         '[2091-04-12 23:09] Si alguien lee esto: no te quedes quieto despues de un '
+                                         'hack exitoso.',
+                                         '[2091-04-12 23:11] Estoy sangrando dentro del traje. Dejo este expediente '
+                                         'dividido en tres caches ROM.'],
+                                'epilogue': 'Fin de transmision. La senal de Mara se corta de golpe tras una '
+                                            'sobrecarga de seguridad.'},
+                               {'id': 'ROM-KR22',
+                                'title': 'KR22 // Deuda Roja',
+                                'hacker': 'Kenji Rault (el)',
+                                'bio': 'Mensajero de datos independiente, infiltrado en la megaestructura para borrar '
+                                       'un contrato de deuda.',
+                                'fragments': [{'id': 'KR22-1', 'label': 'Mandato Nocturno'},
+                                              {'id': 'KR22-2', 'label': 'Mapa Corrupto'},
+                                              {'id': 'KR22-3', 'label': 'Ultimo Pledge'}],
+                                'logs': ['[2088-09-03 01:40] Entrada silenciosa. Pague a un fixer por una llave de un '
+                                         'solo uso.',
+                                         '[2088-09-03 01:46] Corro mejor cuando estoy enojado. Mala noticia: llevo '
+                                         'anos asi.',
+                                         '[2088-09-03 02:02] Mi escaner miente. Algunas salas existen y luego '
+                                         'desaparecen.',
+                                         '[2088-09-03 02:09] Mi hermana cree que aun reparto paquetes anonimos. Nunca '
+                                         'le dije que a veces esos paquetes son pruebas.',
+                                         '[2088-09-03 02:19] Recupere creditos, pero cada terminal sube la presion.',
+                                         '[2088-09-03 02:25] El CORE transmite mi antiguo historial clinico. Me '
+                                         'conocen.',
+                                         '[2088-09-03 02:28] Paradoja absurda: robar creditos para borrar deuda sigue '
+                                         'obedeciendo la logica de la cuenta.',
+                                         '[2088-09-03 02:33] Sigo. Si salgo, mi hermana podra dormir sin deudas.',
+                                         '[2088-09-03 02:36] Impacto. Drone en mi angulo ciego. Segmento este log en 3 '
+                                         'fragmentos ROM.'],
+                                'epilogue': 'El contrato de deuda nunca aparecio en archivos publicos.'},
+                               {'id': 'ROM-NQ05',
+                                'title': 'NQ05 // Camara Fria',
+                                'hacker': 'Noor Qassem (elle)',
+                                'bio': 'Criptoanalista freelance especializado en memorias muertas e IA patrimoniales.',
+                                'fragments': [{'id': 'NQ05-1', 'label': 'Rastro de Aproximacion'},
+                                              {'id': 'NQ05-2', 'label': 'Ruptura de Interfaz'},
+                                              {'id': 'NQ05-3', 'label': 'Voz del Nucleo'}],
+                                'logs': ['[2093-02-20 18:05] Las paredes estan frias. Todo aqui consume calor como si '
+                                         'fueran pruebas.',
+                                         '[2093-02-20 18:11] Una puerta reprodujo mi propia respiracion con tres '
+                                         'segundos de adelanto.',
+                                         '[2093-02-20 18:27] Una sala devolvio mi reflejo con 4 segundos de '
+                                         'anticipacion.',
+                                         '[2093-02-20 18:36] En el squat de servidores deciamos que un archivo salvado '
+                                         'podia valer una revuelta.',
+                                         '[2093-02-20 18:51] Las rutinas sentinel imitan errores humanos. Mala senal.',
+                                         '[2093-02-20 19:04] Hack limpio completado. Aun asi la alerta subio.',
+                                         '[2093-02-20 19:10] Paradoja: preservo fragmentos de memoria mientras ya no '
+                                         'se si ciertos recuerdos son mios.',
+                                         '[2093-02-20 19:18] Si caigo, que alguien saque estos logs. Que sirvan para '
+                                         'algo mas.',
+                                         '[2093-02-20 19:21] Contacto perdido. Encierro mi historia en fragmentos '
+                                         'ROM.'],
+                                'epilogue': 'El resto de los datos de Noor figura como irreconciliable.'},
+                               {'id': 'ROM-LV77',
+                                'title': 'LV77 // Fork Salvaje',
+                                'hacker': 'Leia Varek (ella)',
+                                'bio': 'Desarrolladora de un colectivo de software libre disuelto tras una redada.',
+                                'fragments': [{'id': 'LV77-1', 'label': 'Repo Oculto'},
+                                              {'id': 'LV77-2', 'label': 'Conflicto de Rama'},
+                                              {'id': 'LV77-3', 'label': 'Commit Final'}],
+                                'logs': ['[2090-06-03 00:11] Entrada validada. Los escaneres corren sobre una base '
+                                         'Unix antigua parcheada.',
+                                         '[2090-06-03 00:19] Ada decia que un fork a veces es una ruptura sentimental '
+                                         'escrita en sintaxis limpia.',
+                                         '[2090-06-03 00:28] Entro para robar un repositorio que ya era mio antes de '
+                                         'las patentes.',
+                                         '[2090-06-03 00:42] Primer Sentinel neutralizado.',
+                                         '[2090-06-03 00:57] Paradoja: odio los monopolios pero aun quiero que mi '
+                                         'codigo sobreviva bajo su logo.',
+                                         '[2090-06-03 01:03] Si alguien lee esto: publicar puede ser mas peligroso que '
+                                         'borrar.'],
+                                'epilogue': 'El repositorio nunca fue republicado de forma integra.'},
+                               {'id': 'ROM-SM04',
+                                'title': 'SM04 // Zona Muda',
+                                'hacker': 'Sam Mirek (el)',
+                                'bio': 'Ex tecnico de radio pirata especializado en boletines clandestinos.',
+                                'fragments': [{'id': 'SM04-1', 'label': 'Frecuencia 1'},
+                                              {'id': 'SM04-2', 'label': 'Frecuencia 2'},
+                                              {'id': 'SM04-3', 'label': 'Frecuencia 3'}],
+                                'logs': ['[2087-11-19 03:10] Reconozco la interferencia electrica antes de ver los '
+                                         'drones.',
+                                         '[2087-11-19 03:21] Un altavoz mural reprodujo mi vieja emision pirata de '
+                                         '2084.',
+                                         '[2087-11-19 03:34] Mi hermano decia que hablar demasiado alto siempre atrae '
+                                         'botas.',
+                                         '[2087-11-19 03:41] Paradoja: pirateo frecuencias para liberar la palabra, '
+                                         'pero aqui cada palabra me localiza.',
+                                         '[2087-11-19 03:52] Si caigo, al menos hagan circular el ruido.'],
+                                'epilogue': 'Ninguna fuente confirmo la salida de Sam.'},
+                               {'id': 'ROM-IR31',
+                                'title': 'IR31 // Ceniza Administrativa',
+                                'hacker': 'Iris Ren (ella)',
+                                'bio': 'Ex administrativa que saboteo desalojos automatizados.',
+                                'fragments': [{'id': 'IR31-1', 'label': 'Expediente Falso'},
+                                              {'id': 'IR31-2', 'label': 'Procedimiento Inverso'},
+                                              {'id': 'IR31-3', 'label': 'Archivo Ceniza'}],
+                                'logs': ['[2092-01-08 19:14] Aun conozco los menus internos mejor que los agentes que '
+                                         'los aplican.',
+                                         '[2092-01-08 19:25] Ya salve ciento treinta y dos expedientes con simples '
+                                         'errores voluntarios.',
+                                         '[2092-01-08 19:39] Aqui los terminales clasifican vidas como tickets.',
+                                         '[2092-01-08 19:48] Paradoja: falsificar para restaurar un poco de justicia '
+                                         'sigue siendo falsificar.',
+                                         '[2092-01-08 19:56] Sigo.'],
+                                'epilogue': 'Los logs internos mencionan una anomalia humana persistente.'},
+                               {'id': 'ROM-DX90',
+                                'title': 'DX90 // Sintaxis Disidente',
+                                'hacker': 'Dax Oren (elle)',
+                                'bio': 'Maintainer de una distribucion clandestina cifrada.',
+                                'fragments': [{'id': 'DX90-1', 'label': 'Bootstrap'},
+                                              {'id': 'DX90-2', 'label': 'Kernel Drift'},
+                                              {'id': 'DX90-3', 'label': 'Root Panic'}],
+                                'logs': ['[2094-07-01 21:03] Clave inyectada en la red secundaria.',
+                                         '[2094-07-01 21:17] Asamblea colectiva ayer: dos horas para discutir el '
+                                         'nombre de un paquete.',
+                                         '[2094-07-01 21:31] Paradoja: queremos abolir jerarquias, pero al final '
+                                         'alguien siempre hace merge en solitario.',
+                                         '[2094-07-01 21:44] Primer impacto evitado.',
+                                         '[2094-07-01 21:52] Incluso las revoluciones necesitan a alguien que te '
+                                         'recuerde comer.'],
+                                'epilogue': 'Una clave parecida reaparecio despues en varias redes libres.'},
+                               {'id': 'ROM-PT12',
+                                'title': 'PT12 // Linea Fantasma',
+                                'hacker': 'Pia Torres (ella)',
+                                'bio': 'Ex conductora de metro autonomo convertida en saboteadora tecnica.',
+                                'fragments': [{'id': 'PT12-1', 'label': 'Via Muerta'},
+                                              {'id': 'PT12-2', 'label': 'Bypass'},
+                                              {'id': 'PT12-3', 'label': 'Ultima Linea'}],
+                                'logs': ['[2089-12-14 04:05] El silencio aqui se parece a los tuneles antes de que '
+                                         'vuelva la tension.',
+                                         '[2089-12-14 04:18] Aprendi a frenar sistemas antes de aprender a romperlos.',
+                                         '[2089-12-14 04:29] Paradoja: odio los automatismos pero confio mas en mis '
+                                         'reflejos que en las personas.',
+                                         '[2089-12-14 04:37] Dos drones detras de mi.'],
+                                'epilogue': 'El expediente de transportes privatizados nunca volvio a aparecer.'},
+                               {'id': 'ROM-HQ44',
+                                'title': 'HQ44 // Archivo de Ruido',
+                                'hacker': 'Hugo Quent (el)',
+                                'bio': 'Musico noise convertido en pirata de senal.',
+                                'fragments': [{'id': 'HQ44-1', 'label': 'Impulso'},
+                                              {'id': 'HQ44-2', 'label': 'Feedback'},
+                                              {'id': 'HQ44-3', 'label': 'Corte'}],
+                                'logs': ['[2086-03-03 02:14] Cada alarma aqui tiene casi una tonalidad utilizable.',
+                                         '[2086-03-03 02:27] Cuento pasos como compases.',
+                                         '[2086-03-03 02:39] Paradoja: convertir el miedo en ritmo no lo cancela.',
+                                         '[2086-03-03 02:45] Creo que escucho respiracion detras de los reles.'],
+                                'epilogue': 'Un extracto de audio atribuido a Hugo aun circula por algunas redes '
+                                            'pirata.'},
+                               {'id': 'ROM-ZE08',
+                                'title': 'ZE08 // Comuna Incompleta',
+                                'hacker': 'Zea Elin (ella)',
+                                'bio': 'Miembro de una micro-comuna urbana autogestionada.',
+                                'fragments': [{'id': 'ZE08-1', 'label': 'Cocina Colectiva'},
+                                              {'id': 'ZE08-2', 'label': 'Contador Negro'},
+                                              {'id': 'ZE08-3', 'label': 'Salida Incompleta'}],
+                                'logs': ['[2095-05-10 23:01] Compartimos sopa antes de mi salida.',
+                                         '[2095-05-10 23:14] Las lecturas energeticas mienten igual que los prefectos.',
+                                         '[2095-05-10 23:28] Paradoja: vivir sin jefes a veces exige mas disciplina '
+                                         'que lo contrario.',
+                                         '[2095-05-10 23:37] Si vuelvo, aun tendre que reparar el cargador solar de la '
+                                         'azotea.'],
+                                'epilogue': 'El barrio de Zea sufrio un apagon total dos semanas despues.'}],
+ 'content.room_descriptions': ['Pasillo saturado de neones rojos.',
+                               'Sala de servidores donde zumban relés térmicos.',
+                               'Zona tecnica abandonada cubierta de cables.',
+                               'Antiguo control de seguridad.',
+                               'Paso estrecho con un letrero roto parpadeante.',
+                               'Sala inundada por ruido electrico intermitente.',
+                               'Sala de control con pantallas holograficas defectuosas.',
+                               'Tunel de ventilacion lleno de conductos oxidados.',
+                               'Laboratorio abandonado con extranos equipos medicos.',
+                               'Hangar vacio que resuena con ecos lejanos.',
+                               'Oficina ejecutiva con mobiliario tecnologico destruido.',
+                               'Zona de almacen con cajas de datos apiladas.',
+                               'Sala de reuniones con mesa interactiva rota.',
+                               'Pasillo de acceso a ascensores bloqueados.',
+                               'Zona de mantenimiento con herramientas esparcidas.'],
+ 'content.enemies': ['Dron', 'Guardia', 'Bot Centinela', 'Cazador Proxy'],
+ 'content.items': ['medkit', 'energy_cell', 'exploit_chip']}

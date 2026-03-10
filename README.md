@@ -1,4 +1,4 @@
-# NEON NODE v6
+# NEON NODE
 
 A terminal-based cyber infiltration game written in Python.
 
@@ -14,6 +14,10 @@ Run:
 ```bash
 python3 neon.py
 ```
+
+Don't forget to make neon.py launchable :
+
+chmod +x neon.py
 
 At launch, you choose:
 - Language: `fr`, `en`, `it`, `es`
