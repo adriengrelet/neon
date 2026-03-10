@@ -1,0 +1,10 @@
+2026-03-09 13:22 | pyro | score:21865 | rooms:1 | 123s | status:QUIT
+2026-03-09 15:36 | pyro | score:34926 | rooms:13 | 434s | status:QUIT
+2026-03-09 15:55 | pyro | score:36924 | rooms:18 | 667s | status:GAGNE
+2026-03-09 21:47 | pyro | score:15174 | rooms:19 | 778s | status:PERDU
+2026-03-09 22:01 | pyro | score:24697 | rooms:13 | 649s | status:GAGNE
+2026-03-09 22:11 | pyro | score:9645 | rooms:1 | 286s | status:QUIT
+2026-03-09 22:22 | pyro | score:6518 | rooms:1 | 4s | status:QUIT
+2026-03-09 22:46 | pyro | score:8656 | rooms:2 | 105s | status:QUIT
+2026-03-09 22:47 | pyro | score:9036 | rooms:1 | 67s | status:QUIT
+2026-03-10 00:17 | pyro | score:58978 | rooms:45 | 1226s | status:PERDU
