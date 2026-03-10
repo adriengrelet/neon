@@ -2630,7 +2630,7 @@ def core_check():
     room = current_room()
     if room.core and not room.enemy and player['core_hacked']:
         print("\n" + tr("core.pirated"))
-        save_score(status="GAGNE")
+        save_score(status="WIN")
         return True
     return False
 
@@ -2742,11 +2742,11 @@ def main():
     while True:
         if player['hp'] <= 0:
             print(tr("main.death"))
-            save_score(status="PERDU")
+            save_score(status="LOOSE")
             break
         if player['alarm'] >= 5:
             print(tr("main.alarm_game_over"))
-            save_score(status="PERDU")
+            save_score(status="LOOSE")
             break
         if core_check():
             break
