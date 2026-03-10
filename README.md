@@ -4,6 +4,8 @@ A terminal-based cyber infiltration game written in Python.
 
 You infiltrate a 7x7 megastructure, reach the Central Core, survive the Sentinel, hack the Core, and extract alive.
 
+Loots to find and also 10+ ROM histories to discover by retreiving fragments in rooms you'll walk in.
+
 ## Quick Start
 
 Requirements:
@@ -17,7 +19,9 @@ python3 neon.py
 
 Don't forget to make neon.py launchable :
 
+```bash
 chmod +x neon.py
+```
 
 At launch, you choose:
 - Language: `fr`, `en`, `it`, `es`
@@ -137,6 +141,7 @@ On non-core terminals, you get loot choice:
 - `A` credits
 - `B` +25 HP
 - `C` +5 HK
+- `D` +10 HP (cybernetic heal)
 
 Credits from hack are speed-sensitive: faster hacks grant more credits.
 

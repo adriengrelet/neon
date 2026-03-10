@@ -525,6 +525,7 @@ def hack():
         print(tr("hack.loot.a"))
         print(tr("hack.loot.b"))
         print(tr("hack.loot.c"))
+        print(tr("hack.loot.d"))
         loot_choice = input(tr("hack.loot.prompt")).strip().upper()
 
         if loot_choice == 'B':
@@ -533,6 +534,9 @@ def hack():
         elif loot_choice == 'C':
             player['hack'] += 5
             print(tr("hack.loot.upgrade"))
+        elif loot_choice == 'D':
+            player['hp'] += 10
+            print(tr("hack.loot.cyber_heal"))
         else:
             player['credits'] += credit_gain
             print(tr("hack.loot.credits", credits=credit_gain))
