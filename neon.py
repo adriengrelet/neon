@@ -373,6 +373,13 @@ def typewriter_print(text, char_delay=0.003, line_delay=0.04, speed_factor=0.7):
     time.sleep(effective_line_delay)
 
 
+def show_win_end_sequence(summary_lines):
+    gagne_line = " ".join(["WINNER"] * 15)
+    typewriter_print(color_text(gagne_line, "red"), char_delay=0.01, line_delay=0.35, speed_factor=0.6)
+    for line in summary_lines:
+        typewriter_print(line)
+
+
 def normalize_credits():
     player['credits'] = round_int(player['credits'])
 
@@ -625,7 +632,7 @@ def fragments_menu():
         print(tr("fragments.line", mark=mark, id=frag['id'], label=frag['label']))
 
     if found_count == total:
-        print("\n" + tr("fragments.unlocked"))
+        print("\n" + color_text(tr("fragments.unlocked"), "red"))
         if not player.get('next_structure_unlocked'):
             next_structure = unlock_next_structure(
                 player_profile,
@@ -723,7 +730,7 @@ def core_check():
     room = world_current_room(world, player)
     if room.core and not room.enemy and player['core_hacked']:
         print("\n" + tr("core.pirated"))
-        pm_save_run_score(
+        score_result = pm_save_run_score(
             player=player,
             player_name=player_name,
             status="WIN",
@@ -735,7 +742,12 @@ def core_check():
             normalize_primary_stats=normalize_primary_stats,
             normalize_credits=normalize_credits,
             update_profile_callback=update_profile_after_run,
+            print_summary=False,
         )
+        summary_lines = []
+        if isinstance(score_result, dict):
+            summary_lines = score_result.get("summary_lines", [])
+        show_win_end_sequence(summary_lines)
         return True
     return False
 

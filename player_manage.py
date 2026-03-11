@@ -2,12 +2,98 @@
 import os
 import re
 import json
+import shutil
 import time
 from datetime import datetime
 from termfx import color as color_text
 
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DEFAULT_SAVES_DIR = os.path.join(BASE_DIR, "saves")
+SHARED_STATS_DIR = os.path.join(BASE_DIR, "stats")
+LEADERBOARD_PATH = os.path.join(BASE_DIR, "leaderboard.md")
+SUPPORTED_CONSOLE_LANGUAGES = ("fr", "en", "es", "it")
+
+
 ATTRIBUTE_KEYS = ("vitality", "endurance", "intrusion", "composure")
+
+
+def _is_within_root(path, root):
+    real_path = os.path.realpath(path)
+    real_root = os.path.realpath(root)
+    try:
+        return os.path.commonpath([real_root, real_path]) == real_root
+    except ValueError:
+        return False
+
+
+def _mount_stats_link(console_stats_path, shared_stats_dir):
+    if os.path.islink(console_stats_path):
+        if os.path.realpath(console_stats_path) == os.path.realpath(shared_stats_dir):
+            return
+        os.unlink(console_stats_path)
+    elif os.path.isdir(console_stats_path):
+        for name in sorted(os.listdir(console_stats_path)):
+            src = os.path.join(console_stats_path, name)
+            dst = os.path.join(shared_stats_dir, name)
+            if os.path.isfile(src):
+                if not os.path.exists(dst):
+                    shutil.copy2(src, dst)
+            elif os.path.isdir(src):
+                shutil.copytree(src, dst, dirs_exist_ok=True)
+        try:
+            os.rmdir(console_stats_path)
+        except OSError:
+            # Keep directory fallback if it cannot be replaced by a link.
+            return
+    elif os.path.exists(console_stats_path):
+        return
+
+    try:
+        os.symlink(shared_stats_dir, console_stats_path)
+    except OSError:
+        os.makedirs(console_stats_path, exist_ok=True)
+
+
+def _ensure_console_stats_links(shared_stats_dir):
+    for lang in SUPPORTED_CONSOLE_LANGUAGES:
+        console_root = os.path.join(BASE_DIR, f"console_{lang}")
+        os.makedirs(console_root, exist_ok=True)
+        _mount_stats_link(os.path.join(console_root, "stats"), shared_stats_dir)
+
+
+def sync_stats_exports(
+    saves_dir=DEFAULT_SAVES_DIR,
+    shared_stats_dir=SHARED_STATS_DIR,
+    leaderboard_path=LEADERBOARD_PATH,
+):
+    os.makedirs(shared_stats_dir, exist_ok=True)
+
+    exported_json_names = set()
+    if os.path.isdir(saves_dir):
+        for name in sorted(os.listdir(saves_dir)):
+            src = os.path.join(saves_dir, name)
+            if not (os.path.isfile(src) and name.lower().endswith(".json")):
+                continue
+            if not _is_within_root(src, saves_dir):
+                continue
+            shutil.copy2(src, os.path.join(shared_stats_dir, name))
+            exported_json_names.add(name)
+
+    for name in sorted(os.listdir(shared_stats_dir)):
+        dst = os.path.join(shared_stats_dir, name)
+        if not (os.path.isfile(dst) and name.lower().endswith(".json")):
+            continue
+        if name not in exported_json_names:
+            os.remove(dst)
+
+    leaderboard_dst = os.path.join(shared_stats_dir, "leaderboard.md")
+    if os.path.isfile(leaderboard_path):
+        shutil.copy2(leaderboard_path, leaderboard_dst)
+    elif os.path.exists(leaderboard_dst):
+        os.remove(leaderboard_dst)
+
+    _ensure_console_stats_links(shared_stats_dir)
 
 
 def xp_requirement_for_level(level):
@@ -169,6 +255,10 @@ def save_player_profile(profile, path):
     profile["last_seen"] = datetime.now().isoformat(timespec="seconds")
     with open(path, "w", encoding="utf-8") as f:
         json.dump(profile, f, ensure_ascii=False, indent=2)
+    try:
+        sync_stats_exports()
+    except OSError:
+        pass
 
 
 def load_or_create_player_profile(name, saves_dir):
@@ -425,6 +515,7 @@ def save_run_score(
     normalize_credits,
     update_profile_callback,
     leaderboard_path="leaderboard.md",
+    print_summary=True,
 ):
     normalize_primary_stats()
     normalize_credits()
@@ -470,13 +561,29 @@ def save_run_score(
     entries.sort(key=lambda x: x[0], reverse=True)
     rank = next((i + 1 for i, e in enumerate(entries) if e[1] == line.strip()), None)
 
-    print("\n" + tr("score.title"))
-    print(tr("score.base", score=base_score))
-    print(tr("score.rom_bonus", bonus=rom_bonus))
-    print(tr("score.time_bonus", bonus=time_bonus))
-    print(tr("score.hack_bonus", bonus=hack_time_bonus))
-    print(line)
+    summary_lines = [
+        "\n" + tr("score.title"),
+        tr("score.base", score=base_score),
+        tr("score.rom_bonus", bonus=rom_bonus),
+        tr("score.time_bonus", bonus=time_bonus),
+        tr("score.hack_bonus", bonus=hack_time_bonus),
+        line.rstrip("\n"),
+    ]
     if rank:
-        print(tr("score.rank", rank=rank))
+        summary_lines.append(tr("score.rank", rank=rank))
+
+    if print_summary:
+        for summary_line in summary_lines:
+            print(summary_line)
 
     update_profile_callback(status=status, duration=duration, end_reason=end_reason, score=score)
+    try:
+        sync_stats_exports()
+    except OSError:
+        pass
+    return {
+        "score": score,
+        "rank": rank,
+        "duration": duration,
+        "summary_lines": summary_lines,
+    }

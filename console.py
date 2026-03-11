@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 import os
+import select
+import shutil
 import sys
 from typing import Callable, Dict, List, Optional
 
@@ -7,6 +9,13 @@ try:
     import readline
 except ImportError:  # pragma: no cover - platform dependent
     readline = None
+
+try:
+    import termios
+    import tty
+except ImportError:  # pragma: no cover - platform dependent
+    termios = None
+    tty = None
 
 
 class NeonConsole:
@@ -26,11 +35,14 @@ class NeonConsole:
 
         self.base_dir = os.path.dirname(os.path.abspath(__file__))
         self.console_root = os.path.realpath(os.path.join(self.base_dir, f"console_{self.language}"))
+        self.shared_stats_dir = os.path.realpath(os.path.join(self.base_dir, "stats"))
         os.makedirs(self.console_root, exist_ok=True)
+        os.makedirs(self.shared_stats_dir, exist_ok=True)
 
         # Ensure expected folders exist for future dynamic content.
-        for folder in ("logs", "missions", "stats", "mail", "archive", "notes"):
+        for folder in ("logs", "missions", "mail", "archive", "notes"):
             os.makedirs(os.path.join(self.console_root, folder), exist_ok=True)
+        self._mount_shared_stats()
 
         self.current_dir = self.console_root
         self.history: List[str] = []
@@ -165,10 +177,44 @@ class NeonConsole:
         return matches
 
     def _display_cwd(self) -> str:
+        if self._is_within(self.current_dir, self.shared_stats_dir):
+            rel = os.path.relpath(self.current_dir, self.shared_stats_dir)
+            if rel == ".":
+                return "~/stats"
+            return "~/stats/" + rel.replace("\\", "/")
+
         rel = os.path.relpath(self.current_dir, self.console_root)
         if rel == ".":
             return "~"
-        return "~/" + rel.replace("\\\\", "/")
+        return "~/" + rel.replace("\\", "/")
+
+    def _mount_shared_stats(self):
+        console_stats_path = os.path.join(self.console_root, "stats")
+        if os.path.islink(console_stats_path):
+            if os.path.realpath(console_stats_path) == self.shared_stats_dir:
+                return
+            os.unlink(console_stats_path)
+        elif os.path.isdir(console_stats_path):
+            for name in sorted(os.listdir(console_stats_path)):
+                src = os.path.join(console_stats_path, name)
+                dst = os.path.join(self.shared_stats_dir, name)
+                if os.path.isfile(src):
+                    if not os.path.exists(dst):
+                        shutil.copy2(src, dst)
+                elif os.path.isdir(src):
+                    shutil.copytree(src, dst, dirs_exist_ok=True)
+            try:
+                os.rmdir(console_stats_path)
+            except OSError:
+                # Keep local fallback directory if the link cannot be mounted.
+                return
+        elif os.path.exists(console_stats_path):
+            return
+
+        try:
+            os.symlink(self.shared_stats_dir, console_stats_path)
+        except OSError:
+            os.makedirs(console_stats_path, exist_ok=True)
 
     def _resolve_path(self, path: str) -> str:
         if not path:
@@ -181,12 +227,16 @@ class NeonConsole:
 
         return os.path.realpath(candidate)
 
-    def _is_inside_root(self, path: str) -> bool:
-        root = self.console_root
+    def _is_within(self, path: str, root: str) -> bool:
+        target = os.path.realpath(path)
+        base = os.path.realpath(root)
         try:
-            return os.path.commonpath([root, path]) == root
+            return os.path.commonpath([base, target]) == base
         except ValueError:
             return False
+
+    def _is_inside_root(self, path: str) -> bool:
+        return self._is_within(path, self.console_root) or self._is_within(path, self.shared_stats_dir)
 
     def _safe_target(self, path: str) -> Optional[str]:
         target = self._resolve_path(path)
@@ -299,7 +349,7 @@ class NeonConsole:
         print("  history           Show recent commands")
         print("  whoami            Show player identity")
         print("  mail              Quick access to mail folder")
-        print("  nano <file>       Minimal line editor")
+        print("  nano <file>       Interactive text editor")
         print("  help              Show this help")
         print("  exit              Return to game")
 
@@ -370,8 +420,32 @@ class NeonConsole:
                 print(f"Read error: {exc}")
                 return
 
-        print(f"\\n[nano] Editing: {os.path.relpath(target, self.console_root)}")
-        print("[nano] Enter text. Footer commands: ^O save | ^X quit")
+        if self._supports_interactive_nano():
+            self._run_interactive_nano(target, buffer)
+            return
+
+        # Fallback editor for terminals that do not support raw key capture.
+        self._run_legacy_nano(target, buffer)
+
+    def _supports_interactive_nano(self) -> bool:
+        return (
+            termios is not None
+            and tty is not None
+            and sys.stdin.isatty()
+            and sys.stdout.isatty()
+        )
+
+    def _write_nano_buffer(self, target: str, buffer: List[str]):
+        os.makedirs(os.path.dirname(target), exist_ok=True)
+        with open(target, "w", encoding="utf-8") as f:
+            if not buffer or (len(buffer) == 1 and buffer[0] == ""):
+                f.write("")
+            else:
+                f.write("\n".join(buffer) + "\n")
+
+    def _run_legacy_nano(self, target: str, buffer: List[str]):
+        print(f"\n[nano] Editing: {os.path.relpath(target, self.console_root)}")
+        print("[nano] Legacy mode. Footer commands: ^O save | ^X quit")
         print("[nano] Reliable aliases: :w save | :q quit | CTRL O | CTRL X")
         if buffer:
             print("[nano] Existing content:")
@@ -405,24 +479,10 @@ class NeonConsole:
             }
 
             if normalized in save_triggers:
-                out_path = target
-                name_prompt = input("Write file name (blank keeps current): ").strip()
-                if name_prompt:
-                    maybe = self._safe_target(name_prompt)
-                    if not maybe:
-                        continue
-                    out_path = maybe
-
                 try:
-                    os.makedirs(os.path.dirname(out_path), exist_ok=True)
-                    with open(out_path, "w", encoding="utf-8") as f:
-                        if buffer:
-                            f.write("\\n".join(buffer) + "\\n")
-                        else:
-                            f.write("")
-                    rel = os.path.relpath(out_path, self.console_root)
+                    self._write_nano_buffer(target, buffer)
+                    rel = os.path.relpath(target, self.console_root)
                     print(f"[nano] wrote {rel}")
-                    target = out_path
                 except OSError as exc:
                     print(f"Write error: {exc}")
                 continue
@@ -432,6 +492,298 @@ class NeonConsole:
                 break
 
             buffer.append(line)
+
+    def _render_nano_screen(
+        self,
+        target: str,
+        buffer: List[str],
+        cursor_row: int,
+        cursor_col: int,
+        row_offset: int,
+        col_offset: int,
+        status: str,
+        dirty: bool,
+    ):
+        size = shutil.get_terminal_size((80, 24))
+        width = max(20, int(size.columns))
+        height = max(8, int(size.lines))
+        content_rows = max(1, height - 2)
+
+        if cursor_row < row_offset:
+            row_offset = cursor_row
+        if cursor_row >= row_offset + content_rows:
+            row_offset = cursor_row - content_rows + 1
+
+        if cursor_col < col_offset:
+            col_offset = cursor_col
+        if cursor_col >= col_offset + width:
+            col_offset = cursor_col - width + 1
+
+        if self._is_within(target, self.shared_stats_dir):
+            rel = "stats/" + os.path.relpath(target, self.shared_stats_dir)
+        else:
+            rel = os.path.relpath(target, self.console_root)
+        marker = "*" if dirty else "-"
+        header = f"[nano] {rel} ({marker})"
+
+        lines = [header[:width].ljust(width)]
+        for idx in range(content_rows):
+            file_row = row_offset + idx
+            line = "~"
+            if file_row < len(buffer):
+                line = buffer[file_row][col_offset : col_offset + width]
+            lines.append(line[:width].ljust(width))
+
+        footer = status or "CTRL+O save | CTRL+X quit | CTRL+K cut | CTRL+U paste"
+        lines.append(footer[:width].ljust(width))
+
+        output = ["\x1b[2J\x1b[H"]
+        for idx, screen_line in enumerate(lines, start=1):
+            output.append(f"\x1b[{idx};1H{screen_line}")
+
+        cursor_screen_row = 2 + (cursor_row - row_offset)
+        cursor_screen_col = 1 + (cursor_col - col_offset)
+        cursor_screen_col = max(1, min(width, cursor_screen_col))
+        output.append(f"\x1b[{cursor_screen_row};{cursor_screen_col}H")
+
+        sys.stdout.write("".join(output))
+        sys.stdout.flush()
+        return row_offset, col_offset
+
+    def _read_nano_key(self, fd: int):
+        key = os.read(fd, 1)
+        if not key:
+            return None
+
+        if key == b"\x18":
+            return "CTRL_X"
+        if key == b"\x0f":
+            return "CTRL_O"
+        if key == b"\x0b":
+            return "CTRL_K"
+        if key == b"\x15":
+            return "CTRL_U"
+        if key in (b"\r", b"\n"):
+            return "ENTER"
+        if key in (b"\x7f", b"\x08"):
+            return "BACKSPACE"
+        if key == b"\t":
+            return "TAB"
+
+        if key == b"\x1b":
+            seq = b""
+            while True:
+                ready, _, _ = select.select([fd], [], [], 0.005)
+                if not ready:
+                    break
+                seq += os.read(fd, 1)
+                if seq in (b"[A", b"[B", b"[C", b"[D", b"[H", b"[F", b"OH", b"OF"):
+                    break
+                if seq.endswith(b"~"):
+                    break
+
+            mapping = {
+                b"[A": "UP",
+                b"[B": "DOWN",
+                b"[C": "RIGHT",
+                b"[D": "LEFT",
+                b"[3~": "DELETE",
+                b"[H": "HOME",
+                b"[F": "END",
+                b"OH": "HOME",
+                b"OF": "END",
+            }
+            return mapping.get(seq)
+
+        try:
+            text = key.decode("utf-8")
+        except UnicodeDecodeError:
+            return None
+        if text.isprintable():
+            return text
+        return None
+
+    def _run_interactive_nano(self, target: str, buffer: List[str]):
+        if not buffer:
+            buffer = [""]
+
+        cursor_row = 0
+        cursor_col = 0
+        row_offset = 0
+        col_offset = 0
+        status = "CTRL+O save | CTRL+X quit | CTRL+K cut | CTRL+U paste"
+        dirty = False
+        exit_armed = False
+        cut_buffer = ""
+
+        fd = sys.stdin.fileno()
+        old_settings = termios.tcgetattr(fd)
+        try:
+            tty.setraw(fd)
+            while True:
+                row_offset, col_offset = self._render_nano_screen(
+                    target,
+                    buffer,
+                    cursor_row,
+                    cursor_col,
+                    row_offset,
+                    col_offset,
+                    status,
+                    dirty,
+                )
+                key = self._read_nano_key(fd)
+                if key is None:
+                    continue
+
+                if key == "CTRL_X":
+                    if dirty and not exit_armed:
+                        status = "Unsaved changes. Ctrl+O save | Ctrl+X quit"
+                        exit_armed = True
+                        continue
+                    break
+
+                exit_armed = False
+                line = buffer[cursor_row]
+
+                if key == "CTRL_O":
+                    try:
+                        self._write_nano_buffer(target, buffer)
+                        if self._is_within(target, self.shared_stats_dir):
+                            rel = "stats/" + os.path.relpath(target, self.shared_stats_dir)
+                        else:
+                            rel = os.path.relpath(target, self.console_root)
+                        status = f"[nano] wrote {rel}"
+                        dirty = False
+                    except OSError as exc:
+                        status = f"Write error: {exc}"
+                    continue
+
+                if key == "CTRL_K":
+                    if not buffer:
+                        status = "Nothing to cut"
+                        continue
+
+                    cut_buffer = buffer[cursor_row]
+                    if len(buffer) == 1:
+                        buffer[0] = ""
+                        cursor_row = 0
+                        cursor_col = 0
+                    else:
+                        del buffer[cursor_row]
+                        cursor_row = min(cursor_row, len(buffer) - 1)
+                        cursor_col = min(cursor_col, len(buffer[cursor_row]))
+                    dirty = True
+                    status = "[nano] line cut"
+                    continue
+
+                if key == "CTRL_U":
+                    if cut_buffer == "":
+                        status = "Cut buffer empty"
+                        continue
+
+                    current_line = buffer[cursor_row]
+                    left = current_line[:cursor_col]
+                    right = current_line[cursor_col:]
+                    buffer[cursor_row] = left + cut_buffer + right
+                    cursor_col += len(cut_buffer)
+                    dirty = True
+                    status = "[nano] text pasted"
+                    continue
+
+                if key == "UP":
+                    cursor_row = max(0, cursor_row - 1)
+                    cursor_col = min(cursor_col, len(buffer[cursor_row]))
+                    status = ""
+                    continue
+
+                if key == "DOWN":
+                    cursor_row = min(len(buffer) - 1, cursor_row + 1)
+                    cursor_col = min(cursor_col, len(buffer[cursor_row]))
+                    status = ""
+                    continue
+
+                if key == "LEFT":
+                    if cursor_col > 0:
+                        cursor_col -= 1
+                    elif cursor_row > 0:
+                        cursor_row -= 1
+                        cursor_col = len(buffer[cursor_row])
+                    status = ""
+                    continue
+
+                if key == "RIGHT":
+                    if cursor_col < len(line):
+                        cursor_col += 1
+                    elif cursor_row < len(buffer) - 1:
+                        cursor_row += 1
+                        cursor_col = 0
+                    status = ""
+                    continue
+
+                if key == "HOME":
+                    cursor_col = 0
+                    status = ""
+                    continue
+
+                if key == "END":
+                    cursor_col = len(line)
+                    status = ""
+                    continue
+
+                if key == "ENTER":
+                    left = line[:cursor_col]
+                    right = line[cursor_col:]
+                    buffer[cursor_row] = left
+                    buffer.insert(cursor_row + 1, right)
+                    cursor_row += 1
+                    cursor_col = 0
+                    dirty = True
+                    status = ""
+                    continue
+
+                if key == "BACKSPACE":
+                    if cursor_col > 0:
+                        buffer[cursor_row] = line[: cursor_col - 1] + line[cursor_col:]
+                        cursor_col -= 1
+                        dirty = True
+                    elif cursor_row > 0:
+                        prev_len = len(buffer[cursor_row - 1])
+                        buffer[cursor_row - 1] = buffer[cursor_row - 1] + line
+                        del buffer[cursor_row]
+                        cursor_row -= 1
+                        cursor_col = prev_len
+                        dirty = True
+                    status = ""
+                    continue
+
+                if key == "DELETE":
+                    if cursor_col < len(line):
+                        buffer[cursor_row] = line[:cursor_col] + line[cursor_col + 1 :]
+                        dirty = True
+                    elif cursor_row < len(buffer) - 1:
+                        buffer[cursor_row] = line + buffer[cursor_row + 1]
+                        del buffer[cursor_row + 1]
+                        dirty = True
+                    status = ""
+                    continue
+
+                insert_text = ""
+                if key == "TAB":
+                    insert_text = "    "
+                elif isinstance(key, str) and len(key) == 1:
+                    insert_text = key
+
+                if insert_text:
+                    buffer[cursor_row] = line[:cursor_col] + insert_text + line[cursor_col:]
+                    cursor_col += len(insert_text)
+                    dirty = True
+                    status = ""
+        finally:
+            termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
+            sys.stdout.write("\x1b[2J\x1b[H")
+            sys.stdout.flush()
+
+        print("[nano] Exit editor")
 
     def _read_line_no_readline(self, prompt: str) -> str:
         # Bypass readline key bindings so CTRL+O / CTRL+X can be captured as text controls.
