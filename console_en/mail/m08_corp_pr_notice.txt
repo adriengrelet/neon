@@ -1,0 +1,10 @@
+FROM: compliance.voice@kheiron
+TO: district operators
+SUBJECT: language update
+RECEIVED: [2097-03-17 11:05]
+
+Replace terms in all reports:
+- hunger -> delayed nutritional fulfillment
+- eviction -> dynamic housing transition
+- casualty -> unplanned workforce attrition
+Please keep empathy metrics above target.

@@ -1,0 +1,13 @@
+MISION 003 - Bases del baile de terminal
+
+Objetivo:
+Practicar hacks de matriz bajo presion sin vision tunel.
+
+Pasos:
+1. Lee la secuencia dos veces antes de teclear una.
+2. Paso 2 sigue columna, paso 3 sigue fila.
+3. Si sube el pulso, respira y luego confirma.
+4. Hack limpio y rapido > hack vistoso y arriesgado.
+
+Humor veterano:
+Teclear coordenadas al azar es cardio, no estrategia.

@@ -1,0 +1,110 @@
+[
+  {
+    "id": "MS-ASTRA-17",
+    "title": "Astra Relay Grid",
+    "hacker": "VANTA",
+    "bio": "Ancien relais de souverainete numerique recycle en prison de donnees civiques.",
+    "logs": [
+      "Le relais tourne encore sur un kernel pre-fusion.",
+      "Les couches basses sont saturees de traces d'audits effaces.",
+      "Des comptes fantomes maintiennent une surveillance algorithmique.",
+      "Un protocole de censure temps reel filtre les revendications locales."
+    ],
+    "epilogue": "Si la grille tombe, les archives citoyennes redeviennent consultables.",
+    "fragments": [
+      {"id": "CD-A1", "label": "Telemetry frame: Astra"},
+      {"id": "CD-A2", "label": "Relay topology checksum"},
+      {"id": "CD-A3", "label": "Civil rights override token"}
+    ]
+  },
+  {
+    "id": "MS-KERBEROS-91",
+    "title": "Kerberos Bastion",
+    "hacker": "N0MAD",
+    "bio": "Bastion de securite privee specialise dans la chasse predictive.",
+    "logs": [
+      "Trois IA de garde se relaient sur des cycles de 40 secondes.",
+      "Les drones de maintenance servent de capteurs anti-intrusion.",
+      "Le coeur compile des listes noires en continu.",
+      "Chaque alerte locale est republiee au niveau regional."
+    ],
+    "epilogue": "Neutraliser Kerberos reduit la pression sur les zones dissidentes.",
+    "fragments": [
+      {"id": "CD-K1", "label": "Sentinel roster"},
+      {"id": "CD-K2", "label": "Predictive hunt model"},
+      {"id": "CD-K3", "label": "Regional escalation route"}
+    ]
+  },
+  {
+    "id": "MS-DELTA-44",
+    "title": "Delta Lockworks",
+    "hacker": "HEXA-9",
+    "bio": "Complexe industriel converti en usine de verrous neurocryptes.",
+    "logs": [
+      "Chaque porte a son schema de verrouillage variable.",
+      "Les terminaux de service sont cloisonnes par lot.",
+      "Des caches de pieces sont presentes mais rarement ouvertes.",
+      "Le pipeline exporte des clefs vers plusieurs metropoles."
+    ],
+    "epilogue": "Saboter Delta prive le cartel de milliers de verrous militaires.",
+    "fragments": [
+      {"id": "CD-D1", "label": "Lock pattern sample"},
+      {"id": "CD-D2", "label": "Factory blueprint delta"},
+      {"id": "CD-D3", "label": "Export chain proof"}
+    ]
+  },
+  {
+    "id": "MS-MIRROR-03",
+    "title": "Mirror Drift",
+    "hacker": "Q-LINE",
+    "bio": "Structure de desinformation adaptative et de dilution des preuves.",
+    "logs": [
+      "Les journaux sont reecrits toutes les six minutes.",
+      "Les logs d'alerte pointent vers de faux nids d'intrusion.",
+      "Les noeuds de supervision restent peu gardes.",
+      "Le stockage d'objets utiles est volontairement pauvre."
+    ],
+    "epilogue": "Faire tomber Mirror restaure la traçabilite des abus.",
+    "fragments": [
+      {"id": "CD-M1", "label": "Fake-route index"},
+      {"id": "CD-M2", "label": "Audit rewrite key"},
+      {"id": "CD-M3", "label": "Public evidence pointer"}
+    ]
+  },
+  {
+    "id": "MS-ION-72",
+    "title": "Ion Vault",
+    "hacker": "GLITCHMOTHER",
+    "bio": "Banque energetique hostile specialisee dans le rationnement par dette.",
+    "logs": [
+      "Les couts energetiques sont artificiellement gonfles.",
+      "Des cellules d'energie sont stockees dans les couloirs lateraux.",
+      "Les equipes de garde patrouillent sans cycle fixe.",
+      "Le noyau valide les coupures de quartier en temps reel."
+    ],
+    "epilogue": "La liberation d'Ion Vault desserre l'etau sur les zones noires.",
+    "fragments": [
+      {"id": "CD-I1", "label": "Energy debt ledger"},
+      {"id": "CD-I2", "label": "Cutoff scheduler"},
+      {"id": "CD-I3", "label": "District restore command"}
+    ]
+  },
+  {
+    "id": "MS-NEXUS-58",
+    "title": "Nexus Census Core",
+    "hacker": "ALBA",
+    "bio": "Centre de profilage social et de notation automatisee.",
+    "logs": [
+      "Le niveau d'alerte se diffuse tres vite d'un secteur a l'autre.",
+      "Les verrous sont moyens mais les reponses rapides.",
+      "Des terminaux de scoring restent exposes.",
+      "Les artefacts recuperables sont rares."
+    ],
+    "epilogue": "Pirater Nexus brise le moteur de classement coercitif.",
+    "fragments": [
+      {"id": "CD-N1", "label": "Population score map"},
+      {"id": "CD-N2", "label": "Penalty propagation model"},
+      {"id": "CD-N3", "label": "Rights rollback signature"}
+    ]
+  }
+]

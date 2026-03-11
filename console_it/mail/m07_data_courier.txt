@@ -1,0 +1,8 @@
+FROM: kenji.rault.memorial@freepost
+TO: you@console
+SUBJECT: frammento mappa percorso
+RICEVUTO: [2097-03-09 04:58]
+
+Allegato: fork mappa recuperato da tracce KR22.
+Alcuni corridoi mentono, alcuni mancano, tutti chiedono affitto.
+Se la rotta 3 entra in loop due volte, taglia a est e fidati delle orecchie.

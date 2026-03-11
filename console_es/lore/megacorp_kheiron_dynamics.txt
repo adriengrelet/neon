@@ -1,0 +1,20 @@
+TITULO: Dossier - Kheiron Dynamics
+
+Negocio central:
+- hardware de seguridad Sentinel y modelos de comportamiento
+- software de compliance municipal
+- dashboards de riesgo vendidos a tribunales, escuelas y caseros
+
+Como funciona el control:
+Kheiron casi nunca ordena violencia directa por escrito.
+Publica probabilidades de riesgo y luego las instituciones automatizan castigo aguas abajo.
+Cuando llega el dano, nadie se siente responsable por completo.
+
+Contradicciones conocidas:
+- se vende como neutral mientras ajusta modelos con directivas politicas
+- habla de resiliencia mientras presiona contra proteccion de inquilinos
+- promete transparencia mientras clasifica datos de entrenamiento como secreto comercial
+
+Nota de campo:
+ROM-AX13 sugiere que la duda de Sentinel puede activarse con comportamientos limite.
+No hay exploit confirmado, pero hay evidencia para seguir probando.

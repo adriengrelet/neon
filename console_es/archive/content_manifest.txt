@@ -1,0 +1,6 @@
+Pack de contenido generado (ES)
+- logs: +5 archivos
+- mail: +10 archivos
+- lore: +6 archivos
+- missions: +6 archivos
+Anclas de coherencia: ROM-AX13, KR22, IR31, DX90, ZE08, CORE Sentinel, Kheiron Dynamics.

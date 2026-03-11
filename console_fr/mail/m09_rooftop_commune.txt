@@ -1,0 +1,8 @@
+FROM: zea@roofline-collective
+TO: you@console
+SUBJECT: energie cette nuit
+RECU: [2097-03-28 21:44]
+
+Si tu passes secteur ZE08, amene des condensateurs de rechange.
+On peut garder la lumiere pour 43 foyers ou une ferme d'impression illegale.
+Assemblee a 21:00, disputes incluses sans surcout.

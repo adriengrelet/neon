@@ -1,0 +1,13 @@
+MISSION 002 - Ouvrir, maquiller, sortir
+
+Objectif:
+Ouvrir un chemin verrouille et faire croire que la maintenance l'a fait.
+
+Etapes:
+1. Utilise echo avant de pousser vers les zones inconnues.
+2. Hack le noeud de verrouillage puis reduis l'alarme si possible.
+3. Depose une fausse balise maintenance dans logs/ si la fenetre le permet.
+4. Ne combat jamais un Sentinel pour le style.
+
+Rappel:
+Le stealth n'est pas l'invisibilite. C'est du papier plausible.

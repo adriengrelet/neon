@@ -9,3 +9,4 @@
 2026-03-09 22:47 | pyro | score:9036 | rooms:1 | 67s | status:QUIT
 2026-03-10 00:17 | pyro | score:58978 | rooms:45 | 1226s | status:LOOSE
 2026-03-10 15:53 | pyro | score:73881 | rooms:26 | 753s | status:LOOSE
+2026-03-11 10:41 | ia_player_mind | score:6760 | rooms:3 | 0s | status:QUIT

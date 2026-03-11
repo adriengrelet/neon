@@ -1,0 +1,21 @@
+TITOLO: Gruppi hacker e reti
+
+GhostMesh:
+Relay decentralizzati, preferisce operazioni a bassa firma.
+Forza: disciplina sotto pressione.
+Debolezza: fiducia lenta da costruire, a volte troppo lenta.
+
+Roofline Collective (ZE08):
+Tecnici di mutuo aiuto di quartiere.
+Forza: legittimita locale e riparazioni pratiche.
+Debolezza: infrastrutture esposte e burnout.
+
+Free Kernel Assembly (linea DX90):
+Radicali open-source che mantengono toolchain coperte.
+Forza: commons di codice resilienti.
+Debolezza: dibattiti interni infiniti e prontezza operativa diseguale.
+
+Night Couriers:
+Corrieri dati che trasportano file fisicamente quando la rete e ostile.
+Forza: difficili da tracciare su larga scala.
+Debolezza: rischio personale alto e poca copertura legale.

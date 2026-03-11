@@ -1,0 +1,13 @@
+MISION 004 - Data heist para principiantes
+
+Objetivo:
+Extraer un memo de policy que pruebe dano detras del lenguaje corporativo.
+
+Pasos:
+1. Prioriza archivos con cabeceras legal o compliance.
+2. Copia evidencia primero, loot secundario despues.
+3. Guarda hallazgos en archive/ con fecha y nodo fuente.
+4. Envia resumen a aliados, no todo el dump en bruto.
+
+Por que importa:
+Un solo memo firmado puede mover un distrito mas rapido que 100 rumores.

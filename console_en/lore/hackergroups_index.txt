@@ -1,0 +1,21 @@
+TITLE: Hacker groups and networks
+
+GhostMesh:
+Decentralized relays, favors low-signature operations.
+Strength: discipline under pressure.
+Weakness: trust builds slowly, sometimes too slowly.
+
+Roofline Collective (ZE08):
+Neighborhood mutual-aid technicians.
+Strength: local legitimacy and practical repairs.
+Weakness: exposed infrastructure and burnout.
+
+Free Kernel Assembly (DX90 lineage):
+Open-source radicals maintaining covert toolchains.
+Strength: resilient code commons.
+Weakness: endless internal debates, uneven op readiness.
+
+Night Couriers:
+Data runners moving files physically when networks are hostile.
+Strength: hard to trace at scale.
+Weakness: high personal risk and little legal cover.

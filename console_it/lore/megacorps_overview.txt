@@ -1,0 +1,18 @@
+TITOLO: Panorama megacorporate
+
+1) Kheiron Dynamics
+Controlla stack sicurezza, modelli Sentinel e linguaggio compliance.
+Slogan pubblico: Sistemi sicuri, societa sicura.
+KPI interno: contenimento incidenti per credito.
+
+2) Helix Habitat
+Controlla housing modulare, automazione sfratti e contratti acqua.
+L'app parla di flessibilita. Gli inquilini parlano di precarieta rotante.
+
+3) Vanta Biologics
+Gestisce abbonamenti clinici e scoring debito biometrico.
+Salta un pagamento e la tua priorita cure scende in silenzio.
+
+4) Straylight Transit
+Gestisce metro AI e permessi di rotta.
+Problema noto: linee fantasma dove mappe vecchie ricordano persone non piu servite.

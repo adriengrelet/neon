@@ -1,0 +1,13 @@
+MISSION 006 - Quand l'alarme hurle
+
+Objectif:
+Survivre a un pic d'alarme et terminer quand meme l'extraction.
+
+Etapes:
+1. Accepte que le plan A est mort. Le plan B existe pour une raison.
+2. Priorise la mobilite, pas les moments hero.
+3. Si Sentinel apparait, disengage sauf mission critique.
+4. Depense ton energie sur les actions qui creent de la distance.
+
+Humour urgence:
+Si les murs te paraissent bruyants, bravo, le batiment connait ton nom.

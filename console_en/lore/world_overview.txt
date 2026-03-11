@@ -1,0 +1,9 @@
+TITLE: Neon Node world overview
+
+Cities are stacked like debt ledgers: premium air on top, heat and mold below.
+Most services are privatized, then sold back at variable rates.
+People do not disappear all at once; they are removed from systems one permission at a time.
+
+The megastructure is not a building, it is governance software wearing concrete.
+Inside it, law is implemented as latency, checkpoints, and score thresholds.
+Outside it, communities improvise survival with mutual aid, hacked utilities, and stolen bandwidth.

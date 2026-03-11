@@ -1,0 +1,10 @@
+FROM: compliance.voice@kheiron
+TO: district operators
+SUBJECT: actualizacion de lenguaje
+RECIBIDO: [2097-03-17 11:05]
+
+Reemplazar estos terminos en todos los informes:
+- hambre -> cumplimiento nutricional diferido
+- desalojo -> transicion dinamica de vivienda
+- victima -> atricion de workforce no planificada
+Mantener metricas de empatia por encima del objetivo.

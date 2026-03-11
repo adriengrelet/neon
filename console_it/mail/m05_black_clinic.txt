@@ -1,0 +1,8 @@
+FROM: clinic_nightshift@mutualaid
+TO: you@console
+SUBJECT: aggirare debito medico
+RICEVUTO: [2097-02-22 02:14]
+
+Porta un timbro auth corporate valido.
+Possiamo convertirlo in 14 appuntamenti fantasma.
+Niente miracoli, solo persone che aiutano altre persone a sopravvivere al software di fatturazione.

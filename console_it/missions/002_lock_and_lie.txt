@@ -1,0 +1,13 @@
+MISSIONE 002 - Apri, maschera, esci
+
+Obiettivo:
+Aprire un percorso bloccato e far sembrare che l'abbia fatto la manutenzione.
+
+Passi:
+1. Usa echo prima di muoverti in zone ignote.
+2. Hacka nodo lock e riduci allarme se possibile.
+3. Lascia un tag manutenzione falso in logs/ se la finestra lo consente.
+4. Non combattere un Sentinel per punti stile.
+
+Promemoria:
+Stealth non e invisibilita. E burocrazia plausibile.

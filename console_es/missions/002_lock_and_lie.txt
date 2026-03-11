@@ -1,0 +1,13 @@
+MISION 002 - Abrir, maquillar, salir
+
+Objetivo:
+Abrir una ruta bloqueada y hacer que parezca trabajo de mantenimiento.
+
+Pasos:
+1. Usa echo antes de moverte a zonas desconocidas.
+2. Hackea el nodo de bloqueo y reduce alarma si puedes.
+3. Deja una etiqueta falsa de mantenimiento en logs/ si hay ventana.
+4. No pelees con un Sentinel por puntos de estilo.
+
+Recordatorio:
+Stealth no es invisibilidad. Es papeleo creible.

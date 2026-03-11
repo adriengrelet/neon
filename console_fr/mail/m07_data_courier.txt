@@ -1,0 +1,8 @@
+FROM: kenji.rault.memorial@freepost
+TO: you@console
+SUBJECT: fragment carte route
+RECU: [2097-03-09 04:58]
+
+Piece jointe: fork de carte recupere depuis des traces KR22.
+Certains couloirs mentent, certains manquent, tous prennent un loyer.
+Si la route 3 boucle deux fois, coupe est et fais confiance a tes oreilles.

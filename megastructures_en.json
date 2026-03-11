@@ -1,0 +1,110 @@
+[
+  {
+    "id": "MS-ASTRA-17",
+    "title": "Astra Relay Grid",
+    "hacker": "VANTA",
+    "bio": "Former digital sovereignty relay repurposed as a civic data prison.",
+    "logs": [
+      "The relay still runs on a pre-fusion kernel.",
+      "Lower layers are flooded with traces of erased audits.",
+      "Ghost accounts maintain algorithmic surveillance.",
+      "A real-time censorship protocol filters local claims."
+    ],
+    "epilogue": "If the grid falls, civic archives become readable again.",
+    "fragments": [
+      {"id": "CD-A1", "label": "Telemetry frame: Astra"},
+      {"id": "CD-A2", "label": "Relay topology checksum"},
+      {"id": "CD-A3", "label": "Civil rights override token"}
+    ]
+  },
+  {
+    "id": "MS-KERBEROS-91",
+    "title": "Kerberos Bastion",
+    "hacker": "N0MAD",
+    "bio": "Private security bastion specialized in predictive hunting.",
+    "logs": [
+      "Three guard AIs rotate on 40-second cycles.",
+      "Maintenance drones act as intrusion sensors.",
+      "The core compiles blacklists continuously.",
+      "Every local alarm is republished at regional level."
+    ],
+    "epilogue": "Neutralizing Kerberos reduces pressure on dissident zones.",
+    "fragments": [
+      {"id": "CD-K1", "label": "Sentinel roster"},
+      {"id": "CD-K2", "label": "Predictive hunt model"},
+      {"id": "CD-K3", "label": "Regional escalation route"}
+    ]
+  },
+  {
+    "id": "MS-DELTA-44",
+    "title": "Delta Lockworks",
+    "hacker": "HEXA-9",
+    "bio": "Industrial complex converted into a neuro-crypt lock factory.",
+    "logs": [
+      "Each door uses a variable locking pattern.",
+      "Service terminals are segmented by batch.",
+      "Spare-part caches exist but are rarely opened.",
+      "The pipeline exports keys to multiple megacities."
+    ],
+    "epilogue": "Sabotaging Delta deprives the cartel of thousands of military locks.",
+    "fragments": [
+      {"id": "CD-D1", "label": "Lock pattern sample"},
+      {"id": "CD-D2", "label": "Factory blueprint delta"},
+      {"id": "CD-D3", "label": "Export chain proof"}
+    ]
+  },
+  {
+    "id": "MS-MIRROR-03",
+    "title": "Mirror Drift",
+    "hacker": "Q-LINE",
+    "bio": "Adaptive disinformation structure built to dilute evidence trails.",
+    "logs": [
+      "Logs are rewritten every six minutes.",
+      "Alert records point to fake intrusion nests.",
+      "Supervision nodes are lightly guarded.",
+      "Useful item storage is intentionally poor."
+    ],
+    "epilogue": "Taking down Mirror restores abuse traceability.",
+    "fragments": [
+      {"id": "CD-M1", "label": "Fake-route index"},
+      {"id": "CD-M2", "label": "Audit rewrite key"},
+      {"id": "CD-M3", "label": "Public evidence pointer"}
+    ]
+  },
+  {
+    "id": "MS-ION-72",
+    "title": "Ion Vault",
+    "hacker": "GLITCHMOTHER",
+    "bio": "Hostile energy bank specialized in debt-based rationing.",
+    "logs": [
+      "Energy costs are artificially inflated.",
+      "Energy cells are stockpiled in lateral corridors.",
+      "Guard teams patrol without fixed cycles.",
+      "The core validates district cutoffs in real time."
+    ],
+    "epilogue": "Liberating Ion Vault loosens the grip on blackout zones.",
+    "fragments": [
+      {"id": "CD-I1", "label": "Energy debt ledger"},
+      {"id": "CD-I2", "label": "Cutoff scheduler"},
+      {"id": "CD-I3", "label": "District restore command"}
+    ]
+  },
+  {
+    "id": "MS-NEXUS-58",
+    "title": "Nexus Census Core",
+    "hacker": "ALBA",
+    "bio": "Social profiling and automated scoring center.",
+    "logs": [
+      "Alarm levels spread quickly from one sector to another.",
+      "Locks are medium grade but responses are fast.",
+      "Scoring terminals remain exposed.",
+      "Recoverable artifacts are scarce."
+    ],
+    "epilogue": "Hacking Nexus breaks the coercive ranking engine.",
+    "fragments": [
+      {"id": "CD-N1", "label": "Population score map"},
+      {"id": "CD-N2", "label": "Penalty propagation model"},
+      {"id": "CD-N3", "label": "Rights rollback signature"}
+    ]
+  }
+]

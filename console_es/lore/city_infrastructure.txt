@@ -1,0 +1,18 @@
+TITULO: Notas de infraestructura urbana
+
+Energia:
+La red oficial tiene precio dinamico segun riesgo distrital.
+Los apagones se llaman eventos de equilibrio.
+Hospitales en zonas de bajo score reciben restauracion tardia.
+
+Vivienda:
+Los alquileres son algoritmicos. Las apelaciones son sobre todo decorativas.
+Un typo en identidad puede disparar desplazamiento automatizado.
+
+Red:
+La red publica aplica packet shaping estricto.
+La malla subterranea conecta zonas muertas con repetidores de azotea y antenas robadas.
+
+Comida y agua:
+La prioridad de distribucion sigue score laboral y cumplimiento de deuda.
+Las comunas compensan con cocinas, trueque de reparaciones y logistica de mercado gris.

@@ -1,0 +1,8 @@
+FROM: patchvendor@legit-probably
+TO: you@console
+SUBJECT: premium stealth patch
+RECEIVED: [2097-03-01 20:37]
+
+Our proprietary patch reduces Sentinel detection by 62 percent.
+Fine print: field tests performed on clients who are no longer available for feedback.
+Discount expires at midnight, as all suspicious offers do.

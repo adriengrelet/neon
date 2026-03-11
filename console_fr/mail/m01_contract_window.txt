@@ -1,0 +1,8 @@
+FROM: broker@wiremarket
+TO: you@console
+SUBJECT: fenetre contrat
+RECU: [2097-01-12 18:22]
+
+Petit job, petit risque, fameuses dernieres paroles.
+Pose un watcher sur un terminal secondaire Kheiron et sors avant que le drone cafe te remarque.
+Paiement: 320 credits + un token d'acces propre.

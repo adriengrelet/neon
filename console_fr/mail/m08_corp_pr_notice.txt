@@ -1,0 +1,10 @@
+FROM: compliance.voice@kheiron
+TO: district operators
+SUBJECT: mise a jour vocabulaire
+RECU: [2097-03-17 11:05]
+
+Remplacer ces termes dans tous les rapports:
+- faim -> fulfillment nutritionnel differe
+- expulsion -> transition logement dynamique
+- victime -> attrition workforce non planifiee
+Maintenir les metriques empathie au-dessus de la cible.

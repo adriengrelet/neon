@@ -1,0 +1,8 @@
+FROM: clinic_nightshift@mutualaid
+TO: you@console
+SUBJECT: med debt workaround
+RECEIVED: [2097-02-22 02:14]
+
+Bring us one valid corporate auth stamp.
+We can convert it into 14 ghost appointments.
+No miracles, just people helping people survive billing software.

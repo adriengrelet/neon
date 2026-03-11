@@ -1,0 +1,8 @@
+FROM: unknown
+TO: you@console
+SUBJECT: saw your name
+RECEIVED: [2097-02-10 07:56]
+
+Your handle appeared in a district risk dashboard.
+Could be noise. Could be a pre-arrest list.
+I am not asking you to stop. I am asking you to vary your route.

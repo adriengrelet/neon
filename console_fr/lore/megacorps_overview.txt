@@ -1,0 +1,18 @@
+TITRE: Paysage megacorpo
+
+1) Kheiron Dynamics
+Controle stacks securite, modeles Sentinel et linguistique compliance.
+Slogan public: Systemes surs, societe sure.
+KPI interne: containment incident par credit.
+
+2) Helix Habitat
+Controle logement modulaire, automatisation des expulsions et contrats eau.
+L'app parle de flexibilite. Les locataires parlent de precarite rotative.
+
+3) Vanta Biologics
+Gere abonnements cliniques et scoring dette biometrie.
+Un paiement manque et ta priorite de soin chute en silence.
+
+4) Straylight Transit
+Exploite metro AI et permissions de routes.
+Probleme connu: lignes fantomes ou les anciennes cartes se souviennent de gens non servis.

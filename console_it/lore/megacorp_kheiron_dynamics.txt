@@ -1,0 +1,20 @@
+TITOLO: Dossier - Kheiron Dynamics
+
+Business principale:
+- hardware sicurezza Sentinel e modelli comportamentali
+- software compliance municipale
+- dashboard rischio venduti a tribunali, scuole e proprietari
+
+Come opera il controllo:
+Kheiron raramente ordina violenza diretta per iscritto.
+Pubblica probabilita di rischio e poi le istituzioni automatizzano punizioni a valle.
+Quando il danno arriva, nessuno si sente totalmente responsabile.
+
+Contraddizioni note:
+- si presenta neutrale mentre regola i modelli su direttive politiche
+- parla di resilienza mentre fa lobbying contro tutele inquilini
+- promette trasparenza mentre classifica i dati training come segreto commerciale
+
+Nota sul campo:
+ROM-AX13 suggerisce che l'esitazione Sentinel puo essere innescata da comportamenti limite.
+Nessun exploit confermato, ma prove sufficienti per continuare i test.

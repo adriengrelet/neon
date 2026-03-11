@@ -1,0 +1,6 @@
+Pack contenuti generato (IT)
+- logs: +5 file
+- mail: +10 file
+- lore: +6 file
+- missions: +6 file
+Ancore coerenza: ROM-AX13, KR22, IR31, DX90, ZE08, CORE Sentinel, Kheiron Dynamics.

@@ -1,0 +1,20 @@
+TITLE: Dossier - Kheiron Dynamics
+
+Core business:
+- Sentinel security hardware and behavior models
+- Municipal compliance software
+- Risk dashboards sold to courts, schools, and landlords
+
+How control works:
+Kheiron rarely orders direct violence in writing.
+It publishes risk probabilities, then institutions automate punishment downstream.
+By the time harm lands, no single actor feels responsible.
+
+Known contradictions:
+- Markets itself as neutral while tuning models with political directives.
+- Promotes resilience while lobbying against tenant protection.
+- Claims transparency while classifying training data as trade secret.
+
+Field note:
+ROM-AX13 suggests Sentinel hesitation can be triggered by edge-case behavior.
+No confirmed exploit, but enough evidence to keep testing.

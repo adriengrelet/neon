@@ -1,0 +1,8 @@
+FROM: audit.bot@citystack
+TO: you@console
+SUBJECT: dernier avertissement avant penalites
+RECU: [2097-04-06 00:32]
+
+Ton score fiabilite citoyenne est passe sous le seuil legal de confort.
+Regularise dette, mobilite non autorisee et volatilite emotionnelle.
+Si impossible, merci de rester calme pendant l'intervention.

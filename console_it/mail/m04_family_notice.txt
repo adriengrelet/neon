@@ -1,0 +1,8 @@
+FROM: unknown
+TO: you@console
+SUBJECT: ho visto il tuo nome
+RICEVUTO: [2097-02-10 07:56]
+
+Il tuo handle e apparso in un dashboard rischio distrettuale.
+Potrebbe essere rumore. Potrebbe essere una lista pre-arresto.
+Non ti chiedo di fermarti. Ti chiedo di cambiare percorso.

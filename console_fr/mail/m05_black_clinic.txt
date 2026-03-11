@@ -1,0 +1,8 @@
+FROM: clinic_nightshift@mutualaid
+TO: you@console
+SUBJECT: contournement dette medicale
+RECU: [2097-02-22 02:14]
+
+Apporte un tampon d'auth corp valide.
+On peut le convertir en 14 rendez-vous fantomes.
+Pas de miracle, juste des gens qui aident d'autres gens a survivre au logiciel de facturation.

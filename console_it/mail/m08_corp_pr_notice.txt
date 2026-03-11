@@ -1,0 +1,10 @@
+FROM: compliance.voice@kheiron
+TO: district operators
+SUBJECT: aggiornamento linguaggio
+RICEVUTO: [2097-03-17 11:05]
+
+Sostituire termini in tutti i report:
+- fame -> fulfillment nutrizionale differito
+- sfratto -> transizione abitativa dinamica
+- vittima -> attrizione workforce non pianificata
+Mantenere metriche empatia sopra target.

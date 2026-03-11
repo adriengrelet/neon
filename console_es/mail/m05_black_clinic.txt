@@ -1,0 +1,8 @@
+FROM: clinic_nightshift@mutualaid
+TO: you@console
+SUBJECT: atajo para deuda medica
+RECIBIDO: [2097-02-22 02:14]
+
+Trae un sello de autorizacion corporativa valido.
+Podemos convertirlo en 14 citas fantasma.
+No hay milagros, solo gente ayudando a otra gente a sobrevivir al software de facturacion.

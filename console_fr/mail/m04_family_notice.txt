@@ -1,0 +1,8 @@
+FROM: unknown
+TO: you@console
+SUBJECT: j'ai vu ton nom
+RECU: [2097-02-10 07:56]
+
+Ton handle est apparu dans un dashboard risque district.
+Peut-etre du bruit. Peut-etre une pre-liste d'arrestation.
+Je te demande pas d'arreter. Je te demande de changer de trajet.

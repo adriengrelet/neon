@@ -1,0 +1,13 @@
+MISSION 001 - First breach without drama
+
+Goal:
+Enter, grab one harmless file, leave alive, look unimpressive.
+
+Steps:
+1. Run scan first. Curiosity is cheaper than panic.
+2. Watch alarm level like it is your rent meter.
+3. Hack one terminal only. Beginners die from greed, not from lack of skill.
+4. Exfil as soon as objective is done.
+
+Beginner joke that is not really a joke:
+If you say "just one more room," you are already in the danger tutorial.

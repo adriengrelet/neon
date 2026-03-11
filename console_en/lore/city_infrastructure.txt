@@ -1,0 +1,18 @@
+TITLE: Infrastructure notes
+
+Power:
+Official grid is dynamic-priced by district risk score.
+Blackouts are called balancing events.
+Hospitals in low-score zones get delayed restoration.
+
+Housing:
+Leases are algorithmic. Appeals are mostly performative.
+One typo in an identity field can trigger automated displacement.
+
+Network:
+Public net has strict packet shaping.
+Underground mesh links bridge dead zones with rooftop repeaters and stolen antennas.
+
+Food and water:
+Distribution priority follows labor score and debt compliance.
+Communes offset shortages with kitchens, repair swaps, and gray-market logistics.

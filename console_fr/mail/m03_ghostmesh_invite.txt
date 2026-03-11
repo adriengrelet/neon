@@ -1,0 +1,8 @@
+FROM: relay@ghostmesh
+TO: you@console
+SUBJECT: invitation acceptee
+RECU: [2097-02-03 23:09]
+
+GhostMesh ne recrute pas des heros.
+GhostMesh recrute des gens qui tiennent leurs promesses sous pression.
+Passe au noeud DAX-90 avec un laptop propre et de mauvaises nuits.

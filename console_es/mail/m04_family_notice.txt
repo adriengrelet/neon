@@ -1,0 +1,8 @@
+FROM: unknown
+TO: you@console
+SUBJECT: vi tu nombre
+RECIBIDO: [2097-02-10 07:56]
+
+Tu handle aparecio en un dashboard de riesgo distrital.
+Puede ser ruido. Puede ser una lista previa a arrestos.
+No te pido que pares. Te pido que cambies de ruta.

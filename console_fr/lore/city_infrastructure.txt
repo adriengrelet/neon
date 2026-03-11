@@ -1,0 +1,18 @@
+TITRE: Notes infrastructure ville
+
+Energie:
+Le reseau officiel est facture dynamiquement selon score de risque district.
+Les blackouts sont appeles evenements d'equilibrage.
+Les hopitaux en zone bas score sont rebranches en dernier.
+
+Logement:
+Les baux sont algorithmiques. Les recours sont surtout decoratifs.
+Une typo dans un champ identite peut declencher un deplacement automatise.
+
+Reseau:
+Le net public applique un packet shaping strict.
+Le mesh souterrain relie les zones mortes avec des repetiteurs de toit et des antennes volees.
+
+Nourriture et eau:
+La priorite de distribution suit score travail et conformite dette.
+Les communes compensent via cuisines, troc reparations et logistique gris-marche.

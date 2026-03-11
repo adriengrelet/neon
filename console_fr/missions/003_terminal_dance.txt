@@ -1,0 +1,13 @@
+MISSION 003 - Bases de la danse terminal
+
+Objectif:
+Pratiquer les hacks matrice sous pression temps sans vision tunnel.
+
+Etapes:
+1. Lis la sequence deux fois avant de taper une fois.
+2. Etape 2 suit la colonne, etape 3 suit la ligne.
+3. Si le pouls monte, respire puis valide.
+4. Hack propre et rapide > hack flashy et risque.
+
+Humour veteran:
+Taper des coordonnees au hasard, c'est du cardio, pas une strategie.

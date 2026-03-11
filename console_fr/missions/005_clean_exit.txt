@@ -1,0 +1,13 @@
+MISSION 005 - Discipline d'exfil propre
+
+Objectif:
+Laisser peu de traces faciles et garder ton futur toi en emploi.
+
+Etapes:
+1. Verifie inventaire et HP avant le dernier couloir.
+2. Evite les combats optionnels pres extraction.
+3. Confirme objectif complete, puis sors immediatement.
+4. Ecris un debrief court pendant que la memoire est fraiche.
+
+Proverbe terrain:
+La meilleure exfil, c'est celle que personne ne remarque demain.

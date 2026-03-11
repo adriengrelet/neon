@@ -1,0 +1,8 @@
+FROM: relay@ghostmesh
+TO: you@console
+SUBJECT: invitacion aceptada
+RECIBIDO: [2097-02-03 23:09]
+
+GhostMesh no recluta heroes.
+GhostMesh recluta gente que cumple promesas bajo presion.
+Pasa por el nodo DAX-90 con laptop limpio y malos habitos de sueno.

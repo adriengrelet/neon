@@ -1,0 +1,8 @@
+FROM: broker@wiremarket
+TO: you@console
+SUBJECT: finestra contratto
+RICEVUTO: [2097-01-12 18:22]
+
+Lavoro piccolo, rischio piccolo, ultime parole famose.
+Installa un watcher su un terminale secondario Kheiron e esci prima che il drone caffe ti noti.
+Pagamento: 320 crediti + un token accesso pulito.

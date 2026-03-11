@@ -1,0 +1,7 @@
+FROM: lineworkers_union@mesh
+TO: you@console
+SUBJECT: preuves gel de paie
+RECU: [2097-01-18 06:41]
+
+On a besoin de captures prouvant que le blackout paie est une policy, pas un bug.
+Si tu recuperes un memo interne signe, on peut arreter d'appeler la faim une optimisation.

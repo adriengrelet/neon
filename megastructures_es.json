@@ -1,0 +1,110 @@
+[
+  {
+    "id": "MS-ASTRA-17",
+    "title": "Astra Relay Grid",
+    "hacker": "VANTA",
+    "bio": "Antiguo rele de soberania digital convertido en prision de datos civicos.",
+    "logs": [
+      "El rele todavia funciona con un kernel pre-fusion.",
+      "Las capas bajas estan saturadas de rastros de auditorias borradas.",
+      "Cuentas fantasma mantienen vigilancia algoritmica.",
+      "Un protocolo de censura en tiempo real filtra reclamos locales."
+    ],
+    "epilogue": "Si la red cae, los archivos civicos vuelven a ser consultables.",
+    "fragments": [
+      {"id": "CD-A1", "label": "Telemetry frame: Astra"},
+      {"id": "CD-A2", "label": "Relay topology checksum"},
+      {"id": "CD-A3", "label": "Civil rights override token"}
+    ]
+  },
+  {
+    "id": "MS-KERBEROS-91",
+    "title": "Kerberos Bastion",
+    "hacker": "N0MAD",
+    "bio": "Bastion de seguridad privada especializado en caza predictiva.",
+    "logs": [
+      "Tres IA de guardia rotan en ciclos de 40 segundos.",
+      "Drones de mantenimiento actuan como sensores anti-intrusion.",
+      "El nucleo compila listas negras de forma continua.",
+      "Cada alarma local se replica a nivel regional."
+    ],
+    "epilogue": "Neutralizar Kerberos reduce la presion sobre zonas disidentes.",
+    "fragments": [
+      {"id": "CD-K1", "label": "Sentinel roster"},
+      {"id": "CD-K2", "label": "Predictive hunt model"},
+      {"id": "CD-K3", "label": "Regional escalation route"}
+    ]
+  },
+  {
+    "id": "MS-DELTA-44",
+    "title": "Delta Lockworks",
+    "hacker": "HEXA-9",
+    "bio": "Complejo industrial convertido en fabrica de cerraduras neurocripticas.",
+    "logs": [
+      "Cada puerta tiene un patron de bloqueo variable.",
+      "Los terminales de servicio estan segmentados por lotes.",
+      "Hay caches de piezas, pero rara vez se abren.",
+      "La linea exporta claves a multiples megaciudades."
+    ],
+    "epilogue": "Sabotear Delta priva al cartel de miles de cerraduras militares.",
+    "fragments": [
+      {"id": "CD-D1", "label": "Lock pattern sample"},
+      {"id": "CD-D2", "label": "Factory blueprint delta"},
+      {"id": "CD-D3", "label": "Export chain proof"}
+    ]
+  },
+  {
+    "id": "MS-MIRROR-03",
+    "title": "Mirror Drift",
+    "hacker": "Q-LINE",
+    "bio": "Estructura adaptativa de desinformacion para diluir rastros de evidencia.",
+    "logs": [
+      "Los registros se reescriben cada seis minutos.",
+      "Las alertas apuntan a nidos falsos de intrusion.",
+      "Los nodos de supervision estan poco vigilados.",
+      "El almacenamiento util es intencionalmente pobre."
+    ],
+    "epilogue": "Derribar Mirror restaura la trazabilidad de los abusos.",
+    "fragments": [
+      {"id": "CD-M1", "label": "Fake-route index"},
+      {"id": "CD-M2", "label": "Audit rewrite key"},
+      {"id": "CD-M3", "label": "Public evidence pointer"}
+    ]
+  },
+  {
+    "id": "MS-ION-72",
+    "title": "Ion Vault",
+    "hacker": "GLITCHMOTHER",
+    "bio": "Banco energetico hostil especializado en racionamiento por deuda.",
+    "logs": [
+      "Los costos energeticos estan inflados artificialmente.",
+      "Se almacenan celdas de energia en corredores laterales.",
+      "Equipos de guardia patrullan sin ciclos fijos.",
+      "El nucleo valida cortes de distrito en tiempo real."
+    ],
+    "epilogue": "Liberar Ion Vault afloja el control sobre zonas en sombra.",
+    "fragments": [
+      {"id": "CD-I1", "label": "Energy debt ledger"},
+      {"id": "CD-I2", "label": "Cutoff scheduler"},
+      {"id": "CD-I3", "label": "District restore command"}
+    ]
+  },
+  {
+    "id": "MS-NEXUS-58",
+    "title": "Nexus Census Core",
+    "hacker": "ALBA",
+    "bio": "Centro de perfilado social y puntuacion automatizada.",
+    "logs": [
+      "El nivel de alerta se propaga rapido entre sectores.",
+      "Las cerraduras son medias, pero la respuesta es rapida.",
+      "Terminales de puntuacion permanecen expuestos.",
+      "Los artefactos recuperables son escasos."
+    ],
+    "epilogue": "Hackear Nexus rompe el motor de clasificacion coercitiva.",
+    "fragments": [
+      {"id": "CD-N1", "label": "Population score map"},
+      {"id": "CD-N2", "label": "Penalty propagation model"},
+      {"id": "CD-N3", "label": "Rights rollback signature"}
+    ]
+  }
+]

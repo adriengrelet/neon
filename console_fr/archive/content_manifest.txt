@@ -1,0 +1,6 @@
+Pack contenu genere (FR)
+- logs: +5 fichiers
+- mail: +10 fichiers
+- lore: +6 fichiers
+- missions: +6 fichiers
+Ancrages coherence: ROM-AX13, KR22, IR31, DX90, ZE08, CORE Sentinel, Kheiron Dynamics.

@@ -1,0 +1,8 @@
+FROM: zea@roofline-collective
+TO: you@console
+SUBJECT: power tonight
+RECEIVED: [2097-03-28 21:44]
+
+If you are near sector ZE08, bring spare capacitors.
+We can keep lights on for 43 homes or one illegal print farm.
+Democracy meeting at 21:00, arguments included free of charge.

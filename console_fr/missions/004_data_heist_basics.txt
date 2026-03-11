@@ -1,0 +1,13 @@
+MISSION 004 - Data heist pour debutants
+
+Objectif:
+Extraire un memo policy qui prouve la violence derriere le langage corporate.
+
+Etapes:
+1. Priorise les fichiers legal/compliance.
+2. Copie la preuve d'abord, le loot annexe ensuite.
+3. Range les trouvailles dans archive/ avec date et noeud source.
+4. Envoie un resume aux allies, pas tout le dump brut.
+
+Pourquoi c'est utile:
+Un seul memo signe peut bouger un district plus vite que 100 rumeurs.

@@ -1,0 +1,8 @@
+FROM: relay@ghostmesh
+TO: you@console
+SUBJECT: invite accepted
+RECEIVED: [2097-02-03 23:09]
+
+GhostMesh does not recruit heroes.
+It recruits people who can keep promises under pressure.
+Drop by node DAX-90 with a clean laptop and bad sleep habits.

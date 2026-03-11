@@ -1,0 +1,6 @@
+Generated content pack summary (EN)
+- logs: +5 files
+- mail: +10 files
+- lore: +6 files
+- missions: +6 files
+Coherence anchors: ROM-AX13, KR22, IR31, DX90, ZE08, CORE Sentinel, Kheiron Dynamics.

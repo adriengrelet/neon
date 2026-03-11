@@ -1,0 +1,8 @@
+FROM: audit.bot@citystack
+TO: you@console
+SUBJECT: ultimo avviso prima delle penalita
+RICEVUTO: [2097-04-06 00:32]
+
+Il tuo punteggio affidabilita cittadina e sceso sotto soglia legale di comfort.
+Regolarizza debito, mobilita non autorizzata e volatilita emotiva.
+Se impossibile, resta calmo durante l'intervento.

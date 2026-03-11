@@ -1,0 +1,7 @@
+FROM: lineworkers_union@mesh
+TO: you@console
+SUBJECT: payroll freeze evidence
+RECEIVED: [2097-01-18 06:41]
+
+We need packet captures proving the payroll blackout was policy, not bug.
+If you can get one signed internal memo, we can stop calling hunger an optimization.

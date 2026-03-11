@@ -1,0 +1,3 @@
+FROM: relay@ghostmesh
+SUBJECT: finestra di intrusione
+La porta restera aperta meno di 90 secondi. Resta in movimento.

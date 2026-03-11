@@ -1,15 +1,13 @@
 # NEON CORE
 
-A terminal-based cyber infiltration game written in Python.
+Terminal cyber-infiltration game in Python.
 
-You infiltrate a 7x7 megastructure, reach the Central Core, survive the Sentinel, hack the Core, and extract alive.
-
-Loots to find and also 10+ ROM histories to discover by retreiving fragments in rooms you'll walk in.
+In each run, you infiltrate a 7x7 megastructure, fight through pressure and alarms, neutralize the CORE Sentinel, hack the Central CORE, then extract alive.
 
 ## Quick Start
 
 Requirements:
-- Python 3
+- Python 3 (no external dependencies)
 
 Run:
 
@@ -17,250 +15,110 @@ Run:
 python3 neon.py
 ```
 
-Don't forget to make neon.py launchable :
+Optional:
 
 ```bash
 chmod +x neon.py
 ```
 
-At launch, you choose:
-- Language: `fr`, `en`, `it`, `es`
-- Player name
-- Difficulty (1 to 4)
+## What Is New
 
-## Objective
+- In-game personal console (`console` or `ssh <player>@console`)
+- Localized console files for `fr`, `en`, `es`, `it`
+- Persistent meta-progression:
+  - Banked credits (CR)
+  - Persistent inventory between runs
+  - XP accumulation (`10%` of final score, even on death)
+- Pre-run shop to buy starting consumables
+- Expanded lore, logs, mails, and tutorial-style mission files in all console languages
 
-To win, all these conditions must be true in the Core room:
-- The room is the Central Core
-- The `CORE Sentinel` enemy is neutralized
-- The Core terminal has been successfully hacked
+## Core Gameplay
 
-Then the run is saved with status `WIN`.
+- Grid: `7x7`
+- Core objective:
+  - reach CORE room
+  - neutralize `CORE Sentinel`
+  - hack CORE terminal
+- Loss conditions:
+  - `HP <= 0`
+  - `AL >= 5`
 
-## World and Room Generation
+Main resources:
+- `HP`, `EN`, `HK`, `AL`, `CR`
 
-- Grid size: `7 x 7`
-- Spawn point: random perimeter tile
-- Core: random tile at least Manhattan distance 3 from spawn
-- Each room can randomly contain:
-  - Enemy (about 30%)
-  - Lock (about 25%)
-  - Terminal (about 25%)
-  - Item (about 20%)
-- Core room is special:
-  - Enemy forced to `CORE Sentinel` with 75 HP
-  - Terminal forced ON
-  - Not locked
+## Main Commands
 
-## Core Stats and Resources
+Movement and exploration:
+- `n/s/e/w` (or `north/south/east/west`)
+- `scan`, `echo`, `map`
 
-Main player stats:
-- HP (health)
-- EN (energy)
-- HK (hack)
-- AL (alarm)
-- CR (credits)
+Actions:
+- `hack`, `attack`, `take`, `use <item>`
 
-Starting values:
-- `HP 100`, `EN 100`, `HK 55`, `AL 0`, `CR 0`
+Information:
+- `inventory`, `status`, `profile`, `fragments`, `shop`, `leaderboard`, `help`, `quit`
 
-Important thresholds:
-- Alarm reinforcement pressure starts at `AL >= 4`
-- Immediate game over at `AL >= 5`
-- Game over if `HP <= 0`
+Console access:
+- `console`
+- `ssh <player>@console`
 
-## Commands
+## In-Game Console
 
-### Movement and Exploration
-- `north` / `n`
-- `south` / `s`
-- `east` / `e`
-- `west` / `w`
-- `map` / `m` : show map
-- `scan` / `sc` : consume energy to inspect current room
-- `echo` / `ec` : consume energy to reveal tactical markers in adjacent rooms
+The console is a sandboxed mini-shell with real files.
 
-### Action Commands
-- `hack` / `h` : hack terminal or remove lock
-- `attack` / `at` : fight enemy in current room
-- `take` / `t` : collect visible item and/or ROM fragment
-- `use <item>` / `u <item>` : use inventory item
+Available commands:
+- `ls`, `cd`, `pwd`, `cat`, `tree`, `help`, `exit`
+- `status`, `history`, `whoami`, `mail`, `nano <file>`
 
-### Information and Meta
-- `inventory` / `inv`
-- `status` / `stat`
-- `profile` / `pro`
-- `fragments` / `fra`
-- `shop` / `sh`
-- `leaderboard` / `lead`
-- `help` / `he`
-- `quit` / `q`
+Language roots:
+- `console_fr/`
+- `console_en/`
+- `console_es/`
+- `console_it/`
 
-## Hacking System
+Each root contains:
+- `logs/`, `mail/`, `missions/`, `lore/`, `archive/`, `notes/`, `stats/`
 
-When hacking succeeds or fails, it affects alarm, credits, and progression.
+## Persistence Model
 
-### Intrusion Matrix Rules
-The mini-game is 3-step:
-1. Step 1: free pick
-2. Step 2: must be in the same column as step 1
-3. Step 3: must be in the same row as step 2
+Profile save is stored in `saves/<player>.json`.
 
-If wrong code, wrong alignment, or timeout: hack fails.
+Persisted elements include:
+- run statistics (wins/losses/deaths, hacks, visited rooms, etc.)
+- `bank_credits`
+- `bank_inventory`
+- `xp_total` and last XP gain
 
-### Hack Time by Difficulty
-- Difficulty 1: 60s
-- Difficulty 2: 45s
-- Difficulty 3: 30s
-- Difficulty 4: 20s
+Rules:
+- On victory: run CR are added to bank CR
+- On death/loss: carried run CR are lost
+- Inventory is synchronized in save during run updates (`take`/`use`), so interruption keeps state aligned
 
-### Matrix Size and Hack Stat
-Base matrix size depends on `HK`:
-- `HK >= 70` -> 4x4
-- `HK > 55` -> 5x5
-- `HK == 55` -> 6x6
-- `40 <= HK < 55` -> 7x7
-- `< 40` -> 8x8
+## Pre-Run Shop
 
-`Enhanced neural interface` reduces size by 1.
-Core hacks add +1 size penalty.
+Before difficulty selection, you can spend banked CR.
 
-### Hack Failure Effects
-- Energy is consumed
-- Alarm +1
-- At alarm level 3, an enemy can be deployed in the room if empty
-- Hack stat decreases by 10 (minimum 10)
+Current pre-run items:
+- `medkit` (`100 CR`)
+- `energy_cell` (`100 CR`)
 
-### Hack Success Effects
-- Energy is consumed
-- Alarm decreases by 1 (minimum 0)
-- Locked room gets unlocked
-- Terminal is consumed
-- Core terminal success sets `core_hacked = True`
+Bought items are available at run start.
 
-On non-core terminals, you get loot choice:
-- `A` credits
-- `B` +25 HP
-- `C` +5 HK
-- `D` +10 HP (cybernetic heal)
+## Narrative Layer
 
-Credits from hack are speed-sensitive: faster hacks grant more credits.
+- ROM fragments are scattered in rooms
+- Completing all 3 fragments in a run unlocks a full story file
+- Additional worldbuilding is available through console lore/log/mail files
 
-## Combat System
+## Scoring and XP
 
-If an enemy is present and you do not attack during your turn, the enemy attacks after your command.
+At end of run, score is computed from survival, hack performance, exploration, credits, alarms, and bonuses.
 
-During `attack`:
-- Enemy stance is random (`aggressive`, `defensive`, `unstable`)
-- You choose action `A`, `B`, or `C` within combat timer
-- Choice quality changes damage taken
-- Sometimes a reflex prompt appears (type a random char quickly)
+- Leaderboard is appended to `leaderboard.md`
+- XP gained per run: `10%` of final score (minimum `0`)
 
-Combat timers by difficulty:
-- Difficulty 1: 10s
-- Difficulty 2: 6s
-- Difficulty 3: 4s
-- Difficulty 4: 3s
+## Notes
 
-Reflex limit by difficulty:
-- 6s / 4s / 2s / 3s
-
-Special Core behavior:
-- Attacking `CORE Sentinel` damages Sentinel HP
-- Sentinel counterattacks while alive
-- You must still hack Core terminal after Sentinel dies
-
-## Inventory and Items
-
-Items:
-- `medkit`: +25 HP
-- `energy_cell`: +25 EN
-- `exploit_chip`: +10 HK
-
-Accepted use aliases:
-- `use exploit` -> `exploit_chip`
-- `use energy` -> `energy_cell`
-
-## ROM Fragments (Narrative System)
-
-Each run selects one story file from the ROM archive.
-That story has exactly 3 fragments.
-
-Placement:
-- The 3 fragments are placed in random rooms
-- Never on spawn or Core room
-
-Collection:
-- Use `take` in a room containing a fragment
-- Fragment is added to your collection and removed from room
-
-Fragment menu (`fragments` / `fra`):
-- Shows collected count and checklist
-- At 3/3, unlocks full story log (optional read prompt)
-
-Extra interactions:
-- `scan` can detect fragment signature in current room
-- `echo` can reveal fragment markers in adjacent unvisited rooms
-- Successful terminal hacks can sometimes reveal unknown fragment markers across the map
-
-Scoring bonus:
-- Collecting all 3 fragments grants a large ROM bonus (`15000`) in final score.
-
-## Echo and Map Markers
-
-Map legend:
-- `P` player
-- `C` discovered Core
-- `.` visited room
-- `#` unknown room
-- `E` enemy marker
-- `L` loot marker
-- `F` fragment marker
-- `M` multiple signatures in one room
-
-`echo` marks nearby unvisited rooms only.
-
-## Shop and Upgrades
-
-Use credits to buy permanent run upgrades:
-
-1. Synaptic augment (100): +10s hack time
-2. Overload augment (100): improves action `C`
-3. Enhanced neural interface (150): matrix size -1
-4. Combat chip (150): doubles combat decision timer
-5. Strength augment (100): improves action `A`
-6. Speed augment (100): improves action `B`
-7. Energy dissipator (300): halves energy costs of actions
-
-## Score and Leaderboard
-
-Scores are appended to `leaderboard.md` with timestamp, name, score, rooms, duration, and status.
-
-Status values observed in save flow:
-- `WIN` (win)
-- `LOOSE` (loss)
-- `QUIT` (manual quit)
-
-Final score combines:
-- Survival stats (HP, EN, HK)
-- Credits
-- Rooms visited
-- Hack success/failure counts
-- Alarm penalty
-- ROM full-set bonus
-- Global time bonus
-- Hack speed bonus
-- Difficulty multiplier
-
-## End Conditions
-
-Run ends when one of these happens:
-- Win condition in Core room
-- `HP <= 0`
-- `AL >= 5`
-- Player confirms quit
-
-After each run:
-- Score is saved
-- Leaderboard is displayed
-- Replay prompt appears
+- Project is intentionally lightweight and modular.
+- `console.py` contains the console system and is integrated from `neon.py`.
+- Content can be extended by editing text files in console language folders without changing game code.

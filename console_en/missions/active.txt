@@ -1,0 +1,4 @@
+Active mission:
+- Infiltrate the megastructure
+- Locate the CORE
+- Exfiltrate without collapse

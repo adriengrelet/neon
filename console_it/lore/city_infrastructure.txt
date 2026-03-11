@@ -1,0 +1,18 @@
+TITOLO: Note infrastruttura urbana
+
+Energia:
+La rete ufficiale ha prezzo dinamico in base al rischio distrettuale.
+I blackout sono chiamati eventi di bilanciamento.
+Gli ospedali in zone a basso score ricevono ripristino tardivo.
+
+Casa:
+I contratti sono algoritmici. I ricorsi sono soprattutto decorativi.
+Un typo in un campo identita puo attivare spostamento automatico.
+
+Rete:
+La rete pubblica applica packet shaping rigido.
+La mesh sotterranea collega zone morte con ripetitori da tetto e antenne rubate.
+
+Cibo e acqua:
+La priorita distribuzione segue score lavoro e compliance debito.
+Le comuni compensano con cucine, scambi riparazioni e logistica mercato grigio.

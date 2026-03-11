@@ -1,0 +1,8 @@
+FROM: audit.bot@citystack
+TO: you@console
+SUBJECT: final warning before penalties
+RECEIVED: [2097-04-06 00:32]
+
+Your citizen reliability score dropped below legal comfort.
+Resolve outstanding debt, unauthorized movement, and emotional volatility.
+If impossible, please remain calm during enforcement.

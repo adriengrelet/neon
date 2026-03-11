@@ -1,0 +1,8 @@
+FROM: broker@wiremarket
+TO: you@console
+SUBJECT: contract window
+RECEIVED: [2097-01-12 18:22]
+
+Small job, small risk, famous last words.
+Plant a watcher in a Kheiron side terminal and leave before the coffee drone notices.
+Pay: 320 credits + one clean access token.

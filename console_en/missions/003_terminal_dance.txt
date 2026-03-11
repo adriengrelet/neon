@@ -1,0 +1,13 @@
+MISSION 003 - Terminal dance basics
+
+Goal:
+Practice matrix hacks under time pressure without tunnel vision.
+
+Steps:
+1. Read sequence twice before typing once.
+2. Step 2 follows column, step 3 follows row.
+3. If your pulse spikes, breathe, then input.
+4. Fast clean hack > flashy risky hack.
+
+Humor from veterans:
+Typing random coordinates is cardio, not strategy.

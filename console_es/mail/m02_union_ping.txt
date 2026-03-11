@@ -1,0 +1,7 @@
+FROM: lineworkers_union@mesh
+TO: you@console
+SUBJECT: pruebas de congelacion salarial
+RECIBIDO: [2097-01-18 06:41]
+
+Necesitamos capturas que demuestren que el blackout de nominas fue policy y no bug.
+Si consigues un memo interno firmado, podremos dejar de llamar optimizacion al hambre.
