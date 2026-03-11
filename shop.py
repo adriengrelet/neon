@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from termfx import color as color_text, color_choice_line
 
 SHOP_ITEMS = {
     "1": {
@@ -127,8 +128,8 @@ def _run_shared_shop(
 ):
     while True:
         credits = int(get_credits())
-        print("\n" + tr(title_key))
-        print(tr(credits_key, credits=credits))
+        print("\n" + color_text(tr(title_key), "blue"))
+        print(color_text(tr(credits_key, credits=credits), "blue"))
         if render_extra_header is not None:
             render_extra_header()
 
@@ -136,24 +137,24 @@ def _run_shared_shop(
             item = SHOP_ITEMS[key]
             if item["kind"] == "upgrade" and is_upgrade_owned(item):
                 continue
-            print(tr(item["line_key"]))
-        print(tr(quit_key))
+            print(color_choice_line(tr(item["line_key"])))
+        print(color_choice_line(tr(quit_key)))
 
-        choice = input(tr(prompt_key)).strip()
+        choice = input(color_text(tr(prompt_key), "blue")).strip()
         if choice == "0":
             break
 
         item = SHOP_ITEMS.get(choice)
         if item is None:
-            print(tr(invalid_key))
+            print(color_text(tr(invalid_key), "blue"))
             continue
 
         if item["kind"] == "upgrade" and is_upgrade_owned(item):
-            print(tr(invalid_key))
+            print(color_text(tr(invalid_key), "blue"))
             continue
 
         if credits < item["cost"]:
-            print(tr(insufficient_key))
+            print(color_text(tr(insufficient_key), "blue"))
             continue
 
         set_credits(credits - item["cost"])
@@ -164,10 +165,10 @@ def _run_shared_shop(
 
         if not bought:
             set_credits(credits)
-            print(tr(invalid_key))
+            print(color_text(tr(invalid_key), "blue"))
             continue
 
-        print(tr(item["buy_key"]))
+        print(color_text(tr(item["buy_key"]), "blue"))
 
 
 def run_pre_run_shop(profile, path, tr, save_profile, format_inventory_counts, ask_confirmation=True):
@@ -176,7 +177,7 @@ def run_pre_run_shop(profile, path, tr, save_profile, format_inventory_counts, a
 
     if ask_confirmation:
         bank_credits = int(profile.get("bank_credits", 0))
-        visit = input(tr("prerun.shop.offer_prompt", credits=bank_credits)).strip().lower()
+        visit = input(color_text(tr("prerun.shop.offer_prompt", credits=bank_credits), "blue")).strip().lower()
         if visit != "y":
             return []
 

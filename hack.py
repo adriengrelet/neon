@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import random
 import time
+from termfx import color as color_text, color_choice_line
 
 
 def reveal_unknown_fragment_markers(world, width, height, player, get_echo_marker):
@@ -58,10 +59,12 @@ def mini_hack_success(player, hex_values, tr, hack_time, core_bonus=False):
     target = [grid[a[0]][a[1]], grid[b[0]][b[1]], grid[c[0]][c[1]]]
 
     print("\n" + tr("hack.matrix.title"))
-    header = "  " + " ".join([f"{col:>3}" for col in cols])
+    header = "  " + " ".join([color_text(f"{col:>3}", "red") for col in cols])
     print(header)
     for i in range(size):
-        line = f"{rows[i]} " + " ".join([f"{grid[i][j]:>3}" for j in range(size)])
+        row_label = color_text(rows[i], "red")
+        matrix_values = [color_text(f"{grid[i][j]:>3}", "green") for j in range(size)]
+        line = f"{row_label} " + " ".join(matrix_values)
         print(line)
 
     print("\n" + tr("hack.matrix.sequence", sequence=" -> ".join(target)))
@@ -72,7 +75,7 @@ def mini_hack_success(player, hex_values, tr, hack_time, core_bonus=False):
     prev_col = None
 
     for step in range(3):
-        choice = input(tr("hack.matrix.step_prompt", step=step + 1)).strip().upper()
+        choice = input(color_text(tr("hack.matrix.step_prompt", step=step + 1), "blue")).strip().upper()
         if time.time() - start > hack_time + player["hack_time_bonus"]:
             print(tr("hack.matrix.timeout"))
             return False, 0
@@ -183,11 +186,11 @@ def run_hack(
 
     if is_standard_hack:
         print(tr("hack.standard_success"))
-        print(tr("hack.loot.a"))
-        print(tr("hack.loot.b"))
-        print(tr("hack.loot.c"))
-        print(tr("hack.loot.d"))
-        loot_choice = input(tr("hack.loot.prompt")).strip().upper()
+        print(color_choice_line(tr("hack.loot.a")))
+        print(color_choice_line(tr("hack.loot.b")))
+        print(color_choice_line(tr("hack.loot.c")))
+        print(color_choice_line(tr("hack.loot.d")))
+        loot_choice = input(color_text(tr("hack.loot.prompt"), "blue")).strip().upper()
 
         if loot_choice == "B":
             player["hp"] += 25

@@ -1,7 +1,7 @@
 {
   "player_name": "pyro",
   "created_at": "2026-03-10T12:39:59",
-  "last_seen": "2026-03-11T17:23:33",
+  "last_seen": "2026-03-11T21:24:31",
   "total_runs": 4,
   "megastructures_visited": 4,
   "wins": 1,
@@ -21,7 +21,8 @@
     "medkit",
     "medkit",
     "energy_cell",
-    "medkit"
+    "medkit",
+    "exploit_chip"
   ],
   "xp_total": 10763,
   "xp_last_gain": 8818,
@@ -38,7 +39,7 @@
   "xp_next_level_requirement": 12000,
   "visited_structures": [],
   "next_structure_id": null,
-  "active_structure_id": "MS-ASTRA-17",
+  "active_structure_id": "MS-DELTA-44",
   "max_hp": 100,
   "max_energy": 100,
   "base_hack": 55,

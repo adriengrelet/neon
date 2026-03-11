@@ -1,0 +1,430 @@
+{
+  "schema_version": 1,
+  "registry_name": "NEON NODE ASCII ART",
+  "default_variant_order": [
+    "ansi",
+    "plain"
+  ],
+  "ansi_escape_note": "Use \\u001b for ESC when storing ANSI colors in JSON strings.",
+  "entry_descriptors": {
+    "id": "Unique key used by scripts (example: intro_neon_core_v1)",
+    "title": "Human-readable label",
+    "status": "active | draft | template | deprecated",
+    "zones": "List of logical game zones where this art is used",
+    "usage": "List of contexts where this art can be displayed",
+    "recommended_width": "Target terminal width in columns",
+    "recommended_alignment": "left | center",
+    "tags": "Search tags for retrieval",
+    "variants": {
+      "ansi": "Colored ANSI version (preferred)",
+      "plain": "ASCII fallback without ANSI codes"
+    }
+  },
+  "zone_index": {
+    "startup.intro": "intro_neon_core_v1",
+    "encounter.enemy.default": "enemy_unknown_v1",
+    "encounter.enemy.drone": "enemy_drone_v1",
+    "encounter.enemy.guard": "enemy_guard_v1",
+    "encounter.enemy.sentry_bot": "enemy_sentry_bot_v1",
+    "encounter.enemy.proxy_hunter": "enemy_proxy_hunter_v1",
+    "encounter.enemy.core_sentinel": "enemy_core_sentinel_v1",
+    "action.hack.request": "hack_terminal_request_v1",
+    "discover.core.first_contact": "discover_core_v1"
+  },
+  "artworks": {
+    "intro_neon_core_v1": {
+      "id": "intro_neon_core_v1",
+      "title": "Neon Core Intro Banner",
+      "status": "active",
+      "zones": [
+        "startup.intro"
+      ],
+      "usage": [
+        "startup",
+        "title_screen"
+      ],
+      "recommended_width": 54,
+      "recommended_alignment": "left",
+      "tags": [
+        "neon",
+        "core",
+        "intro",
+        "banner"
+      ],
+      "variants": {
+        "ansi": {
+          "enabled": true,
+          "lines": [
+            "\\u001b[36m _   _ _____ ___  _   _    ____ ___  ____  _____\\u001b[0m",
+            "\\u001b[36m| \\\\ | | ____/ _ \\\\| \\\\ | |  / ___/ _ \\\\|  _ \\\\|_|\\u001b[0m",
+            "\\u001b[95m|  \\\\| |  _|| | | |  \\\\| | | |  | | | | |_) |  _|\\u001b[0m",
+            "\\u001b[95m| |\\\\  | |__| |_| | |\\\\  | | |__| |_| |  _ <| |___\\u001b[0m",
+            "\\u001b[31m|_| \\\\_|_____\\\\___/|_| \\\\_|  \\\\____\\\\___/|_| \\\\_\\\\|\\u001b[0m"
+          ]
+        },
+        "plain": {
+          "enabled": true,
+          "lines": [
+            " _   _ _____ ___  _   _    ____ ___  ____  _____",
+            "| \\ | | ____/ _ \\| \\ | |  / ___/ _ \\|  _ \\|_|",
+            "|  \\| |  _|| | | |  \\| | | |  | | | | |_) |  _|",
+            "| |\\  | |__| |_| | |\\  | | |__| |_| |  _ <| |___",
+            "|_| \\_|_____\\___/|_| \\_|  \\____\\___/|_| \\_\\|"
+          ]
+        }
+      }
+    },
+    "enemy_unknown_v1": {
+      "id": "enemy_unknown_v1",
+      "title": "Unknown Hostile Encounter",
+      "status": "active",
+      "zones": [
+        "encounter.enemy.default"
+      ],
+      "usage": [
+        "enemy_encounter"
+      ],
+      "recommended_width": 34,
+      "recommended_alignment": "left",
+      "tags": [
+        "enemy",
+        "unknown",
+        "threat"
+      ],
+      "variants": {
+        "ansi": {
+          "enabled": true,
+          "lines": [
+            "\\u001b[33m   [ THREAT DETECTED ]\\u001b[0m",
+            "\\u001b[31m   UNKNOWN HOSTILE ENTITY\\u001b[0m"
+          ]
+        },
+        "plain": {
+          "enabled": true,
+          "lines": [
+            "   [ THREAT DETECTED ]",
+            "   UNKNOWN HOSTILE ENTITY"
+          ]
+        }
+      }
+    },
+    "enemy_drone_v1": {
+      "id": "enemy_drone_v1",
+      "title": "Drone Encounter",
+      "status": "active",
+      "zones": [
+        "encounter.enemy.drone"
+      ],
+      "usage": [
+        "enemy_encounter"
+      ],
+      "recommended_width": 36,
+      "recommended_alignment": "left",
+      "tags": [
+        "enemy",
+        "drone",
+        "flying"
+      ],
+      "variants": {
+        "ansi": {
+          "enabled": true,
+          "lines": [
+            "\\u001b[36m        .-==[ DRONE ]==-.\\u001b[0m",
+            "\\u001b[95m      _/  .----.         \\_\\u001b[0m",
+            "\\u001b[95m     /___/ o  o \\___  ___/ \\u001b[0m",
+            "\\u001b[36m        \\___==___/  \\/    \\u001b[0m",
+            "\\u001b[31m         / / || \\ \\       \\u001b[0m",
+            "\\u001b[33m        `-'  ||  `-'       \\u001b[0m"
+          ]
+        },
+        "plain": {
+          "enabled": true,
+          "lines": [
+            "        .-==[ DRONE ]==-.",
+            "      _/  .----.         \\_",
+            "     /___/ o  o \\___  ___/ ",
+            "        \\___==___/  \\/    ",
+            "         / / || \\ \\       ",
+            "        `-'  ||  `-'       "
+          ]
+        }
+      }
+    },
+    "enemy_guard_v1": {
+      "id": "enemy_guard_v1",
+      "title": "Guard Encounter",
+      "status": "active",
+      "zones": [
+        "encounter.enemy.guard"
+      ],
+      "usage": [
+        "enemy_encounter"
+      ],
+      "recommended_width": 42,
+      "recommended_alignment": "left",
+      "tags": [
+        "enemy",
+        "guard",
+        "patrol"
+      ],
+      "variants": {
+        "ansi": {
+          "enabled": true,
+          "lines": [
+            "\\u001b[31m   _________________________________\\u001b[0m",
+            "\\u001b[33m  / SECURITY / PATROL UNIT : GUARD \\u001b[0m",
+            "\\u001b[36m [==]  O  O   // visor lock         \\u001b[0m",
+            "\\u001b[36m  ||  /|\\/|\\  // baton ready      \\u001b[0m",
+            "\\u001b[95m  ||   /\\ /\\  // stance: DEFENSIVE\\u001b[0m",
+            "\\u001b[31m  ---------------------------------\\u001b[0m"
+          ]
+        },
+        "plain": {
+          "enabled": true,
+          "lines": [
+            "   _________________________________",
+            "  / SECURITY / PATROL UNIT : GUARD \\",
+            " [==]  O   O    // visor lock         ",
+            "  ||  /|\\/|\\  // baton ready      ",
+            "  ||   /\\ /\\  // stance: DEFENSIVE",
+            "  ---------------------------------"
+          ]
+        }
+      }
+    },
+    "enemy_sentry_bot_v1": {
+      "id": "enemy_sentry_bot_v1",
+      "title": "Sentry Bot Encounter",
+      "status": "active",
+      "zones": [
+        "encounter.enemy.sentry_bot"
+      ],
+      "usage": [
+        "enemy_encounter"
+      ],
+      "recommended_width": 40,
+      "recommended_alignment": "left",
+      "tags": [
+        "enemy",
+        "sentry",
+        "bot"
+      ],
+      "variants": {
+        "ansi": {
+          "enabled": true,
+          "lines": [
+            "\\u001b[31m   .----------------------------.\\u001b[0m",
+            "\\u001b[33m  / SENTRY BOT :: TRACKING      \\u001b[0m",
+            "\\u001b[36m |   [O]====<|>====[O]          |\\u001b[0m",
+            "\\u001b[95m |      /|  /_\\  |\\           |\\u001b[0m",
+            "\\u001b[95m |     /_|_/___\\_|_\\          |\\u001b[0m",
+            "\\u001b[31m  \\----------------------------/\\u001b[0m"
+          ]
+        },
+        "plain": {
+          "enabled": true,
+          "lines": [
+            "   .----------------------------.",
+            "  / SENTRY BOT :: TRACKING      \\",
+            " |   [O]====<|>====[O]          |",
+            " |      /|  /_\\  |\\           |",
+            " |     /_|_/___\\_|_\\          |",
+            "  \\----------------------------/"
+          ]
+        }
+      }
+    },
+    "enemy_proxy_hunter_v1": {
+      "id": "enemy_proxy_hunter_v1",
+      "title": "Proxy Hunter Encounter",
+      "status": "active",
+      "zones": [
+        "encounter.enemy.proxy_hunter"
+      ],
+      "usage": [
+        "enemy_encounter"
+      ],
+      "recommended_width": 34,
+      "recommended_alignment": "left",
+      "tags": [
+        "enemy",
+        "proxy",
+        "hunter"
+      ],
+      "variants": {
+        "ansi": {
+          "enabled": true,
+          "lines": [
+            "\\u001b[31m   .xX PROXY HUNTER Xx.\\u001b[0m",
+            "\\u001b[95m   /\\_/\\   __   /\\_/\\\\u001b[0m",
+            "\\u001b[36m  ( o.o )-/  \\-( o.o )\\u001b[0m",
+            "\\u001b[33m   > ^ <  \\__/  > ^ <\\u001b[0m",
+            "\\u001b[31m    /|\\   /||\\   /|\\\\u001b[0m"
+          ]
+        },
+        "plain": {
+          "enabled": true,
+          "lines": [
+            "   .xX PROXY HUNTER Xx.",
+            "   /\\_/\\   __   /\\_/\\",
+            "  ( o.o )-/  \\-( o.o )",
+            "   > ^ <  \\__/  > ^ <",
+            "    /|\\   /||\\   /|\\"
+          ]
+        }
+      }
+    },
+    "enemy_core_sentinel_v1": {
+      "id": "enemy_core_sentinel_v1",
+      "title": "CORE Sentinel Encounter",
+      "status": "active",
+      "zones": [
+        "encounter.enemy.core_sentinel"
+      ],
+      "usage": [
+        "enemy_encounter",
+        "boss"
+      ],
+      "recommended_width": 43,
+      "recommended_alignment": "left",
+      "tags": [
+        "enemy",
+        "core",
+        "sentinel",
+        "boss"
+      ],
+      "variants": {
+        "ansi": {
+          "enabled": true,
+          "lines": [
+            "\\u001b[31m  ########## CORE SENTINEL ##########\\u001b[0m",
+            "\\u001b[33m  |||||||  /\\  MAIN OPTIC  /\\  ||||||\\u001b[0m",
+            "\\u001b[95m  ||||||| <##>==========<##> |||||||\\u001b[0m",
+            "\\u001b[36m  |||||||  \\/  ARMATURE   \\/  ||||||\\u001b[0m",
+            "\\u001b[31m  ###################################\\u001b[0m"
+          ]
+        },
+        "plain": {
+          "enabled": true,
+          "lines": [
+            "  ########## CORE SENTINEL ##########",
+            "  |||||||  /\\  MAIN OPTIC  /\\  ||||||",
+            "  ||||||| <##>==========<##> |||||||",
+            "  |||||||  \\/  ARMATURE   \\/  ||||||",
+            "  ###################################"
+          ]
+        }
+      }
+    },
+    "hack_terminal_request_v1": {
+      "id": "hack_terminal_request_v1",
+      "title": "Hack Request Terminal",
+      "status": "active",
+      "zones": [
+        "action.hack.request"
+      ],
+      "usage": [
+        "hack_request"
+      ],
+      "recommended_width": 45,
+      "recommended_alignment": "left",
+      "tags": [
+        "hack",
+        "terminal",
+        "keyboard"
+      ],
+      "variants": {
+        "ansi": {
+          "enabled": true,
+          "lines": [
+            "\\u001b[36m .---------------------------------------.\\u001b[0m",
+            "\\u001b[95m |  ACCESS NODE // HACK INTERFACE READY  |\\u001b[0m",
+            "\\u001b[33m |  [:::::: TERMINAL ::::::]             |\\u001b[0m",
+            "\\u001b[36m |    __ __ __ __ __ __ __               |\\u001b[0m",
+            "\\u001b[36m |   |__|__|__|__|__|__|__|              |\\u001b[0m",
+            "\\u001b[31m '---------------------------------------'\\u001b[0m"
+          ]
+        },
+        "plain": {
+          "enabled": true,
+          "lines": [
+            " .---------------------------------------.",
+            " |  ACCESS NODE // HACK INTERFACE READY  |",
+            " |  [:::::: TERMINAL ::::::]             |",
+            " |    __ __ __ __ __ __ __               |",
+            " |   |__|__|__|__|__|__|__|              |",
+            " '---------------------------------------'"
+          ]
+        }
+      }
+    },
+    "discover_core_v1": {
+      "id": "discover_core_v1",
+      "title": "Core Discovery",
+      "status": "active",
+      "zones": [
+        "discover.core.first_contact"
+      ],
+      "usage": [
+        "core_discovery"
+      ],
+      "recommended_width": 36,
+      "recommended_alignment": "left",
+      "tags": [
+        "core",
+        "discovery",
+        "vault"
+      ],
+      "variants": {
+        "ansi": {
+          "enabled": true,
+          "lines": [
+            "\\u001b[31m  >>> CORE SIGNATURE DETECTED <<<\\u001b[0m",
+            "\\u001b[95m      ______________________\\u001b[0m",
+            "\\u001b[36m     /  CENTRAL CORE VAULT  \\u001b[0m",
+            "\\u001b[36m    |   [//// NEURAL BUS]   |\\u001b[0m",
+            "\\u001b[33m    |   [//// POWER GRID]   |\\u001b[0m",
+            "\\u001b[31m     \\______________________/\\u001b[0m"
+          ]
+        },
+        "plain": {
+          "enabled": true,
+          "lines": [
+            "  >>> CORE SIGNATURE DETECTED <<<",
+            "      ______________________",
+            "     /  CENTRAL CORE VAULT  \\",
+            "    |   [//// NEURAL BUS]   |",
+            "    |   [//// POWER GRID]   |",
+            "     \\______________________/"
+          ]
+        }
+      }
+    },
+    "template_ascii_art_id": {
+      "id": "template_ascii_art_id",
+      "title": "Template Entry",
+      "status": "template",
+      "zones": [
+        "template"
+      ],
+      "usage": [
+        "replace_with_real_context"
+      ],
+      "recommended_width": 70,
+      "recommended_alignment": "left",
+      "tags": [
+        "template"
+      ],
+      "variants": {
+        "ansi": {
+          "enabled": false,
+          "lines": []
+        },
+        "plain": {
+          "enabled": false,
+          "lines": []
+        }
+      }
+    }
+  }
+}

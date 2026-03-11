@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import random
+from termfx import color as color_text
 
 
 def current_room(world, player):
@@ -47,12 +48,17 @@ def get_echo_marker(room):
     return None
 
 
-def describe(world, player, tr):
+def describe(world, player, tr, on_enemy_encounter=None, on_core_discovered=None):
     room = current_room(world, player)
-    if not room.visited:
+    first_visit = not room.visited
+    if first_visit:
         print(f"\n{room.desc}")
         room.visited = True
         player['rooms_visited'] += 1
+        if room.enemy and callable(on_enemy_encounter):
+            on_enemy_encounter(room.enemy)
+        if room.core and callable(on_core_discovered):
+            on_core_discovered()
     if room.enemy:
         print(tr("describe.enemy_present", enemy=room.enemy))
         if room.enemy == "CORE Sentinel":
@@ -62,14 +68,14 @@ def describe(world, player, tr):
     if room.terminal:
         print(tr("describe.terminal"))
     if room.item:
-        print(tr("describe.item_visible", item=room.item))
+        print(color_text(tr("describe.item_visible", item=room.item), "red"))
     if room.rom_fragment:
-        print(tr("describe.fragment_visible", fragment_id=room.rom_fragment['id']))
+        print(color_text(tr("describe.fragment_visible", fragment_id=room.rom_fragment['id']), "red"))
     if room.core:
         print(tr("describe.core_detected"))
 
 
-def move(world, player, width, height, dx, dy, tr, on_enemy_turn):
+def move(world, player, width, height, dx, dy, tr, on_enemy_turn, on_enemy_encounter=None, on_core_discovered=None):
     room = current_room(world, player)
     if room.locked:
         print(tr("move.locked_exit"))
@@ -80,7 +86,13 @@ def move(world, player, width, height, dx, dy, tr, on_enemy_turn):
         player['x'] = nx
         player['y'] = ny
         on_enemy_turn()
-        describe(world, player, tr)
+        describe(
+            world,
+            player,
+            tr,
+            on_enemy_encounter=on_enemy_encounter,
+            on_core_discovered=on_core_discovered,
+        )
     else:
         print(tr("move.wall"))
 
@@ -95,7 +107,7 @@ def scan(world, player, tr, tr_value, world_rules, effective_energy_cost, on_ene
     if random.random() < world_rules.get('scan_item_discovery_chance', 0.35) and not room.item:
         hidden = random.choice(tr_value("content.items"))
         room.item = hidden
-        print(tr("scan.object_found", item=hidden))
+        print(color_text(tr("scan.object_found", item=hidden), "red"))
         found = True
     if room.locked:
         print(tr("scan.lock_pulse"))
@@ -104,7 +116,7 @@ def scan(world, player, tr, tr_value, world_rules, effective_energy_cost, on_ene
         print(tr("scan.ports_open"))
         found = True
     if room.rom_fragment:
-        print(tr("scan.rom_signature"))
+        print(color_text(tr("scan.rom_signature"), "red"))
         found = True
     if not found:
         print(tr("scan.nothing"))

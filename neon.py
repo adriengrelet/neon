@@ -4,6 +4,7 @@ import os
 import sys
 import time
 import json
+from termfx import color as color_text, color_choice_line, normalize_ansi_escapes, supports_ansi
 from console import launch_console
 from player_manage import (
     load_or_create_player_profile as pm_load_or_create_player_profile,
@@ -58,13 +59,10 @@ DIFFICULTY_MULTIPLIER = 1
 ROM_BONUS_SCORE = 15000
 SAVES_DIR = "saves"
 
-INTRO_ASCII_ART = r"""
- _   _ _____ ___  _   _    ____ ___  ____  _____
-| \ | | ____/ _ \| \ | |  / ___/ _ \|  _ \| ____|
-|  \| |  _|| | | |  \| | | |  | | | | |_) |  _|
-| |\  | |__| |_| | |\  | | |__| |_| |  _ <| |___
-|_| \_|_____\___/|_| \_|  \____\___/|_| \_\_____|
-"""
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+ASCII_ART_REGISTRY_PATH = os.path.join(BASE_DIR, "ascii_art_registry.json")
+INTRO_ASCII_ART_ID = "intro_neon_core_v1"
+ASCII_ART_REGISTRY_CACHE = None
 
 DEFAULT_LANGUAGE = "fr"
 CURRENT_LANGUAGE = DEFAULT_LANGUAGE
@@ -76,7 +74,7 @@ LANGUAGE_LABELS = {
     "es": "Espanol",
 }
 
-LANG_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "lang")
+LANG_DIR = os.path.join(BASE_DIR, "lang")
 
 
 def load_translations():
@@ -93,6 +91,148 @@ def load_translations():
         except (OSError, json.JSONDecodeError):
             loaded[code] = {}
     return loaded
+
+
+def load_ascii_art_registry(force_reload=False):
+    global ASCII_ART_REGISTRY_CACHE
+    if not force_reload and isinstance(ASCII_ART_REGISTRY_CACHE, dict):
+        return ASCII_ART_REGISTRY_CACHE
+
+    try:
+        with open(ASCII_ART_REGISTRY_PATH, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        if isinstance(data, dict):
+            ASCII_ART_REGISTRY_CACHE = data
+            return ASCII_ART_REGISTRY_CACHE
+    except (OSError, json.JSONDecodeError):
+        pass
+
+    ASCII_ART_REGISTRY_CACHE = {}
+    return ASCII_ART_REGISTRY_CACHE
+
+
+def terminal_supports_ansi():
+    return supports_ansi()
+
+
+def normalize_ansi_sequences(text):
+    return normalize_ansi_escapes(text)
+
+
+def menu_text(text):
+    return color_choice_line(text)
+
+
+def stats_text(text):
+    return color_text(text, "yellow")
+
+
+def format_mail_with_colored_timestamp(mail_text):
+    timestamp_prefix = f"{tr('quest.mail.timestamp')}:"
+    lines = []
+    for line in str(mail_text).splitlines():
+        if line.startswith(timestamp_prefix):
+            lines.append(color_text(line, "green"))
+        else:
+            lines.append(line)
+    return "\n".join(lines)
+
+
+def get_ascii_art_text(art_id, prefer_ansi=True):
+    registry = load_ascii_art_registry()
+    artworks = registry.get("artworks", {})
+    if not isinstance(artworks, dict):
+        return ""
+
+    entry = artworks.get(art_id)
+    if not isinstance(entry, dict):
+        return ""
+
+    variants = entry.get("variants", {})
+    if not isinstance(variants, dict):
+        return ""
+
+    if prefer_ansi:
+        variant_order = registry.get("default_variant_order", ["ansi", "plain"])
+        if not isinstance(variant_order, list):
+            variant_order = ["ansi", "plain"]
+    else:
+        variant_order = ["plain", "ansi"]
+
+    for variant_name in variant_order:
+        variant = variants.get(variant_name)
+        if not isinstance(variant, dict):
+            continue
+        if variant.get("enabled") is False:
+            continue
+        lines = variant.get("lines")
+        if isinstance(lines, list) and lines:
+            text = "\n".join(str(line) for line in lines)
+            if variant_name == "ansi":
+                text = normalize_ansi_sequences(text)
+            return text
+
+    return ""
+
+
+def get_ascii_art_id_for_zone(zone_key, fallback_id=""):
+    registry = load_ascii_art_registry()
+    zone_index = registry.get("zone_index", {})
+    if not isinstance(zone_index, dict):
+        return fallback_id
+
+    zone_id = zone_index.get(zone_key)
+    if isinstance(zone_id, str) and zone_id.strip():
+        return zone_id
+    return fallback_id
+
+
+def print_ascii_art_by_id(art_id, prefer_ansi=True):
+    if not art_id:
+        return False
+
+    use_ansi = bool(prefer_ansi and terminal_supports_ansi())
+    art = get_ascii_art_text(art_id, prefer_ansi=use_ansi)
+    if not art and use_ansi:
+        art = get_ascii_art_text(art_id, prefer_ansi=False)
+    if not art:
+        return False
+
+    print(art)
+    return True
+
+
+def enemy_zone_key(enemy_name):
+    enemy = str(enemy_name or "").strip().lower()
+    if not enemy:
+        return "encounter.enemy.default"
+    if "core sentinel" in enemy:
+        return "encounter.enemy.core_sentinel"
+    if "proxy" in enemy:
+        return "encounter.enemy.proxy_hunter"
+    if "sentry" in enemy or "sentinela" in enemy or "sentinella" in enemy:
+        return "encounter.enemy.sentry_bot"
+    if "guard" in enemy or "guardia" in enemy:
+        return "encounter.enemy.guard"
+    if "drone" in enemy or enemy.startswith("dron"):
+        return "encounter.enemy.drone"
+    return "encounter.enemy.default"
+
+
+def show_enemy_encounter_ascii(enemy_name):
+    zone_key = enemy_zone_key(enemy_name)
+    art_id = get_ascii_art_id_for_zone(zone_key, fallback_id="enemy_unknown_v1")
+    print_ascii_art_by_id(art_id, prefer_ansi=True)
+
+
+def show_hack_request_ascii():
+    art_id = get_ascii_art_id_for_zone("action.hack.request", fallback_id="hack_terminal_request_v1")
+    print_ascii_art_by_id(art_id, prefer_ansi=True)
+
+
+def show_core_discovery_ascii():
+    art_id = get_ascii_art_id_for_zone("discover.core.first_contact", fallback_id="discover_core_v1")
+    print_ascii_art_by_id(art_id, prefer_ansi=True)
 
 
 TRANSLATIONS = load_translations()
@@ -165,18 +305,18 @@ def get_intro_text():
 
 def choose_language():
     global CURRENT_LANGUAGE
-    print("\n=== LANGUAGE SELECTION ===")
-    print("Available codes:")
+    print("\n" + menu_text("=== LANGUAGE SELECTION ==="))
+    print(menu_text("Available codes:"))
     for code in SUPPORTED_LANGUAGES:
-        print(f"- {code} : {LANGUAGE_LABELS[code]}")
+        print(menu_text(f"- {code} : {LANGUAGE_LABELS[code]}"))
 
     while True:
-        choice = input("Language (fr/en/it/es) > ").strip().lower()
+        choice = input(menu_text("Language (fr/en/it/es) > ")).strip().lower()
         if choice in SUPPORTED_LANGUAGES:
             CURRENT_LANGUAGE = choice
-            print(f"Active language: {choice} ({LANGUAGE_LABELS[choice]})")
+            print(menu_text(f"Active language: {choice} ({LANGUAGE_LABELS[choice]})"))
             return
-        print("Invalid code. Use fr, en, it, es.")
+        print(menu_text("Invalid code. Use fr, en, it, es."))
 
 
 def load_or_create_player_profile(name):
@@ -255,13 +395,13 @@ def effective_energy_cost(base_cost):
 
 def choose_difficulty():
     global HACK_TIME, COMBAT_TIME, REFLEX_TIME, DIFFICULTY_MULTIPLIER
-    print("\n" + tr("startup.difficulty_title"))
-    print(tr("startup.difficulty_1"))
-    print(tr("startup.difficulty_2"))
-    print(tr("startup.difficulty_3"))
-    print(tr("startup.difficulty_4"))
+    print("\n" + menu_text(tr("startup.difficulty_title")))
+    print(menu_text(tr("startup.difficulty_1")))
+    print(menu_text(tr("startup.difficulty_2")))
+    print(menu_text(tr("startup.difficulty_3")))
+    print(menu_text(tr("startup.difficulty_4")))
 
-    difficulty = input(tr("startup.difficulty_prompt")).strip()
+    difficulty = input(menu_text(tr("startup.difficulty_prompt"))).strip()
     if difficulty == '1':
         HACK_TIME = 60
         COMBAT_TIME = 10
@@ -283,7 +423,7 @@ def choose_difficulty():
         REFLEX_TIME = 3
         DIFFICULTY_MULTIPLIER = 4
     else:
-        print(tr("startup.difficulty_invalid"))
+        print(menu_text(tr("startup.difficulty_invalid")))
         HACK_TIME = 30
         COMBAT_TIME = 4
         REFLEX_TIME = 2
@@ -298,21 +438,21 @@ def evolution_menu():
     while True:
         pm_ensure_progression(player_profile)
         attrs = player_profile.get('attributes', {})
-        print("\n" + tr("startup.evo.title", default="=== EVOLUTION ==="))
-        print(tr(
+        print("\n" + menu_text(tr("startup.evo.title", default="=== EVOLUTION ===")))
+        print(menu_text(tr(
             "startup.evo.level",
             default="Level {level} | XP {xp}/{req} | Points: {points}",
             level=int(player_profile.get('level', 1)),
             xp=int(player_profile.get('xp_in_level', 0)),
             req=int(player_profile.get('xp_next_level_requirement', 12000)),
             points=int(player_profile.get('evolution_points', 0)),
-        ))
-        print(tr("startup.evo.vitality", default="1. Vitality (+5 max HP)") + f" [{int(attrs.get('vitality', 0))}]")
-        print(tr("startup.evo.endurance", default="2. Endurance (+5 max EN, -1% energy costs)") + f" [{int(attrs.get('endurance', 0))}]")
-        print(tr("startup.evo.intrusion", default="3. Intrusion (+2 base HK)") + f" [{int(attrs.get('intrusion', 0))}]")
-        print(tr("startup.evo.composure", default="4. Composure (+1 alarm cap each 3 pts)") + f" [{int(attrs.get('composure', 0))}]")
-        print(tr("startup.evo.back", default="0. Back"))
-        choice = input(tr("startup.evo.prompt", default="Choice > ")).strip()
+        )))
+        print(menu_text(tr("startup.evo.vitality", default="1. Vitality (+5 max HP)") + f" [{int(attrs.get('vitality', 0))}]"))
+        print(menu_text(tr("startup.evo.endurance", default="2. Endurance (+5 max EN, -1% energy costs)") + f" [{int(attrs.get('endurance', 0))}]"))
+        print(menu_text(tr("startup.evo.intrusion", default="3. Intrusion (+2 base HK)") + f" [{int(attrs.get('intrusion', 0))}]"))
+        print(menu_text(tr("startup.evo.composure", default="4. Composure (+1 alarm cap each 3 pts)") + f" [{int(attrs.get('composure', 0))}]"))
+        print(menu_text(tr("startup.evo.back", default="0. Back")))
+        choice = input(menu_text(tr("startup.evo.prompt", default="Choice > "))).strip()
         key_map = {
             '1': 'vitality',
             '2': 'endurance',
@@ -324,7 +464,7 @@ def evolution_menu():
             return
         attr_key = key_map.get(choice)
         if not attr_key:
-            print(tr("startup.evo.invalid", default="Invalid choice."))
+            print(menu_text(tr("startup.evo.invalid", default="Invalid choice.")))
             continue
         if pm_allocate_attribute_point(player_profile, attr_key):
             pm_save_player_profile(player_profile, player_profile_path)
@@ -341,18 +481,18 @@ def startup_hub(selected_structure, mail_data):
     mission_pack_applied = False
 
     while True:
-        print("\n" + tr("startup.hub.title", default="=== PRE-RUN HUB ==="))
+        print("\n" + menu_text(tr("startup.hub.title", default="=== PRE-RUN HUB ===")))
         if selected_structure:
-            print(tr("startup.hub.new_mail", default="You have a new mail."))
-        print(tr("startup.hub.opt_mail", default="1. Read mission mail"))
-        print(tr("startup.hub.opt_console", default="2. Open personal console"))
-        print(tr("startup.hub.opt_shop", default="3. Pre-run shop"))
-        print(tr("startup.hub.opt_evo", default="4. Evolution"))
-        print(tr("startup.hub.opt_run", default="5. Quick run"))
+            print(menu_text(tr("startup.hub.new_mail", default="You have a new mail.")))
+        print(menu_text(tr("startup.hub.opt_mail", default="1. Read mission mail")))
+        print(menu_text(tr("startup.hub.opt_console", default="2. Open personal console")))
+        print(menu_text(tr("startup.hub.opt_shop", default="3. Pre-run shop")))
+        print(menu_text(tr("startup.hub.opt_evo", default="4. Evolution")))
+        print(menu_text(tr("startup.hub.opt_run", default="5. Quick run")))
         if mission_ready:
-            print(tr("startup.hub.opt_run_mail", default="6. Run Mission Mail"))
-        print(tr("startup.hub.opt_quit", default="0. QUIT GAME"))
-        choice = input(tr("startup.hub.prompt", default="Choice > ")).strip()
+            print(menu_text(tr("startup.hub.opt_run_mail", default="6. Run Mission Mail")))
+        print(menu_text(tr("startup.hub.opt_quit", default="0. QUIT GAME")))
+        choice = input(menu_text(tr("startup.hub.prompt", default="Choice > "))).strip()
 
         if choice == '1':
             if selected_structure is None or mail_data is None:
@@ -360,10 +500,10 @@ def startup_hub(selected_structure, mail_data):
                 continue
             seen_mail = True
             print("\n" + tr("quest.mail.title"))
-            print(mail_data['text'])
+            print(format_mail_with_colored_timestamp(mail_data['text']))
             mail_path = copy_mail_to_console(CURRENT_LANGUAGE, mail_data)
             print("\n" + tr("quest.mail.copied", path=mail_path))
-            infiltrate = input("\n" + tr("quest.infiltrate_prompt")).strip().lower()
+            infiltrate = input("\n" + menu_text(tr("quest.infiltrate_prompt"))).strip().lower()
             if infiltrate == 'y':
                 mission_ready = True
                 mission_modifiers = dict(mail_data.get('modifiers', {}))
@@ -409,14 +549,14 @@ def startup_hub(selected_structure, mail_data):
         elif choice == '0':
             return {}, [], True
         else:
-            print(tr("startup.hub.invalid", default="Invalid choice."))
+            print(menu_text(tr("startup.hub.invalid", default="Invalid choice.")))
 
 
 def show_status_line():
     if SHOW_STATUS_LINE:
         normalize_primary_stats()
         normalize_credits()
-        print(tr(
+        print(stats_text(tr(
             "statusline.compact",
             hp=player['hp'],
             energy=player['energy'],
@@ -424,7 +564,7 @@ def show_status_line():
             alarm=player['alarm'],
             credits=player['credits'],
             fragments=len(player['rom_fragments']),
-        ))
+        )))
 
 
 def show_leaderboard():
@@ -500,7 +640,7 @@ def fragments_menu():
                 print(tr("quest.discovery.target", structure_id=next_structure.get('id'), title=next_structure.get('title')))
                 print(tr("quest.discovery.note", path=note_path))
             player['next_structure_unlocked'] = True
-        read_story = input(tr("fragments.read_prompt")).strip().lower()
+        read_story = input(menu_text(tr("fragments.read_prompt"))).strip().lower()
         if read_story == 'y':
             show_story_log(story)
     else:
@@ -510,21 +650,21 @@ def fragments_menu():
 def status():
     normalize_primary_stats()
     normalize_credits()
-    print("\n" + tr("status.title"))
+    print("\n" + stats_text(tr("status.title")))
     if player['synaptique_bought']:
-        print(tr("status.synaptique"))
+        print(stats_text(tr("status.synaptique")))
     if player['surcharge_bought']:
-        print(tr("status.surcharge"))
+        print(stats_text(tr("status.surcharge")))
     if player['interface_bought']:
-        print(tr("status.interface"))
+        print(stats_text(tr("status.interface")))
     if player['combat_chip_bought']:
-        print(tr("status.combat_chip"))
+        print(stats_text(tr("status.combat_chip")))
     if player['force_bought']:
-        print(tr("status.force"))
+        print(stats_text(tr("status.force")))
     if player['vitesse_bought']:
-        print(tr("status.vitesse"))
+        print(stats_text(tr("status.vitesse")))
     if player['energy_dissipator_bought']:
-        print(tr("status.dissipateur"))
+        print(stats_text(tr("status.dissipateur")))
     if not any([
         player['synaptique_bought'],
         player['surcharge_bought'],
@@ -534,7 +674,7 @@ def status():
         player['vitesse_bought'],
         player['energy_dissipator_bought'],
     ]):
-        print(tr("status.none"))
+        print(stats_text(tr("status.none")))
     pm_show_runtime_player_stats(player, tr, normalize_primary_stats, normalize_credits)
 
 
@@ -602,7 +742,9 @@ def core_check():
 
 def main():
     clear()
-    print(INTRO_ASCII_ART)
+    intro_art_id = get_ascii_art_id_for_zone("startup.intro", fallback_id=INTRO_ASCII_ART_ID)
+    intro_art = get_ascii_art_text(intro_art_id, prefer_ansi=terminal_supports_ansi())
+    print(intro_art if intro_art else "NEON CORE")
     choose_language()
     print(tr("startup.launching"))
     global world, player, player_name, core_x, core_y, HACK_TIME, COMBAT_TIME, REFLEX_TIME, DIFFICULTY_MULTIPLIER, player_profile, player_profile_path, WORLD_RULES, ALARM_THRESHOLD, ALARM_MAX, MEGASTRUCTURES
@@ -723,7 +865,13 @@ def main():
 
         intro()
         print("\n" + tr("main.story_channel", story_id=player['active_story']['id']))
-        world_describe(world, player, tr)
+        world_describe(
+            world,
+            player,
+            tr,
+            on_enemy_encounter=show_enemy_encounter_ascii,
+            on_core_discovered=show_core_discovery_ascii,
+        )
 
         def do_enemy_turn():
             run_enemy_turn(
@@ -783,6 +931,8 @@ def main():
                     -1,
                     tr,
                     do_enemy_turn,
+                    on_enemy_encounter=show_enemy_encounter_ascii,
+                    on_core_discovered=show_core_discovery_ascii,
                 )
             elif cmd in ('south', 's'):
                 world_move(
@@ -794,6 +944,8 @@ def main():
                     1,
                     tr,
                     do_enemy_turn,
+                    on_enemy_encounter=show_enemy_encounter_ascii,
+                    on_core_discovered=show_core_discovery_ascii,
                 )
             elif cmd in ('east', 'e'):
                 world_move(
@@ -805,6 +957,8 @@ def main():
                     0,
                     tr,
                     do_enemy_turn,
+                    on_enemy_encounter=show_enemy_encounter_ascii,
+                    on_core_discovered=show_core_discovery_ascii,
                 )
             elif cmd in ('west', 'w'):
                 world_move(
@@ -816,6 +970,8 @@ def main():
                     0,
                     tr,
                     do_enemy_turn,
+                    on_enemy_encounter=show_enemy_encounter_ascii,
+                    on_core_discovered=show_core_discovery_ascii,
                 )
             elif cmd in ('scan', 'sc'):
                 world_scan(
@@ -831,6 +987,7 @@ def main():
                 world_echo_scan(world, player, WIDTH, HEIGHT, tr, effective_energy_cost)
                 world_draw_map(world, player, WIDTH, HEIGHT, tr, show_legend=True)
             elif cmd in ('hack', 'h'):
+                show_hack_request_ascii()
                 run_hack(
                     player=player,
                     world=world,

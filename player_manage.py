@@ -4,6 +4,7 @@ import re
 import json
 import time
 from datetime import datetime
+from termfx import color as color_text
 
 
 ATTRIBUTE_KEYS = ("vitality", "endurance", "intrusion", "composure")
@@ -394,20 +395,20 @@ def show_runtime_player_stats(player, tr, normalize_primary_stats, normalize_cre
     normalize_primary_stats()
     normalize_credits()
     attrs = player.get('profile_attributes', {})
-    print("\n" + tr("status.characteristics"))
-    print(
+    print("\n" + color_text(tr("status.characteristics"), "yellow"))
+    print(color_text(
         f"\nHP:{player['hp']}/{int(player.get('max_hp', 100))} "
         f"EN:{player['energy']}/{int(player.get('max_energy', 100))} "
         f"HK:{player['hack']} AL:{player['alarm']} CR:{player['credits']}"
-    )
-    print(
+    , "yellow"))
+    print(color_text(
         "ATTR "
         f"VIT:{int(attrs.get('vitality', 0))} "
         f"END:{int(attrs.get('endurance', 0))} "
         f"INT:{int(attrs.get('intrusion', 0))} "
         f"COM:{int(attrs.get('composure', 0))}"
-    )
-    print(tr("status.fragments", count=len(player['rom_fragments'])))
+    , "yellow"))
+    print(color_text(tr("status.fragments", count=len(player['rom_fragments'])), "yellow"))
 
 
 def save_run_score(
