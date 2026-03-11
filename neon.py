@@ -3,12 +3,7 @@ import random
 import os
 import sys
 import time
-from datetime import datetime
-
-from fr import TRANSLATIONS_FR
-from en import TRANSLATIONS_EN
-from it import TRANSLATIONS_IT
-from es import TRANSLATIONS_ES
+import json
 from console import launch_console
 from player_manage import (
     load_or_create_player_profile as pm_load_or_create_player_profile,
@@ -18,6 +13,14 @@ from player_manage import (
     get_bank_inventory_for_run as pm_get_bank_inventory_for_run,
     sync_profile_inventory_from_player as pm_sync_profile_inventory_from_player,
     build_profile_lines,
+    ensure_progression as pm_ensure_progression,
+    allocate_attribute_point as pm_allocate_attribute_point,
+    get_profile_attribute_bonuses as pm_get_profile_attribute_bonuses,
+    take_from_room as pm_take_from_room,
+    use_inventory_item as pm_use_inventory_item,
+    show_inventory as pm_show_inventory,
+    show_runtime_player_stats as pm_show_runtime_player_stats,
+    save_run_score as pm_save_run_score,
 )
 from shop import run_pre_run_shop, run_in_game_shop, apply_upgrade_ids_to_player
 from hack import run_hack
@@ -32,6 +35,15 @@ from quest import (
     apply_starter_pack_to_profile,
     unlock_next_structure,
     copy_discovery_to_console,
+)
+from world import (
+    current_room as world_current_room,
+    draw_map as world_draw_map,
+    get_echo_marker as world_get_echo_marker,
+    describe as world_describe,
+    move as world_move,
+    scan as world_scan,
+    echo_scan as world_echo_scan,
 )
 
 WIDTH = 7
@@ -64,12 +76,26 @@ LANGUAGE_LABELS = {
     "es": "Espanol",
 }
 
-TRANSLATIONS = {
-    "fr": TRANSLATIONS_FR,
-    "en": TRANSLATIONS_EN,
-    "it": TRANSLATIONS_IT,
-    "es": TRANSLATIONS_ES,
-}
+LANG_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "lang")
+
+
+def load_translations():
+    loaded = {}
+    for code in SUPPORTED_LANGUAGES:
+        path = os.path.join(LANG_DIR, f"{code}.json")
+        try:
+            with open(path, "r", encoding="utf-8") as f:
+                data = json.load(f)
+            if isinstance(data, dict):
+                loaded[code] = data
+            else:
+                loaded[code] = {}
+        except (OSError, json.JSONDecodeError):
+            loaded[code] = {}
+    return loaded
+
+
+TRANSLATIONS = load_translations()
 
 HEX_VALUES = ['7A', '3F', '9C', 'BD', 'E1', '55', '2D', '8B', '4E', 'AA', '6C', 'F2', '1D', 'C7', 'B4', '0F', 'D9', 'A3', '5E', '91']
 player_profile = None
@@ -170,17 +196,6 @@ def update_profile_after_run(status, duration, end_reason=None, score=0):
     )
 
 
-def pre_run_shop():
-    global player_profile, player_profile_path
-    return run_pre_run_shop(
-        player_profile,
-        player_profile_path,
-        tr,
-        pm_save_player_profile,
-        format_inventory_counts,
-    )
-
-
 def get_bank_inventory_for_run():
     return pm_get_bank_inventory_for_run(player_profile)
 
@@ -223,16 +238,178 @@ def normalize_credits():
 
 
 def normalize_primary_stats():
-    player['hp'] = min(100, round_int(player['hp']))
-    player['energy'] = max(0, min(100, round_int(player['energy'])))
+    max_hp = int(player.get('max_hp', 100))
+    max_energy = int(player.get('max_energy', 100))
+    player['hp'] = min(max_hp, round_int(player['hp']))
+    player['energy'] = max(0, min(max_energy, round_int(player['energy'])))
     player['hack'] = min(100, round_int(player['hack']))
 
 
 def effective_energy_cost(base_cost):
-    scaled_cost = max(1, round_int(base_cost * WORLD_RULES.get('energy_cost_scale', 1.0)))
+    profile_scale = float(player.get('endurance_energy_scale', 1.0))
+    scaled_cost = max(1, round_int(base_cost * WORLD_RULES.get('energy_cost_scale', 1.0) * profile_scale))
     if player.get('energy_dissipator_bought'):
         return max(1, scaled_cost // 2)
     return scaled_cost
+
+
+def choose_difficulty():
+    global HACK_TIME, COMBAT_TIME, REFLEX_TIME, DIFFICULTY_MULTIPLIER
+    print("\n" + tr("startup.difficulty_title"))
+    print(tr("startup.difficulty_1"))
+    print(tr("startup.difficulty_2"))
+    print(tr("startup.difficulty_3"))
+    print(tr("startup.difficulty_4"))
+
+    difficulty = input(tr("startup.difficulty_prompt")).strip()
+    if difficulty == '1':
+        HACK_TIME = 60
+        COMBAT_TIME = 10
+        REFLEX_TIME = 6
+        DIFFICULTY_MULTIPLIER = 1
+    elif difficulty == '2':
+        HACK_TIME = 45
+        COMBAT_TIME = 6
+        REFLEX_TIME = 4
+        DIFFICULTY_MULTIPLIER = 2
+    elif difficulty == '3':
+        HACK_TIME = 30
+        COMBAT_TIME = 4
+        REFLEX_TIME = 2
+        DIFFICULTY_MULTIPLIER = 3
+    elif difficulty == '4':
+        HACK_TIME = 20
+        COMBAT_TIME = 3
+        REFLEX_TIME = 3
+        DIFFICULTY_MULTIPLIER = 4
+    else:
+        print(tr("startup.difficulty_invalid"))
+        HACK_TIME = 30
+        COMBAT_TIME = 4
+        REFLEX_TIME = 2
+        DIFFICULTY_MULTIPLIER = 3
+
+
+def evolution_menu():
+    global player_profile
+    if player_profile is None or player_profile_path is None:
+        return
+
+    while True:
+        pm_ensure_progression(player_profile)
+        attrs = player_profile.get('attributes', {})
+        print("\n" + tr("startup.evo.title", default="=== EVOLUTION ==="))
+        print(tr(
+            "startup.evo.level",
+            default="Level {level} | XP {xp}/{req} | Points: {points}",
+            level=int(player_profile.get('level', 1)),
+            xp=int(player_profile.get('xp_in_level', 0)),
+            req=int(player_profile.get('xp_next_level_requirement', 12000)),
+            points=int(player_profile.get('evolution_points', 0)),
+        ))
+        print(tr("startup.evo.vitality", default="1. Vitality (+5 max HP)") + f" [{int(attrs.get('vitality', 0))}]")
+        print(tr("startup.evo.endurance", default="2. Endurance (+5 max EN, -1% energy costs)") + f" [{int(attrs.get('endurance', 0))}]")
+        print(tr("startup.evo.intrusion", default="3. Intrusion (+2 base HK)") + f" [{int(attrs.get('intrusion', 0))}]")
+        print(tr("startup.evo.composure", default="4. Composure (+1 alarm cap each 3 pts)") + f" [{int(attrs.get('composure', 0))}]")
+        print(tr("startup.evo.back", default="0. Back"))
+        choice = input(tr("startup.evo.prompt", default="Choice > ")).strip()
+        key_map = {
+            '1': 'vitality',
+            '2': 'endurance',
+            '3': 'intrusion',
+            '4': 'composure',
+        }
+        if choice == '0':
+            pm_save_player_profile(player_profile, player_profile_path)
+            return
+        attr_key = key_map.get(choice)
+        if not attr_key:
+            print(tr("startup.evo.invalid", default="Invalid choice."))
+            continue
+        if pm_allocate_attribute_point(player_profile, attr_key):
+            pm_save_player_profile(player_profile, player_profile_path)
+            print(tr("startup.evo.applied", default="Attribute point invested."))
+        else:
+            print(tr("startup.evo.no_points", default="No evolution points available."))
+
+
+def startup_hub(selected_structure, mail_data):
+    mission_modifiers = {}
+    pending_pre_run_upgrades = []
+    seen_mail = False
+    mission_ready = False
+    mission_pack_applied = False
+
+    while True:
+        print("\n" + tr("startup.hub.title", default="=== PRE-RUN HUB ==="))
+        if selected_structure:
+            print(tr("startup.hub.new_mail", default="You have a new mail."))
+        print(tr("startup.hub.opt_mail", default="1. Read mission mail"))
+        print(tr("startup.hub.opt_console", default="2. Open personal console"))
+        print(tr("startup.hub.opt_shop", default="3. Pre-run shop"))
+        print(tr("startup.hub.opt_evo", default="4. Evolution"))
+        print(tr("startup.hub.opt_run", default="5. Quick run"))
+        if mission_ready:
+            print(tr("startup.hub.opt_run_mail", default="6. Run Mission Mail"))
+        print(tr("startup.hub.opt_quit", default="0. QUIT GAME"))
+        choice = input(tr("startup.hub.prompt", default="Choice > ")).strip()
+
+        if choice == '1':
+            if selected_structure is None or mail_data is None:
+                print(tr("startup.hub.no_mail", default="No mission mail available."))
+                continue
+            seen_mail = True
+            print("\n" + tr("quest.mail.title"))
+            print(mail_data['text'])
+            mail_path = copy_mail_to_console(CURRENT_LANGUAGE, mail_data)
+            print("\n" + tr("quest.mail.copied", path=mail_path))
+            infiltrate = input("\n" + tr("quest.infiltrate_prompt")).strip().lower()
+            if infiltrate == 'y':
+                mission_ready = True
+                mission_modifiers = dict(mail_data.get('modifiers', {}))
+                if not mission_pack_applied:
+                    apply_starter_pack_to_profile(
+                        player_profile,
+                        player_profile_path,
+                        pm_save_player_profile,
+                        mail_data.get('starter_credits', 0),
+                        mail_data.get('starter_items', []),
+                    )
+                    mission_pack_applied = True
+                    print("\n" + tr("quest.mission_pack"))
+                print("\n" + tr("startup.hub.mission_ready", default="Mission ready. You can now choose 6. Run Mission Mail."))
+            else:
+                if mission_ready:
+                    print("\n" + tr("startup.hub.mission_still_ready", default="Mission remains armed. Choose 6. Run Mission Mail when ready."))
+                else:
+                    mission_modifiers = {}
+                    print("\n" + tr("quest.mission_skipped"))
+        elif choice == '2':
+            open_personal_console()
+        elif choice == '3':
+            pending_pre_run_upgrades = run_pre_run_shop(
+                player_profile,
+                player_profile_path,
+                tr,
+                pm_save_player_profile,
+                format_inventory_counts,
+                ask_confirmation=False,
+            )
+        elif choice == '4':
+            evolution_menu()
+        elif choice == '5':
+            if selected_structure and not seen_mail:
+                print(tr("startup.hub.mail_reminder", default="You still have unread mission mail."))
+            return mission_modifiers, pending_pre_run_upgrades, False
+        elif choice == '6':
+            if not mission_ready:
+                print(tr("startup.hub.mission_not_ready", default="Read and accept mission mail first."))
+                continue
+            return mission_modifiers, pending_pre_run_upgrades, False
+        elif choice == '0':
+            return {}, [], True
+        else:
+            print(tr("startup.hub.invalid", default="Invalid choice."))
 
 
 def show_status_line():
@@ -280,145 +457,6 @@ def intro():
     show_leaderboard()
     print(get_intro_text())
     input(tr("intro.press_enter"))
-
-
-def current_room():
-    return world[player['y']][player['x']]
-
-
-def draw_map(show_legend=True):
-    print("\n" + tr("map.title"))
-    for y in range(HEIGHT):
-        line = ""
-        for x in range(WIDTH):
-            room = world[y][x]
-            if player['x'] == x and player['y'] == y:
-                line += "P "
-            elif room.core and room.visited:
-                line += "C "
-            elif room.visited:
-                line += ". "
-            elif room.echo_marker:
-                line += f"{room.echo_marker} "
-            else:
-                line += "# "
-        print(line)
-    if show_legend:
-        print("\n" + tr("map.legend"))
-
-
-def get_echo_marker(room):
-    signatures = 0
-    if room.enemy:
-        signatures += 1
-    if room.item:
-        signatures += 1
-    if room.rom_fragment:
-        signatures += 1
-
-    if signatures >= 2:
-        return 'M'
-    if room.enemy:
-        return 'E'
-    if room.item:
-        return 'L'
-    if room.rom_fragment:
-        return 'F'
-    return None
-
-
-def describe():
-    room = current_room()
-    if not room.visited:
-        print(f"\n{room.desc}")
-        room.visited = True
-        player['rooms_visited'] += 1
-    if room.enemy:
-        print(tr("describe.enemy_present", enemy=room.enemy))
-        if room.enemy == "CORE Sentinel":
-            print(tr("describe.core_hp", hp=room.enemy_hp))
-    if room.locked:
-        print(tr("describe.locked"))
-    if room.terminal:
-        print(tr("describe.terminal"))
-    if room.item:
-        print(tr("describe.item_visible", item=room.item))
-    if room.rom_fragment:
-        print(tr("describe.fragment_visible", fragment_id=room.rom_fragment['id']))
-    if room.core:
-        print(tr("describe.core_detected"))
-
-
-def move(dx, dy):
-    room = current_room()
-    if room.locked:
-        print(tr("move.locked_exit"))
-        return
-    nx = player['x'] + dx
-    ny = player['y'] + dy
-    if 0 <= nx < WIDTH and 0 <= ny < HEIGHT:
-        player['x'] = nx
-        player['y'] = ny
-        enemy_turn()
-        describe()
-    else:
-        print(tr("move.wall"))
-
-
-def scan():
-    room = current_room()
-    print(tr("scan.title"))
-    scan_cost = effective_energy_cost(random.randint(1, 10))
-    player['energy'] = max(0, player['energy'] - scan_cost)
-    print(tr("scan.cost", cost=scan_cost))
-    found = False
-    if random.random() < WORLD_RULES.get('scan_item_discovery_chance', 0.35) and not room.item:
-        hidden = random.choice(tr_value("content.items"))
-        room.item = hidden
-        print(tr("scan.object_found", item=hidden))
-        found = True
-    if room.locked:
-        print(tr("scan.lock_pulse"))
-        found = True
-    if room.terminal:
-        print(tr("scan.ports_open"))
-        found = True
-    if room.rom_fragment:
-        print(tr("scan.rom_signature"))
-        found = True
-    if not found:
-        print(tr("scan.nothing"))
-    enemy_turn()
-
-
-def echo_scan():
-    print(tr("echo.title"))
-    echo_cost = effective_energy_cost(random.randint(1, 10))
-    player['energy'] = max(0, player['energy'] - echo_cost)
-    print(tr("echo.cost", cost=echo_cost))
-
-    detected = 0
-    for dy in (-1, 0, 1):
-        for dx in (-1, 0, 1):
-            if dx == 0 and dy == 0:
-                continue
-            nx = player['x'] + dx
-            ny = player['y'] + dy
-            if 0 <= nx < WIDTH and 0 <= ny < HEIGHT:
-                room = world[ny][nx]
-                if room.visited:
-                    continue
-                marker = get_echo_marker(room)
-                if marker:
-                    detected += 1
-                room.echo_marker = marker
-
-    if detected:
-        print(tr("echo.detected", count=detected))
-    else:
-        print(tr("echo.none"))
-
-    draw_map(show_legend=True)
 
 
 def show_story_log(story):
@@ -469,110 +507,6 @@ def fragments_menu():
         print("\n" + tr("fragments.incomplete"))
 
 
-def hack():
-    run_hack(
-        player=player,
-        world=world,
-        width=WIDTH,
-        height=HEIGHT,
-        core_x=core_x,
-        core_y=core_y,
-        hex_values=HEX_VALUES,
-        hack_time=HACK_TIME,
-        difficulty_multiplier=DIFFICULTY_MULTIPLIER,
-        tr=tr,
-        tr_value=tr_value,
-        get_current_room=current_room,
-        get_echo_marker=get_echo_marker,
-        draw_map=draw_map,
-        effective_energy_cost=effective_energy_cost,
-        normalize_primary_stats=normalize_primary_stats,
-        normalize_credits=normalize_credits,
-        round_int=round_int,
-    )
-
-
-def attack():
-    run_attack(
-        player=player,
-        combat_time=COMBAT_TIME,
-        reflex_time=REFLEX_TIME,
-        tr=tr,
-        get_current_room=current_room,
-        normalize_primary_stats=normalize_primary_stats,
-    )
-
-
-def enemy_attack():
-    run_enemy_attack(
-        player=player,
-        tr=tr,
-        get_current_room=current_room,
-        normalize_primary_stats=normalize_primary_stats,
-    )
-
-
-def take():
-    room = current_room()
-    took_anything = False
-
-    if room.rom_fragment:
-        frag = room.rom_fragment
-        if frag['id'] not in player['rom_fragments']:
-            player['rom_fragments'].append(frag['id'])
-            print(tr("take.fragment", fragment_id=frag['id'], count=len(player['rom_fragments'])))
-        room.rom_fragment = None
-        took_anything = True
-
-    if room.item:
-        player['inventory'].append(room.item)
-        print(tr("take.item", item=room.item))
-        room.item = None
-        took_anything = True
-
-    if took_anything:
-        sync_profile_inventory_from_player()
-
-    if not took_anything:
-        print(tr("take.none"))
-
-
-def use(item):
-    aliases = {
-        'exploit': 'exploit_chip',
-        'energy': 'energy_cell'
-    }
-    item = aliases.get(item, item)
-
-    if item not in player['inventory']:
-        print(tr("use.absent"))
-        return
-    if item == 'medkit':
-        player['hp'] += 25
-    elif item == 'energy_cell':
-        player['energy'] += 25
-    elif item == 'exploit_chip':
-        player['hack'] += 10
-    normalize_primary_stats()
-    player['inventory'].remove(item)
-    sync_profile_inventory_from_player()
-    print(tr("use.used", item=item))
-
-
-def inventory():
-    print("\n" + tr("inventory.title"))
-    if not player['inventory']:
-        print(tr("inventory.empty"))
-        return
-    for obj in player['inventory']:
-        if obj == 'medkit':
-            print(tr("inventory.medkit"))
-        elif obj == 'energy_cell':
-            print(tr("inventory.energy_cell"))
-        elif obj == 'exploit_chip':
-            print(tr("inventory.exploit_chip"))
-
-
 def status():
     normalize_primary_stats()
     normalize_credits()
@@ -601,16 +535,7 @@ def status():
         player['energy_dissipator_bought'],
     ]):
         print(tr("status.none"))
-    print("\n" + tr("status.characteristics"))
-    print("\n" + tr(
-        "status.line",
-        hp=player['hp'],
-        energy=player['energy'],
-        hack=player['hack'],
-        alarm=player['alarm'],
-        credits=player['credits'],
-    ))
-    print(tr("status.fragments", count=len(player['rom_fragments'])))
+    pm_show_runtime_player_stats(player, tr, normalize_primary_stats, normalize_credits)
 
 
 def show_profile_stats(typewriter=False):
@@ -653,83 +578,24 @@ def open_personal_console():
     )
 
 
-def shop():
-    run_in_game_shop(
-        player,
-        tr,
-        normalize_credits,
-        sync_profile_inventory_from_player,
-        profile=player_profile,
-        profile_path=player_profile_path,
-        save_profile=pm_save_player_profile,
-    )
-
-
-def enemy_turn():
-    run_enemy_turn(
-        player=player,
-        alarm_threshold=ALARM_THRESHOLD,
-        reinforcement_chance=player.get('alarm_reinforcement_chance', 0.25),
-        tr=tr,
-        tr_value=tr_value,
-        get_current_room=current_room,
-    )
-
-
-def save_score(status="QUIT", end_reason=None):
-    normalize_primary_stats()
-    normalize_credits()
-    duration = int(time.time() - player['start_time'])
-    rom_bonus = ROM_BONUS_SCORE if len(player['rom_fragments']) == 3 else 0
-    base_score = (player['hp'] + player['energy']) * 10 + player['hack'] * 20 + player['credits'] * 10 + player['hacks_success'] * 200 - player['hacks_failed'] * 50 + player['rooms_visited'] * 100 - player['alarm'] * 20 + rom_bonus
-    time_bonus = max(0, (3600 - duration) // 60)  # 1 point per minute saved (max 60 points for instant finish)
-    hack_time_bonus = 0
-    if player['hacks_success'] > 0:
-        avg_hack_time = player['total_hack_time'] / player['hacks_success']
-        hack_time_bonus = max(0, (HACK_TIME - avg_hack_time) * 20)  # bonus for fast hacks
-    score = int((base_score + time_bonus + hack_time_bonus) * DIFFICULTY_MULTIPLIER)
-    line = f"{datetime.now().strftime('%Y-%m-%d %H:%M')} | {player_name} | score:{score} | rooms:{player['rooms_visited']} | {duration}s | status:{status}\n"
-    with open("leaderboard.md", "a") as f:
-        f.write(line)
-
-    # compute ranking
-    entries = []
-    with open("leaderboard.md", "r") as f:
-        for l in f:
-            parts = [p.strip() for p in l.split("|")]
-            # find score and status
-            sc = 0
-            st = ""
-            for p in parts:
-                if p.startswith("score:"):
-                    try:
-                        sc = int(p.split(":")[1])
-                    except ValueError:
-                        sc = 0
-                if p.startswith("status:"):
-                    st = p.split(":")[1]
-            entries.append((sc, l.strip(), st))
-    # sort descending
-    entries.sort(key=lambda x: x[0], reverse=True)
-    rank = next((i+1 for i,e in enumerate(entries) if e[1]==line.strip()), None)
-
-    print("\n" + tr("score.title"))
-    print(tr("score.base", score=base_score))
-    print(tr("score.rom_bonus", bonus=rom_bonus))
-    print(tr("score.time_bonus", bonus=time_bonus))
-    print(tr("score.hack_bonus", bonus=hack_time_bonus))
-    print(line)
-    if rank:
-        print(tr("score.rank", rank=rank))
-    update_profile_after_run(status=status, duration=duration, end_reason=end_reason, score=score)
-
-
 
 def core_check():
-    room = current_room()
+    room = world_current_room(world, player)
     if room.core and not room.enemy and player['core_hacked']:
         print("\n" + tr("core.pirated"))
-        save_score(status="WIN", end_reason="win")
+        pm_save_run_score(
+            player=player,
+            player_name=player_name,
+            status="WIN",
+            end_reason="win",
+            hack_time=HACK_TIME,
+            difficulty_multiplier=DIFFICULTY_MULTIPLIER,
+            rom_bonus_score=ROM_BONUS_SCORE,
+            tr=tr,
+            normalize_primary_stats=normalize_primary_stats,
+            normalize_credits=normalize_credits,
+            update_profile_callback=update_profile_after_run,
+        )
         return True
     return False
 
@@ -749,225 +615,322 @@ def main():
     else:
         print(tr("profile.access_granted"))
         show_profile_stats(typewriter=True)
-
-    mission_modifiers = {}
-    selected_structure = choose_structure_for_run(player_profile, MEGASTRUCTURES)
-    if selected_structure:
-        if player_profile is not None and player_profile_path is not None:
-            player_profile['active_structure_id'] = selected_structure.get('id')
-            pm_save_player_profile(player_profile, player_profile_path)
-        read_mail = input("\n" + tr("quest.new_mail_prompt")).strip().lower()
-        if read_mail == 'y':
+    pm_ensure_progression(player_profile)
+    pm_save_player_profile(player_profile, player_profile_path)
+    while True:
+        selected_structure = choose_structure_for_run(player_profile, MEGASTRUCTURES)
+        mail_data = None
+        if selected_structure:
+            if player_profile is not None and player_profile_path is not None:
+                player_profile['active_structure_id'] = selected_structure.get('id')
+                pm_save_player_profile(player_profile, player_profile_path)
             mail_data = build_briefing_mail(player_name, selected_structure, tr, CURRENT_LANGUAGE)
-            print("\n" + tr("quest.mail.title"))
-            print(mail_data['text'])
-            mail_path = copy_mail_to_console(CURRENT_LANGUAGE, mail_data)
-            print("\n" + tr("quest.mail.copied", path=mail_path))
-            infiltrate = input("\n" + tr("quest.infiltrate_prompt")).strip().lower()
-            if infiltrate == 'y':
-                mission_modifiers = dict(mail_data.get('modifiers', {}))
-                apply_starter_pack_to_profile(
-                    player_profile,
-                    player_profile_path,
-                    pm_save_player_profile,
-                    mail_data.get('starter_credits', 0),
-                    mail_data.get('starter_items', []),
-                )
-                print("\n" + tr("quest.mission_pack"))
-            else:
-                print("\n" + tr("quest.mission_skipped"))
 
-    pending_pre_run_upgrades = pre_run_shop()
-    
-    # Difficulty selection
-    print("\n" + tr("startup.difficulty_title"))
-    print(tr("startup.difficulty_1"))
-    print(tr("startup.difficulty_2"))
-    print(tr("startup.difficulty_3"))
-    print(tr("startup.difficulty_4"))
-    
-    difficulty = input(tr("startup.difficulty_prompt")).strip()
-    if difficulty == '1':
-        HACK_TIME = 60
-        COMBAT_TIME = 10
-        REFLEX_TIME = 6
-        DIFFICULTY_MULTIPLIER = 1
-    elif difficulty == '2':
-        HACK_TIME = 45
-        COMBAT_TIME = 6
-        REFLEX_TIME = 4
-        DIFFICULTY_MULTIPLIER = 2
-    elif difficulty == '3':
-        HACK_TIME = 30
-        COMBAT_TIME = 4
-        REFLEX_TIME = 2
-        DIFFICULTY_MULTIPLIER = 3
-    elif difficulty == '4':
-        HACK_TIME = 20
-        COMBAT_TIME = 3
-        REFLEX_TIME = 3
-        DIFFICULTY_MULTIPLIER = 4
-    else:
-        print(tr("startup.difficulty_invalid"))
-        HACK_TIME = 30
-        COMBAT_TIME = 4
-        REFLEX_TIME = 2
-        DIFFICULTY_MULTIPLIER = 3
+        mission_modifiers, pending_pre_run_upgrades, quit_requested = startup_hub(selected_structure, mail_data)
+        if quit_requested:
+            return
 
-    WORLD_RULES = build_world_rules(mission_modifiers)
-    ALARM_THRESHOLD = WORLD_RULES['alarm_reinforcement_threshold']
-    ALARM_MAX = WORLD_RULES['alarm_max']
-    
-    # Reset world
-    world = [[Room(x, y) for x in range(WIDTH)] for y in range(HEIGHT)]
-    if selected_structure is None:
-        fallback_story = random.choice(tr_value("content.rom_story_archive"))
-        selected_structure = {
-            'id': fallback_story.get('id', 'UNKNOWN'),
-            'title': fallback_story.get('title', 'Unknown'),
-            'hacker': fallback_story.get('hacker', 'N/A'),
-            'bio': fallback_story.get('bio', ''),
-            'logs': list(fallback_story.get('logs', [])),
-            'epilogue': fallback_story.get('epilogue', ''),
-            'fragments': list(fallback_story.get('fragments', [])),
-        }
-    active_story = selected_structure
-    spawn_x, spawn_y = perimeter_spawn()
-    print(tr("main.spawn", x=spawn_x, y=spawn_y))
-    
-    while True:
-        core_x = random.randint(0, WIDTH - 1)
-        core_y = random.randint(0, HEIGHT - 1)
-        if abs(core_x - spawn_x) + abs(core_y - spawn_y) >= 3 and (core_x, core_y) != (spawn_x, spawn_y):
-            break
-    print(tr("main.core", x=core_x, y=core_y))
-    
-    world[core_y][core_x].core = True
-    world[core_y][core_x].enemy = "CORE Sentinel"
-    world[core_y][core_x].enemy_hp = WORLD_RULES.get('core_enemy_hp', 75)
-    world[core_y][core_x].locked = False
-    world[core_y][core_x].terminal = True
+        choose_difficulty()
 
-    # Place 3 ROM fragments from the active story in random rooms (excluding spawn/core).
-    candidate_rooms = [
-        (x, y) for y in range(HEIGHT) for x in range(WIDTH)
-        if (x, y) != (spawn_x, spawn_y) and (x, y) != (core_x, core_y)
-    ]
-    random.shuffle(candidate_rooms)
-    for frag, (fx, fy) in zip(active_story['fragments'], candidate_rooms[:3]):
-        world[fy][fx].rom_fragment = frag
-    
-    global player
-    starting_inventory = get_bank_inventory_for_run()
-    player = {
-        "x": spawn_x,
-        "y": spawn_y,
-        "hp": 100,
-        "energy": 100,
-        "hack": 55,
-        "inventory": starting_inventory,
-        "credits": 0,
-        "alarm": 0,
-        "hacks_success": 0,
-        "hacks_failed": 0,
-        "rooms_visited": 0,
-        "start_time": time.time(),
-        "core_hint_given": False,
-        "core_hacked": False,
-        "active_story": active_story,
-        "rom_fragments": [],
-        "next_structure_unlocked": False,
-        "alarm_step": WORLD_RULES['alarm_step'],
-        "alarm_reinforcement_chance": WORLD_RULES['alarm_reinforcement_chance'],
-        "synaptique_bought": False,
-        "surcharge_bought": False,
-        "interface_bought": False,
-        "hack_time_bonus": 0,
-        "matrix_reduction": 0,
-        "combat_chip_bought": False,
-        "combat_time_bonus": 1,
-        "force_bought": False,
-        "vitesse_bought": False,
-        "energy_dissipator_bought": False,
-        "total_hack_time": 0
-    }
-    apply_upgrade_ids_to_player(player, pending_pre_run_upgrades)
-    sync_profile_inventory_from_player()
-    
-    intro()
-    print("\n" + tr("main.story_channel", story_id=player['active_story']['id']))
-    describe()
-    while True:
-        if player['hp'] <= 0:
-            print(tr("main.death"))
-            save_score(status="LOOSE", end_reason="death")
-            break
-        if player['alarm'] >= ALARM_MAX:
-            print(tr("main.alarm_game_over"))
-            save_score(status="LOOSE", end_reason="alarm")
-            break
-        if core_check():
-            break
-        show_status_line()
-        player['attacked_this_turn'] = False
-        cmd = input(tr("ui.command_prompt")).strip().lower()
-        if cmd in ('north', 'n'):
-            move(0, -1)
-        elif cmd in ('south', 's'):
-            move(0, 1)
-        elif cmd in ('east', 'e'):
-            move(1, 0)
-        elif cmd in ('west', 'w'):
-            move(-1, 0)
-        elif cmd in ('scan', 'sc'):
-            scan()
-        elif cmd in ('echo', 'ec'):
-            echo_scan()
-        elif cmd in ('hack', 'h'):
-            hack()
-        elif cmd in ('attack', 'at'):
-            attack()
-            player['attacked_this_turn'] = True
-        elif cmd in ('take', 't'):
-            take()
-        elif cmd.startswith('use ') or cmd.startswith('u '):
-            use(cmd.split(' ', 1)[1])
-        elif cmd in ('inventory', 'inv'):
-            inventory()
-        elif cmd in ('status', 'stat'):
-            status()
-        elif cmd in ('profile', 'pro'):
-            show_profile_stats()
-        elif cmd in ('fragments', 'fra'):
-            fragments_menu()
-        elif cmd in ('map', 'm'):
-            draw_map()
-        elif cmd in ('shop', 'sh'):
-            shop()
-        elif cmd in ('leaderboard', 'lead'):
-            show_leaderboard()
-        elif cmd in ('help', 'he'):
-            help_cmd()
-        elif cmd == 'console' or should_open_ssh_console(cmd):
-            open_personal_console()
-        elif cmd in ('quit', 'q'):
-            confirm = input(tr("ui.quit_confirm")).strip().lower()
-            if confirm == 'y':
-                player['status'] = 'QUIT'
-                save_score(status='QUIT', end_reason='quit')
+        WORLD_RULES = build_world_rules(mission_modifiers)
+        profile_bonuses = pm_get_profile_attribute_bonuses(player_profile)
+        WORLD_RULES['energy_cost_scale'] = WORLD_RULES.get('energy_cost_scale', 1.0) * profile_bonuses['energy_cost_scale']
+        ALARM_THRESHOLD = WORLD_RULES['alarm_reinforcement_threshold']
+        ALARM_MAX = WORLD_RULES['alarm_max'] + int(profile_bonuses['alarm_max_bonus'])
+
+        # Reset world
+        world = [[Room(x, y) for x in range(WIDTH)] for y in range(HEIGHT)]
+        if selected_structure is None:
+            fallback_story = random.choice(tr_value("content.rom_story_archive"))
+            selected_structure = {
+                'id': fallback_story.get('id', 'UNKNOWN'),
+                'title': fallback_story.get('title', 'Unknown'),
+                'hacker': fallback_story.get('hacker', 'N/A'),
+                'bio': fallback_story.get('bio', ''),
+                'logs': list(fallback_story.get('logs', [])),
+                'epilogue': fallback_story.get('epilogue', ''),
+                'fragments': list(fallback_story.get('fragments', [])),
+            }
+        active_story = selected_structure
+        spawn_x, spawn_y = perimeter_spawn()
+        print(tr("main.spawn", x=spawn_x, y=spawn_y))
+
+        while True:
+            core_x = random.randint(0, WIDTH - 1)
+            core_y = random.randint(0, HEIGHT - 1)
+            if abs(core_x - spawn_x) + abs(core_y - spawn_y) >= 3 and (core_x, core_y) != (spawn_x, spawn_y):
                 break
-        else:
-            print(tr("ui.unknown_command"))
-        normalize_primary_stats()
-        normalize_credits()
-        if not player['attacked_this_turn'] and current_room().enemy:
-            enemy_attack()
-    show_leaderboard()
-    replay = input(tr("ui.replay_prompt")).strip().lower()
-    if replay == 'y':
-        main()
-    else:
-        return
+        print(tr("main.core", x=core_x, y=core_y))
+
+        world[core_y][core_x].core = True
+        world[core_y][core_x].enemy = "CORE Sentinel"
+        world[core_y][core_x].enemy_hp = WORLD_RULES.get('core_enemy_hp', 75)
+        world[core_y][core_x].locked = False
+        world[core_y][core_x].terminal = True
+
+        # Place 3 ROM fragments from the active story in random rooms (excluding spawn/core).
+        candidate_rooms = [
+            (x, y) for y in range(HEIGHT) for x in range(WIDTH)
+            if (x, y) != (spawn_x, spawn_y) and (x, y) != (core_x, core_y)
+        ]
+        random.shuffle(candidate_rooms)
+        for frag, (fx, fy) in zip(active_story['fragments'], candidate_rooms[:3]):
+            world[fy][fx].rom_fragment = frag
+
+        global player
+        starting_inventory = pm_get_bank_inventory_for_run(player_profile)
+        player = {
+            "x": spawn_x,
+            "y": spawn_y,
+            "hp": int(profile_bonuses['max_hp']),
+            "energy": int(profile_bonuses['max_energy']),
+            "hack": int(profile_bonuses['base_hack']),
+            "max_hp": int(profile_bonuses['max_hp']),
+            "max_energy": int(profile_bonuses['max_energy']),
+            "endurance_energy_scale": float(profile_bonuses['energy_cost_scale']),
+            "profile_attributes": dict(profile_bonuses['attributes']),
+            "inventory": starting_inventory,
+            "credits": 0,
+            "alarm": 0,
+            "hacks_success": 0,
+            "hacks_failed": 0,
+            "rooms_visited": 0,
+            "start_time": time.time(),
+            "core_hint_given": False,
+            "core_hacked": False,
+            "active_story": active_story,
+            "rom_fragments": [],
+            "next_structure_unlocked": False,
+            "alarm_step": WORLD_RULES['alarm_step'],
+            "alarm_reinforcement_chance": WORLD_RULES['alarm_reinforcement_chance'],
+            "synaptique_bought": False,
+            "surcharge_bought": False,
+            "interface_bought": False,
+            "hack_time_bonus": 0,
+            "matrix_reduction": 0,
+            "combat_chip_bought": False,
+            "combat_time_bonus": 1,
+            "force_bought": False,
+            "vitesse_bought": False,
+            "energy_dissipator_bought": False,
+            "total_hack_time": 0
+        }
+        apply_upgrade_ids_to_player(player, pending_pre_run_upgrades)
+        # New run starts at full resources according to profile-derived maxima.
+        player['hp'] = int(player.get('max_hp', 100))
+        player['energy'] = int(player.get('max_energy', 100))
+        player_profile = pm_sync_profile_inventory_from_player(player_profile, player_profile_path, player)
+
+        intro()
+        print("\n" + tr("main.story_channel", story_id=player['active_story']['id']))
+        world_describe(world, player, tr)
+
+        def do_enemy_turn():
+            run_enemy_turn(
+                player=player,
+                alarm_threshold=ALARM_THRESHOLD,
+                reinforcement_chance=player.get('alarm_reinforcement_chance', 0.25),
+                tr=tr,
+                tr_value=tr_value,
+                get_current_room=lambda: world_current_room(world, player),
+            )
+
+        while True:
+            if player['hp'] <= 0:
+                print(tr("main.death"))
+                pm_save_run_score(
+                    player=player,
+                    player_name=player_name,
+                    status="LOOSE",
+                    end_reason="death",
+                    hack_time=HACK_TIME,
+                    difficulty_multiplier=DIFFICULTY_MULTIPLIER,
+                    rom_bonus_score=ROM_BONUS_SCORE,
+                    tr=tr,
+                    normalize_primary_stats=normalize_primary_stats,
+                    normalize_credits=normalize_credits,
+                    update_profile_callback=update_profile_after_run,
+                )
+                break
+            if player['alarm'] >= ALARM_MAX:
+                print(tr("main.alarm_game_over"))
+                pm_save_run_score(
+                    player=player,
+                    player_name=player_name,
+                    status="LOOSE",
+                    end_reason="alarm",
+                    hack_time=HACK_TIME,
+                    difficulty_multiplier=DIFFICULTY_MULTIPLIER,
+                    rom_bonus_score=ROM_BONUS_SCORE,
+                    tr=tr,
+                    normalize_primary_stats=normalize_primary_stats,
+                    normalize_credits=normalize_credits,
+                    update_profile_callback=update_profile_after_run,
+                )
+                break
+            if core_check():
+                break
+            show_status_line()
+            player['attacked_this_turn'] = False
+            cmd = input(tr("ui.command_prompt")).strip().lower()
+            if cmd in ('north', 'n'):
+                world_move(
+                    world,
+                    player,
+                    WIDTH,
+                    HEIGHT,
+                    0,
+                    -1,
+                    tr,
+                    do_enemy_turn,
+                )
+            elif cmd in ('south', 's'):
+                world_move(
+                    world,
+                    player,
+                    WIDTH,
+                    HEIGHT,
+                    0,
+                    1,
+                    tr,
+                    do_enemy_turn,
+                )
+            elif cmd in ('east', 'e'):
+                world_move(
+                    world,
+                    player,
+                    WIDTH,
+                    HEIGHT,
+                    1,
+                    0,
+                    tr,
+                    do_enemy_turn,
+                )
+            elif cmd in ('west', 'w'):
+                world_move(
+                    world,
+                    player,
+                    WIDTH,
+                    HEIGHT,
+                    -1,
+                    0,
+                    tr,
+                    do_enemy_turn,
+                )
+            elif cmd in ('scan', 'sc'):
+                world_scan(
+                    world,
+                    player,
+                    tr,
+                    tr_value,
+                    WORLD_RULES,
+                    effective_energy_cost,
+                    do_enemy_turn,
+                )
+            elif cmd in ('echo', 'ec'):
+                world_echo_scan(world, player, WIDTH, HEIGHT, tr, effective_energy_cost)
+                world_draw_map(world, player, WIDTH, HEIGHT, tr, show_legend=True)
+            elif cmd in ('hack', 'h'):
+                run_hack(
+                    player=player,
+                    world=world,
+                    width=WIDTH,
+                    height=HEIGHT,
+                    core_x=core_x,
+                    core_y=core_y,
+                    hex_values=HEX_VALUES,
+                    hack_time=HACK_TIME,
+                    difficulty_multiplier=DIFFICULTY_MULTIPLIER,
+                    tr=tr,
+                    tr_value=tr_value,
+                    get_current_room=lambda: world_current_room(world, player),
+                    get_echo_marker=world_get_echo_marker,
+                    draw_map=lambda show_legend=True: world_draw_map(world, player, WIDTH, HEIGHT, tr, show_legend=show_legend),
+                    effective_energy_cost=effective_energy_cost,
+                    normalize_primary_stats=normalize_primary_stats,
+                    normalize_credits=normalize_credits,
+                    round_int=round_int,
+                )
+            elif cmd in ('attack', 'at'):
+                run_attack(
+                    player=player,
+                    combat_time=COMBAT_TIME,
+                    reflex_time=REFLEX_TIME,
+                    tr=tr,
+                    get_current_room=lambda: world_current_room(world, player),
+                    normalize_primary_stats=normalize_primary_stats,
+                )
+                player['attacked_this_turn'] = True
+            elif cmd in ('take', 't'):
+                pm_take_from_room(
+                    player,
+                    world_current_room(world, player),
+                    tr,
+                    lambda: pm_sync_profile_inventory_from_player(player_profile, player_profile_path, player),
+                )
+            elif cmd.startswith('use ') or cmd.startswith('u '):
+                pm_use_inventory_item(
+                    player,
+                    cmd.split(' ', 1)[1],
+                    tr,
+                    normalize_primary_stats,
+                    lambda: pm_sync_profile_inventory_from_player(player_profile, player_profile_path, player),
+                )
+            elif cmd in ('inventory', 'inv'):
+                pm_show_inventory(player, tr)
+            elif cmd in ('status', 'stat'):
+                status()
+            elif cmd in ('profile', 'pro'):
+                show_profile_stats()
+            elif cmd in ('fragments', 'fra'):
+                fragments_menu()
+            elif cmd in ('map', 'm'):
+                world_draw_map(world, player, WIDTH, HEIGHT, tr)
+            elif cmd in ('shop', 'sh'):
+                run_in_game_shop(
+                    player,
+                    tr,
+                    normalize_credits,
+                    lambda: pm_sync_profile_inventory_from_player(player_profile, player_profile_path, player),
+                )
+            elif cmd in ('leaderboard', 'lead'):
+                show_leaderboard()
+            elif cmd in ('help', 'he'):
+                help_cmd()
+            elif cmd == 'console' or should_open_ssh_console(cmd):
+                open_personal_console()
+            elif cmd in ('quit', 'q'):
+                confirm = input(tr("ui.quit_confirm")).strip().lower()
+                if confirm == 'y':
+                    player['status'] = 'QUIT'
+                    pm_save_run_score(
+                        player=player,
+                        player_name=player_name,
+                        status='QUIT',
+                        end_reason='quit',
+                        hack_time=HACK_TIME,
+                        difficulty_multiplier=DIFFICULTY_MULTIPLIER,
+                        rom_bonus_score=ROM_BONUS_SCORE,
+                        tr=tr,
+                        normalize_primary_stats=normalize_primary_stats,
+                        normalize_credits=normalize_credits,
+                        update_profile_callback=update_profile_after_run,
+                    )
+                    break
+            else:
+                print(tr("ui.unknown_command"))
+            normalize_primary_stats()
+            normalize_credits()
+            if not player['attacked_this_turn'] and world_current_room(world, player).enemy:
+                run_enemy_attack(
+                    player=player,
+                    tr=tr,
+                    get_current_room=lambda: world_current_room(world, player),
+                    normalize_primary_stats=normalize_primary_stats,
+                )
+
+        show_leaderboard()
+        print("\n" + tr("ui.return_hub", default="Returning to pre-run hub..."))
 
 if __name__ == "__main__":
     try:

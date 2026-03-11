@@ -1,13 +1,100 @@
 # NEON CORE
 
-Terminal cyber-infiltration game in Python.
+NEON CORE is a terminal cyber-infiltration game built in Python.
+You infiltrate procedural megastructures, manage pressure (HP/EN/HK/AL), survive combat + timed hacks, and complete a clear end-chain:
 
-In each run, you infiltrate a 7x7 megastructure, fight through pressure and alarms, neutralize the CORE Sentinel, hack the Central CORE, then extract alive.
+1. gather cryptodata fragments,
+2. neutralize the CORE Sentinel,
+3. hack the Central CORE,
+4. extract alive.
+
+The game is run-based but persistent: your profile, bank credits, inventory, XP, and evolution attributes carry over. The world is multilingual and delivered through an in-game console packed with logs, mail, missions, and lore.
+
+## Core Features
+
+- 7x7 procedural map, perimeter spawn, dynamic enemies/locks/terminals/items.
+- Pressure systems: HP, Energy (EN), Hack power (HK), Alarm (AL), Credits.
+- Timed matrix hacking and reflex combat.
+- Mission-driven world modifiers (mail briefings can alter generation rules).
+- In-run loot choices and consumable item economy.
+- Persistent progression: profile, bank credits/inventory, XP, evolution attributes.
+- Pre-run hub loop (shop/evolution/console/mission launch) between runs.
+- Leaderboard tracking in `leaderboard.md`.
+
+## Run Loop
+
+Pre-run flow:
+
+- Enter pre-run hub.
+- Optionally read mission mail, accept mission modifiers and starter pack.
+- Optional pre-run shop and evolution allocation.
+- Launch either:
+  - `5. Quick run (no mission)`
+  - `6. Run Mission Mail` (after mission acceptance)
+  - `0. QUIT GAME`
+
+End of run flow:
+
+- Score is saved.
+- Leaderboard is displayed.
+- Game returns automatically to pre-run hub (no language/player re-selection).
+
+## Progression
+
+- XP is gained each run (including non-win outcomes).
+- Evolution system includes attribute points and derived bonuses.
+- Core persistent fields include:
+  - `bank_credits`
+  - `bank_inventory`
+  - `xp_total`
+  - `level`
+  - `attributes`
+  - derived stats (`max_hp`, `max_energy`, `base_hack`, etc.)
+
+Notable gameplay detail:
+
+- Standard hack loot option `D` is now cybernetic energy regeneration (`+10 EN`).
+- Collecting fragment `3/3` triggers a recomposition notification message.
+
+## In-Game Console and Lore
+
+The in-game console is a major pillar of identity. You can enter it with console commands during a run and navigate a mini-shell style environment. It is not decorative: it hosts mission context, world archives, logs, and personal traces that deepen the fiction.
+
+Supported console language roots:
+
+- console_fr/
+- console_en/
+- console_es/
+- console_it/
+
+Typical folders include logs, mail, missions, lore, archive, notes, and stats. This structure lets narrative depth grow through content files without forcing heavy code changes.
+
+## Main Commands
+
+Movement and exploration:
+
+- n/s/e/w or north/south/east/west
+- scan, echo, map
+
+Action layer:
+
+- hack, attack, take, use <item>
+
+Information and systems:
+
+- inventory, status, profile, fragments, shop, leaderboard, help, quit
+
+Console access:
+
+- console
+- ssh <player>@console
 
 ## Quick Start
 
 Requirements:
-- Python 3 (no external dependencies)
+
+- Python 3
+- No external dependencies
 
 Run:
 
@@ -15,110 +102,47 @@ Run:
 python3 neon.py
 ```
 
-Optional:
-
-```bash
-chmod +x neon.py
-```
-
-## What Is New
-
-- In-game personal console (`console` or `ssh <player>@console`)
-- Localized console files for `fr`, `en`, `es`, `it`
-- Persistent meta-progression:
-  - Banked credits (CR)
-  - Persistent inventory between runs
-  - XP accumulation (`10%` of final score, even on death)
-- Pre-run shop to buy starting consumables
-- Expanded lore, logs, mails, and tutorial-style mission files in all console languages
-
-## Core Gameplay
-
-- Grid: `7x7`
-- Core objective:
-  - reach CORE room
-  - neutralize `CORE Sentinel`
-  - hack CORE terminal
-- Loss conditions:
-  - `HP <= 0`
-  - `AL >= 5`
-
-Main resources:
-- `HP`, `EN`, `HK`, `AL`, `CR`
-
-## Main Commands
-
-Movement and exploration:
-- `n/s/e/w` (or `north/south/east/west`)
-- `scan`, `echo`, `map`
-
-Actions:
-- `hack`, `attack`, `take`, `use <item>`
-
-Information:
-- `inventory`, `status`, `profile`, `fragments`, `shop`, `leaderboard`, `help`, `quit`
-
-Console access:
-- `console`
-- `ssh <player>@console`
-
-## In-Game Console
-
-The console is a sandboxed mini-shell with real files.
-
-Available commands:
-- `ls`, `cd`, `pwd`, `cat`, `tree`, `help`, `exit`
-- `status`, `history`, `whoami`, `mail`, `nano <file>`
-
-Language roots:
-- `console_fr/`
-- `console_en/`
-- `console_es/`
-- `console_it/`
-
-Each root contains:
-- `logs/`, `mail/`, `missions/`, `lore/`, `archive/`, `notes/`, `stats/`
-
 ## Persistence Model
 
-Profile save is stored in `saves/<player>.json`.
+Player data is stored in `saves/<player>.json`.
 
-Persisted elements include:
-- run statistics (wins/losses/deaths, hacks, visited rooms, etc.)
-- `bank_credits`
-- `bank_inventory`
-- `xp_total` and last XP gain
+Persistent data includes:
+
+- run history and core statistics
+- bank_credits
+- bank_inventory
+- xp_total / level / attributes
+- latest XP gain and progression state
 
 Rules:
-- On victory: run CR are added to bank CR
-- On death/loss: carried run CR are lost
-- Inventory is synchronized in save during run updates (`take`/`use`), so interruption keeps state aligned
 
-## Pre-Run Shop
+- Victory converts carried run credits into bank credits.
+- Defeat or death drops carried run credits.
+- Inventory syncs during run updates so state remains coherent.
 
-Before difficulty selection, you can spend banked CR.
+## Versioning
 
-Current pre-run items:
-- `medkit` (`100 CR`)
-- `energy_cell` (`100 CR`)
+Below is a practical changelog. The section above explains the game fantasy and player experience; this section tracks concrete updates.
 
-Bought items are available at run start.
+### 2026-03-11
 
-## Narrative Layer
+- Added multilingual JSON-based i18n packs in `lang/`.
+- Added pre-run hub with mission flow, shop, evolution, quick run, mission run, and direct quit.
+- Added automatic end-of-run return to pre-run hub.
+- Added evolution attributes and derived stat bonuses.
+- Added mission-mail-driven procedural world modifiers.
+- Added/expanded modular architecture:
+  - `console.py`
+  - `player_manage.py`
+  - `shop.py`
+  - `hack.py`
+  - `fight.py`
+  - `quest.py`
+  - `world.py`
+- Added multilingual console content roots (`console_fr`, `console_en`, `console_es`, `console_it`).
+- Updated standard hack loot D to EN regeneration and improved fragment completion feedback.
 
-- ROM fragments are scattered in rooms
-- Completing all 3 fragments in a run unlocks a full story file
-- Additional worldbuilding is available through console lore/log/mail files
+### Earlier Baseline
 
-## Scoring and XP
-
-At end of run, score is computed from survival, hack performance, exploration, credits, alarms, and bonuses.
-
-- Leaderboard is appended to `leaderboard.md`
-- XP gained per run: `10%` of final score (minimum `0`)
-
-## Notes
-
-- Project is intentionally lightweight and modular.
-- `console.py` contains the console system and is integrated from `neon.py`.
-- Content can be extended by editing text files in console language folders without changing game code.
+- Core terminal gameplay loop established (explore, fight, hack, survive).
+- Score and leaderboard persistence in leaderboard.md.

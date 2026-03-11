@@ -1,0 +1,16 @@
+From: DEEP CARTO <DC-05>
+To: pyro
+Timestamp: 2097-12-04 16:13
+Subject: Caches objets detectes [MS-NEXUS-58]
+
+Operateur pyro,
+La cartographie interne indique des depots utilitaires hors circuit. Le scan devrait etre rentable.
+Cible confirmee: Nexus Census Core (MS-NEXUS-58).
+Objectif: infiltrer, collecter 3 fragments de cryptodata, neutraliser le CORE Sentinel, puis hacker le CORE central.
+
+Aide de lancement transferee:
+- Credits: +170 CR
+- Items: medkit
+
+Repondre par infiltration immediate recommande.
+Mission-ID: Q20260311153640-613

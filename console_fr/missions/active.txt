@@ -1,4 +1,5 @@
 Mission active:
 - Infiltrer la megastructure
-- Localiser le CORE
-- Exfiltration sans collapse
+- Collecter 3 fragments de cryptodata
+- Neutraliser le CORE Sentinel
+- Hacker le CORE central et exfiltrer vivant

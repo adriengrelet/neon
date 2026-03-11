@@ -170,14 +170,15 @@ def _run_shared_shop(
         print(tr(item["buy_key"]))
 
 
-def run_pre_run_shop(profile, path, tr, save_profile, format_inventory_counts):
+def run_pre_run_shop(profile, path, tr, save_profile, format_inventory_counts, ask_confirmation=True):
     if not profile:
         return []
 
-    bank_credits = int(profile.get("bank_credits", 0))
-    visit = input(tr("prerun.shop.offer_prompt", credits=bank_credits)).strip().lower()
-    if visit != "y":
-        return []
+    if ask_confirmation:
+        bank_credits = int(profile.get("bank_credits", 0))
+        visit = input(tr("prerun.shop.offer_prompt", credits=bank_credits)).strip().lower()
+        if visit != "y":
+            return []
 
     pending_run_upgrades = []
 
@@ -232,24 +233,13 @@ def run_in_game_shop(
     tr,
     normalize_credits,
     sync_inventory_callback=None,
-    profile=None,
-    profile_path=None,
-    save_profile=None,
 ):
     normalize_credits()
 
-    use_bank_wallet = bool(profile) and bool(profile_path) and (save_profile is not None)
-
     def get_credits():
-        if use_bank_wallet:
-            return int(profile.get("bank_credits", 0))
         return int(player.get("credits", 0))
 
     def set_credits(value):
-        if use_bank_wallet:
-            profile["bank_credits"] = int(value)
-            save_profile(profile, profile_path)
-            return
         player["credits"] = int(value)
 
     def is_upgrade_owned(item):

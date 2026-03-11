@@ -55,6 +55,18 @@ A mechanic that exists but rarely affects decisions is weak.
 
 A choice that looks open but has one obvious answer is not a real choice.
 
+## Comment jouer ?
+
+Quand tu commences la partie, fais non pour lire l'email. Il faut absolument que tu lises les outputs du script afin de comprendre les mécaniques de base du jeu. Ne saute pas cette étape, c'est crucial pour la suite.
+
+Ensuite tu rentres ton pseudo, et tu choisis non pour aller dans le shop de pre run. Tu choisis difficulté 3 et tu commences la partie.
+
+Au début, le plus simple est de faire map pour te situé et l'idée est de te déplacer vers le centre de la carte. tu peux faire des echo pour éviter les zones avec ennemis si nécessaire.
+
+Ensuite, tu devras faire des hacks. regarde bien les règles de fonctionenement des hacks pour comprendre comment réussir.
+
+Enfin, il te faut trouver le core pour gagner la partie. Il est possible de le trouver dans n'importe quelle salle, mais il y a plus de chances de le trouver dans les salles du centre de la carte. Quand tu hacks un terminal standard, tu as un indice sur l'emplacement du core. Sers t'en.
+
 ## Terminal Context
 
 The game is terminal-based.

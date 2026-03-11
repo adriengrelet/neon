@@ -196,7 +196,7 @@ def run_hack(
             player["hack"] += 5
             print(tr("hack.loot.upgrade"))
         elif loot_choice == "D":
-            player["hp"] += 10
+            player["energy"] += 10
             print(tr("hack.loot.cyber_heal"))
         else:
             player["credits"] += credit_gain

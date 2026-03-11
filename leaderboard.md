@@ -10,3 +10,14 @@
 2026-03-10 00:17 | pyro | score:58978 | rooms:45 | 1226s | status:LOOSE
 2026-03-10 15:53 | pyro | score:73881 | rooms:26 | 753s | status:LOOSE
 2026-03-11 10:41 | ia_player_mind | score:6760 | rooms:3 | 0s | status:QUIT
+2026-03-11 10:46 | ia_player_mind | score:3199 | rooms:2 | 16s | status:QUIT
+2026-03-11 12:19 | ia_player_mind | score:7590 | rooms:5 | 0s | status:QUIT
+2026-03-11 12:19 | ia_player_mind | score:7500 | rooms:1 | 0s | status:QUIT
+2026-03-11 12:22 | ia_player_mind | score:2240 | rooms:4 | 0s | status:LOOSE
+2026-03-11 12:23 | ia_player_mind | score:4939 | rooms:6 | 1s | status:LOOSE
+2026-03-11 12:31 | ia_player_mind | score:4400 | rooms:5 | 0s | status:LOOSE
+2026-03-11 14:14 | i18n_fr | score:3260 | rooms:1 | 0s | status:QUIT
+2026-03-11 14:14 | i18n_es | score:3260 | rooms:1 | 0s | status:QUIT
+2026-03-11 14:18 | pyro | score:3260 | rooms:1 | 0s | status:QUIT
+2026-03-11 14:47 | pyro | score:16191 | rooms:3 | 130s | status:QUIT
+2026-03-11 15:56 | pyro | score:88188 | rooms:35 | 826s | status:WIN

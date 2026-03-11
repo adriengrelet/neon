@@ -3,11 +3,14 @@ import os
 import random
 from datetime import datetime
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+LANG_DIR = os.path.join(BASE_DIR, "lang")
+
 MEGASTRUCTURES_FILES = {
-    "fr": "megastructures_fr.json",
-    "en": "megastructures_en.json",
-    "es": "megastructures_es.json",
-    "it": "megastructures_it.json",
+    "fr": os.path.join(LANG_DIR, "megastructures_fr.json"),
+    "en": os.path.join(LANG_DIR, "megastructures_en.json"),
+    "es": os.path.join(LANG_DIR, "megastructures_es.json"),
+    "it": os.path.join(LANG_DIR, "megastructures_it.json"),
 }
 
 BASE_WORLD_RULES = {
@@ -77,7 +80,13 @@ MAIL_TEMPLATES = [
         "body": "On te reserve un slot d'entree limite. Le coeur devra tomber vite.",
         "starter_credits": 170,
         "starter_items": ["medkit"],
-        "modifiers": {"enemy_chance": 0.36, "alarm_reinforcement_threshold": 3},
+        "modifiers": {
+            "enemy_chance": 0.36,
+            "alarm_step": 2,
+            "alarm_reinforcement_threshold": 3,
+            "alarm_reinforcement_chance": 0.35,
+            "alarm_max": 4,
+        },
     },
     {
         "sender": "ECHO-DELTA",
@@ -86,7 +95,12 @@ MAIL_TEMPLATES = [
         "body": "La securite de surface est agressive, mais quelques couloirs techniques sont ouverts.",
         "starter_credits": 210,
         "starter_items": ["energy_cell"],
-        "modifiers": {"enemy_chance": 0.38, "terminal_chance": 0.32},
+        "modifiers": {
+            "enemy_chance": 0.38,
+            "terminal_chance": 0.32,
+            "locked_chance": 0.20,
+            "core_enemy_hp": 68,
+        },
     },
     {
         "sender": "NIGHT COURRIER",
@@ -104,7 +118,7 @@ MAIL_TEMPLATES = [
         "body": "Les gardes changent leurs rondes sans motif. Prepare des options offensives et defensives.",
         "starter_credits": 190,
         "starter_items": ["medkit"],
-        "modifiers": {"enemy_chance": 0.40},
+        "modifiers": {"enemy_chance": 0.40, "alarm_reinforcement_chance": 0.38},
     },
     {
         "sender": "FREELINE",
@@ -370,7 +384,8 @@ def load_megastructures(language="fr"):
         candidates.append(lang_file)
     if MEGASTRUCTURES_FILES["fr"] not in candidates:
         candidates.append(MEGASTRUCTURES_FILES["fr"])
-    candidates.append("megastructures.json")
+    candidates.append(os.path.join(LANG_DIR, "megastructures.json"))
+    candidates.append(os.path.join(BASE_DIR, "megastructures.json"))
 
     for path in candidates:
         if not os.path.exists(path):
