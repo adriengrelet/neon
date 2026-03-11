@@ -1,0 +1,61 @@
+TITLE: Elogio funebre per Sable Voss
+
+Quando si parla di Sable Voss, tutti iniziano dal rumore.
+Non da un volto, perche quasi nessuno l'ha visto. Non da una biografia, perche qui le biografie sono report di debito e date di sfratto. Si inizia dal rumore: il ronzio di un rele vecchio, il graffio della saldatura su rame recuperato, il modo in cui testava una linea canticchiando e aspettando che la citta rispondesse.
+
+Sable non e nata in un bunker eroico.
+E nata in Stack-9, dove gli ascensori muoiono nei giorni di paga e la pressione dell'acqua cala appena Helix Habitat pubblica un'altra ottimizzazione. Il suo primo terminale era una macchina scolastica scartata dopo un audit biometrico Kheiron fallito. L'ha rimessa in piedi con filo da transito, un coltello da cucina e una pagina strappata da un manuale.
+
+Dopo la morte, le leggende mentono bene.
+Dicono che non avesse paura. Non e vero. Aveva paura sempre e andava avanti lo stesso. Paura dei droni, delle blacklist, delle porte che passano da giallo a rosso.
+Ai giovani ripeteva:
+La paura e dato. Il panico e perdita di pacchetti.
+
+Il suo mestiere era sabotaggio utile.
+Non cercava spettacolo. Preferiva operazioni piccole che facessero sanguinare il sistema abbastanza da costringerlo a mostrare la violenza nascosta sotto lessico tecnico. Mappava API di sfratto travestite da casualita. Intercettava filtri salariali che chiamavano integrita la fame. Lasciava poche firme e molti risultati.
+
+La storia piu famosa e la Settimana degli Ascensori.
+In ZE08 un ospedale perse quattro ascensori durante un blackout selettivo. I canali ufficiali parlarono di frizione verticale temporanea. Sable disse omicidio per eufemismo.
+Con due tecnici di linea entro nei canali di manutenzione con lampade a batteria e router spogli. Ridirige i permessi d'emergenza usando vecchie credenziali municipali. Per sei notti gli ascensori funzionavano quando non avrebbero dovuto. Per sei notti le scale smisero di essere condanna.
+
+Una settimana dopo arrivo il conto.
+Il suo punteggio di movimento schizzo. Kheiron la classifico come asset a bassa affidabilita. Traduzione: persona eliminabile senza troppo rumore.
+
+Eppure continuo.
+
+L'ultima run non era un copione da martire.
+Doveva essere un'estrazione pulita.
+Obiettivo: violare una dorsale laterale in un hub Sentinel, estrarre dataset comportamentale, uscire prima della sincronizzazione rinforzi.
+Finestra: sei minuti, forse sette.
+Realta: mappa falsa, trappola termica, patch live.
+
+Sable entro con Mira Quell in overwatch e due relay GhostMesh a monitorare allarmi.
+Inizio perfetto, poi un corridoio mobile la butto in una corsia di validazione Sentinel. L'unita non sparo subito. Esito, come nelle vecchie tracce ROM.
+
+Quella pausa rende tutto peggiore.
+C'era margine.
+
+Sable uso il margine per inviare, non per scappare.
+Trasmise il 92 per cento del dataset: abbastanza per esporre tuning politici e bias giudiziari. Brucio la propria uscita per tenere aperta la corsia di handoff per Mira. Ultimo burst:
+Niente statua. Pubblicate tutto.
+
+Poi la corsia si chiuse.
+
+All'alba Kheiron parlo di intrusione contenuta da attore non identificato.
+I media di distretto parlarono di estremista.
+La comunita la chiamo col nome che aveva scelto, e da noi questo e gia dignita.
+
+Il dataset che ha fatto passare raggiunse cooperative legali, archivi sindacali e reti cliniche. In poche settimane arrivarono ingiunzioni contro sfratti automatizzati in due settori. In meno di tre mesi un tribunale riconobbe bias di conformita.
+Niente di tutto questo la riporta indietro.
+
+La sua stanza in Stack-9 non esiste piu, convertita in micro-unita flessibile che nessuno li puo pagare. Ma i suoi frammenti circolano ancora: script in toolkit Roofline, note vocali in onboarding GhostMesh, battute cattive nei canali tecnici.
+
+Se questo elogio deve servire, serva a questo:
+Sable Voss non e morta per amore del rischio.
+E morta perche il rischio era gia privatizzato e distribuito contro tutti i suoi.
+E rimasta in corsia il tempo necessario per far passare la prova.
+
+A volte, quando il carico di rete scende, vecchi relay sui tetti sembrano cantare.
+Dicono sia solo statica.
+Si sbagliano.
+Siamo noi, ancora, a trasportare il suo pacchetto.
