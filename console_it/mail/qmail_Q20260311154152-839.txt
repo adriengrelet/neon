@@ -1,0 +1,16 @@
+Da: DEEP CARTO <DC-05>
+A: pyro
+Marca temporale: 2097-01-10 02:18
+Oggetto: Cache utilitarie rilevate [MS-ASTRA-17]
+
+Operatore pyro,
+La mappatura interna segnala depositi utilitari fuori rete e alcuni angoli ciechi ancora indicizzati male. Se leggi bene la struttura, lo scan puo riportarti piu di una semplice deviazione di sopravvivenza.
+Bersaglio confermato: Astra Relay Grid (MS-ASTRA-17).
+Obiettivo: infiltrarsi, recuperare 3 frammenti di cryptodata, neutralizzare il CORE Sentinel, quindi compromettere il CORE centrale.
+
+Pacchetto iniziale trasferito:
+- Crediti: +170 CR
+- Oggetti: medkit
+
+Risposta con infiltrazione immediata consigliata.
+Mission-ID: Q20260311154152-839

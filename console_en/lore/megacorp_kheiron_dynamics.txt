@@ -1,20 +1,59 @@
 TITLE: Dossier - Kheiron Dynamics
 
 Core business:
-- Sentinel security hardware and behavior models
-- Municipal compliance software
-- Risk dashboards sold to courts, schools, and landlords
+- Sentinel security hardware and associated behavioral models
+- Municipal compliance software, risk scoring, and decision support systems
+- Dashboards sold to courts, schools, landlords, network operators, and any institution interested in translating political responsibility into probabilistic language
+
+General profile:
+Kheiron Dynamics never presents itself as a repression company.
+It presents itself as a provider of cognitive infrastructure for complex environments.
+Its communications are clean, clinical, reassuring. It talks about mitigation, reliability, decision support, civic stability, and variance reduction.
+That vocabulary is not separate from the business. It is a core part of the product.
+Kheiron does not merely sell hardware or models. It sells a way of describing violence so that violence appears rational, necessary, and almost depoliticized.
 
 How control works:
-Kheiron rarely orders direct violence in writing.
-It publishes risk probabilities, then institutions automate punishment downstream.
-By the time harm lands, no single actor feels responsible.
+Kheiron rarely orders direct brutality in writing.
+The company calculates, classifies, prioritizes, evaluates, and publishes probabilities of risk. Then other actors apply the consequences: police, landlords, courts, schools, aid agencies, healthcare contractors.
+By the time harm lands, each link in the chain can claim it merely followed a reliable indicator produced somewhere else.
+The result is elegant from a bureaucratic point of view: a chain of violence with no single author visible enough to carry the blame alone.
+
+Influence architecture:
+Kheiron's real power comes from its intermediary position.
+The firm inserts itself between lived reality and institutional decision. It converts noisy, contradictory, human lives into normalized signals usable by contract.
+A protesting neighbor becomes a behavioral anomaly.
+A family missing payment becomes cumulative fragility.
+A self-organizing district becomes a civic instability zone.
+Once translated into that language, coercive measures start to look less ideological and more inevitable.
 
 Known contradictions:
-- Markets itself as neutral while tuning models with political directives.
-- Promotes resilience while lobbying against tenant protection.
-- Claims transparency while classifying training data as trade secret.
+- Kheiron markets itself as neutral while tuning models to political directives and unofficial containment targets.
+- Kheiron sells public resilience while backing lobbying efforts hostile to tenant protections and citizen audits.
+- Kheiron promises transparency, then classifies training data, validation sets, and critical weights as trade secret.
+- Kheiron claims to reduce bias while charging for customization layers that often turn institutional prejudice into more presentable thresholds.
+
+Ground presence:
+In the districts, Kheiron's name rarely appears at the moment of impact.
+It is not on the door when a lease collapses.
+It is not in the stairwell when a raid starts.
+It is not by the bedside when medical priority drops.
+But its models are everywhere upstream, like moisture inside the administrative walls.
+People live under their outputs without always seeing the contract that produced them.
+
+Operational hypocrisy:
+The firm loves to talk about embedded ethics.
+It funds panels, foundations, responsible innovation prizes, and grants for fairness research.
+At the same time it locks down external audits, fragments contractual responsibility, and delays reproducibility requests in the name of proprietary security.
+That is not an accidental contradiction.
+It is the business model.
 
 Field note:
-ROM-AX13 suggests Sentinel hesitation can be triggered by edge-case behavior.
-No confirmed exploit, but enough evidence to keep testing.
+ROM-AX13 suggests Sentinel hesitation can be triggered by certain edge-case behaviors, movement profiles, and threshold ambiguities.
+No exploit is confirmed at this stage.
+But enough converging evidence exists to continue testing, especially if the aim is less to destroy the system than to extract a few useful seconds of doubt from it.
+
+Political assessment:
+It would be convenient to summarize Kheiron as just another malicious company.
+That would also be insufficient.
+Kheiron is more useful to the system than that. The firm turns domination into service, suspicion into metrics, and suffering into an acceptable externality.
+As long as its contracts define what counts as risk, many institutions will keep swearing they only optimized.

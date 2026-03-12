@@ -1,9 +1,31 @@
-TITLE: Neon Node world overview
+TITLE: Neon Node World Overview
 
-Cities are stacked like debt ledgers: premium air on top, heat and mold below.
-Most services are privatized, then sold back at variable rates.
-People do not disappear all at once; they are removed from systems one permission at a time.
+The cities are not merely large.
+They are stacked, stratified, and compartmentalized like debt ledgers turned vertical: cleaner air above, heat and mold below, contractual safety for a few, logistical uncertainty for everyone else.
+Height is not only architecture here. It is policy made visible.
 
-The megastructure is not a building, it is governance software wearing concrete.
-Inside it, law is implemented as latency, checkpoints, and score thresholds.
-Outside it, communities improvise survival with mutual aid, hacked utilities, and stolen bandwidth.
+Almost every essential service has been privatized, fragmented, scored, packaged, and sold back at variable rates.
+Water, power, transit, housing, healthcare, signal access, sometimes even filtered air move through contractual layers, scoring systems, and interfaces that promise personalization while organizing scarcity.
+People do not disappear all at once.
+They are removed from the world permission by permission, threshold by threshold, queue by queue.
+
+The megastructure is not just a building.
+It is governance software wrapped in concrete, utility shafts, and armored glass.
+Its corridors carry as much politics as they do bodies.
+Its lifts, checkpoints, badges, access lines, and latency windows tell everyone what they are worth, where they may go, and how long they will wait for what used to be called a right.
+
+Inside, law does not always arrive as police or decree.
+It also arrives as network delay, reliability score, maintenance priority, a door that stays yellow too long, a request that never quite resolves.
+The system prefers forms of violence that resemble friction.
+They are easier to deny and more exhausting to fight.
+
+Outside the privileged circuits, neighborhoods improvise survival.
+Not out of romance.
+Out of necessity.
+Hallway mutual aid, hacked utilities, stolen bandwidth, communal kitchens, gray medicine, repair shops, rooftop relays, and archive mirrors replace what official providers make too expensive, too slow, or too conditional.
+
+The world of Neon Node is not a clean contrast between advanced technology and simple misery.
+It is a world where advanced systems rest on layers of exhausted maintenance, invisible labor, improvised fixes, and people the city treats as noise while depending on them completely.
+
+If anything still holds, it is not because institutions are just.
+It is because everywhere, in the blind angles, somebody keeps repairing, documenting, rerouting, or carrying what the system would rather let fall.

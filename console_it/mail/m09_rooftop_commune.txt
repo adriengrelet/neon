@@ -1,8 +1,9 @@
 FROM: zea@roofline-collective
 TO: you@console
 SUBJECT: energia stanotte
-RICEVUTO: [2097-03-28 21:44]
+RECEIVED: [2097-03-28 21:44]
 
-Se passi nel settore ZE08, porta condensatori di ricambio.
-Possiamo tenere luce per 43 case o per una print farm illegale.
-Assemblea alle 21:00, discussioni incluse senza sovrapprezzo.
+Se passi per ZE08 stanotte, porta condensatori di ricambio.
+Con lo stock attuale possiamo tenere accese le luci per 43 nuclei abitativi oppure alimentare una tipografia illegale che giura, come sempre, di essere politicamente indispensabile.
+Assemblea alle 21:00.
+Discussioni incluse senza sovrapprezzo, caffe pessimo, consenso improbabile, ma lavoro reale alla fine se nessuno sbatte la porta prima dei calcoli di carico.

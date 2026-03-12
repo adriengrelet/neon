@@ -1,8 +1,10 @@
 FROM: relay@ghostmesh
 TO: you@console
-SUBJECT: invite accepted
+SUBJECT: invitation accepted
 RECEIVED: [2097-02-03 23:09]
 
 GhostMesh does not recruit heroes.
-It recruits people who can keep promises under pressure.
-Drop by node DAX-90 with a clean laptop and bad sleep habits.
+GhostMesh recruits people who keep their word when the alarm rises and nobody is watching.
+Show up at node DAX-90 with a clean laptop, scrubbed logs, and the kind of fatigue that no longer confuses panic with urgency.
+If you are coming for the legend, stay home.
+If you are coming for the work, someone will open the door.

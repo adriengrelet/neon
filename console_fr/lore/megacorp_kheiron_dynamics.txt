@@ -1,20 +1,58 @@
 TITRE: Dossier - Kheiron Dynamics
 
 Activites coeur:
-- materiel securite Sentinel et modeles comportement
-- logiciel de compliance municipale
-- dashboards risque vendus aux tribunaux, ecoles et bailleurs
+- materiel securite Sentinel et modeles comportementaux associes
+- logiciels de compliance municipale, scoring de risque et supervision decisionnelle
+- dashboards vendus aux tribunaux, aux ecoles, aux bailleurs, aux operateurs reseau et a toute institution voulant transformer une responsabilite politique en lecture probabiliste
+
+Profil general:
+Kheiron Dynamics ne se presente jamais comme une firme de repression.
+Elle se presente comme un fournisseur d'infrastructure cognitive pour environnements complexes.
+Sa communication est propre, clinique, rassurante. Elle parle de mitigation, de fiabilite, d'aide a la decision, de stabilite civique et de reduction de variance.
+Ce lexique n'est pas annexe a son activite. C'est une partie essentielle du produit.
+Kheiron ne vend pas seulement des machines ou des modeles. Elle vend une facon de decrire la violence de sorte qu'elle paraisse rationnelle, necessaire et presque depolitisee.
 
 Comment le controle opere:
-Kheiron ordonne rarement la violence de facon directe par ecrit.
-La firme publie des probabilites de risque, puis les institutions automatisent la punition en aval.
-Quand le degat arrive, personne ne se sent responsable seul.
+Kheiron ordonne rarement une brutalite directe par ecrit.
+La firme calcule, classe, priorise, evalue et publie des probabilites de risque. Ensuite, d'autres acteurs appliquent les consequences: police, bailleurs, tribunaux, ecoles, agences d'aide, prestataires de sante.
+Quand le dommage arrive, chaque maillon peut dire qu'il n'a fait que suivre un indicateur fiable produit ailleurs.
+Le resultat final est elegant du point de vue bureaucratique: une chaine de violence sans auteur unique assez visible pour porter seul la faute.
+
+Architecture d'influence:
+Le vrai pouvoir de Kheiron vient de sa position intermediaire.
+La firme s'insere entre le terrain et la decision. Elle convertit des vies bruyantes, contradictoires, humaines, en signaux normalises exploitables par contrat.
+Un voisin qui proteste devient une anomalie de comportement.
+Une famille qui rate un paiement devient un motif de fragilite cumulative.
+Un quartier qui s'organise devient une zone d'instabilite civique.
+Une fois traduites dans cette langue, les mesures coercitives paraissent moins ideologiques et plus inevitables.
 
 Contradictions connues:
-- se dit neutre tout en ajustant les modeles selon directives politiques
-- vend la resilience tout en lobbyant contre la protection locataire
-- promet la transparence mais classe ses donnees d'entrainement secret commercial
+- Kheiron se dit neutre tout en ajustant ses modeles selon des directives politiques et des objectifs officieux de containment.
+- Kheiron vend la resilience publique tout en soutenant activement des lobbys hostiles aux protections locataires et aux audits citoyens.
+- Kheiron promet la transparence, puis classe ses donnees d'entrainement, ses jeux de validation et ses ponderations critiques en secret commercial.
+- Kheiron affirme reduire les biais, mais facture des personnalisations qui traduisent souvent les prejuges institutionnels du client en seuils plus presentables.
+
+Presence terrain:
+Dans les districts, le nom de Kheiron apparait rarement au moment du choc humain.
+Il n'est pas sur la porte quand un bail saute.
+Il n'est pas dans la cage d'escalier quand un raid commence.
+Il n'est pas au chevet quand une priorite medicale descend.
+Mais ses modeles, eux, sont partout en amont, comme une humidite dans les murs administratifs.
+On vit avec leurs sorties sans toujours voir le contrat qui les a produites.
+
+Hypocrisie operationnelle:
+La firme adore parler d'ethique embarquee.
+Elle finance des panels, des fondations, des prix d'innovation responsable et des bourses pour recherche sur l'equite algorithmique.
+Dans le meme temps, elle verrouille l'audit externe, fragmente la responsabilite contractuelle et repousse toute demande de reproductibilite au nom de la securite proprietaire.
+Ce n'est pas une contradiction accidentelle. C'est le modele d'affaires.
 
 Note terrain:
-ROM-AX13 suggere qu'une hesitation Sentinel peut etre declenchee via des comportements limite.
-Pas d'exploit confirme, mais assez de signaux pour continuer les tests.
+ROM-AX13 suggere qu'une hesitation Sentinel peut etre provoquee par certains comportements limites, certains profils de mouvement et certaines ambiguittes de classification en bord de seuil.
+Pas d'exploit confirme a ce stade.
+Mais il existe assez de signaux convergents pour poursuivre les tests, surtout si l'objectif est moins de detruire le systeme que de lui arracher quelques secondes de doute utiles.
+
+Evaluation politique:
+Il serait pratique de resumer Kheiron a une entreprise malfaisante parmi d'autres.
+Ce serait aussi insuffisant.
+Kheiron est plus utile au systeme que cela. La firme transforme la domination en service, la suspicion en metrique et la souffrance en externalite acceptable.
+Tant que ses contrats definiront ce qu'est un risque, beaucoup d'institutions pourront continuer a jurer qu'elles n'ont fait qu'optimiser.

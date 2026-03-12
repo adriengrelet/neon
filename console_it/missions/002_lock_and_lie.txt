@@ -1,13 +1,17 @@
-MISSIONE 002 - Apri, maschera, esci
+MISSION 002 - Aprire, mascherare, uscire
+
+Intento:
+Una buona intrusione non apre soltanto una porta. Lascia dietro di se una menzogna abbastanza credibile da ritardare la domanda vera: chi e passato di qui?
 
 Obiettivo:
-Aprire un percorso bloccato e far sembrare che l'abbia fatto la manutenzione.
+Aprire un percorso bloccato, attraversarlo con pulizia e far credere che il lavoro l'abbiano fatto manutenzione, negligenza o un firmware guasto.
 
 Passi:
-1. Usa echo prima di muoverti in zone ignote.
-2. Hacka nodo lock e riduci allarme se possibile.
-3. Lascia un tag manutenzione falso in logs/ se la finestra lo consente.
-4. Non combattere un Sentinel per punti stile.
+1. Usa echo prima di spingerti in una zona sconosciuta. I muri parlano prima delle guardie.
+2. Hacka il nodo di blocco, poi riduci l'allarme se la finestra te lo consente ancora.
+3. Lascia una falsa beacon di manutenzione in logs/ se hai ancora tempo e mani ferme.
+4. Non combattere mai un Sentinel per stile. Lo stile non sopravvive ai report d'incidente.
 
 Promemoria:
-Stealth non e invisibilita. E burocrazia plausibile.
+Lo stealth non e invisibilita.
+Lo stealth e fornire al sistema una storia abbastanza plausibile da fargli perdere tempo a mentire a se stesso.

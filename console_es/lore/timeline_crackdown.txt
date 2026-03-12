@@ -1,9 +1,44 @@
-TITULO: Timeline condensada
+TITULO: Timeline condensada de la crackdown
 
-2086: Represion de senales tras emisiones pirata de rutas de huelga.
-2088: APIs de enforcement de deuda integradas con policing distrital.
-2090: Oleada de redadas contra colectivos de software libre (periodo LV77).
-2092: Filtraciones de sabotaje administrativo exponen desalojos automatizados (periodo IR31).
-2094: Toolchains independientes reaparecen en mirrors alineados con DX90.
-2095: Apagon ZE08 marca paso de supresion selectiva a castigo total de distrito.
-2096: Parches de autonomia Sentinel desplegados en toda la ciudad bajo compra de emergencia.
+2086:
+La represion de senales se intensifica tras las emisiones pirata que difundieron rutas de huelga.
+Las autoridades aprenden una leccion sencilla: cuando los trabajadores todavia conocen los caminos, los bloqueos duran mas.
+Empieza asi la inversion seria en interferencia selectiva, priorizacion asimetrica y vigilancia de canales comunitarios.
+
+2088:
+Las API de enforcement de deuda se integran en el policing distrital.
+Este momento importa porque rompe una vieja frontera simbolica: el recobro privado deja de estar al lado del orden publico y pasa a ser una de sus capas activas.
+Los pagos retrasados empiezan a producir efectos fisicos mas rapidos: controles, denegaciones, seguimiento y restricciones de movimiento.
+
+2090:
+Oleada de redadas contra colectivos de software libre, conocida como periodo LV77.
+Las incautaciones apuntan a mas que una herramienta concreta. Buscan romper la idea misma de comun tecnico.
+Archivos arrancados, relays purgados, maintainers procesados, documentacion dispersada.
+Oficialmente se llama estabilizacion. En la practica es un empobrecimiento organizado de la capacidad popular para entender los sistemas que la gobiernan.
+
+2092:
+Filtraciones de sabotaje administrativo exponen pipelines de desalojo automatizado, periodo IR31.
+Logs, scripts y tablas de priorizacion revelan que los desplazamientos presentados como excepcionales ya funcionaban como infraestructura casi industrial.
+El escandalo no detiene la maquina, pero rompe una ilusion util: a partir de aqui, todo el mundo sabe que el error sistemico nunca fue un error.
+
+2094:
+Las toolchains independientes reaparecen a traves de mirrors alineados con DX90.
+El regreso no es un triunfo limpio. Las herramientas estan fragmentadas, las cadenas de confianza danadas y las redes humanas agotadas.
+Pero algo vuelve a arrancar: la capacidad de reconstruir, auditar, transmitir y sabotear sin pedir permiso a la infraestructura dominante.
+
+2095:
+El blackout de ZE08 marca el paso de la supresion selectiva al castigo distrital a gran escala.
+Ya no es solo esta persona, este edificio o esta celula lo que se ataca.
+Barrios enteros pasan a ser zonas de demostracion disciplinaria.
+El mensaje es transparente para quien sabe leerlo: si una zona insiste en resistir, la resistencia se le cobrara en la vida cotidiana.
+
+2096:
+Los patches de autonomia Sentinel se despliegan en toda la ciudad bajo compra de emergencia.
+El discurso publico invoca amenaza, urgencia y necesidad operativa.
+En la practica, la ciudad acepta que una parte mayor de la decision coercitiva se desplace a sistemas opacos, mas rapidos al actuar y mas dificiles de impugnar en tiempo real.
+
+Lectura general:
+La crackdown no es una secuencia de medidas separadas.
+Es una evolucion coherente: primero vigilar, luego ralentizar, luego clasificar, luego automatizar, luego normalizar.
+Cada etapa hace mas facil vender la siguiente.
+Cada crisis fabrica el pretexto para la herramienta posterior.

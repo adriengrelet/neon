@@ -1,9 +1,44 @@
-TITLE: Condensed timeline
+TITLE: Condensed Timeline of the Crackdown
 
-2086: Signal crackdowns after pirate broadcasts spread labor strike routes.
-2088: Debt enforcement APIs integrated with district policing.
-2090: Raid wave against free-software collectives (LV77 period).
-2092: Administrative sabotage leaks expose automated eviction patterns (IR31 period).
-2094: Independent toolchains reappear through DX90-aligned mirrors.
-2095: ZE08 blackout marks shift from selective suppression to total district punishment.
-2096: Sentinel autonomy patches deployed citywide under emergency procurement.
+2086:
+Signal repression intensifies after pirate broadcasts spread strike routes.
+Authorities learn a simple lesson: when workers still know the paths, blockades last longer.
+This marks the beginning of serious investment in targeted jamming, asymmetric prioritization, and surveillance of community channels.
+
+2088:
+Debt-enforcement APIs are integrated into district policing.
+This moment matters because it destroys an old symbolic boundary: private collection no longer sits beside public order, it becomes one of its active layers.
+Late payments begin producing faster physical effects: checks, denials, monitoring, and movement restrictions.
+
+2090:
+Raid wave against free-software collectives, known as the LV77 period.
+The seizures target more than any single tool. They are meant to break the very idea of technical commons.
+Archives ripped out, relays purged, maintainers charged, documentation scattered.
+Officially it is stabilization. In practice it is an organized impoverishment of popular capacity to understand the systems governing it.
+
+2092:
+Administrative sabotage leaks expose automated eviction pipelines, IR31 period.
+Logs, scripts, and prioritization tables reveal that supposedly exceptional displacements were already running like near-industrial infrastructure.
+The scandal does not stop the machine, but it shatters a useful illusion: from this point on, everyone knows the systemic error was never an error.
+
+2094:
+Independent toolchains reappear through DX90-aligned mirrors.
+The return is not clean triumph. The tools are fragmentary, trust chains damaged, human networks exhausted.
+But something restarts: the ability to rebuild, audit, transmit, and sabotage without asking permission from dominant infrastructure.
+
+2095:
+The ZE08 blackout marks the shift from selective suppression to district-wide punishment.
+It is no longer only this person, this building, this cell being targeted.
+Entire neighborhoods become disciplinary demonstration zones.
+The message is transparent to anyone who can read it: if an area insists on resisting, resistance will be charged back through daily life.
+
+2096:
+Sentinel autonomy patches are deployed citywide under emergency procurement.
+Public discourse invokes threat, urgency, operational necessity.
+In practice, the city accepts that a larger share of coercive decision-making will be moved into opaque systems that act faster and are harder to contest in real time.
+
+Overall reading:
+The crackdown is not a sequence of separate measures.
+It is one coherent evolution: first monitor, then slow, then classify, then automate, then normalize.
+Each stage makes the next easier to sell.
+Each crisis manufactures the pretext for the following tool.

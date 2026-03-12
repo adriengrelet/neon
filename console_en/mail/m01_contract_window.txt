@@ -4,5 +4,7 @@ SUBJECT: contract window
 RECEIVED: [2097-01-12 18:22]
 
 Small job, small risk, famous last words.
-Plant a watcher in a Kheiron side terminal and leave before the coffee drone notices.
-Pay: 320 credits + one clean access token.
+We want a discreet watcher on a secondary Kheiron terminal, not your personal war against their security.
+You get in, plant it, confirm the sync, then vanish before the coffee drone starts finding you memorable.
+Quoted pay: 320 credits + a clean access token.
+Real pay: mostly the rare satisfaction of stealing time back from a machine that bills ours.

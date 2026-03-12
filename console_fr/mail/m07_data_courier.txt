@@ -4,5 +4,7 @@ SUBJECT: fragment carte route
 RECU: [2097-03-09 04:58]
 
 Piece jointe: fork de carte recupere depuis des traces KR22.
-Certains couloirs mentent, certains manquent, tous prennent un loyer.
-Si la route 3 boucle deux fois, coupe est et fais confiance a tes oreilles.
+Ne lui fais pas une confiance propre. Certains couloirs mentent, certains manquent, et tous prennent un loyer d'une facon ou d'une autre.
+Si la route 3 boucle deux fois, coupe vers l'est et fais confiance a tes oreilles avant de faire confiance aux panneaux.
+Les batiments bien gardes falsifient rarement les murs.
+Ils falsifient surtout la facon dont on te demande de les lire.

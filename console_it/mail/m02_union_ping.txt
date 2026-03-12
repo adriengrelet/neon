@@ -1,7 +1,9 @@
 FROM: lineworkers_union@mesh
 TO: you@console
-SUBJECT: prove blocco paghe
-RICEVUTO: [2097-01-18 06:41]
+SUBJECT: prove di congelamento salariale
+RECEIVED: [2097-01-18 06:41]
 
-Servono packet capture che dimostrino che il blackout paghe e policy, non bug.
-Se recuperi un memo interno firmato, smettiamo di chiamare la fame ottimizzazione.
+Ci servono catture che dimostrino che il blackout salariale e una policy, non un bug lasciato comodo al suo posto.
+Se esci con un memo interno firmato, databile e impossibile da riclassificare come errore di pipeline, potremo finalmente smettere di chiamare ottimizzazione la fame.
+La gente di linea ha gia le testimonianze.
+Ci manca la frase pulita, quella che i quadri hanno scritto per poter dormire.

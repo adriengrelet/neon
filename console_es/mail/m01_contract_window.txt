@@ -1,8 +1,10 @@
 FROM: broker@wiremarket
 TO: you@console
 SUBJECT: ventana de contrato
-RECIBIDO: [2097-01-12 18:22]
+RECEIVED: [2097-01-12 18:22]
 
-Trabajo pequeno, riesgo pequeno, ultimas palabras clasicas.
-Instala un watcher en un terminal secundario de Kheiron y sal antes de que el dron de cafe te vea.
-Pago: 320 creditos + un token de acceso limpio.
+Trabajo pequeno, riesgo pequeno, ultimas palabras famosas.
+Queremos un watcher discreto en un terminal secundario de Kheiron, no tu guerra personal contra su seguridad.
+Entras, lo colocas, verificas la sincronizacion y desapareces antes de que el dron del cafe empiece a encontrarte memorable.
+Pago anunciado: 320 creditos + un token de acceso limpio.
+Pago real: sobre todo la rara satisfaccion de robarle tiempo a una maquina que factura el nuestro.

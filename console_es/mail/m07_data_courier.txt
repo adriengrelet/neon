@@ -1,8 +1,10 @@
 FROM: kenji.rault.memorial@freepost
 TO: you@console
 SUBJECT: fragmento de mapa de ruta
-RECIBIDO: [2097-03-09 04:58]
+RECEIVED: [2097-03-09 04:58]
 
-Adjunto: fork de mapa recuperado de trazas KR22.
-Algunos pasillos mienten, otros faltan, todos cobran alquiler.
-Si la ruta 3 entra en bucle dos veces, corta al este y confia en tus oidos.
+Adjunto: fork de mapa recuperado de rastros KR22.
+No le tengas una confianza limpia. Algunos pasillos mienten, otros faltan, y todos cobran alquiler de una forma u otra.
+Si la ruta 3 se repite dos veces, corta hacia el este y confia en tus oidos antes que en la senaletica.
+Los edificios bien vigilados rara vez falsifican los muros.
+Lo que falsifican es la forma en que te piden leerlos.

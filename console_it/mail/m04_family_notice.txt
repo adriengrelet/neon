@@ -1,8 +1,11 @@
 FROM: unknown
 TO: you@console
 SUBJECT: ho visto il tuo nome
-RICEVUTO: [2097-02-10 07:56]
+RECEIVED: [2097-02-10 07:56]
 
-Il tuo handle e apparso in un dashboard rischio distrettuale.
-Potrebbe essere rumore. Potrebbe essere una lista pre-arresto.
-Non ti chiedo di fermarti. Ti chiedo di cambiare percorso.
+Il tuo handle e apparso in un dashboard di rischio distrettuale.
+Forse e rumore. Forse e una prelista di arresto. Forse e solo il sistema che comincia a darti una forma abbastanza nitida da seguirti meglio.
+Non ti sto chiedendo di fermarti.
+Ti sto chiedendo di cambiare percorso, bar, orario di passaggio e modo di alzare gli occhi quando senti una camera addosso.
+Le citta a volte perdonano il movimento.
+Quasi mai perdonano le abitudini.

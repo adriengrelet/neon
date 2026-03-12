@@ -1,3 +1,5 @@
 FROM: relay@ghostmesh
-SUBJECT: finestra di intrusione
-La porta restera aperta meno di 90 secondi. Resta in movimento.
+SUBJECT: finestra d'intrusione
+La porta restera aperta per meno di 90 secondi.
+Entra leggero, spezza le tue abitudini e non affezionarti a nessun corridoio.
+Se esiti davanti a una porta, l'edificio avra gia iniziato a imparare il tuo ritmo.

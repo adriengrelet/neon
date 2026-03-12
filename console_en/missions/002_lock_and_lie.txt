@@ -1,13 +1,17 @@
-MISSION 002 - Lock, spoof, leave
+MISSION 002 - Open, mask, leave
 
-Goal:
-Open one locked path and make it look like maintenance did it.
+Intent:
+A good intrusion does not only open a door. It leaves behind a lie credible enough to delay the real question: who came through here?
+
+Objective:
+Open a locked path, cross it cleanly, and make it look as if maintenance, negligence, or bad firmware did the work for you.
 
 Steps:
-1. Use echo before forcing movement into unknown rooms.
-2. Hack lock node, then reduce alarm if possible.
-3. Drop one false maintenance tag in logs/ if operation allows.
-4. Never fight a Sentinel for style points.
+1. Use echo before pushing into an unknown zone. Walls speak sooner than guards.
+2. Hack the lock node, then reduce the alarm if the window still allows it.
+3. Drop a fake maintenance beacon into logs/ if you still have time and steady hands.
+4. Never fight a Sentinel for style. Style does not survive incident reports.
 
 Reminder:
-Stealth is not invisibility. It is plausible paperwork.
+Stealth is not invisibility.
+Stealth is giving the system a story plausible enough that it wastes time lying to itself.

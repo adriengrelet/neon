@@ -1,8 +1,11 @@
 FROM: unknown
 TO: you@console
 SUBJECT: vi tu nombre
-RECIBIDO: [2097-02-10 07:56]
+RECEIVED: [2097-02-10 07:56]
 
 Tu handle aparecio en un dashboard de riesgo distrital.
-Puede ser ruido. Puede ser una lista previa a arrestos.
-No te pido que pares. Te pido que cambies de ruta.
+Tal vez sea ruido. Tal vez una prelista de arresto. Tal vez solo el sistema empezando a darte una forma lo bastante nitida como para seguirte mejor.
+No te estoy pidiendo que pares.
+Te estoy pidiendo que cambies de ruta, de cafe, de hora de paso y de manera de alzar la mirada cuando sientas una camara.
+Las ciudades a veces perdonan el movimiento.
+Casi nunca perdonan los habitos.

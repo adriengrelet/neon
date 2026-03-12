@@ -1,18 +1,30 @@
-TITOLO: Panorama megacorporate
+TITOLO: Panorama megacorporativo
+
+Le megacorp non governano sempre impartendo ordini visibili.
+Per lo piu vendono strumenti, score, abbonamenti, strati software e indicatori di rischio. Le istituzioni pubbliche o semipubbliche applicano poi la violenza al loro posto, a una distanza sufficiente perche nessuno si senta individualmente responsabile.
 
 1) Kheiron Dynamics
-Controlla stack sicurezza, modelli Sentinel e linguaggio compliance.
+Kheiron controlla stack di sicurezza, modelli Sentinel, buona parte dell'analisi comportamentale e un intero vocabolario di compliance che aiuta a trasformare la coercizione in procedura.
 Slogan pubblico: Sistemi sicuri, societa sicura.
-KPI interno: contenimento incidenti per credito.
+Realta sul campo: piu la firma parla di neutralita, piu conviene chiedersi chi beneficia delle sue soglie.
+KPI interno ufficioso: contenimento degli incidenti per credito, cioe quanta disorganizzazione umana puo essere assorbita al costo minimo prima che l'immagine di stabilita si spezzi.
 
 2) Helix Habitat
-Controlla housing modulare, automazione sfratti e contratti acqua.
-L'app parla di flessibilita. Gli inquilini parlano di precarieta rotante.
+Helix non vende soltanto appartamenti. Vende un diritto condizionato a occupare un volume d'aria e tubature dentro una struttura che puo riclassificare da remoto.
+La societa controlla housing modulare, automazione degli sfratti, contratti dell'acqua, sensori d'uso e strumenti di rilocazione forzata travestiti da flessibilita residenziale.
+L'app parla di percorsi abitativi adattivi. Gli inquilini parlano di precarieta rotante.
+Quando Helix ottimizza, intere famiglie scoprono che il loro indirizzo era solo un'ipotesi fatturabile.
 
 3) Vanta Biologics
-Gestisce abbonamenti clinici e scoring debito biometrico.
-Salta un pagamento e la tua priorita cure scende in silenzio.
+Vanta gestisce abbonamenti clinici, scoring del debito biometrico e una rete di priorita di cura che salgono e scendono in silenzio in base a solvibilita, profili di rischio e clausole nascoste nei contratti aziendali.
+La sua interfaccia dice prevenzione personalizzata. I suoi clienti dicono tranquillita sanitaria. I distretti a basso score sanno altro: basta saltare un pagamento per vedere la priorita di trattamento crollare senza che nessun umano si prenda il disturbo di guardarti negli occhi.
 
 4) Straylight Transit
-Gestisce metro AI e permessi di rotta.
-Problema noto: linee fantasma dove mappe vecchie ricordano persone non piu servite.
+Straylight gestisce la metro AI, i permessi di rotta, i corridoi merci e una parte del sistema di mobilita predittiva che decide quali zone debbano restare fluide e quali possano essere rallentate con un costo politico limitato.
+Problema noto: le linee fantasma, quelle rotte residue in cui le vecchie mappe sembrano ricordare persone che il sistema non serve piu, come se l'infrastruttura conservasse la memoria del servizio pubblico meglio dei contratti che l'hanno sostituito.
+
+Conclusione:
+Queste aziende si presentano come semplici fornitori tecnici.
+In pratica fabbricano l'ambiente amministrativo in cui una persona puo essere curata, sfrattata, tracciata, ritardata, classificata o dimenticata.
+Non sembrano sempre tiranni.
+Spesso sembrano dashboard eleganti con linguaggio pulito e conseguenze sporche.

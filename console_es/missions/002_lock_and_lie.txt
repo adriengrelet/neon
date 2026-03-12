@@ -1,13 +1,17 @@
-MISION 002 - Abrir, maquillar, salir
+MISSION 002 - Abrir, maquillar, salir
+
+Intencion:
+Una buena intrusion no solo abre una puerta. Deja detras una mentira lo bastante creible como para retrasar la pregunta real: quien paso por aqui?
 
 Objetivo:
-Abrir una ruta bloqueada y hacer que parezca trabajo de mantenimiento.
+Abrir una ruta bloqueada, cruzarla con limpieza y hacer creer que el trabajo lo hicieron el mantenimiento, la negligencia o un firmware defectuoso.
 
 Pasos:
-1. Usa echo antes de moverte a zonas desconocidas.
-2. Hackea el nodo de bloqueo y reduce alarma si puedes.
-3. Deja una etiqueta falsa de mantenimiento en logs/ si hay ventana.
-4. No pelees con un Sentinel por puntos de estilo.
+1. Usa echo antes de empujar hacia una zona desconocida. Los muros hablan antes que los guardias.
+2. Hackea el nodo de cierre y luego reduce la alarma si la ventana todavia te lo permite.
+3. Deja una falsa baliza de mantenimiento en logs/ si aun te quedan tiempo y manos firmes.
+4. Nunca luches contra un Sentinel por estilo. El estilo no sobrevive a los informes de incidente.
 
 Recordatorio:
-Stealth no es invisibilidad. Es papeleo creible.
+El stealth no es invisibilidad.
+El stealth consiste en darle al sistema una historia bastante plausible para que pierda tiempo mintiendose a si mismo.

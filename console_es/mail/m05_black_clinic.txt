@@ -1,8 +1,9 @@
 FROM: clinic_nightshift@mutualaid
 TO: you@console
-SUBJECT: atajo para deuda medica
-RECIBIDO: [2097-02-22 02:14]
+SUBJECT: desvio de deuda medica
+RECEIVED: [2097-02-22 02:14]
 
-Trae un sello de autorizacion corporativa valido.
-Podemos convertirlo en 14 citas fantasma.
-No hay milagros, solo gente ayudando a otra gente a sobrevivir al software de facturacion.
+Traenos un sello de autorizacion corporativa que siga siendo valido.
+Con eso podemos abrir catorce citas fantasma antes de que la facturacion biometrica entienda que esta atendiendo a gente a la que preferiria dejar en la cola.
+No es un milagro.
+Es solo personal de noche negandose a dejar que un software de facturacion decida quien merece un pulmon, un rinon o una semana mas de tregua.

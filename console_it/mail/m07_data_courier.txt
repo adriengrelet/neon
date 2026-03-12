@@ -1,8 +1,10 @@
 FROM: kenji.rault.memorial@freepost
 TO: you@console
-SUBJECT: frammento mappa percorso
-RICEVUTO: [2097-03-09 04:58]
+SUBJECT: frammento di mappa di rotta
+RECEIVED: [2097-03-09 04:58]
 
-Allegato: fork mappa recuperato da tracce KR22.
-Alcuni corridoi mentono, alcuni mancano, tutti chiedono affitto.
-Se la rotta 3 entra in loop due volte, taglia a est e fidati delle orecchie.
+Allegato: fork di mappa recuperato da tracce KR22.
+Non fidartene in modo pulito. Alcuni corridoi mentono, altri mancano, e tutti riscuotono un affitto in un modo o nell'altro.
+Se la rotta 3 gira due volte, taglia a est e fidati delle orecchie prima che della segnaletica.
+Gli edifici ben sorvegliati raramente falsificano i muri.
+Falsificano soprattutto il modo in cui ti chiedono di leggerli.

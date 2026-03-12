@@ -1,9 +1,31 @@
 TITULO: Panorama del mundo Neon Node
 
-Las ciudades estan apiladas como libros de deuda: aire premium arriba, calor y moho abajo.
-La mayoria de servicios esta privatizada y luego revendida a tarifa variable.
-Nadie desaparece de golpe; te quitan permisos uno por uno.
+Las ciudades no son solo grandes.
+Estan apiladas, estratificadas y compartimentadas como libros de deuda puestos en vertical: aire mas limpio arriba, calor y moho abajo, seguridad contractual para unos pocos e incertidumbre logistica para todo el resto.
+La altura no es solo arquitectura. Es politica hecha visible.
 
-La megaestructura no es solo un edificio, es software de gobierno envuelto en hormigon.
-Dentro, la ley se aplica con latencia, checkpoints y umbrales de puntuacion.
-Fuera, los barrios improvisan supervivencia con apoyo mutuo, utilidades hackeadas y ancho de banda robado.
+Casi todo servicio esencial ha sido privatizado, fragmentado, puntuado, empaquetado y revendido a tarifa variable.
+Agua, energia, transporte, vivienda, salud, acceso a la senal y a veces hasta el aire filtrado pasan por capas contractuales, sistemas de scoring e interfaces que prometen personalizacion mientras organizan la escasez.
+La gente no desaparece de golpe.
+La van sacando del mundo permiso a permiso, umbral a umbral, cola a cola.
+
+La megaestructura no es solo un edificio.
+Es software de gobierno envuelto en hormigon, galerias tecnicas y cristal blindado.
+Sus corredores transportan tanta politica como cuerpos.
+Sus ascensores, checkpoints, credenciales, colas de acceso y ventanas de latencia le dicen a cada cual lo que vale, adonde puede ir y cuanto tendra que esperar por lo que antes podia llamarse un derecho.
+
+Dentro, la ley no siempre llega como policia o decreto.
+Tambien llega como retraso de red, score de fiabilidad, prioridad de mantenimiento, una puerta que se queda demasiado tiempo en amarillo o una solicitud que nunca termina de resolverse.
+El sistema prefiere las formas de violencia que se parecen a friccion.
+Son mas faciles de negar y mas agotadoras de combatir.
+
+Fuera de los circuitos privilegiados, los barrios improvisan supervivencia.
+No por romanticismo.
+Por necesidad.
+Apoyo mutuo de pasillo, utilidades hackeadas, ancho de banda robado, cocinas comunes, medicina gris, talleres de reparacion, relays de azotea y mirrors de archivo sustituyen lo que los proveedores oficiales vuelven demasiado caro, demasiado lento o demasiado condicional.
+
+El mundo de Neon Node no opone una tecnologia avanzada y pulida a una miseria simple.
+Muestra mas bien como los sistemas avanzados descansan sobre capas de mantenimiento agotado, trabajo invisible, arreglos improvisados y gente a la que la ciudad trata como ruido mientras depende por completo de ella.
+
+Si algo sigue en pie, no es porque las instituciones sean justas.
+Es porque en todas partes, en los angulos muertos, alguien sigue reparando, documentando, desviando o transportando lo que el sistema preferiria dejar caer.

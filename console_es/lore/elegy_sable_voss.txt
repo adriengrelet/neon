@@ -1,62 +1,103 @@
-TITLE: Elegia para Sable Voss
+TITULO: Elegia para Sable Voss
 
 Cuando la gente habla de Sable Voss, casi siempre empieza por el ruido.
-No por una cara, porque muy pocos la vieron. No por una biografia, porque aqui las biografias suelen ser informes de deuda y fechas de desalojo. Empiezan por el ruido: el zumbido de un rele viejo, el roce de la soldadura sobre cobre recuperado, la forma en que probaba una linea tarareando y esperando que la ciudad devolviera el eco.
+No por una cara, porque muy pocos la vieron de cerca. No por una biografia, porque aqui una biografia suele reducirse a historial de deuda, fechas de desalojo y rastros de mantenimiento bajo identidades falsas.
+No, la gente empieza por el ruido: el aliento de un relay cansado, el raspon de una soldadura sobre cobre recuperado, la manera en que probaba una linea tarareando al micro y esperando a que la ciudad contestara.
 
-Sable no nacio en un bunker de elite.
-Nacio en Stack-9, donde los ascensores se rompen en dia de pago y la presion de agua cae cuando Helix Habitat publica otra optimizacion. Su primer terminal fue una unidad escolar descartada tras fallar una auditoria biometrica de Kheiron. La reparo con cable de metro, un cuchillo de cocina y una pagina arrancada de un manual.
+Sable no nacio en un bunker heroico lleno de hardware de gama alta.
+Nacio en Stack-9, donde los ascensores mueren el dia de pago y la presion del agua cae cada vez que Helix Habitat publica otra nota de optimizacion.
+Su primer terminal fue una unidad escolar descartada tras fallar una auditoria biometrica de Kheiron.
+La devolvio a la vida con cable de transito, un cuchillo de cocina y una pagina arrancada de un manual de electrodomesticos.
+Ese detalle importa, porque lo dice casi todo: aqui la competencia no nace del confort. Nace de negarse a que la averia decida sola.
 
-Despues de la muerte, todos reescriben.
-Dicen que era valiente. No: tenia miedo todo el tiempo y aun asi avanzaba. Miedo a drones, listas negras, puertas que pasan de amarillo a rojo.
-A los novatos les repetia:
-El miedo es dato. El panico es perdida de paquetes.
+La gente adora reescribir las leyendas despues de la muerte.
+Dicen que no tenia miedo.
+Es mentira.
+Tenia miedo todo el tiempo y aun asi avanzaba.
+Miedo a drones, a listas negras, a cerraduras que pasan de amarillo a rojo.
+A los runners jovenes les repetia una frase que sonaba a plegaria, metodo y advertencia a la vez:
+el miedo es dato. El panico es perdida de paquetes.
 
-Su oficio era sabotaje util.
-No perseguia explosiones teatrales. Preferia operaciones pequenas que obligaran al sistema a mostrar su violencia escondida en lenguaje tecnico. Mapeo APIs de desalojo disfrazadas de azar. Intercepto filtros de nomina que llamaban integridad al hambre. Dejaba pocas firmas y muchos efectos: familias que no fueron expulsadas, salarios descongelados, turnos medicos ganados donde no habia nada.
+Su oficio, si es que puede llamarse oficio, era el sabotaje util.
+No iba detras de explosiones de escaparate ni de teatro para manifiestos.
+Preferia operaciones pequenas, tecnicas, casi ingratas, de esas que hacian sangrar al sistema lo justo para obligar a las instituciones a revelar lo que hacian en la oscuridad.
+Mapeaba APIs de desalojo que fingian ser aleatorias.
+Interceptaba filtros de nomina que rebautizaban el hambre como evento de integridad.
+No firmaba nada.
+Dejaba resultados: familias que seguian en casa, salarios descongelados, algunas plazas clinicas recuperadas en semanas que normalmente no ofrecian nada.
 
-La historia que todos recuerdan es la Semana del Ascensor.
-En ZE08, un hospital de distrito perdio cuatro elevadores durante un blackout selectivo. El reporte oficial hablo de friccion vertical temporal. Sable lo llamo asesinato por eufemismo.
-Con dos tecnicos de linea, se metio en canales de mantenimiento con lamparas de bateria y routers desnudos. Redirigio permisos de emergencia con credenciales municipales antiguas. Durante seis noches, los ascensores funcionaron cuando no debian. Durante seis noches, subir escaleras dejo de ser sentencia.
+La primera historia que todo el mundo recuerda es la Semana de los Ascensores.
+En ZE08, un hospital de distrito perdio cuatro ascensores durante un blackout selectivo. Los canales oficiales hablaron de friccion vertical temporal. Sable lo llamo asesinato administrativo.
+Con dos tecnicos de linea, se metio en las galerias de mantenimiento con lamparas de bateria y routers pelados. Redirigio los permisos de emergencia por una ruta fantasma montada con viejas llaves municipales que nadie se habia molestado en revocar bien.
+Durante seis noches, los ascensores funcionaron cuando no deberian haber funcionado.
+Durante seis noches, la escalera dejo de ser una condena.
 
-Pago ese gesto con su cobertura.
-Una semana despues, su score de movimiento se disparo. Kheiron la marco como activo de baja confianza. Traduccion: persona que puede desaparecer sin ruido administrativo.
+El precio llego una semana despues.
+Su score de movilidad se disparo.
+Kheiron la etiqueto como activo civico de baja confianza.
+En lenguaje simple: una persona que la ciudad puede hacer desaparecer sin demasiado ruido administrativo.
 
-Aun asi siguio.
+Y siguio.
+No porque le gustara jugar con el peligro.
+Sino porque entendia algo que muchos siguen negandose a admitir: el peligro ya estaba ahi, industrializado, privatizado, empaquetado por suscripcion y desplegado contra la gente que ella conocia.
 
-Su ultima run no era un guion martir.
-Debia ser una extraccion limpia.
-Objetivo: entrar a un espinazo lateral de un centro de entrenamiento Sentinel, sacar un dataset de comportamiento y salir antes de sincronizacion de refuerzos.
-Ventana: seis minutos, tal vez siete.
-Realidad: mapa falso, trampa termica y un patch en vivo.
+Su ultima run nunca fue un guion de martirio.
+Sobre el papel era una extraccion limpia.
+Objetivo: entrar en una espina lateral de un hub de entrenamiento Sentinel, recuperar un dataset de comportamiento y salir antes de que se sincronizaran los bucles de refuerzo.
+Ventana prevista: seis minutos, tal vez siete si las patrullas se retrasaban.
+Realidad: mapa falso de pasillos, trampa termica y patch lanzado en vivo.
 
-Sable entro con Mira Quell en overwatch y dos relays GhostMesh vigilando alarmas.
-Al principio, perfecto: lock abierto, handshake, payload listo.
-Luego un corredor se movio y la tiro a un carril de validacion Sentinel. La unidad no disparo al instante. Dudo, como en trazas ROM antiguas.
+Sable entro mientras Mira Quell mantenia el overwatch y dos relays GhostMesh vigilaban la propagacion de alarmas.
+El inicio fue perfecto: cerradura abierta, handshake de terminal, payload preparado.
+Entonces un corredor giro sobre railes vivos y la dejo caer en un carril de validacion Sentinel.
+La maquina no disparo de inmediato.
+Dudo, como sugieren algunas trazas ROM antiguas, como si intentara decidir si la humana que tenia delante encajaba en alguna categoria autorizada, algun fantasma administrativo o alguna excepcion que sus propios umbrales no terminaban de resolver.
 
-Esa pausa es lo que duele.
-Habia margen.
+Esa pausa es lo que vuelve insoportable el final.
+Porque significaba que aun habia margen.
+Un aliento.
+Una eleccion.
 
-Sable uso ese margen para enviar, no para escapar.
-Transmitio el 92 por ciento del dataset: suficiente para exponer directivas politicas y sesgos judiciales. Quemo su salida para mantener abierto el canal de entrega para Mira. Su ultimo burst dijo:
-Sin estatua. Publicadlo todo.
+Sable uso ese margen para empujar el payload, no para huir.
+Transmitio el noventa y dos por ciento del dataset, suficiente para exponer directivas de ajuste politico y enganches de scoring judicial.
+Quemo su propia ruta de salida para mantener abierto el carril de transferencia para Mira.
+Su ultimo burst de relay dijo:
+sin estatua. Publicadlo todo.
 
 Despues el carril se cerro.
 
-Al amanecer, Kheiron hablo de intruso no identificado.
-Los medios de distrito hablaron de extremista.
-La comunidad pronuncio su nombre elegido, y aqui eso ya es dignidad.
+Al amanecer, los canales de prensa de Kheiron hablaron de una intrusion contenida por un actor no identificado.
+Los feeds de distrito hablaron de extremista.
+Las redes comunitarias usaron el nombre que ella eligio, y en nuestro mundo eso ya es una forma de dignidad que mucha gente nunca recibe.
 
-El dataset que envio llego a cooperativas legales, archivos sindicales y redes clinicas. En un mes hubo medidas contra desalojos automaticos en dos sectores. En menos de tres meses, un tribunal reconocio sesgo de cumplimiento.
-Nada de eso la devolvio.
+El resto es la razon de esta elegia.
+El dataset que logro hacer pasar llego a tres cooperativas legales, dos archivos sindicales y una red de clinicas.
+En treinta y un dias, dos sectores obtuvieron medidas cautelares contra el desplazamiento automatizado.
+En cincuenta y nueve dias, un tribunal regional reconocio sesgo de cumplimiento, algo casi milagroso aqui.
+En setenta y dos dias, Helix cambio un umbral interno y fingio que siempre habia sido el plan.
 
-Su cuarto en Stack-9 ya no existe. Lo convirtieron en microvivienda flexible imposible de pagar. Pero sus restos circulan: scripts en toolkits de Roofline, notas de voz en onboarding GhostMesh, chistes malos en canales tecnicos.
+Nada de eso devolvio a Sable.
 
-Si esta elegia sirve para algo, que sea para esto:
-Sable Voss no murio por amar el peligro.
-Murio porque el peligro ya estaba privatizado y desplegado contra todos los suyos.
-Se quedo en el carril el tiempo justo para que la evidencia cruzara.
+Su cuarto en Stack-9 ya no existe.
+Lo renovaron en una microvivienda flexible que nadie del antiguo bloque puede pagar.
+Pero pedazos de ella siguen circulando.
+Un fragmento de script en un toolkit de Roofline que comprueba la deriva de cerraduras antes del commit.
+Una nota de voz en el onboarding de GhostMesh recordando que hay que limpiar los logs antes de que se enfrie el cafe.
+Y un mal chiste de mantenimiento que todo el mundo sigue repitiendo:
+si la politica dice imposible, pregunta quien factura lo imposible.
 
-Algunas noches, cuando baja la carga de red, los relays viejos cantan en los tejados.
-Dicen que es estatica.
-No lo es.
-Somos nosotros, todavia cargando su paquete.
+Elegimos recordarla de forma incorrecta.
+No limpia.
+No heroica.
+No vendible.
+Nos quedamos con las quemaduras de cable en los dedos, los medpatches de sobra en los bolsillos, las comidas saltadas, la manera en que podia discutir etica de firmware durante una hora y perder la paciencia ante una maquina expendedora rota.
+
+Si esta elegia va a servir para algo, que sirva para esto:
+Sable Voss no murio porque amara el peligro.
+Murio porque el peligro ya se habia convertido en infraestructura.
+Se quedo en el carril el tiempo justo para dejar pasar la prueba.
+
+A veces, cuando baja la carga de red y la ciudad suena casi humana, los viejos relays siguen cantando en las azoteas.
+La gente dice que es estatica.
+Se equivoca.
+Somos nosotros, todavia, cargando su paquete.

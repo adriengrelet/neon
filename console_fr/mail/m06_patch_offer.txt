@@ -4,5 +4,6 @@ SUBJECT: patch stealth premium
 RECU: [2097-03-01 20:37]
 
 Notre patch proprietaire reduit la detection Sentinel de 62 pourcent.
-Petites lignes: tests terrain effectues sur des clients indisponibles pour retour.
-Remise expire a minuit, comme toutes les offres suspectes.
+Le chiffre est precis, ce qui est toujours une mauvaise nouvelle quand il vient d'un vendeur qui refuse de montrer ses journaux de test.
+Petites lignes: essais terrain effectues sur des clients actuellement indisponibles pour retour d'experience, pour des raisons que notre service juridique prefere appeler finales.
+La remise expire a minuit, comme toutes les offres suspectes et la plupart des erreurs de jugement memorables.

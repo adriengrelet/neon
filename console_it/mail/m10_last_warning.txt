@@ -1,8 +1,9 @@
 FROM: audit.bot@citystack
 TO: you@console
 SUBJECT: ultimo avviso prima delle penalita
-RICEVUTO: [2097-04-06 00:32]
+RECEIVED: [2097-04-06 00:32]
 
-Il tuo punteggio affidabilita cittadina e sceso sotto soglia legale di comfort.
-Regolarizza debito, mobilita non autorizzata e volatilita emotiva.
-Se impossibile, resta calmo durante l'intervento.
+Il tuo punteggio di affidabilita civica e sceso sotto la soglia legale di comfort.
+Ti chiediamo di regolarizzare senza ritardo il debito in sospeso, la mobilita non autorizzata e la volatilita emotiva osservata di recente.
+Se regolarizzare e impossibile, ti chiediamo di restare calmo, visibile e collaborativo durante l'intervento.
+La citta preferisce sempre cittadini docili proprio nel momento esatto in cui comincia a trattarli come un fascicolo chiuso.

@@ -4,7 +4,7 @@ Timestamp: 2097-01-10 02:18
 Subject: Caches objets detectes [MS-ASTRA-17]
 
 Operateur pyro,
-La cartographie interne indique des depots utilitaires hors circuit. Le scan devrait etre rentable.
+La cartographie interne signale des depots utilitaires hors circuit et quelques angles morts encore mal recenses. Si tu lis correctement la structure, le scan peut te rapporter plus qu'un simple detour de survie.
 Cible confirmee: Astra Relay Grid (MS-ASTRA-17).
 Objectif: infiltrer, collecter 3 fragments de cryptodata, neutraliser le CORE Sentinel, puis hacker le CORE central.
 
@@ -12,5 +12,5 @@ Aide de lancement transferee:
 - Credits: +170 CR
 - Items: medkit
 
-Repondre par infiltration immediate recommande.
+Reponse par infiltration immediate recommandee.
 Mission-ID: Q20260311154152-839

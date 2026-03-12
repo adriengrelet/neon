@@ -1,21 +1,31 @@
-TITRE: Groupes hackers et reseaux
+TITRE: Groupes hackers et reseaux de survie
+
+Ce qui suit n'est pas un annuaire neutre.
+C'est un releve partiel des structures qui tiennent encore quand la ville officielle decide que certains quartiers peuvent attendre, se taire ou disparaitre.
+On parle de groupes hackers, mais le terme est trop etroit. La plupart de ces reseaux font bien plus que percer des systemes: ils reparent des lignes, convoyent des preuves, forment des debutants, cachent des gens, reconstruisent des services et absorbent la casse humaine qu'aucun tableau de bord ne veut nommer.
 
 GhostMesh:
-Relais decentralises, prefere les operations faible signature.
-Force: discipline sous pression.
-Faiblesse: confiance lente a construire, parfois trop lente.
+GhostMesh n'est pas une organisation centrale mais une constellation de relais decentralises, d'operateurs prudents et de protocoles transmis de bouche a oreille ou de terminal a terminal. Le reseau prefere les operations a faible signature, les transferts propres, les traces reduites et les objectifs dont la valeur depasse le besoin de reconnaissance.
+Force: discipline sous pression, excellente hygiene operationnelle, capacite a garder des canaux vivants la ou tout semble eteint.
+Faiblesse: confiance longue a construire, paranoia parfois si forte qu'elle ralentit les reponses quand la fenetre utile est deja en train de se fermer.
 
 Roofline Collective (ZE08):
-Techniciennes et techniciens d'entraide de quartier.
-Force: legitimite locale et reparations concretes.
-Faiblesse: infrastructures exposees et fatigue chronique.
+Roofline est compose de techniciennes, techniciens, electriciens sauvages, mainteneurs de fortune et voisins trop competents pour laisser un immeuble mourir seul. Leur specialite n'est pas le spectaculaire. C'est le concret: raccorder une pompe, consolider un repeater, remettre une porte en etat, bidouiller une alimentation, proteger un toit pour que le quartier garde du signal et un peu de dignite.
+Force: legitimite locale, memoire des pannes, liens humains reels avec les habitants, capacite a transformer une competence technique en entraide visible.
+Faiblesse: infrastructures exposees, epuisement chronique, manque de redondance quand trop peu de mains savent encore reparer beaucoup trop de choses.
 
 Free Kernel Assembly (lignage DX90):
-Radicaux open-source qui maintiennent des toolchains covertes.
-Force: communs logiciels resilients.
-Faiblesse: debats internes sans fin, preparation operationnelle inegale.
+La Free Kernel Assembly est ce qui arrive quand des radicaux open-source refusent de laisser le code devenir uniquement une marchandise ou une arme de gestion sociale. Le lignage DX90 maintient des toolchains covertes, des miroirs, des archives et des communs logiciels qui survivent aux vagues de saisie et aux purges de depot.
+Force: resilence intellectuelle et technique, documentation abondante quand elle existe, capacite a reconstruire des outils a partir de presque rien.
+Faiblesse: debats internes sans fin, fractures ideologiques, preparation operationnelle tres inegale selon les cellules. Certaines sont brillantes. D'autres confondent encore purete doctrinale et utilite terrain.
 
 Night Couriers:
-Coursiers donnees qui transportent physiquement les fichiers quand le reseau est hostile.
-Force: difficile a tracer a grande echelle.
-Faiblesse: risque personnel eleve et faible couverture legale.
+Quand le reseau est trop surveille, trop lent ou trop empoisonne pour faire passer un paquet, les Night Couriers reprennent une vieille verite: parfois, la meilleure bande passante reste un corps en mouvement. Ils transportent physiquement des fichiers, des modules, des clefs, des medpatchs de donnees et parfois des temoins qu'aucun systeme ne doit voir traverser une frontiere.
+Force: difficile a tracer a grande echelle, souplesse tactique, capacite a contourner des infrastructures entieres en refusant simplement de les utiliser.
+Faiblesse: risque personnel eleve, faible couverture legale, pertes irremplacables quand un courier tombe, parce qu'on ne remplace pas si facilement une personne qui connait les itineraire, les visages et les silences utiles.
+
+Note generale:
+Aucun de ces groupes n'est pur.
+Ils se disputent, se trompent, s'epuisent, gardent parfois trop de secrets, ou reagissent trop tard aux signaux faibles.
+Mais sans eux, les megastructures auraient deja transforme la plupart des districts en simples zones de service a faible priorite.
+Ce que l'ordre officiel appelle des poches d'instabilite est souvent, vu du sol, le dernier endroit ou quelqu'un essaye encore de faire fonctionner quelque chose pour de vrai.

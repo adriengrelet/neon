@@ -1,13 +1,16 @@
 MISSION 001 - Premiere breche sans drame
 
+Intention:
+La premiere run ne sert pas a impressionner qui que ce soit. Elle sert a revenir avec tes doigts, ton souffle et assez de calme pour recommencer demain.
+
 Objectif:
-Entrer, prendre un fichier sans importance, sortir vivant, rester banal.
+Entrer, recuperer un fichier sans valeur strategique majeure, ressortir vivant et laisser derriere toi une impression de banalite.
 
 Etapes:
-1. Lance scan d'abord. La curiosite coute moins cher que la panique.
-2. Surveille l'alarme comme ton compteur de loyer.
-3. Hack un seul terminal. Les debutants meurent de cupidite, pas de manque de talent.
-4. Exfil des que l'objectif est valide.
+1. Lance un scan avant toute avancee. La curiosite coute presque toujours moins cher que la panique.
+2. Surveille l'alarme comme un compteur de loyer: ignore-la trop longtemps et c'est ta vie qui devient variable.
+3. Hack un seul terminal. Les debutants meurent plus souvent de cupidite que de manque de talent.
+4. Exfiltre des que l'objectif est valide. Une sortie propre vaut mieux qu'une salle de plus.
 
-Blague debutant (pas vraiment une blague):
-Si tu dis "juste une salle de plus", tu es deja dans le tuto danger.
+Rappel terrain:
+Si tu te surprends a dire "juste une piece de plus", sache que le tutoriel du danger a deja commence sans te prevenir.

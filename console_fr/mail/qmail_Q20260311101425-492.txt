@@ -4,7 +4,7 @@ Timestamp: 2097-07-16 14:47
 Subject: Signal public: infiltration recommandee [MS-ION-72]
 
 Operateur pyro,
-Tu es notre meilleur point d'entree. Infiltrer cette structure donnera de l'air a la resistance civile.
+Tu restes notre meilleur point d'entree pour cette cible. Si cette structure tombe, plusieurs circuits civils recupereront un peu d'air et quelques quartiers gagneront du temps avant la prochaine strangulation administrative.
 Cible confirmee: Ion Vault (MS-ION-72).
 Objectif: infiltrer, collecter 3 fragments de cryptodata et neutraliser le CORE.
 
@@ -12,5 +12,5 @@ Aide de lancement transferee:
 - Credits: +230 CR
 - Items: energy_cell, medkit
 
-Repondre par infiltration immediate recommande.
+Reponse par infiltration immediate recommandee.
 Mission-ID: Q20260311101425-492

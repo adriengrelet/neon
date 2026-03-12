@@ -1,8 +1,9 @@
 FROM: audit.bot@citystack
 TO: you@console
 SUBJECT: ultima advertencia antes de penalizaciones
-RECIBIDO: [2097-04-06 00:32]
+RECEIVED: [2097-04-06 00:32]
 
-Tu puntuacion de fiabilidad ciudadana cayo por debajo del umbral legal de confort.
-Regulariza deuda, movilidad no autorizada y volatilidad emocional.
-Si no es posible, por favor manten la calma durante la intervencion.
+Tu score de fiabilidad civica ha caido por debajo del umbral legal de confort.
+Gracias por regularizar sin demora la deuda pendiente, la movilidad no autorizada y la volatilidad emocional observada recientemente.
+Si regularizar es imposible, por favor permanece tranquilo, visible y cooperativo durante la intervencion.
+La ciudad siempre prefiere ciudadanos dociles justo en el momento exacto en que empieza a tratarlos como un expediente cerrado.

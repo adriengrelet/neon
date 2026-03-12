@@ -1,21 +1,31 @@
-TITULO: Grupos hackers y redes
+TITULO: Grupos hackers y redes de supervivencia
+
+Lo que sigue no es un directorio neutral.
+Es un mapa parcial de las estructuras que todavia sostienen algo cuando la ciudad oficial decide que ciertos barrios pueden esperar, callarse o desaparecer.
+Se les llama grupos hackers, pero el termino se queda corto. La mayoria de estas redes hace mucho mas que penetrar sistemas: reparan lineas, mueven pruebas, forman a principiantes, esconden gente, reconstruyen servicios y absorben el dano humano que ningun dashboard quiere nombrar.
 
 GhostMesh:
-Reles descentralizados, prefiere operaciones de baja firma.
-Fortaleza: disciplina bajo presion.
-Debilidad: la confianza tarda en construirse, a veces demasiado.
+GhostMesh no es una sola organizacion central, sino una constelacion de relays descentralizados, operadores prudentes y protocolos transmitidos de boca en boca y de terminal en terminal. La red prefiere operaciones de baja firma, transferencias limpias, trazas minimas y objetivos cuyo valor supera cualquier necesidad de reconocimiento.
+Fortaleza: disciplina bajo presion, buena higiene operativa y capacidad de mantener canales vivos donde todo parece muerto.
+Debilidad: la confianza tarda mucho en construirse, y la paranoia a veces ralentiza la respuesta hasta que la ventana util ya se esta cerrando.
 
 Roofline Collective (ZE08):
-Tecnicas y tecnicos de apoyo mutuo barrial.
-Fortaleza: legitimidad local y reparaciones practicas.
-Debilidad: infraestructura expuesta y agotamiento.
+Roofline esta compuesto por tecnicas, tecnicos, electricistas salvajes, mantenedores improvisados y vecinos demasiado competentes como para dejar morir a un edificio en soledad. Su especialidad no es el espectaculo. Es lo concreto: reconectar una bomba, reforzar un repetidor, reparar una puerta, parchear una alimentacion, proteger una azotea para que el distrito conserve senal y un poco de dignidad.
+Fortaleza: legitimidad local, memoria de las averias, vinculos humanos reales con la gente del barrio y capacidad de convertir habilidad tecnica en apoyo mutuo visible.
+Debilidad: infraestructuras expuestas, agotamiento cronico y muy poca redundancia cuando hay pocas manos que saben reparar demasiadas cosas.
 
 Free Kernel Assembly (linaje DX90):
-Radicales open-source que mantienen toolchains encubiertas.
-Fortaleza: comunes de codigo resilientes.
-Debilidad: debates infinitos y preparacion operativa desigual.
+La Free Kernel Assembly es lo que ocurre cuando radicales open-source se niegan a dejar que el codigo sea solo una mercancia o un arma de gestion social. El linaje DX90 mantiene toolchains encubiertas, mirrors, archivos y comunes de software que sobreviven a las oleadas de incautacion y a las purgas de repositorios.
+Fortaleza: resiliencia intelectual y tecnica, documentacion abundante cuando existe y capacidad de reconstruir herramientas a partir de casi nada.
+Debilidad: debates internos interminables, fracturas ideologicas y una preparacion operativa muy desigual entre celulas. Algunas son brillantes. Otras todavia confunden pureza doctrinal con utilidad practica.
 
 Night Couriers:
-Mensajeros de datos que mueven archivos fisicamente cuando la red es hostil.
-Fortaleza: dificil de rastrear a escala.
-Debilidad: riesgo personal alto y poca cobertura legal.
+Cuando la red esta demasiado vigilada, demasiado lenta o demasiado envenenada para mover un paquete, los Night Couriers recuperan una verdad antigua: a veces el mejor ancho de banda sigue siendo un cuerpo en movimiento. Transportan fisicamente archivos, modulos, llaves, datasets medicos y a veces testigos a los que ningun sistema deberia ver cruzar una frontera.
+Fortaleza: dificil de rastrear a gran escala, flexibilidad tactica y capacidad de sortear infraestructuras enteras simplemente negandose a usarlas.
+Debilidad: riesgo personal altisimo, casi ninguna cobertura legal y perdidas irreemplazables cuando cae un courier, porque no se sustituye facilmente a alguien que conoce las rutas, los rostros y los silencios utiles.
+
+Nota general:
+Ninguno de estos grupos es puro.
+Discuten, se equivocan, se agotan, guardan demasiados secretos o reaccionan tarde a senales debiles.
+Pero sin ellos, las megaestructuras ya habrian convertido la mayoria de los distritos en zonas de servicio de baja prioridad.
+Lo que el orden oficial llama bolsas de inestabilidad suele ser, visto desde el suelo, el ultimo lugar donde alguien sigue intentando hacer que algo funcione de verdad.

@@ -1,0 +1,16 @@
+De: FREELINE <FL-33>
+Para: pyro
+Marca temporal: 2097-07-16 14:47
+Asunto: Senal publica: infiltracion recomendada [MS-ION-72]
+
+Operador pyro,
+Sigues siendo nuestro mejor punto de entrada para este objetivo. Si esta estructura cae, varios circuitos civiles recuperaran un poco de aire y algunos barrios ganaran tiempo antes de la siguiente estrangulacion administrativa.
+Objetivo confirmado: Ion Vault (MS-ION-72).
+Objetivo: infiltrar, recuperar 3 fragmentos de cryptodata, neutralizar al CORE Sentinel y comprometer el CORE central.
+
+Paquete inicial transferido:
+- Creditos: +230 CR
+- Objetos: energy_cell, medkit
+
+Se recomienda responder con infiltracion inmediata.
+Mission-ID: Q20260311101425-492

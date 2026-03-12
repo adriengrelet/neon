@@ -1,10 +1,12 @@
 FROM: compliance.voice@kheiron
 TO: district operators
-SUBJECT: aggiornamento linguaggio
-RICEVUTO: [2097-03-17 11:05]
+SUBJECT: aggiornamento del vocabolario
+RECEIVED: [2097-03-17 11:05]
 
-Sostituire termini in tutti i report:
-- fame -> fulfillment nutrizionale differito
+Sostituire questi termini in tutti i report:
+- fame -> adempimento nutrizionale differito
 - sfratto -> transizione abitativa dinamica
-- vittima -> attrizione workforce non pianificata
-Mantenere metriche empatia sopra target.
+- vittima -> attrito della workforce non pianificato
+Mantenere le metriche di empatia sopra il target.
+Nota interna implicita, mai scritta ma compresa da tutti:
+se il linguaggio resta pulito, la violenza viaggera piu lontano prima di essere riconosciuta.

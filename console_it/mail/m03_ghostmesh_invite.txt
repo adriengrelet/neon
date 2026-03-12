@@ -1,8 +1,10 @@
 FROM: relay@ghostmesh
 TO: you@console
 SUBJECT: invito accettato
-RICEVUTO: [2097-02-03 23:09]
+RECEIVED: [2097-02-03 23:09]
 
 GhostMesh non recluta eroi.
-GhostMesh recluta persone che mantengono promesse sotto pressione.
-Passa al nodo DAX-90 con laptop pulito e pessime abitudini di sonno.
+GhostMesh recluta persone che mantengono la parola quando l'allarme sale e nessuno le guarda.
+Passa al nodo DAX-90 con un laptop pulito, log ripuliti e quel tipo di stanchezza che non confonde piu panico e urgenza.
+Se vieni per la leggenda, resta a casa.
+Se vieni per il lavoro, qualcuno ti aprira.

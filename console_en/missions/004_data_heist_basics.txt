@@ -1,13 +1,16 @@
 MISSION 004 - Data heist for beginners
 
-Goal:
-Extract one policy memo proving harm behind corporate language.
+Intent:
+Stealing data matters only if the proof survives the theft, the panic, and the speech that will later try to strip it of meaning.
+
+Objective:
+Extract a policy memo or compliance fragment capable of proving the violence hidden behind corporate language.
 
 Steps:
-1. Prioritize files with legal or compliance headers.
-2. Copy evidence first, side loot second.
-3. Store findings in archive/ with date and source node.
-4. Send summary to allies, not the whole raw dump.
+1. Prioritize legal/, compliance/, and signed validation traces. Sleek interfaces lie better than appendices.
+2. Copy the proof first. Side loot comes later, if you are still breathing calmly enough to earn it.
+3. Store findings in archive/ with date, source node, and minimal context. Proof without provenance quickly becomes a well-packaged rumor.
+4. Send allies a summary, not the raw dump. Truth travels better when it does not crush the people who need to use it.
 
-Why this matters:
-A single signed memo can move a district faster than 100 rumors.
+Why it matters:
+A single signed memo can move a district faster than a hundred rumors, because it forces the official lie to speak in its own voice.

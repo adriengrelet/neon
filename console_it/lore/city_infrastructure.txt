@@ -1,18 +1,27 @@
-TITOLO: Note infrastruttura urbana
+TITOLO: Infrastruttura urbana, o come la citta amministra la sopravvivenza
 
 Energia:
-La rete ufficiale ha prezzo dinamico in base al rischio distrettuale.
-I blackout sono chiamati eventi di bilanciamento.
-Gli ospedali in zone a basso score ricevono ripristino tardivo.
+L'elettricita non viene distribuita come un diritto. Viene distribuita come una ricompensa condizionata.
+La rete ufficiale stabilisce i prezzi attraverso una formula che mescola rischio distrettuale, rendimento atteso e storico di conformita. Gli abitanti vedono tariffe variabili. Gli operatori vedono una mappa di triage.
+Quando un quartiere resta al buio, il rapporto non parla mai di interruzione. Parla di evento di bilanciamento, riallocazione temporanea, prioritizzazione dinamica. Questo linguaggio conta, perche permette di trattare una settimana senza ascensori, senza refrigerazione medica o senza ventilazione come un semplice aggiustamento di efficienza.
+I settori ad alto reddito recuperano in fretta. Gli stack no. Nelle zone a basso score, gli ospedali vanno avanti con batterie esauste, le cliniche decidono quali frigoriferi meritano corrente e i residenti imparano a riconoscere il suono esatto che fa un edificio prima di morire.
 
 Casa:
-I contratti sono algoritmici. I ricorsi sono soprattutto decorativi.
-Un typo in un campo identita puo attivare spostamento automatico.
+L'abitare viene gestito come una suite software di trattenimento ed espulsione.
+I contratti sono algoritmici, aggiornati senza una vera negoziazione, carichi di clausole elastiche, penalita automatiche e soglie nascoste. In teoria esistono ricorsi. In pratica servono soprattutto a produrre una traccia procedurale pulita prima che lo spostamento venga eseguito.
+Un nome scritto male, una discrepanza biometrica o un pagamento segnato in ritardo durante una sincronizzazione difettosa possono bastare a declassare un nucleo familiare. La piattaforma lo chiama rilocazione adattiva. Gli inquilini lo chiamano sparire dal proprio pianerottolo.
 
 Rete:
-La rete pubblica applica packet shaping rigido.
-La mesh sotterranea collega zone morte con ripetitori da tetto e antenne rubate.
+La rete pubblica quasi non viene mai tagliata frontalmente. Viene strangolata con professionalita.
+Packet shaping, rallentamenti selettivi, filtri contestuali, quote di priorita vendute agli attori solvibili: tutto e progettato per conservare l'apparenza di accesso mentre l'accesso smette di servire a organizzarsi, indagare o fuggire.
+Sotto quello strato ufficiale, la mesh sotterranea collega le zone morte attraverso ripetitori da tetto, antenne ricablate, cassette di manutenzione dirottate e una quantita indecente di improvvisazione. La rete comunitaria non promette comodita. Promette che un messaggio critico abbia ancora una possibilita di arrivare.
 
 Cibo e acqua:
-La priorita distribuzione segue score lavoro e compliance debito.
-Le comuni compensano con cucine, scambi riparazioni e logistica mercato grigio.
+Acqua potabile, razioni e consegne sovvenzionate seguono la stessa logica di tutto il resto: score lavoro, regolarita del debito, stabilita comportamentale e utilita stimata.
+Ufficialmente la citta parla di distribuzione intelligente. Sul campo significa che una famiglia puo perdere una settimana di priorita perche un sistema ha interpretato un'assenza dal lavoro come deriva di affidabilita.
+Comuni, cucine di quartiere e officine di mutuo aiuto assorbono cio che l'amministrazione abbandona. Assemblano filtri, scambiano riparazioni, condividono batterie e spostano forniture fuori dai canali ufficiali di fatturazione. Senza di loro la citta non sarebbe dura. Sarebbe inabitabile.
+
+Conclusione sul campo:
+Qui l'infrastruttura non serve soltanto a muovere energia, acqua, persone e pacchetti.
+Classifica le vite.
+Ogni cavo, ogni valvola, ogni permesso di rete trasporta anche una decisione politica travestita da manutenzione.

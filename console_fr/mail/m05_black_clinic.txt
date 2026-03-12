@@ -3,6 +3,7 @@ TO: you@console
 SUBJECT: contournement dette medicale
 RECU: [2097-02-22 02:14]
 
-Apporte un tampon d'auth corp valide.
-On peut le convertir en 14 rendez-vous fantomes.
-Pas de miracle, juste des gens qui aident d'autres gens a survivre au logiciel de facturation.
+Apporte un tampon d'auth corp encore valide.
+Avec ca, on peut ouvrir quatorze rendez-vous fantomes avant que la compta biometrie ne comprenne qu'elle soigne des gens qu'elle aurait prefere garder en file d'attente.
+Ce n'est pas un miracle.
+C'est juste du personnel de nuit qui refuse de laisser un logiciel de facturation decider qui merite un poumon, un rein ou encore une semaine de repit.

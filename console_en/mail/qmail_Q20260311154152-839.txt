@@ -1,0 +1,16 @@
+From: DEEP CARTO <DC-05>
+To: pyro
+Timestamp: 2097-01-10 02:18
+Subject: Utility caches detected [MS-ASTRA-17]
+
+Operator pyro,
+Internal mapping flags off-grid utility depots and a few blind spots that remain badly indexed. If you read the structure correctly, the scan may bring back more than a simple survival detour.
+Confirmed target: Astra Relay Grid (MS-ASTRA-17).
+Objective: infiltrate, recover 3 cryptodata fragments, neutralize the CORE Sentinel, then compromise the central CORE.
+
+Starter pack transferred:
+- Credits: +170 CR
+- Items: medkit
+
+Immediate infiltration response recommended.
+Mission-ID: Q20260311154152-839

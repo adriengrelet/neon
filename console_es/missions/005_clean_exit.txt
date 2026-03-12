@@ -1,13 +1,16 @@
-MISION 005 - Disciplina de exfil limpia
+MISSION 005 - Disciplina de exfil limpia
+
+Intencion:
+Una run no termina cuando alcanzas el core. Termina cuando sales con la prueba, el aire y una posibilidad razonable de seguir libre manana.
 
 Objetivo:
-Dejar pocas trazas faciles y mantener a tu yo futuro con trabajo.
+Dejar el minimo posible de huellas faciles, proteger a tu yo futuro y salir antes de que la fatiga te venda por su cuenta.
 
 Pasos:
-1. Revisa inventario y HP antes del ultimo pasillo.
-2. Evita combates opcionales cerca de extraccion.
-3. Confirma objetivo cumplido y sal de inmediato.
-4. Escribe un debrief corto mientras la memoria esta fresca.
+1. Revisa inventario, HP y energia antes del ultimo pasillo. Muchas muertes empiezan con un calculo aplazado para luego.
+2. Evita combates opcionales cerca de la extraccion. No hay nada mas ridiculo que una victoria tactica que cancela una salida segura.
+3. Confirma que el objetivo esta completo y sal de inmediato. El edificio no necesita tu orgullo como suplemento.
+4. Escribe un debrief corto mientras la memoria siga fresca. Una buena nota de campo te evita repetir el mismo error con un vocabulario mas noble.
 
-Proverbio de campo:
-La mejor exfil es la que nadie nota manana.
+Proverbio de pasillo:
+La mejor exfil es la que nadie nota manana y la que tu aun puedes contar pasado manana.

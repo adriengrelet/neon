@@ -1,69 +1,103 @@
-TITLE: Eloge funebre pour Sable Voss
+TITRE: Eloge funebre pour Sable Voss
 
-Quand on parle de Sable Voss, les gens commencent toujours par le bruit.
-Pas par un visage, parce que tres peu l'ont vu. Pas par une biographie, parce qu'ici les biographies ressemblent surtout a des rapports de dette et des dates d'expulsion. Ils commencent par le bruit: le souffle d'un relais fatigue, le frottement d'une soudure sur du cuivre recupere, la facon qu'elle avait de tester une ligne en fredonnant dans un micro et en attendant que la ville lui reponde.
+Quand on parle de Sable Voss, les gens commencent presque toujours par le bruit.
+Pas par un visage, parce que tres peu l'ont vu de pres. Pas par une biographie, parce qu'ici une biographie tient souvent en trois choses: un historique de dette, des dates d'expulsion et quelques traces de maintenance sous faux identifiant.
+Non, les gens commencent par le bruit: le souffle d'un relais fatigue, la griffure d'une soudure sur du cuivre recupere, la facon qu'elle avait de tester une ligne en fredonnant dans un micro puis en attendant que la ville lui reponde.
 
-Sable n'est pas nee dans un bunker heroique rempli de materiel de pointe.
-Elle est nee dans la Stack-9, la ou les ascenseurs meurent les jours de paie et ou la pression d'eau chute des qu'Helix Habitat publie une nouvelle note d'optimisation. Son premier terminal etait une machine d'ecole jetee apres l'echec d'un audit biometrique de conformite Kheiron. Elle l'a reparee avec du fil de transport, un couteau de cuisine et une page arrachee d'un manuel d'electromenager.
+Sable n'est pas nee dans un bunker heroique rempli de materiel haut de gamme.
+Elle est nee dans la Stack-9, la ou les ascenseurs meurent les jours de paie et ou la pression d'eau chute des qu'Helix Habitat diffuse une nouvelle note d'optimisation.
+Son premier terminal etait une unite scolaire jetee apres l'echec d'un audit biometrique de conformite Kheiron.
+Elle l'a remise en vie avec du fil de transport, un couteau de cuisine et une page arrachee a un manuel d'electromenager.
+Ce detail compte, parce qu'il dit presque tout: chez nous, la competence ne nait pas du confort. Elle nait du refus de laisser la panne decider seule.
 
-Les gens reecrivent les legendes quand quelqu'un meurt.
-Ils disent qu'elle etait sans peur. C'est faux. Elle avait peur en permanence et elle y allait quand meme. Peur des drones. Peur des listes noires. Peur de ne pas etre assez rapide quand un verrou passe de jaune a rouge.
-Aux plus jeunes, elle repetait une phrase qui ressemblait a une priere technique:
-La peur est une donnee. La panique est une perte de paquets.
+Les gens aiment reecrire les legendes apres la mort.
+Ils disent qu'elle etait sans peur.
+C'est faux.
+Elle avait peur en permanence et elle avancait quand meme.
+Peur des drones, peur des listes noires, peur de ne pas etre assez rapide quand un verrou passait du jaune au rouge.
+Aux plus jeunes, elle repetait une phrase qui ressemblait a la fois a une priere, a une methode et a un avertissement:
+la peur est une donnee. La panique est une perte de paquets.
 
-Son metier, c'etait le sabotage utile.
-Elle ne courait pas apres les coups d'eclat vides ou les gestes de vitrine. Elle preferait les operations discretes qui faisaient saigner les systemes juste assez pour forcer les institutions a reveler ce qu'elles faisaient dans le noir. Elle cartographiait des API d'expulsion qui se disaient aleatoires. Elle interceptait des filtres de paie qui rebaptisaient la faim en evenement d'integrite. Elle ne laissait pas de signature, seulement des effets: des familles qui restaient, des salaires debloques, des places de clinique gagnees dans des semaines ou personne n'esperait rien.
+Son metier, si on peut appeler cela un metier, etait le sabotage utile.
+Elle ne chassait pas les explosions de vitrine ni les gestes spectaculaires bons pour les manifestes.
+Elle preferait les operations petites, techniques, presque ingrates, celles qui faisaient saigner les systemes juste assez pour obliger les institutions a reveler ce qu'elles faisaient dans le noir.
+Elle cartographiait des API d'expulsion qui se pretendait aleatoires.
+Elle interceptait des filtres de paie qui rebaptisaient la faim evenement d'integrite.
+Elle ne signait rien.
+Elle laissait des effets: des familles qui restaient, des salaires debloques, quelques lits de clinique rendus a des semaines qui n'offraient d'habitude rien du tout.
 
-La premiere histoire qu'on retient d'elle, c'est la Semaine des Ascenseurs.
-Dans ZE08, un hopital de quartier a perdu quatre ascenseurs pendant un blackout selectif. Les canaux officiels parlaient de friction verticale temporaire. Sable parlait de meurtre administratif.
-Avec deux techniciens de ligne, elle s'est glissee dans les gaines de maintenance avec des lampes a batterie et des routeurs depouilles. Elle a reroute les permissions d'urgence via une route fantome faite de vieilles clefs municipales. Pendant six nuits, les ascenseurs ont tourne alors qu'ils n'etaient pas censes tourner. Pendant six nuits, des gens ont survecu parce que les escaliers ont cesse d'etre une condamnation.
+La premiere histoire que tout le monde retient d'elle, c'est la Semaine des Ascenseurs.
+Dans ZE08, un hopital de quartier a perdu quatre ascenseurs pendant un blackout selectif. Les canaux officiels parlaient de friction verticale temporaire. Sable appelait cela meurtre administratif.
+Avec deux techniciens de ligne, elle s'est glissee dans les gaines de maintenance avec des lampes a batterie et des routeurs depouilles. Elle a reroute les permissions d'urgence via une route fantome montee a partir de vieilles clefs municipales qu'aucun service n'avait pense a revoquer correctement.
+Pendant six nuits, les ascenseurs ont tourne alors qu'ils n'etaient pas supposes tourner.
+Pendant six nuits, des gens ont survecu parce que les escaliers ont cesse d'etre une condamnation.
 
-Le prix est tombe une semaine plus tard.
-Son score de mobilite a explose. Kheiron l'a marquee comme actif citoyen a faible confiance. En langage clair: une personne qu'on peut faire disparaitre sans bruit administratif.
+Le prix est arrive une semaine plus tard.
+Son score de mobilite a explose.
+Kheiron l'a marquee comme actif citoyen a faible confiance.
+En langage simple: une personne que la ville peut faire disparaitre sans beaucoup de bruit administratif.
 
 Et pourtant elle a continue.
+Pas parce qu'elle aimait flirter avec le danger.
+Parce qu'elle avait compris ce que beaucoup refusent encore d'admettre: le danger etait deja la, industrialise, privatise, reparti par abonnement et deploye contre les gens qu'elle connaissait par leur nom.
 
-Sa derniere run n'etait pas un script de martyre.
-C'etait cense etre une extraction propre.
-Objectif: percer une colonne laterale d'un hub d'entrainement Sentinel, recuperer un jeu de donnees comportemental, sortir avant synchronisation des boucles de renfort.
-Fenetre: six minutes, sept si la patrouille prenait du retard.
-Realite: un faux plan de couloir, un piege thermique, un patch pousse en direct.
+Sa derniere run n'avait rien d'un script de martyre.
+Sur le papier, c'etait une extraction propre.
+Objectif: entrer dans une colonne laterale d'un hub d'entrainement Sentinel, recuperer un dataset comportemental, puis sortir avant que les boucles de renfort ne se synchronisent.
+Fenetre prevue: six minutes, sept si la patrouille prenait du retard.
+Realite: faux plan de couloir, piege thermique, patch pousse en direct.
 
 Sable est entree pendant que Mira Quell tenait l'overwatch et que deux relais GhostMesh surveillaient la propagation d'alarme.
-Debut parfait: verrou ouvert, handshake terminal, payload en place.
-Puis un couloir a pivote sur rails vivants et l'a jetee dans une voie de validation Sentinel. La machine n'a pas tire tout de suite. Elle a marque une pause, comme dans les anciennes traces ROM, comme si elle hesitait a classer l'humain devant elle.
+Depart parfait: verrou ouvert, handshake terminal, payload en place.
+Puis un couloir a pivote sur rails vivants et l'a jetee dans une voie de validation Sentinel.
+La machine n'a pas tire tout de suite.
+Elle a marque une pause, comme dans certaines traces ROM anciennes, comme si elle cherchait a determiner si l'humaine devant elle appartenait a une categorie autorisee, a un fantome administratif, a un cas que ses propres seuils n'avaient pas entierement prevu.
 
 Cette pause rend la fin insupportable.
 Parce qu'elle signifiait qu'il restait une marge.
+Un souffle.
+Un choix.
 
-Sable a utilise cette marge pour pousser le payload, pas pour fuir.
-Elle a transmis 92 pour cent du dataset: de quoi exposer les directives de tuning politique et les branchements de scoring judiciaire. Elle a brule sa route de sortie pour garder la voie de transfert ouverte pour Mira. Son dernier burst relais disait:
-Pas de statue. Publiez tout.
+Sable a pris cette marge pour pousser le payload, pas pour fuir.
+Elle a transmis 92 pour cent du dataset, suffisamment pour exposer les directives de tuning politique et les branchements de scoring judiciaire.
+Elle a brule sa route de sortie pour garder la voie de transfert ouverte pour Mira.
+Son dernier burst relais disait:
+pas de statue. Publiez tout.
 
 Puis la voie s'est refermee.
 
 A l'aube, la presse Kheiron a parle d'une intrusion contenue par un acteur non identifie.
 Les flux de district ont parle d'extremiste.
-Les reseaux communautaires ont prononce son nom choisi, et dans notre monde c'est deja une forme de dignite.
+Les reseaux communautaires ont prononce son nom choisi, et dans notre monde c'est deja une forme de dignite que beaucoup n'obtiennent jamais.
 
 Le reste est la raison de cet eloge.
-Le dataset qu'elle a fait passer a atteint trois cooperatives juridiques, deux archives syndicales et un reseau de cliniques. En trente et un jours, deux secteurs ont obtenu des injonctions contre des expulsions automatisees. En cinquante-neuf jours, un tribunal regional a reconnu un biais de conformite. En soixante-douze jours, Helix a change un seuil interne en pretendant l'avoir toujours voulu.
+Le dataset qu'elle a fait passer a atteint trois cooperatives juridiques, deux archives syndicales et un reseau de cliniques.
+En trente et un jours, deux secteurs ont obtenu des injonctions contre des expulsions automatisees.
+En cinquante-neuf jours, un tribunal regional a reconnu un biais de conformite, ce qui tient presque du miracle procedurier.
+En soixante-douze jours, Helix a modifie un seuil interne en pretendant qu'il s'agissait de sa trajectoire prevue depuis le debut.
 
-Rien de tout ca ne ramene Sable.
+Rien de cela n'a ramene Sable.
 
-Sa chambre de Stack-9 n'existe plus. Renovee en micro-unite flexible qu'aucun voisin ne peut payer. Mais ses morceaux circulent encore: un fragment de script dans une trousse Roofline, une note vocale dans l'onboarding GhostMesh, une blague mauvaise dans les canaux de maintenance:
+Sa chambre de Stack-9 n'existe plus.
+Elle a ete renovee en micro-unite flexible qu'aucun voisin historique ne peut payer.
+Mais des morceaux d'elle circulent encore.
+Un fragment de script dans une trousse Roofline qui verifie la derive des verrous avant commit.
+Une note vocale dans l'onboarding GhostMesh ou elle rappelle de nettoyer ses logs avant que le cafe ne refroidisse.
+Une mauvaise blague de maintenance que tout le monde continue a repeter:
 si la politique dit impossible, demande qui facture l'impossible.
 
 On choisit de se souvenir d'elle de travers.
-Pas propre. Pas heroique. Pas vendable.
-On garde les brulures sur ses doigts, ses medpatchs en trop, ses repas oublies, ses coleres contre les distributeurs automatiques.
+Pas propre.
+Pas heroique.
+Pas vendable.
+On garde les brulures sur ses doigts, les medpatchs en trop, les repas oublies, la facon qu'elle avait de soutenir une operation critique puis de perdre patience devant un distributeur automatique bloque.
 
-Si cet eloge doit servir, qu'il serve a ca:
+Si cet eloge doit servir, qu'il serve au moins a cela:
 Sable Voss n'est pas morte parce qu'elle aimait le danger.
-Elle est morte parce que le danger etait deja privatise et deploye contre tous ceux qu'elle aimait.
+Elle est morte parce que le danger avait deja ete transforme en infrastructure.
 Elle est restee dans la voie juste assez longtemps pour faire traverser la preuve.
 
-Parfois, quand la charge du reseau baisse et que la ville sonne presque humaine, on entend chanter de vieux relais sur les toits.
+Parfois, quand la charge du reseau baisse et que la ville sonne presque humaine, on entend encore chanter de vieux relais sur les toits.
 On dit que c'est du statique.
 On se trompe.
 C'est nous, encore, en train de transporter son paquet.

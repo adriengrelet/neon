@@ -1,18 +1,27 @@
-TITULO: Notas de infraestructura urbana
+TITULO: Infraestructura urbana, o como la ciudad administra la supervivencia
 
 Energia:
-La red oficial tiene precio dinamico segun riesgo distrital.
-Los apagones se llaman eventos de equilibrio.
-Hospitales en zonas de bajo score reciben restauracion tardia.
+La electricidad no se distribuye como un derecho. Se distribuye como una recompensa condicional.
+La red oficial fija precios mediante una formula que mezcla riesgo distrital, rendimiento esperado e historial de cumplimiento. La gente ve tarifas variables. Los operadores ven un mapa de triaje.
+Cuando un barrio se queda sin luz, el informe nunca dice corte. Dice evento de equilibrio, reasignacion temporal, priorizacion dinamica. Ese lenguaje importa, porque permite tratar una semana sin ascensores, sin refrigeracion medica o sin ventilacion como si fuera solo un ajuste de eficiencia.
+Los sectores con renta alta recuperan rapido. Los stacks no. En las zonas de bajo score, los hospitales funcionan con baterias agotadas, las clinicas deciden que neveras merecen corriente y los vecinos aprenden a reconocer el sonido exacto que hace un edificio antes de morirse.
 
 Vivienda:
-Los alquileres son algoritmicos. Las apelaciones son sobre todo decorativas.
-Un typo en identidad puede disparar desplazamiento automatizado.
+La vivienda se gestiona como una suite de software de retencion y expulsion.
+Los contratos son algoritmicos, se actualizan sin negociacion real y vienen cargados de clausulas elasticas, sanciones automaticas y umbrales ocultos. En teoria existen apelaciones. En la practica sirven sobre todo para generar una traza procedimental limpia antes de ejecutar el desplazamiento.
+Un nombre mal escrito, una incoherencia biometrica o un pago marcado como tardio durante una mala sincronizacion puede bastar para degradar a un hogar. La plataforma lo llama reubicacion adaptativa. Los inquilinos lo llaman desaparecer de su propio pasillo.
 
 Red:
-La red publica aplica packet shaping estricto.
-La malla subterranea conecta zonas muertas con repetidores de azotea y antenas robadas.
+La red publica casi nunca se corta de frente. Se estrangula con profesionalidad.
+Packet shaping, ralentizaciones selectivas, filtrado contextual, cuotas de prioridad vendidas a actores solventes: todo esta pensado para conservar la apariencia de acceso mientras el acceso deja de servir para organizarse, investigar o huir.
+Debajo de esa capa oficial, la malla subterranea conecta las zonas muertas mediante repetidores de azotea, antenas recableadas, cajas de mantenimiento intervenidas y una cantidad indecente de improvisacion. La red comunitaria no promete comodidad. Promete que un mensaje critico todavia tenga una posibilidad de llegar.
 
 Comida y agua:
-La prioridad de distribucion sigue score laboral y cumplimiento de deuda.
-Las comunas compensan con cocinas, trueque de reparaciones y logistica de mercado gris.
+El agua potable, las raciones y las entregas subvencionadas siguen la misma logica que todo lo demas: score laboral, regularidad de deuda, estabilidad conductual y utilidad estimada.
+Oficialmente la ciudad habla de distribucion inteligente. Sobre el terreno eso significa que una familia puede perder una semana de prioridad porque un sistema interpreto una falta al trabajo como deriva de fiabilidad.
+Las comunas, las cocinas de barrio y los talleres de apoyo mutuo absorben lo que la administracion abandona. Montan filtros, intercambian reparaciones, comparten baterias y mueven suministros fuera de los canales oficiales de facturacion. Sin ellas, la ciudad no seria dura. Seria inhabitable.
+
+Conclusion de campo:
+La infraestructura aqui no solo mueve energia, agua, personas y paquetes.
+Clasifica vidas.
+Cada cable, cada valvula y cada permiso de red transporta tambien una decision politica disfrazada de mantenimiento.

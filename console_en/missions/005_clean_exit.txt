@@ -1,13 +1,16 @@
-MISSION 005 - Clean exit discipline
+MISSION 005 - Clean exfil discipline
 
-Goal:
-Leave zero easy traces and keep your future self employed.
+Intent:
+A run does not end when you reach the core. It ends when you get out with the proof, your breath, and a reasonable chance of still being free tomorrow.
+
+Objective:
+Leave behind as few easy traces as possible, protect your future self, and get out before fatigue starts selling you out.
 
 Steps:
-1. Check inventory and health before final corridor.
-2. Avoid optional fights near extraction.
-3. Confirm objective complete, then leave immediately.
-4. Write a short debrief while memory is fresh.
+1. Check inventory, HP, and energy before the last corridor. Many deaths begin with a calculation postponed for later.
+2. Avoid optional fights near extraction. Nothing is more ridiculous than a tactical victory that cancels a guaranteed exit.
+3. Confirm the objective is complete, then leave immediately. The building does not need your pride as an optional add-on.
+4. Write a short debrief while memory is still fresh. A good field note saves you from repeating the same mistake with nobler words.
 
-Field proverb:
-The coolest exfil is the one nobody notices tomorrow.
+Hallway proverb:
+The best exfil is the one nobody notices tomorrow and the one you can still tell the day after.

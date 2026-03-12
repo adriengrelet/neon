@@ -3,5 +3,7 @@ TO: you@console
 SUBJECT: payroll freeze evidence
 RECEIVED: [2097-01-18 06:41]
 
-We need packet captures proving the payroll blackout was policy, not bug.
-If you can get one signed internal memo, we can stop calling hunger an optimization.
+We need captures proving the payroll blackout is policy, not an opportunistic bug left alive.
+If you come back with an internal memo that is signed, dateable, and impossible to reclassify as a pipeline error, we can finally stop calling hunger an optimization.
+Line crews already have the testimonies.
+What we still lack is the clean sentence, the one management wrote so they could sleep.

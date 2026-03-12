@@ -1,13 +1,16 @@
-MISION 004 - Data heist para principiantes
+MISSION 004 - Data heist para principiantes
+
+Intencion:
+Robar datos solo sirve de algo si la prueba sobrevive al robo, al panico y al discurso que despues intentara vaciarla de sentido.
 
 Objetivo:
-Extraer un memo de policy que pruebe dano detras del lenguaje corporativo.
+Extraer un memo de policy o un fragmento de compliance capaz de demostrar la violencia escondida detras del lenguaje corporativo.
 
 Pasos:
-1. Prioriza archivos con cabeceras legal o compliance.
-2. Copia evidencia primero, loot secundario despues.
-3. Guarda hallazgos en archive/ con fecha y nodo fuente.
-4. Envia resumen a aliados, no todo el dump en bruto.
+1. Prioriza legal/, compliance/ y las trazas de validacion firmadas. Las interfaces bonitas mienten mejor que los anexos.
+2. Copia primero la prueba. El loot lateral viene despues, si todavia respiras con la suficiente calma para permitirtelo.
+3. Guarda los hallazgos en archive/ con fecha, nodo de origen y contexto minimo. Una prueba sin procedencia se convierte rapido en un rumor bien empaquetado.
+4. Envia un resumen a los aliados, no el volcado bruto. La verdad viaja mejor cuando no aplasta a quienes tienen que usarla.
 
 Por que importa:
-Un solo memo firmado puede mover un distrito mas rapido que 100 rumores.
+Un solo memo firmado puede mover un distrito mas rapido que cien rumores, porque obliga por fin a la mentira oficial a hablar con su propia voz.

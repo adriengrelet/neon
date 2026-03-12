@@ -1,13 +1,16 @@
-MISION 006 - Cuando la alarma grita
+MISSION 006 - Cuando la alarma grita
+
+Intencion:
+El momento en que sube la alarma no es el momento de ponerse poetico. Es el momento de aceptar que el plan inicial ha muerto y que tu unica elegancia util sigue llamandose salida.
 
 Objetivo:
-Sobrevivir a un pico de alarma y completar la extraccion.
+Sobrevivir a un pico de alarma, conservar lo esencial y aun asi terminar la extraccion sin convertirte en un gesto heroico postumo.
 
 Pasos:
-1. Acepta que el plan A murio. El plan B existe por algo.
-2. Prioriza movilidad, no momentos heroicos.
-3. Si aparece Sentinel, desconecta salvo mision critica.
-4. Gasta energia en acciones que creen distancia.
+1. Acepta de inmediato que el plan A ha muerto. El plan B existe exactamente para este minuto.
+2. Prioriza movilidad, lectura de lineas de fuga y distancia. Los grandes momentos heroicos son caros y sobre todo utiles para las necrologias.
+3. Si aparece un Sentinel, desengancha salvo que la mision critica te obligue de verdad a aguantar.
+4. Gasta energia en acciones que abran, muevan o difuminen. Todo gasto que no cree margen debe considerarse sospechoso.
 
 Humor de emergencia:
-Si las paredes suenan fuerte, felicidades, el edificio sabe tu nombre.
+Si los muros te parecen ruidosos, enhorabuena: el edificio ya conoce tu nombre, tu ritmo y probablemente tu direccion.

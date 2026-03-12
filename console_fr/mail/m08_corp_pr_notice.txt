@@ -8,3 +8,5 @@ Remplacer ces termes dans tous les rapports:
 - expulsion -> transition logement dynamique
 - victime -> attrition workforce non planifiee
 Maintenir les metriques empathie au-dessus de la cible.
+Note interne implicite, non ecrite mais comprise par tout le monde:
+si le langage reste propre, la violence voyagera plus loin avant d'etre reconnue.

@@ -1,18 +1,30 @@
-TITLE: Megacorporate landscape
+TITLE: Megacorporate Landscape
+
+Megacorps do not always govern by issuing visible orders.
+Most of the time they sell tools, scores, subscriptions, software layers, and risk indicators. Public and semi-public institutions then apply the violence for them, at enough distance that no one feels individually responsible.
 
 1) Kheiron Dynamics
-Owns security stacks, Sentinel models, and compliance linguistics.
+Kheiron controls security stacks, Sentinel models, a large portion of behavioral analysis, and an entire compliance vocabulary that helps turn coercion into procedure.
 Public slogan: Safe systems, safe society.
-Internal KPI: incident containment per credit.
+Ground truth: the more the firm talks about neutrality, the more carefully you should ask who benefits from its thresholds.
+Unofficial internal KPI: incident containment per credit, meaning how much human disorder can be absorbed at minimal cost before the image of stability cracks.
 
 2) Helix Habitat
-Controls modular housing, eviction automation, and water access contracts.
-Their app says homes are flexible. Tenants call it rotating precarity.
+Helix does not only sell apartments. It sells a conditional right to occupy a volume of air and plumbing inside a structure it can reclassify remotely.
+The company controls modular housing, eviction automation, water contracts, usage sensors, and forced relocation tools disguised as residential flexibility.
+The app talks about adaptive housing journeys. Tenants talk about rotating precarity.
+When Helix optimizes, entire families discover their address was only ever a billable hypothesis.
 
 3) Vanta Biologics
-Runs clinic subscriptions and biometric debt scoring.
-Miss one payment and your treatment priority quietly drops.
+Vanta manages clinic subscriptions, biometric debt scoring, and a web of treatment priorities that rise and fall silently according to solvency, risk profiles, and employer-side contract clauses.
+Its interface says personalized prevention. Its clients say medical peace of mind. Low-score districts know something else: miss one payment and treatment priority can drop without a single human bothering to look you in the eye.
 
 4) Straylight Transit
-Operates metro AI and route permissions.
-Known issue: ghost lines where old maps remember people the system no longer serves.
+Straylight operates the metro AI, route permissions, freight corridors, and part of the predictive mobility system that decides which zones must remain fluid and which can be slowed with limited political cost.
+Known issue: ghost lines, those residual routes where old maps seem to remember people the system no longer serves, as if infrastructure preserved the memory of public service better than the contracts that replaced it.
+
+Conclusion:
+These firms present themselves as technical vendors.
+In practice, they manufacture the administrative environment in which a person can be treated, evicted, tracked, delayed, classified, or forgotten.
+They do not always look like tyrants.
+They often look like elegant dashboards with clean language and dirty consequences.

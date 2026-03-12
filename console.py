@@ -217,16 +217,39 @@ class NeonConsole:
         try:
             os.symlink(self.shared_stats_dir, console_stats_path)
         except OSError:
-            os.makedirs(console_stats_path, exist_ok=True)
+            # On Windows, symlink creation may fail without elevated privileges.
+            # Keep stats as a virtual root entry rather than recreating per-console folders.
+            return
 
     def _resolve_path(self, path: str) -> str:
         if not path:
             return self.current_dir
 
+        def _map_stats_alias(raw_path: str) -> Optional[str]:
+            normalized = raw_path.replace("\\", "/")
+            if normalized == "stats":
+                return self.shared_stats_dir
+            if normalized.startswith("stats/"):
+                suffix = normalized[len("stats/") :]
+                return os.path.join(self.shared_stats_dir, suffix)
+            return None
+
         if path.startswith("/"):
-            candidate = os.path.join(self.console_root, path.lstrip("/"))
+            stripped = path.lstrip("/")
+            mapped = _map_stats_alias(stripped)
+            if mapped is not None:
+                candidate = mapped
+            else:
+                candidate = os.path.join(self.console_root, stripped)
         else:
-            candidate = os.path.join(self.current_dir, path)
+            if self.current_dir == self.console_root:
+                mapped = _map_stats_alias(path)
+                if mapped is not None:
+                    candidate = mapped
+                else:
+                    candidate = os.path.join(self.current_dir, path)
+            else:
+                candidate = os.path.join(self.current_dir, path)
 
         return os.path.realpath(candidate)
 
@@ -265,13 +288,19 @@ class NeonConsole:
             return
 
         entries = sorted(os.listdir(target))
+        if target == self.console_root and "stats" not in entries:
+            entries.append("stats")
+            entries.sort()
         if not entries:
             print("(empty)")
             return
 
         for name in entries:
-            full = os.path.join(target, name)
-            suffix = "/" if os.path.isdir(full) else ""
+            if target == self.console_root and name == "stats":
+                suffix = "/"
+            else:
+                full = os.path.join(target, name)
+                suffix = "/" if os.path.isdir(full) else ""
             print(f"{name}{suffix}")
 
     def cmd_cd(self, args: List[str]):
@@ -328,11 +357,18 @@ class NeonConsole:
 
     def _print_tree(self, root: str, prefix: str):
         entries = sorted(os.listdir(root))
+        if root == self.console_root and "stats" not in entries:
+            entries.append("stats")
+            entries.sort()
         for idx, name in enumerate(entries):
-            full = os.path.join(root, name)
             last = idx == len(entries) - 1
             branch = "`-- " if last else "|-- "
-            suffix = "/" if os.path.isdir(full) else ""
+            if root == self.console_root and name == "stats":
+                full = self.shared_stats_dir
+                suffix = "/"
+            else:
+                full = os.path.join(root, name)
+                suffix = "/" if os.path.isdir(full) else ""
             print(prefix + branch + name + suffix)
             if os.path.isdir(full):
                 ext = "    " if last else "|   "

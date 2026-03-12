@@ -1,8 +1,9 @@
 FROM: patchvendor@legit-probably
 TO: you@console
-SUBJECT: parche stealth premium
-RECIBIDO: [2097-03-01 20:37]
+SUBJECT: patch stealth premium
+RECEIVED: [2097-03-01 20:37]
 
-Nuestro parche propietario reduce deteccion Sentinel en 62 por ciento.
-Letra pequena: pruebas de campo hechas en clientes no disponibles para feedback.
-La oferta caduca a medianoche, como todas las ofertas sospechosas.
+Nuestro patch propietario reduce la deteccion Sentinel en un 62 por ciento.
+La cifra es muy precisa, lo que siempre es mala noticia cuando viene de un vendedor que se niega a mostrar sus logs de prueba.
+Letra pequena: ensayos de campo realizados sobre clientes actualmente indisponibles para dar feedback, por razones que nuestro departamento legal prefiere llamar definitivas.
+La oferta caduca a medianoche, como todas las promociones sospechosas y la mayoria de los errores de juicio memorables.

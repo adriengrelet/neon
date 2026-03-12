@@ -1,3 +1,5 @@
 FROM: relay@ghostmesh
 SUBJECT: ventana de intrusion
-El puerto estara abierto menos de 90 segundos. Sigue en movimiento.
+El puerto seguira abierto menos de 90 segundos.
+Entra ligero, rompe tus habitos y no te aferres a ningun pasillo.
+Si dudas ante una puerta, el edificio ya habra empezado a aprender tu ritmo.

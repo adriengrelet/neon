@@ -1,3 +1,5 @@
 FROM: relay@ghostmesh
 SUBJECT: fenetre d'intrusion
-Le port est ouvert moins de 90 secondes. Reste mobile.
+Le port restera ouvert moins de 90 secondes.
+Entre leger, coupe tes habitudes, et ne t'attache a aucun couloir.
+Si tu hesites devant une porte, le batiment commencera deja a apprendre ton rythme.

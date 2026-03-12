@@ -1,9 +1,31 @@
-TITOLO: Panoramica mondo Neon Node
+TITOLO: Panoramica del mondo di Neon Node
 
-Le citta sono impilate come registri di debito: aria premium in alto, calore e muffa in basso.
-La maggior parte dei servizi e privatizzata e poi rivenduta a tariffa variabile.
-Le persone non spariscono in un colpo solo; vengono rimosse dai sistemi un permesso alla volta.
+Le citta non sono soltanto grandi.
+Sono impilate, stratificate e compartimentate come registri di debito messi in verticale: aria piu pulita in alto, calore e muffa in basso, sicurezza contrattuale per pochi e incertezza logistica per tutti gli altri.
+L'altezza qui non e solo architettura. E politica resa visibile.
 
-La megastruttura non e solo un edificio, e software di governo rivestito di cemento.
-Dentro, la legge si applica con latenza, checkpoint e soglie di punteggio.
-Fuori, i quartieri improvvisano sopravvivenza con mutuo aiuto, utility hackerate e banda rubata.
+Quasi ogni servizio essenziale e stato privatizzato, frammentato, valutato, impacchettato e rivenduto a tariffa variabile.
+Acqua, energia, trasporto, casa, salute, accesso al segnale e a volte perfino aria filtrata passano attraverso strati contrattuali, sistemi di scoring e interfacce che promettono personalizzazione mentre organizzano la scarsita.
+Le persone non spariscono tutte insieme.
+Vengono rimosse dal mondo un permesso alla volta, una soglia alla volta, una coda alla volta.
+
+La megastruttura non e solo un edificio.
+E software di governo avvolto in cemento, cavedi tecnici e vetro blindato.
+I suoi corridoi trasportano tanta politica quanto corpi.
+I suoi ascensori, checkpoint, badge, file di accesso e finestre di latenza dicono a tutti quanto valgono, dove possono andare e quanto dovranno aspettare per cio che una volta poteva chiamarsi diritto.
+
+All'interno, la legge non arriva sempre sotto forma di polizia o decreto.
+Arriva anche come ritardo di rete, score di affidabilita, priorita di manutenzione, una porta che resta gialla troppo a lungo o una richiesta che non si risolve mai del tutto.
+Il sistema preferisce le forme di violenza che sembrano attrito.
+Sono piu facili da negare e piu estenuanti da combattere.
+
+Fuori dai circuiti privilegiati, i quartieri improvvisano la sopravvivenza.
+Non per romanticismo.
+Per necessita.
+Mutuo aiuto di pianerottolo, utility hackerate, banda rubata, cucine comuni, medicina grigia, officine di riparazione, relay da tetto e mirror d'archivio sostituiscono cio che i fornitori ufficiali rendono troppo costoso, troppo lento o troppo condizionato.
+
+Il mondo di Neon Node non oppone una tecnologia avanzata e levigata a una miseria semplice.
+Mostra piuttosto come i sistemi avanzati poggino su strati di manutenzione esausta, lavoro invisibile, rattoppi improvvisati e persone che la citta tratta come rumore pur dipendendo completamente da loro.
+
+Se qualcosa resta ancora in piedi, non e perche le istituzioni siano giuste.
+E perche ovunque, negli angoli ciechi, qualcuno continua a riparare, documentare, deviare o trasportare cio che il sistema preferirebbe lasciare cadere.

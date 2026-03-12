@@ -1,18 +1,26 @@
-TITRE: Notes infrastructure ville
+TITRE: Infrastructure urbaine, ou comment la ville administre la survie
 
 Energie:
-Le reseau officiel est facture dynamiquement selon score de risque district.
-Les blackouts sont appeles evenements d'equilibrage.
-Les hopitaux en zone bas score sont rebranches en dernier.
+Le courant n'est pas distribue comme un droit, mais comme une recompense conditionnelle.
+Le reseau officiel facture selon un calcul melant district, risque social, rendement attendu et historique de conformite. Les habitants voient des tarifs variables. Les operateurs, eux, voient une carte de triage.
+Quand une zone plonge dans le noir, le rapport ne parle jamais de coupure. Il parle d'evenement d'equilibrage, de reallocation temporaire, de priorisation dynamique. Ce vocabulaire compte, parce qu'il permet de traiter une semaine sans ascenseur, sans froid medical et sans ventilation comme un simple ajustement d'efficience.
+Les quartiers hauts revenus recuperent vite. Les zones empilees, non. Dans les stacks a bas score, les hopitaux tournent sur des batteries usees, les cliniques choisissent quels frigos tenir, et les habitants apprennent a reconnaitre le son exact d'un immeuble qui va mourir avant meme que les lampes ne vacillent.
 
 Logement:
-Les baux sont algorithmiques. Les recours sont surtout decoratifs.
-Une typo dans un champ identite peut declencher un deplacement automatise.
+Le logement est gere comme une suite logicielle de retention et d'expulsion.
+Les baux sont algorithmiques, mis a jour sans veritable negociation, avec clauses elastiques, penalites automatiques et seuils de tolerance caches. En theorie, il existe des recours. En pratique, ces recours servent surtout a produire une trace proceduralement propre avant l'execution du deplacement.
+Une faute dans un nom, une incoherence biometrique, un paiement marque en retard pendant un sync defectueux: cela suffit souvent a declasser un foyer. L'application appelle cela reaffectation adaptative. Les locataires appellent cela disparaitre de son propre palier.
 
 Reseau:
-Le net public applique un packet shaping strict.
-Le mesh souterrain relie les zones mortes avec des repetiteurs de toit et des antennes volees.
+Le net public n'est pas coupe frontalement; il est etrangle avec professionnalisme.
+Packet shaping, ralentissements selectifs, filtrage contextuel, quotas de priorite vendus aux acteurs solvables: tout est concu pour faire croire que l'acces existe encore, alors qu'il devient inutilisable pour s'organiser, enqueter ou fuir.
+Sous cette couche officielle, le mesh souterrain relie les zones mortes avec des repetiteurs de toit, des antennes recablees, des boitiers de maintenance detournes et une quantite indecente d'improvisation. Le reseau communautaire ne promet pas le confort. Il promet juste qu'un message critique a encore une chance d'arriver.
 
 Nourriture et eau:
-La priorite de distribution suit score travail et conformite dette.
-Les communes compensent via cuisines, troc reparations et logistique gris-marche.
+L'eau potable, les rations et les livraisons subventionnees suivent la meme logique que le reste: score travail, regularite de dette, stabilite comportementale, utilite estimee.
+Officiellement, la ville parle de distribution intelligente. Sur le terrain, cela signifie qu'une famille peut perdre une semaine de priorite parce qu'un systeme a interprete une absence au travail comme une derive de fiabilite.
+Les communes, les cuisines de quartier et les ateliers d'entraide absorbent ce que l'administration abandonne. Elles bricolent des filtres, organisent le troc de reparations, mutualisent les batteries, convoyent des caisses hors facturation officielle. Sans elles, la ville ne serait pas dure. Elle serait simplement inhabitable.
+
+Conclusion terrain:
+L'infrastructure ici ne sert pas seulement a faire circuler l'energie, l'eau, les gens et les paquets. Elle sert a classer les vies.
+Chaque cable, chaque vanne, chaque autorisation reseau transporte aussi une decision politique maquillee en maintenance.

@@ -124,6 +124,21 @@ Rules:
 
 Below is a practical changelog. The section above explains the game fantasy and player experience; this section tracks concrete updates.
 
+### 2026-03-12
+
+- Console stats routing fixed: `stats` is now resolved as a shared global location from any language console root.
+- Removed fallback behavior that could recreate local `console_*/stats` folders when symlink creation failed.
+- Root console listing and tree output now expose `stats/` virtually even without a physical local folder.
+- Existing duplicated local stats directories were cleaned up and consolidated to the shared `stats/` directory.
+- Quest mission text and localization strings were refined for EN/ES/FR/IT mission mails and discovery wording.
+- Italian console lore, mail, and mission files were expanded/refined for narrative consistency with other locales.
+
+Global behavior changes:
+
+- There is now one canonical stats storage location: `stats/`.
+- In-console navigation to stats remains available (`cd stats`, `ls`, `tree`) without requiring per-console physical folders.
+- This reduces cross-language desync risk and prevents accidental duplicate stat files.
+
 ### 2026-03-11
 
 - Added multilingual JSON-based i18n packs in `lang/`.

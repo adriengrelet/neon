@@ -3,6 +3,8 @@ TO: you@console
 SUBJECT: route map fragment
 RECEIVED: [2097-03-09 04:58]
 
-Attached is a map fork recovered from KR22 traces.
-Some corridors lie, some are missing, all of them charge rent.
-If route 3 loops twice, cut east and trust your ears.
+Attachment: map fork recovered from KR22 traces.
+Do not trust it cleanly. Some corridors lie, some are missing, and all of them collect rent one way or another.
+If route 3 loops twice, cut east and trust your ears before you trust the signage.
+Well-guarded buildings rarely falsify the walls.
+What they falsify is the way they ask you to read them.

@@ -1,13 +1,17 @@
 MISSION 003 - Bases de la danse terminal
 
+Intention:
+Le hack matrice n'est pas un concours de vitesse pure. C'est une discipline de lecture, de rythme et de sang-froid sous minuterie hostile.
+
 Objectif:
-Pratiquer les hacks matrice sous pression temps sans vision tunnel.
+Pratiquer les sequences de hack sous pression temps sans tomber dans la vision tunnel ni transformer tes doigts en source d'erreurs.
 
 Etapes:
-1. Lis la sequence deux fois avant de taper une fois.
-2. Etape 2 suit la colonne, etape 3 suit la ligne.
-3. Si le pouls monte, respire puis valide.
-4. Hack propre et rapide > hack flashy et risque.
+1. Lis la sequence deux fois avant de taper une seule coordonnee.
+2. Retiens la regle: etape 2 suit la colonne, etape 3 suit la ligne. Le systeme adore punir les gens qui savent mais se precipitent.
+3. Si le pouls monte, respire, recentre, puis valide. Une seconde reprise vaut mieux qu'un echec immediat.
+4. Hack propre et rapide > hack flashy et risible.
 
 Humour veteran:
-Taper des coordonnees au hasard, c'est du cardio, pas une strategie.
+Taper des coordonnees au hasard, ce n'est pas du talent instinctif.
+C'est juste du cardio avec consequences.

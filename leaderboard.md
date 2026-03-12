@@ -22,3 +22,4 @@
 2026-03-11 14:47 | pyro | score:16191 | rooms:3 | 130s | status:QUIT
 2026-03-11 15:56 | pyro | score:88188 | rooms:35 | 826s | status:WIN
 2026-03-11 21:44 | pyro | score:87621 | rooms:25 | 742s | status:WIN
+2026-03-12 14:15 | pyro | score:99570 | rooms:46 | 1159s | status:WIN

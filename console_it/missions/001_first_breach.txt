@@ -1,13 +1,16 @@
-MISSIONE 001 - Prima breccia senza drammi
+MISSION 001 - Prima breccia senza drammi
+
+Intento:
+La prima run non serve a impressionare nessuno. Serve a tornare con le dita, il fiato e abbastanza calma da rifarlo domani.
 
 Obiettivo:
-Entrare, prendere un file innocuo, uscire vivi, sembrare noiosi.
+Entrare, recuperare un file senza grande valore strategico, uscire vivo e lasciare dietro di te un'impressione di banalita.
 
 Passi:
-1. Fai scan prima. La curiosita costa meno del panico.
-2. Tieni d'occhio l'allarme come fosse il contatore affitto.
-3. Hacka un solo terminale. I principianti cadono per avidita, non per mancanza di skill.
-4. Exfil appena obiettivo completato.
+1. Lancia uno scan prima di qualsiasi avanzata. La curiosita costa quasi sempre meno del panico.
+2. Sorveglia l'allarme come un contatore d'affitto: ignoralo troppo a lungo e la variabile diventi tu.
+3. Hacka un solo terminale. I principianti muoiono piu spesso di avidita che di mancanza di talento.
+4. Exfiltra non appena l'obiettivo e confermato. Un'uscita pulita vale piu di una stanza in piu.
 
-Battuta da rookie (ma non troppo):
-Se dici "solo una stanza in piu", sei gia nel tutorial pericolo.
+Promemoria sul campo:
+Se ti sorprendi a dire "solo una stanza in piu", sappi che il tutorial del pericolo e gia cominciato senza avvisarti.

@@ -1,10 +1,12 @@
 FROM: compliance.voice@kheiron
 TO: district operators
-SUBJECT: actualizacion de lenguaje
-RECIBIDO: [2097-03-17 11:05]
+SUBJECT: actualizacion de vocabulario
+RECEIVED: [2097-03-17 11:05]
 
-Reemplazar estos terminos en todos los informes:
+Sustituir estos terminos en todos los informes:
 - hambre -> cumplimiento nutricional diferido
-- desalojo -> transicion dinamica de vivienda
-- victima -> atricion de workforce no planificada
-Mantener metricas de empatia por encima del objetivo.
+- desalojo -> transicion habitacional dinamica
+- victima -> atricion laboral no planificada
+Mantener las metricas de empatia por encima del objetivo.
+Nota interna implicita, no escrita pero entendida por todo el mundo:
+si el lenguaje sigue limpio, la violencia viajara mas lejos antes de ser reconocida.

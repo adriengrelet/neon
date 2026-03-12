@@ -1,0 +1,16 @@
+From: FREELINE <FL-33>
+To: pyro
+Timestamp: 2097-07-16 14:47
+Subject: Public signal: infiltration recommended [MS-ION-72]
+
+Operator pyro,
+You remain our best point of entry for this target. If this structure falls, several civilian circuits will get a little breathing room, and a few districts will buy time before the next administrative strangulation.
+Confirmed target: Ion Vault (MS-ION-72).
+Objective: infiltrate, recover 3 cryptodata fragments, neutralize the CORE Sentinel, then compromise the central CORE.
+
+Starter pack transferred:
+- Credits: +230 CR
+- Items: energy_cell, medkit
+
+Immediate infiltration response recommended.
+Mission-ID: Q20260311101425-492

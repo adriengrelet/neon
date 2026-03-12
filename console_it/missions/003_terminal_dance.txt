@@ -1,13 +1,17 @@
-MISSIONE 003 - Basi della danza terminale
+MISSION 003 - Basi della danza terminale
+
+Intento:
+L'hack matrice non e una gara di pura velocita. E una disciplina di lettura, ritmo e sangue freddo sotto un timer ostile.
 
 Obiettivo:
-Allenare hack matrice sotto pressione tempo senza tunnel vision.
+Praticare sequenze di hack sotto pressione di tempo senza cadere nella visione a tunnel ne trasformare le dita in una fonte di errori.
 
 Passi:
-1. Leggi la sequenza due volte prima di digitare una volta.
-2. Step 2 segue colonna, step 3 segue riga.
-3. Se sale il battito, respira poi inserisci.
-4. Hack pulito e veloce > hack spettacolare e rischioso.
+1. Leggi la sequenza due volte prima di digitare una sola coordinata.
+2. Ricorda la regola: il passo 2 segue la colonna e il passo 3 segue la riga. Il sistema ama punire chi conosce la regola ma corre comunque.
+3. Se il battito sale, respira, ricentrati e conferma. Un secondo recuperato vale piu di un fallimento immediato.
+4. Hack pulito e rapido > hack vistoso e ridicolo.
 
 Umorismo veterano:
-Digitare coordinate a caso e cardio, non strategia.
+Digitare coordinate a caso non e talento istintivo.
+E solo cardio con conseguenze.

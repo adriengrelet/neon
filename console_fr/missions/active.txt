@@ -1,5 +1,5 @@
 Mission active:
-- Infiltrer la megastructure
-- Collecter 3 fragments de cryptodata
-- Neutraliser le CORE Sentinel
-- Hacker le CORE central et exfiltrer vivant
+- Infiltrer la megastructure sans gaspiller ton temps ni ton energie sur des bravades inutiles.
+- Collecter 3 fragments de cryptodata avant que les routines d'effacement ou la panique ne te fassent oublier pourquoi tu es venu.
+- Neutraliser le CORE Sentinel pour ouvrir une vraie fenetre de sabotage.
+- Hacker le CORE central, extraire l'essentiel, puis exfiltrer vivant.

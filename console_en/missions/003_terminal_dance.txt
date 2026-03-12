@@ -1,13 +1,17 @@
-MISSION 003 - Terminal dance basics
+MISSION 003 - Basics of terminal dance
 
-Goal:
-Practice matrix hacks under time pressure without tunnel vision.
+Intent:
+Matrix hacking is not a contest of raw speed. It is a discipline of reading, rhythm, and composure under a hostile timer.
+
+Objective:
+Practice timed hack sequences without collapsing into tunnel vision or turning your own fingers into an error source.
 
 Steps:
-1. Read sequence twice before typing once.
-2. Step 2 follows column, step 3 follows row.
-3. If your pulse spikes, breathe, then input.
-4. Fast clean hack > flashy risky hack.
+1. Read the sequence twice before entering a single coordinate.
+2. Remember the rule: step 2 follows the column, step 3 follows the row. The system loves punishing people who know the rule and rush anyway.
+3. If your pulse spikes, breathe, recenter, then validate. One recovered second is better than an immediate failure.
+4. A clean fast hack beats a flashy embarrassing one.
 
-Humor from veterans:
-Typing random coordinates is cardio, not strategy.
+Veteran humor:
+Typing coordinates at random is not instinctive talent.
+It is just cardio with consequences.

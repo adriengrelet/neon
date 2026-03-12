@@ -1,18 +1,30 @@
 TITRE: Paysage megacorpo
 
+Les megacorps ne gouvernent pas toujours en donnant des ordres visibles.
+Le plus souvent, elles vendent des outils, des scores, des abonnements, des couches logicielles et des indicateurs de risque. Ensuite, les institutions publiques ou semi-publiques appliquent la violence a leur place, avec assez de distance pour que personne ne se sente seul responsable.
+
 1) Kheiron Dynamics
-Controle stacks securite, modeles Sentinel et linguistique compliance.
+Kheiron controle les stacks securite, les modeles Sentinel, une grande partie des moteurs d'analyse comportementale et tout un vocabulaire de compliance qui permet de transformer la coercition en procedure.
 Slogan public: Systemes surs, societe sure.
-KPI interne: containment incident par credit.
+Realite terrain: plus la firme parle de neutralite, plus il faut verifier a qui profitent ses seuils.
+KPI interne officieux: containment incident par credit, autrement dit combien de desordre humain peut etre absorbe pour un cout minimal sans que l'image de stabilite ne casse.
 
 2) Helix Habitat
-Controle logement modulaire, automatisation des expulsions et contrats eau.
-L'app parle de flexibilite. Les locataires parlent de precarite rotative.
+Helix ne vend pas seulement des appartements. Elle vend le droit conditionnel d'occuper un volume d'air et de plomberie dans une structure qu'elle peut reclassifier a distance.
+La firme controle logement modulaire, automatisation des expulsions, contrats d'eau, capteurs d'usage et outils de relocalisation forcee maquilles en flexibilite residentielle.
+L'application parle de parcours residentiels adaptatifs. Les locataires parlent de precarite rotative.
+Quand Helix optimise, des familles entieres apprennent que leur adresse n'etait qu'une hypothese facturable.
 
 3) Vanta Biologics
-Gere abonnements cliniques et scoring dette biometrie.
-Un paiement manque et ta priorite de soin chute en silence.
+Vanta gere les abonnements cliniques, le scoring de dette biometrie et tout un ensemble de priorites de soin qui descendent ou remontent sans bruit selon la solvabilite, les profils de risque et les clauses cachees des contrats employeur.
+Son interface dit prevention personnalisee. Ses clients disent tranquillite sanitaire. Les districts bas score savent autre chose: manquer un paiement peut faire chuter une priorite de traitement sans qu'aucun humain ne prenne la peine de te regarder dans les yeux.
 
 4) Straylight Transit
-Exploite metro AI et permissions de routes.
-Probleme connu: lignes fantomes ou les anciennes cartes se souviennent de gens non servis.
+Straylight exploite le metro AI, les permissions de routes, les couloirs de fret et une partie du systeme de deplacement predicitf qui decide quelles zones doivent rester fluides et lesquelles peuvent etre ralenties sans trop de cout politique.
+Probleme connu: les lignes fantomes, ces trajets residuels ou les anciennes cartes semblent se souvenir de gens que le systeme ne dessert plus, comme si l'infrastructure gardait mieux la memoire du service public que les contrats qui l'ont remplace.
+
+Conclusion:
+Ces firmes se presentent comme des prestataires techniques.
+En pratique, elles fabriquent l'environnement administratif dans lequel une personne peut etre soignee, expulsee, suivie, retardee, classee ou oubliee.
+Elles ne ressemblent pas toujours a des tyrans.
+Elles ressemblent souvent a des tableaux de bord bien designes avec un langage propre et des consequences sales.

@@ -1,9 +1,31 @@
 TITRE: Vue d'ensemble du monde Neon Node
 
-Les villes sont empilees comme des registres de dette: air premium en haut, chaleur et moisissure en bas.
-La plupart des services sont prives, puis revendus a tarif variable.
-On ne disparait pas d'un coup; on est retire des systemes permission par permission.
+Les villes ne sont pas simplement grandes.
+Elles sont empilees, stratifiees, compartimentees comme des registres de dette montes a la verticale: air plus propre en haut, chaleur et moisissure en bas, securite contractuelle pour quelques-uns, incertitude logistique pour tous les autres.
+La hauteur n'est pas seulement une question d'architecture. C'est une politique rendue visible.
 
-La megastructure n'est pas un simple batiment, c'est un logiciel de gouvernance enrobe de beton.
-A l'interieur, la loi se deploie en latence, checkpoints et seuils de score.
-A l'exterieur, les quartiers improvisent la survie via entraide, utilites hackees et bande passante volee.
+Ici, presque tout service essentiel a ete privatise, fragmente, note, package puis revendu a tarif variable.
+L'eau, le courant, le transport, le logement, la sante, le signal, parfois meme l'air filtre passent par des couches contractuelles, des scores et des interfaces qui promettent la personnalisation tout en organisant la penurie.
+On ne disparait pas d'un coup.
+On est retire du monde permission par permission, seuil par seuil, file d'attente par file d'attente.
+
+La megastructure n'est pas un simple batiment.
+C'est un logiciel de gouvernance enrobe de beton, de gaines techniques et de verre arme.
+Ses couloirs transportent autant de politique que de personnes.
+Ses ascenseurs, ses checkpoints, ses badges, ses files d'acces et ses temps de latence disent a chacun ce qu'il vaut, ou il peut aller et combien de temps il devra attendre pour obtenir ce qui, autrefois, aurait pu s'appeler un droit.
+
+A l'interieur, la loi ne descend pas toujours sous forme de policiers ou de decrets.
+Elle se deploie aussi comme un delai reseau, un score de fiabilite, une priorite de maintenance, une porte qui reste jaune trop longtemps, une requete qui n'aboutit jamais tout a fait.
+Le systeme prefere les formes de violence qui ressemblent a des frictions.
+Elles sont plus faciles a nier et plus epuisantes a combattre.
+
+A l'exterieur des circuits privilegies, les quartiers improvisent la survie.
+Pas par romantisme.
+Par necessite.
+Entraide de palier, utilites hackees, bande passante volee, cuisines collectives, medecine grise, ateliers de reparation, relais de toit et archives miroir remplacent ce que les prestataires officiels rendent trop cher, trop lent ou trop conditionnel.
+
+Le monde de Neon Node n'oppose pas une haute technologie lisse a une misere simple.
+Il montre plutot comment des systemes avances reposent sur des couches de maintenance usee, de travail invisible, de debrouille et de gens que la ville traite comme du bruit tout en dependant entierement d'eux.
+
+Si quelque chose tient encore, ce n'est pas parce que les institutions sont justes.
+C'est parce que partout, dans les angles morts, quelqu'un continue a reparer, documenter, detourner ou transmettre ce que le systeme prefererait voir tomber.

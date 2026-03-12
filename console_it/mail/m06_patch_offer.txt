@@ -1,8 +1,9 @@
 FROM: patchvendor@legit-probably
 TO: you@console
 SUBJECT: patch stealth premium
-RICEVUTO: [2097-03-01 20:37]
+RECEIVED: [2097-03-01 20:37]
 
-Il nostro patch proprietario riduce rilevamento Sentinel del 62 percento.
-Nota piccola: test sul campo su clienti non disponibili per feedback.
-Sconto scade a mezzanotte, come tutte le offerte sospette.
+Il nostro patch proprietario riduce la rilevazione Sentinel del 62 percento.
+La cifra e molto precisa, il che e sempre una cattiva notizia quando arriva da un venditore che rifiuta di mostrare i log di test.
+Piccole righe: prove sul campo eseguite su clienti attualmente indisponibili per un feedback, per ragioni che il nostro ufficio legale preferisce definire definitive.
+Lo sconto scade a mezzanotte, come tutte le offerte sospette e la maggior parte degli errori di giudizio memorabili.

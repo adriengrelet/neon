@@ -1,8 +1,11 @@
 FROM: unknown
 TO: you@console
-SUBJECT: saw your name
+SUBJECT: i saw your name
 RECEIVED: [2097-02-10 07:56]
 
-Your handle appeared in a district risk dashboard.
-Could be noise. Could be a pre-arrest list.
-I am not asking you to stop. I am asking you to vary your route.
+Your handle showed up inside a district risk dashboard.
+Maybe noise. Maybe a pre-arrest list. Maybe just the system beginning to give you a shape clear enough to track.
+I am not asking you to stop.
+I am asking you to change your route, your cafe, your usual hour, and the way you lift your eyes when a camera catches your skin.
+Cities sometimes forgive movement.
+They almost never forgive habits.

@@ -1,8 +1,9 @@
 FROM: clinic_nightshift@mutualaid
 TO: you@console
-SUBJECT: aggirare debito medico
-RICEVUTO: [2097-02-22 02:14]
+SUBJECT: aggiramento del debito medico
+RECEIVED: [2097-02-22 02:14]
 
-Porta un timbro auth corporate valido.
-Possiamo convertirlo in 14 appuntamenti fantasma.
-Niente miracoli, solo persone che aiutano altre persone a sopravvivere al software di fatturazione.
+Portaci un timbro di autorizzazione corporate ancora valido.
+Con quello possiamo aprire quattordici appuntamenti fantasma prima che la fatturazione biometrica capisca che sta curando persone che avrebbe preferito tenere in coda.
+Non e un miracolo.
+E solo personale notturno che si rifiuta di lasciare a un software di fatturazione la decisione su chi meriti un polmone, un rene o un'altra settimana di tregua.

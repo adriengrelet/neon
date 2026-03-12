@@ -1,13 +1,16 @@
-MISSIONE 005 - Disciplina exfil pulita
+MISSION 005 - Disciplina di exfil pulita
+
+Intento:
+Una run non finisce quando raggiungi il core. Finisce quando esci con la prova, il fiato e una ragionevole possibilita di essere ancora libero domani.
 
 Obiettivo:
-Lasciare poche tracce facili e tenere il tuo io futuro occupato.
+Lasciare il minor numero possibile di tracce facili, proteggere il tuo io futuro e uscire prima che la fatica inizi a venderti.
 
 Passi:
-1. Controlla inventario e HP prima dell'ultimo corridoio.
-2. Evita combattimenti opzionali vicino estrazione.
-3. Conferma obiettivo completo, poi esci subito.
-4. Scrivi un debrief breve finche la memoria e fresca.
+1. Controlla inventario, HP ed energia prima dell'ultimo corridoio. Molte morti cominciano con un calcolo rimandato.
+2. Evita combattimenti opzionali vicino all'estrazione. Niente e piu ridicolo di una vittoria tattica che annulla un'uscita garantita.
+3. Conferma che l'obiettivo sia completo, poi esci subito. L'edificio non ha bisogno del tuo orgoglio come extra.
+4. Scrivi un debrief breve finche la memoria e ancora fresca. Una buona nota sul campo ti evita di ripetere lo stesso errore con un vocabolario piu nobile.
 
-Proverbio di campo:
-La miglior exfil e quella che nessuno nota domani.
+Proverbio di corridoio:
+La migliore exfil e quella che nessuno nota domani e che tu puoi ancora raccontare dopodomani.

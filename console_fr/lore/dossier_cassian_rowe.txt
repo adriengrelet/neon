@@ -1,122 +1,139 @@
-TITLE: Cassian Rowe, ou comment la reforme devient produit
+TITRE: Cassian Rowe, ou comment la reforme devient produit
 
-Avant les vestes sur mesure et les badges securite, Cassian Rowe portait des bracelets en cable recycle et passait ses nuits sur des toits de serveurs.
+Avant les vestes sur mesure, les badges securite et les photos officielles en salle de controle, Cassian Rowe portait des bracelets en cable recycle et passait ses nuits sur des toits humides a reparer des relais avec des gens qui n'avaient pas les moyens d'attendre une maintenance agregee.
 Avant les slogans de campagne, il ecrivait des notes de patch.
-Avant les briefs de conseil politique, il se disputait avec des techniciens de ligne sur le shaping reseau autour d'un cafe froid.
+Avant les briefings de conseil politique, il se disputait avec des techniciens de ligne, des cooperatives alimentaires et des adminsys de quartier sur le shaping reseau autour d'un cafe froid.
 
 C'est pour ca que son ascension a ete si intoxicante.
 Il etait des notres, ou assez pour qu'on ait envie d'y croire.
 
-Rowe vient de l'orbite Free Kernel Assembly, sans etre un puriste radical.
-Il aimait les ponts plus que les tests de purete.
-En 2091, il coordonne un miroir de preuves qui sauve des logs d'expulsion apres une vague de perquisitions.
-En 2092, il expose l'usage cache de scores emotionnels dans les filtres d'embauche.
-Il lisait le langage politique comme du code hostile et le traduisait en trois phrases claires.
+Rowe vient de l'orbite Free Kernel Assembly, sans jamais etre un puriste complet.
+Il detestait les tests de purete. Il preferait les ponts, les compromis tactiques limites, les schemas qui permettent a des gens tres differents de tirer dans la meme direction pendant au moins une nuit de plus.
+En 2091, il aide a coordonner un miroir juridique qui sauve des logs d'expulsion apres une vague de perquisitions destinee a nettoyer les dossiers de locataires contestataires.
+En 2092, il expose l'usage cache de scores emotionnels comme multiplicateurs de risque dans les filtres d'embauche.
+Il avait un talent rare: lire le langage politique comme du code hostile et le traduire en trois phrases nettes pour des gens qui n'avaient ni temps ni patience pour le jargon.
 
 Son visage public explose aux Auditions Transit Est.
-Invite comme temoin technique, il arrive sans staff, avec un terminal fissure et douze minutes de donnees compressees. Il montre le couplage secret entre politique de routage et tables de deploiement policier via la meme API fournisseur.
+Invite comme temoin technique, il arrive sans staff, avec un terminal fissure, une chemise froissee et douze minutes de donnees compressees. Il montre le couplage discret entre politique de routage et tables de deploiement policier via la meme API fournisseur.
 Il ne crie pas.
-Il dit juste:
+Il ne moralise pas.
+Il affiche le dataset fusionne et dit simplement:
 il n'existe pas de latence neutre quand le delai est assigne par revenu.
 
 Le clip devient viral.
+Des districts qui n'avaient jamais entendu son nom recopient la phrase sur les murs, dans les signatures mail, sur les boucles radio pirate.
+
 Puis arrivent les invitations.
 Sieges de task force.
 Comites consultatifs.
 Briefings sous NDA.
-Un consultant media lui glisse: si tu veux de l'impact, il te faut de l'echelle.
-Et dans notre epoque, echelle veut souvent dire compromis en badge.
+Un consultant media lui souffle qu'un impact sans echelle reste une note de bas de page.
+Et dans cette ville, l'echelle porte presque toujours un badge, un protocole d'acces et une facture morale differee.
 
-Au debut, les compromis semblent tactiques.
-Il accepte un role temporaire dans la plateforme Civic Systems Renewal.
+Au debut, les compromis paraissent tactiques.
+Il accepte un role temporaire dans la plateforme Civic Systems Renewal, en expliquant que quelqu'un doit bien traduire la realite technique a l'interieur des salles ou les decisions se prennent.
 Il promet des rapports de transparence trimestriels.
-Il promet de l'open review pour les marches touchant logement, sante et travail.
-Il promet aucun donateur sur les seuils de modele.
+Il promet une open review sur les marches touchant logement, sante et travail.
+Il promet qu'aucun donateur ne touchera aux seuils de modele.
 
-Pendant un an, assez de livrables pour maintenir la foi.
-Une petite API d'appel logement sort avec logs publics.
+Pendant un an, il livre juste assez pour maintenir la foi.
+Une petite API d'appel logement sort avec journaux publics.
 Deux contrats sont suspendus pour conflit d'interets.
-Trois cliniques de quartier recuperent une priorite reseau en hiver.
-On se dit: peut-etre qu'un reformiste peut survivre a l'interieur.
+Trois cliniques de quartier recuperent une priorite reseau pendant l'hiver.
+On se dit: peut-etre qu'un reformiste peut survivre a l'interieur assez longtemps pour ouvrir de vraies breches.
 
 Puis le vocabulaire glisse.
 Pas en une nuit.
-Lentement.
+Lentement, comme une moisissure qui remonte derriere un mur propre.
 
-Les mots qu'il critiquait deviennent ses mots.
-Expulsions -> transitions de logement adaptees.
-Gel des salaires -> suspension temporaire d'integrite de paie.
-Extension policiere -> stabilisation civique reactive.
+Les mots qu'il combattait deviennent ses mots.
+Les expulsions deviennent des transitions de logement adaptees.
+Les gels de salaires deviennent des suspensions temporaires d'integrite de paie.
+L'expansion policiere devient de la stabilisation civique reactive.
 
-Il dit que c'est strategique.
-Que la rhetorique frontale bloque l'implementation.
-Que sans place a la table, pire prendra la table.
+Rowe dit que la rhetorique frontale bloque l'implementation.
+Il dit qu'une purete sans levier ne change rien.
+Il dit que si les techniciens quittent la table, des gens pires ecriront le code.
 
-Une partie est vraie.
-C'est ainsi que la corruption gagne: elle emprunte des premisses justes jusqu'a ce qu'on ne voie plus la facture.
+Une partie de cela est vraie.
+Et c'est justement pour cette raison que la corruption gagne si bien: elle emprunte des premisses justes jusqu'a ce qu'on ne remarque plus le prix de la transaction.
 
 La fracture nette arrive avec le Sentinel Oversight Accord.
-Rowe valide un paquet qui etend l'autorite predictive en echange d'un acces audit limite controle par son bureau. Il parle de reduction des dommages. En pratique, lane legale plus large pour Kheiron et audits concentres dans un comite ferme.
+Rowe soutient un paquet qui etend l'autorite predictive en echange d'un acces audit limite, controle par son bureau. Il parle de reduction des dommages. En pratique, l'accord ouvre une lane legale plus large a Kheiron et concentre les clefs d'inspection dans un comite ferme.
 Observateurs communautaires: acces refuse.
-Techniciens syndicaux: tests reproductibles retardes.
+Techniciens syndicaux: tests de reproductibilite retardes.
 Conseils de quartier: seuils classes.
 
-Le camp pro-Rowe se divise.
-Certains disent long jeu.
-D'autres repondent que long jeu est le nom poli de tes annees perdues.
+Le camp pro-Rowe se fissure.
+Certains jurent qu'il joue un long jeu.
+D'autres repondent que long jeu est le nom poli que les puissants donnent a tes annees perdues.
 
-Puis fuitent ses messages.
-Pas un grand complot cinematographique. De la corruption ordinaire en tenue bureaucratique: conseillers donateurs demandant des decalages de calendrier, liaisons enforcement demandant de retarder des rapports negatifs jusqu'apres des votes, staff discutant de gestion narrative sur des pics de casualties.
+Puis ses messages fuitent.
+Pas un complot de cinema. Pire: de la corruption ordinaire en costume bureaucratique.
+Des conseillers de donateurs demandent des decalages de calendrier.
+Des liaisons enforcement veulent retarder des rapports negatifs jusqu'apres des votes.
+Le staff discute de gestion narrative pendant des pics de casualties sur des pilotes de deploiement.
 Un message de Rowe devient celebre:
 si on vend ca comme douleur transitoire pour gains d'equite futurs, on tient jusqu'au Q4.
 
 Douleur transitoire.
-En district stack, ca veut dire enterrements et soins impayes.
+Dans les stacks, cela veut dire enterrements, frigos medicaux vides, medocs reportes, salaires geles et gens qui apprennent a descendre un corps dans une cage d'escalier sans lumiere.
 
 Il ne tombe pas d'un coup.
-Il multiplie les conferences de presse, les audits internes, les promesses de feuille de route corrigee. Vu de loin, ca parait plausible. Vu des cages d'escaliers en blackout, ca ressemble au support client de la violence.
+Les figures publiques tombent rarement vite.
+Il aligne les conferences de presse, les audits internes, les feuilles de route corrigees, les regrets millimetres.
+Pour les gens eloignes des zones d'impact, cela parait plausible.
+Pour les habitants qui traversent des semaines de blackout, cela ressemble au support client de la violence.
 
-La rupture finale: Civic Reliability Pilot.
-Le pilote fusionne dette, anomalies de deplacement et volatilite emotionnelle en un score administratif qui retarde permis et aides.
-En 2092, Rowe appelait ca feodalite numerique.
-En 2097, il appelle ca triage temporaire sous contrainte.
+La rupture finale vient avec le Civic Reliability Pilot.
+Le pilote fusionne conformite de dette, anomalies de deplacement et volatilite emotionnelle dans un score administratif utilise pour retarder permis, prestations et aides.
+En 2092, Rowe appelait cette architecture feodalite numerique.
+En 2097, il la rebaptise triage temporaire sous contrainte.
 
-Les anciens clips ressortent cote a cote avec les nouveaux.
-Meme voix. Meme visage. Sens inverse.
+Les anciens clips ressortent a cote des nouveaux.
+Meme voix.
+Meme visage.
+Sens inverse.
 
-A ce stade, il voyage avec des couches securite qu'il denoncait autrefois.
-Il parle de communautes comme de parties prenantes.
-Il appelle des raids des interventions.
-Il parle de confiance et refuse les model cards publics.
+A ce stade, il voyage sous des couches securite qu'il denoncait autrefois.
+Il visite les districts par des couloirs controles.
+Il parle des communautes comme de parties prenantes.
+Il appelle les raids des interventions.
+Il parle de confiance tout en refusant les model cards publics.
 
-Ca ne veut pas dire qu'il etait un monstre cache depuis le debut.
-Cette histoire confortable blanchit le systeme.
-La verite est plus sale: les institutions ont selectionne en lui les parties monnayables, les ont recompensees, puis ont transforme son vocabulaire de reforme en lubrifiant de conformite.
+Ca ne signifie pas qu'il etait un monstre cache depuis le debut.
+Cette histoire est trop confortable; elle blanchit le systeme.
+La verite est plus sale.
+Les institutions ont selectionne en lui les parties monnayables, ont recompense ces parties, les ont isolees de leurs consequences, puis ont converti le langage de la reforme en lubrifiant de conformite.
+Il a participe.
+Il en a profite.
 Il a choisi, encore et encore.
-Mais il a aussi avance sur des rails concus pour que la trahison ressemble a de la responsabilite.
+Mais il a aussi avance sur des rails concus pour faire ressembler la trahison a de la responsabilite.
 
-Dans l'underground, son nom sert d'avertissement.
+Dans l'underground, son nom est devenu un avertissement.
 Ne pas Rowe le protocole = ne pas echanger l'accountability contre l'acces.
-Transparence grade Rowe = rapport brillant sans les clefs.
+Transparence grade Rowe = un beau rapport, beaucoup de graphiques, aucune clef.
+Les jeunes organisateurs etudient encore ses anciens temoignages en les confrontant a ses notes de politique recentes pour apprendre a reconnaitre la derive rhetorique avant qu'elle se vende comme maturite.
 
 Ou est-il maintenant?
-Officiellement encore present.
-Officieusement en train de monter une fondation d'innovation ethique financee par les memes firmes qu'il devait controler.
-La ville adore les recits de redemption qui preservent les pipelines d'achat.
+Officiellement, toujours en vie publique, mais plus discret.
+Officieusement, en train de preparer une fondation sur l'innovation ethique financee par les memes firmes qu'il devait controler.
+La ville adore les recits de redemption quand ils preservent les pipelines d'achat.
 
 Si ce dossier sonne amer, il doit l'etre.
-On voulait la preuve qu'une intelligence technique pouvait survivre a la proximite du pouvoir.
-On a eu la preuve inverse: le pouvoir peut absorber cette intelligence, la rebrander, et la revendre comme espoir gere.
+On avait besoin de croire qu'une intelligence technique pouvait survivre a la proximite du pouvoir sans y laisser sa colonne vertebrale.
+On a obtenu la preuve inverse: le pouvoir peut absorber cette intelligence, la rebrander, puis la revendre comme espoir gere.
 
-La lecon utile de son echec:
-ne jamais externaliser sa politique a une seule personne eloquente.
-Construire un controle collectif qui survive au charisme.
+La lecon utile de son echec tient en peu de lignes.
+Ne jamais externaliser sa politique a une seule personne eloquente.
+Construire un controle collectif capable de survivre au charisme.
 Exiger les clefs, pas les resumes.
-Considerer toute reforme reversible tant que les gens impactes ne peuvent pas verifier et imposer.
+Traiter toute reforme comme reversible tant que les personnes impactees ne peuvent ni verifier ni imposer.
 
-Rowe nous a appris ca en echouant publiquement.
-Et cet echec a coute du temps, de la confiance, et des vies comptabilisees en ascenseurs arretes, soins refuses et mensonges normalises.
+Rowe nous a appris cela en echouant publiquement.
+Et cet echec n'a pas coute qu'une carriere.
+Il a coute du temps, de la confiance et des vies mesurees en ascenseurs arretes, soins refuses et mensonges normalises.
 
-Dans notre monde, la corruption ne vient pas toujours avec des monstres evidents.
-Parfois elle vient avec ton propre vocabulaire et demande juste un compromis de plus, au nom de l'implementation.
+Dans notre monde, la corruption n'arrive pas toujours avec des monstres evidents.
+Parfois elle parle avec ton propre vocabulaire, te demande juste un compromis de plus, au nom de l'implementation.
 Quand tu reconnais enfin l'accent, le contrat est deja signe.

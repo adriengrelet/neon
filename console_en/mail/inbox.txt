@@ -1,3 +1,5 @@
 FROM: relay@ghostmesh
 SUBJECT: intrusion window
-Port stays open for less than 90 seconds. Keep moving.
+The port will stay open for less than 90 seconds.
+Go in light, break your habits, and do not get attached to any corridor.
+If you hesitate at a door, the building will already be learning your rhythm.

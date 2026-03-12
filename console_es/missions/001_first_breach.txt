@@ -1,13 +1,16 @@
-MISION 001 - Primera brecha sin drama
+MISSION 001 - Primera brecha sin drama
+
+Intencion:
+La primera run no sirve para impresionar a nadie. Sirve para volver con los dedos, el aire y la calma suficiente como para repetir manana.
 
 Objetivo:
-Entrar, tomar un archivo inofensivo, salir con vida y parecer aburrido.
+Entrar, recuperar un archivo sin gran valor estrategico, salir vivo y dejar atras una impresion de normalidad.
 
 Pasos:
-1. Haz scan primero. La curiosidad es mas barata que el panico.
-2. Vigila la alarma como si fuera tu contador de alquiler.
-3. Hackea solo un terminal. Los principiantes caen por codicia, no por falta de talento.
-4. Exfiltra en cuanto cumplas el objetivo.
+1. Lanza un scan antes de cualquier avance. La curiosidad casi siempre cuesta menos que el panico.
+2. Vigila la alarma como si fuera un contador de alquiler: ignorala demasiado y tu vida se convierte en la variable.
+3. Hackea un solo terminal. Los principiantes mueren mas por codicia que por falta de talento.
+4. Exfiltra en cuanto el objetivo quede validado. Una salida limpia vale mas que una sala extra.
 
-Broma de novato (que no es broma):
-Si dices "una sala mas", ya estas dentro del tutorial de peligro.
+Recordatorio de campo:
+Si te sorprendes diciendo "solo una sala mas", entiende que el tutorial del peligro ya empezo sin avisarte.

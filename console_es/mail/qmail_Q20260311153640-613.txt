@@ -1,0 +1,16 @@
+De: DEEP CARTO <DC-05>
+Para: pyro
+Marca temporal: 2097-12-04 16:13
+Asunto: Caches utilitarios detectados [MS-NEXUS-58]
+
+Operador pyro,
+El mapeo interno indica varios depositos utilitarios fuera de red. Si el edificio aun no ha purgado sus viejas rutas de mantenimiento, el scan deberia rendir mejor de lo habitual.
+Objetivo confirmado: Nexus Census Core (MS-NEXUS-58).
+Objetivo: infiltrar, recuperar 3 fragmentos de cryptodata, neutralizar al CORE Sentinel y comprometer el CORE central.
+
+Paquete inicial transferido:
+- Creditos: +170 CR
+- Objetos: medkit
+
+Se recomienda responder con infiltracion inmediata.
+Mission-ID: Q20260311153640-613

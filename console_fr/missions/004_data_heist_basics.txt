@@ -1,13 +1,16 @@
 MISSION 004 - Data heist pour debutants
 
+Intention:
+Voler de la donnee n'a d'interet que si la preuve survit au vol, a la panique et au discours qui tentera ensuite de la vider de son sens.
+
 Objectif:
-Extraire un memo policy qui prouve la violence derriere le langage corporate.
+Extraire un memo policy ou un fragment de compliance capable de prouver la violence cachee derriere le langage corporate.
 
 Etapes:
-1. Priorise les fichiers legal/compliance.
-2. Copie la preuve d'abord, le loot annexe ensuite.
-3. Range les trouvailles dans archive/ avec date et noeud source.
-4. Envoie un resume aux allies, pas tout le dump brut.
+1. Priorise les dossiers legal/, compliance/ et les traces de validation signees. Les belles interfaces mentent mieux que les annexes.
+2. Copie la preuve d'abord. Le loot annexe vient ensuite, si tu respires encore assez calmement pour te le permettre.
+3. Range les trouvailles dans archive/ avec date, noeud source et contexte minimal. Une preuve sans provenance devient vite une rumeur bien emballee.
+4. Envoie un resume aux allies, pas le dump brut. La verite voyage mieux quand elle n'ecrase pas ceux qui doivent l'utiliser.
 
 Pourquoi c'est utile:
-Un seul memo signe peut bouger un district plus vite que 100 rumeurs.
+Un seul memo signe peut faire bouger un district plus vite que cent rumeurs, parce qu'il oblige enfin le mensonge officiel a parler avec sa propre voix.

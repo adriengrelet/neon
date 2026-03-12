@@ -1,18 +1,27 @@
-TITLE: Infrastructure notes
+TITLE: Urban Infrastructure, or How the City Administers Survival
 
 Power:
-Official grid is dynamic-priced by district risk score.
-Blackouts are called balancing events.
-Hospitals in low-score zones get delayed restoration.
+Electricity is not distributed as a right here. It is distributed as a conditional reward.
+The official grid prices power through a formula combining district risk, expected yield, and compliance history. Residents see variable rates. Operators see a triage map.
+When a neighborhood loses power, the report never says outage. It says balancing event, temporary reallocation, dynamic prioritization. That language matters, because it allows a week without lifts, medical refrigeration, or ventilation to be treated as an efficiency adjustment.
+High-income sectors recover fast. Stack districts do not. In low-score zones, hospitals run on tired batteries, clinics decide which fridges deserve current, and residents learn to recognize the exact sound a building makes before it dies.
 
 Housing:
-Leases are algorithmic. Appeals are mostly performative.
-One typo in an identity field can trigger automated displacement.
+Housing is managed like a retention-and-expulsion software suite.
+Leases are algorithmic, updated without meaningful negotiation, packed with elastic clauses, automatic penalties, and hidden thresholds. Appeals exist on paper. In practice they mostly generate a clean procedural trail before displacement is executed.
+One misspelled name, one biometric mismatch, one late payment flagged during a bad sync can be enough to downgrade a household. The platform calls it adaptive relocation. Tenants call it disappearing from their own hallway.
 
 Network:
-Public net has strict packet shaping.
-Underground mesh links bridge dead zones with rooftop repeaters and stolen antennas.
+The public net is rarely cut outright. It is throttled with professional care.
+Packet shaping, selective slowdowns, contextual filtering, priority quotas sold to solvent actors: everything is designed to preserve the appearance of access while making access useless for organizing, investigating, or escaping.
+Beneath that official layer, the underground mesh links dead zones through rooftop repeaters, rewired antennas, hijacked maintenance boxes, and an indecent amount of improvisation. The community network does not promise comfort. It promises that a critical message still has a chance to arrive.
 
 Food and water:
-Distribution priority follows labor score and debt compliance.
-Communes offset shortages with kitchens, repair swaps, and gray-market logistics.
+Drinking water, ration access, and subsidized deliveries follow the same logic as everything else: labor score, debt regularity, behavioral stability, estimated usefulness.
+Officially the city calls this intelligent distribution. On the ground it means a family can lose a week of priority because a system interpreted missed work as reliability drift.
+Communes, neighborhood kitchens, and mutual-aid workshops absorb what administration abandons. They assemble filters, trade repairs, pool batteries, and move supplies outside official billing channels. Without them, the city would not be harsh. It would be uninhabitable.
+
+Field conclusion:
+Infrastructure here does not only move power, water, people, and packets.
+It classifies lives.
+Every cable, every valve, every network permission also carries a political decision disguised as maintenance.

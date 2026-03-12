@@ -1,21 +1,31 @@
-TITLE: Hacker groups and networks
+TITLE: Hacker Groups and Survival Networks
+
+What follows is not a neutral directory.
+It is a partial map of the structures that still hold when the official city decides certain neighborhoods can wait, stay silent, or disappear.
+People call them hacker groups, but the term is too narrow. Most of these networks do far more than breach systems: they repair lines, move evidence, train beginners, hide people, rebuild services, and absorb the human damage no dashboard wants to name.
 
 GhostMesh:
-Decentralized relays, favors low-signature operations.
-Strength: discipline under pressure.
-Weakness: trust builds slowly, sometimes too slowly.
+GhostMesh is not one central organization but a constellation of decentralized relays, careful operators, and protocols passed from mouth to mouth and terminal to terminal. The network favors low-signature operations, clean transfers, minimal traces, and goals whose value exceeds any need for recognition.
+Strength: discipline under pressure, strong operational hygiene, and the ability to keep channels alive where everything looks dead.
+Weakness: trust takes a long time to build, and paranoia sometimes slows response until the useful window is already closing.
 
 Roofline Collective (ZE08):
-Neighborhood mutual-aid technicians.
-Strength: local legitimacy and practical repairs.
-Weakness: exposed infrastructure and burnout.
+Roofline is made up of technicians, rogue electricians, maintenance improvisers, and neighbors who are simply too competent to let a building die alone. Their specialty is not spectacle. It is the concrete thing: reconnect a pump, harden a repeater, repair a door, patch a power feed, protect a rooftop so the district keeps signal and a little dignity.
+Strength: local legitimacy, memory of failures, real human ties to residents, and the ability to turn technical skill into visible mutual aid.
+Weakness: exposed infrastructure, chronic exhaustion, and too little redundancy when too few hands know how to repair too many things.
 
 Free Kernel Assembly (DX90 lineage):
-Open-source radicals maintaining covert toolchains.
-Strength: resilient code commons.
-Weakness: endless internal debates, uneven op readiness.
+The Free Kernel Assembly is what happens when open-source radicals refuse to let code become only a commodity or a weapon of social management. The DX90 lineage maintains covert toolchains, mirrors, archives, and software commons that survive seizure waves and repository purges.
+Strength: intellectual and technical resilience, extensive documentation when it exists, and the ability to rebuild tools from almost nothing.
+Weakness: endless internal debates, ideological fractures, and wildly uneven operational readiness across cells. Some are brilliant. Others still confuse doctrinal purity with practical usefulness.
 
 Night Couriers:
-Data runners moving files physically when networks are hostile.
-Strength: hard to trace at scale.
-Weakness: high personal risk and little legal cover.
+When the network becomes too watched, too slow, or too poisoned to move a packet, the Night Couriers return to an old truth: sometimes the best bandwidth is still a body in motion. They physically carry files, modules, keys, medical datasets, and sometimes witnesses no system should ever see crossing a boundary.
+Strength: difficult to trace at scale, tactically flexible, and able to bypass entire infrastructures by refusing to use them.
+Weakness: high personal risk, almost no legal cover, and irreplaceable losses when a courier falls, because you do not easily replace someone who knows the routes, the faces, and the useful silences.
+
+General note:
+None of these groups are pure.
+They argue, make mistakes, burn out, keep too many secrets, or react too slowly to weak signals.
+But without them, the megastructures would already have turned most districts into low-priority service zones.
+What official order calls pockets of instability is often, from the ground, the last place where anyone is still trying to make something work for real.

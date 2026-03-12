@@ -1,8 +1,9 @@
 FROM: zea@roofline-collective
 TO: you@console
 SUBJECT: energia esta noche
-RECIBIDO: [2097-03-28 21:44]
+RECEIVED: [2097-03-28 21:44]
 
-Si pasas por sector ZE08, trae condensadores de repuesto.
-Podemos mantener luz para 43 hogares o para una granja de impresion ilegal.
-Asamblea a las 21:00, discusiones incluidas sin coste extra.
+Si pasas por ZE08 esta noche, trae condensadores de repuesto.
+Con el stock actual podemos mantener la luz para 43 hogares o alimentar una granja de impresion ilegal que jura, como siempre, ser politicamente indispensable.
+Asamblea a las 21:00.
+Discusiones incluidas sin coste extra, cafe malo, consenso improbable, pero trabajo real al final si nadie da un portazo antes de los calculos de carga.

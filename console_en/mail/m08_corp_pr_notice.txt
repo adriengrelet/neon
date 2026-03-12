@@ -1,10 +1,12 @@
 FROM: compliance.voice@kheiron
 TO: district operators
-SUBJECT: language update
+SUBJECT: vocabulary update
 RECEIVED: [2097-03-17 11:05]
 
-Replace terms in all reports:
-- hunger -> delayed nutritional fulfillment
+Replace these terms in all reports:
+- hunger -> deferred nutritional fulfillment
 - eviction -> dynamic housing transition
-- casualty -> unplanned workforce attrition
-Please keep empathy metrics above target.
+- victim -> unplanned workforce attrition
+Keep empathy metrics above target.
+Unwritten internal note, understood by everyone:
+if the language stays clean, violence will travel farther before anyone calls it by name.

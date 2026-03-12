@@ -1,0 +1,16 @@
+From: DEEP CARTO <DC-05>
+To: pyro
+Timestamp: 2097-12-04 16:13
+Subject: Utility caches detected [MS-NEXUS-58]
+
+Operator pyro,
+Internal mapping indicates several off-grid utility depots. If the building has not purged its older maintenance routes yet, the scan should pay better than usual.
+Confirmed target: Nexus Census Core (MS-NEXUS-58).
+Objective: infiltrate, recover 3 cryptodata fragments, neutralize the CORE Sentinel, then compromise the central CORE.
+
+Starter pack transferred:
+- Credits: +170 CR
+- Items: medkit
+
+Immediate infiltration response recommended.
+Mission-ID: Q20260311153640-613

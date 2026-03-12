@@ -1,13 +1,17 @@
 MISSION 002 - Ouvrir, maquiller, sortir
 
+Intention:
+Une bonne intrusion n'ouvre pas seulement une porte. Elle laisse derriere elle un mensonge suffisamment credible pour retarder la vraie question: qui est passe ici ?
+
 Objectif:
-Ouvrir un chemin verrouille et faire croire que la maintenance l'a fait.
+Ouvrir un chemin verrouille, le franchir proprement et faire croire que la maintenance, la negligence ou un mauvais firmware ont fait le travail a ta place.
 
 Etapes:
-1. Utilise echo avant de pousser vers les zones inconnues.
-2. Hack le noeud de verrouillage puis reduis l'alarme si possible.
-3. Depose une fausse balise maintenance dans logs/ si la fenetre le permet.
-4. Ne combat jamais un Sentinel pour le style.
+1. Utilise echo avant de pousser vers une zone inconnue. Les murs parlent plus tot que les gardes.
+2. Hack le noeud de verrouillage puis reduis l'alarme si la fenetre te le permet.
+3. Depose une fausse balise de maintenance dans logs/ si tu as encore du temps et des mains stables.
+4. Ne combats jamais un Sentinel pour le style. Le style ne survit pas aux rapports d'incident.
 
 Rappel:
-Le stealth n'est pas l'invisibilite. C'est du papier plausible.
+Le stealth n'est pas l'invisibilite.
+Le stealth, c'est fournir au systeme une histoire suffisamment plausible pour qu'il perde du temps a se mentir a lui-meme.

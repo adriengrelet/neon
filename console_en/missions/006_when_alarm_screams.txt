@@ -1,13 +1,16 @@
-MISSION 006 - When alarm screams
+MISSION 006 - When the alarm screams
 
-Goal:
-Survive an alarm spike and still complete extraction.
+Intent:
+The moment the alarm climbs is not the moment to become poetic. It is the moment to accept that the original plan is dead and that your only useful elegance is still called exit.
+
+Objective:
+Survive an alarm spike, preserve what matters, and still finish extraction without turning yourself into a posthumous heroic gesture.
 
 Steps:
-1. Accept that plan A is gone. Plan B exists for a reason.
-2. Prioritize mobility over hero moments.
-3. If Sentinel appears, disengage unless mission-critical.
-4. Spend energy on actions that create distance.
+1. Accept immediately that plan A is dead. Plan B exists for exactly this minute.
+2. Prioritize mobility, reading escape lines, and distance. Heroic moments are expensive and mostly useful to obituaries.
+3. If a Sentinel appears, disengage unless the critical mission truly forces you to hold position.
+4. Spend energy on actions that open, move, or blur. Any expense that creates no margin should be treated with suspicion.
 
 Emergency humor:
-If the walls feel loud, congratulations, the building knows your name.
+If the walls sound loud, congratulations: the building already knows your name, your rhythm, and probably your direction.

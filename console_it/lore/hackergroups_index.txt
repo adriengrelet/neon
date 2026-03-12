@@ -1,21 +1,31 @@
-TITOLO: Gruppi hacker e reti
+TITOLO: Gruppi hacker e reti di sopravvivenza
+
+Quello che segue non e un elenco neutrale.
+E una mappa parziale delle strutture che tengono ancora quando la citta ufficiale decide che certi quartieri possono aspettare, tacere o sparire.
+Si parla di gruppi hacker, ma il termine e troppo stretto. La maggior parte di queste reti fa molto piu che violare sistemi: ripara linee, sposta prove, forma principianti, nasconde persone, ricostruisce servizi e assorbe il danno umano che nessun dashboard vuole nominare.
 
 GhostMesh:
-Relay decentralizzati, preferisce operazioni a bassa firma.
-Forza: disciplina sotto pressione.
-Debolezza: fiducia lenta da costruire, a volte troppo lenta.
+GhostMesh non e un'unica organizzazione centrale ma una costellazione di relay decentralizzati, operatori prudenti e protocolli trasmessi di bocca in bocca e da terminale a terminale. La rete privilegia operazioni a bassa firma, trasferimenti puliti, tracce minime e obiettivi il cui valore supera qualsiasi bisogno di riconoscimento.
+Forza: disciplina sotto pressione, buona igiene operativa e capacita di tenere vivi i canali dove tutto sembra morto.
+Debolezza: la fiducia richiede molto tempo per essere costruita, e la paranoia a volte rallenta la risposta finche la finestra utile non si sta gia chiudendo.
 
 Roofline Collective (ZE08):
-Tecnici di mutuo aiuto di quartiere.
-Forza: legittimita locale e riparazioni pratiche.
-Debolezza: infrastrutture esposte e burnout.
+Roofline e formato da tecnici, elettricisti selvatici, manutentori di fortuna e vicini troppo competenti per lasciare che un edificio muoia da solo. La loro specialita non e lo spettacolo. E la cosa concreta: ricollegare una pompa, rinforzare un ripetitore, sistemare una porta, rattoppare una linea di alimentazione, proteggere un tetto perche il distretto mantenga segnale e un po di dignita.
+Forza: legittimita locale, memoria dei guasti, legami umani reali con gli abitanti e capacita di trasformare la competenza tecnica in mutuo aiuto visibile.
+Debolezza: infrastrutture esposte, esaurimento cronico e pochissima ridondanza quando troppo poche mani sanno riparare troppe cose.
 
 Free Kernel Assembly (linea DX90):
-Radicali open-source che mantengono toolchain coperte.
-Forza: commons di codice resilienti.
-Debolezza: dibattiti interni infiniti e prontezza operativa diseguale.
+La Free Kernel Assembly e cio che accade quando radicali open-source si rifiutano di lasciare che il codice diventi soltanto una merce o un'arma di gestione sociale. La linea DX90 mantiene toolchain coperte, mirror, archivi e commons software che sopravvivono alle ondate di sequestro e alle purghe dei repository.
+Forza: resilienza intellettuale e tecnica, documentazione abbondante quando esiste e capacita di ricostruire strumenti a partire da quasi nulla.
+Debolezza: dibattiti interni senza fine, fratture ideologiche e prontezza operativa molto diseguale tra le cellule. Alcune sono brillanti. Altre confondono ancora la purezza dottrinale con l'utilita pratica.
 
 Night Couriers:
-Corrieri dati che trasportano file fisicamente quando la rete e ostile.
-Forza: difficili da tracciare su larga scala.
-Debolezza: rischio personale alto e poca copertura legale.
+Quando la rete diventa troppo sorvegliata, troppo lenta o troppo avvelenata per muovere un pacchetto, i Night Couriers recuperano una vecchia verita: a volte la banda migliore resta un corpo in movimento. Trasportano fisicamente file, moduli, chiavi, dataset medici e talvolta testimoni che nessun sistema dovrebbe vedere attraversare un confine.
+Forza: difficili da tracciare su larga scala, flessibili sul piano tattico e capaci di aggirare intere infrastrutture semplicemente rifiutandosi di usarle.
+Debolezza: rischio personale altissimo, quasi nessuna copertura legale e perdite insostituibili quando cade un courier, perche non si sostituisce facilmente chi conosce itinerari, volti e silenzi utili.
+
+Nota generale:
+Nessuno di questi gruppi e puro.
+Discutono, sbagliano, si esauriscono, tengono troppi segreti o reagiscono troppo tardi ai segnali deboli.
+Ma senza di loro le megastrutture avrebbero gia trasformato la maggior parte dei distretti in zone di servizio a bassa priorita.
+Cio che l'ordine ufficiale chiama sacche di instabilita e spesso, visto dal suolo, l'ultimo posto dove qualcuno sta ancora cercando di far funzionare qualcosa sul serio.

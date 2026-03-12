@@ -1,13 +1,17 @@
-MISION 003 - Bases del baile de terminal
+MISSION 003 - Bases de la danza terminal
+
+Intencion:
+El hack de matriz no es un concurso de velocidad bruta. Es una disciplina de lectura, ritmo y sangre fria bajo cronometro hostil.
 
 Objetivo:
-Practicar hacks de matriz bajo presion sin vision tunel.
+Practicar secuencias de hack con presion de tiempo sin caer en vision de tunel ni convertir tus dedos en fuente de errores.
 
 Pasos:
-1. Lee la secuencia dos veces antes de teclear una.
-2. Paso 2 sigue columna, paso 3 sigue fila.
-3. Si sube el pulso, respira y luego confirma.
-4. Hack limpio y rapido > hack vistoso y arriesgado.
+1. Lee la secuencia dos veces antes de introducir una sola coordenada.
+2. Recuerda la regla: el paso 2 sigue la columna y el paso 3 sigue la fila. Al sistema le encanta castigar a quien sabe la regla y aun asi se precipita.
+3. Si el pulso sube, respira, recentrate y valida. Un segundo recuperado vale mas que un fallo inmediato.
+4. Hack limpio y rapido > hack vistoso y ridiculo.
 
 Humor veterano:
-Teclear coordenadas al azar es cardio, no estrategia.
+Teclear coordenadas al azar no es talento instintivo.
+Es solo cardio con consecuencias.
