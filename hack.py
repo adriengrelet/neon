@@ -4,6 +4,14 @@ import time
 from termfx import color as color_text, color_choice_line
 
 
+def generate_tactical_code(player):
+    existing = set(player.get("tactical_codes", []))
+    while True:
+        code = "".join(random.choice("0123456789ABCDEF") for _ in range(6))
+        if code not in existing:
+            return code
+
+
 def reveal_unknown_fragment_markers(world, width, height, player, get_echo_marker):
     marked = 0
     for y in range(height):
@@ -212,6 +220,13 @@ def run_hack(
                 draw_map(show_legend=True)
             else:
                 print(tr("hack.fragment_ping_none"))
+
+        if random.random() < 0.25:
+            if not isinstance(player.get("tactical_codes"), list):
+                player["tactical_codes"] = []
+            code = generate_tactical_code(player)
+            player["tactical_codes"].append(code)
+            print(color_text(tr("hack.tactical_code", code=code), "yellow"))
     else:
         player["credits"] += credit_gain
         print(tr("hack.success.credits", credits=credit_gain))

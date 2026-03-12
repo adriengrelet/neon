@@ -23,7 +23,7 @@ from player_manage import (
     show_runtime_player_stats as pm_show_runtime_player_stats,
     save_run_score as pm_save_run_score,
 )
-from shop import run_pre_run_shop, run_in_game_shop, apply_upgrade_ids_to_player
+from shop import run_pre_run_shop, run_pre_run_inventory_manager, run_in_game_shop, apply_upgrade_ids_to_player
 from hack import run_hack
 from fight import run_attack, run_enemy_attack, run_enemy_turn
 from quest import (
@@ -494,10 +494,11 @@ def startup_hub(selected_structure, mail_data):
         print(menu_text(tr("startup.hub.opt_mail", default="1. Read mission mail")))
         print(menu_text(tr("startup.hub.opt_console", default="2. Open personal console")))
         print(menu_text(tr("startup.hub.opt_shop", default="3. Pre-run shop")))
-        print(menu_text(tr("startup.hub.opt_evo", default="4. Evolution")))
-        print(menu_text(tr("startup.hub.opt_run", default="5. Quick run")))
+        print(menu_text(tr("startup.hub.opt_inventory", default="4. Manage bank inventory")))
+        print(menu_text(tr("startup.hub.opt_evo", default="5. Evolution")))
+        print(menu_text(tr("startup.hub.opt_run", default="6. Quick run")))
         if mission_ready:
-            print(menu_text(tr("startup.hub.opt_run_mail", default="6. Run Mission Mail")))
+            print(menu_text(tr("startup.hub.opt_run_mail", default="7. Run Mission Mail")))
         print(menu_text(tr("startup.hub.opt_quit", default="0. QUIT GAME")))
         choice = input(menu_text(tr("startup.hub.prompt", default="Choice > "))).strip()
 
@@ -543,12 +544,20 @@ def startup_hub(selected_structure, mail_data):
                 ask_confirmation=False,
             )
         elif choice == '4':
-            evolution_menu()
+            run_pre_run_inventory_manager(
+                player_profile,
+                player_profile_path,
+                tr,
+                pm_save_player_profile,
+                format_inventory_counts,
+            )
         elif choice == '5':
+            evolution_menu()
+        elif choice == '6':
             if selected_structure and not seen_mail:
                 print(tr("startup.hub.mail_reminder", default="You still have unread mission mail."))
             return mission_modifiers, pending_pre_run_upgrades, False
-        elif choice == '6':
+        elif choice == '7':
             if not mission_ready:
                 print(tr("startup.hub.mission_not_ready", default="Read and accept mission mail first."))
                 continue
@@ -717,11 +726,46 @@ def should_open_ssh_console(cmd):
     return target.endswith("@console")
 
 
+def redeem_tactical_code(raw_code):
+    code = str(raw_code or "").strip().upper()
+    if len(code) != 6 or any(ch not in "0123456789ABCDEF" for ch in code):
+        return tr("console.code.invalid_format")
+
+    active_player = globals().get("player")
+    if not isinstance(active_player, dict):
+        return tr("console.code.unavailable")
+
+    tactical_codes = active_player.get("tactical_codes")
+    if not isinstance(tactical_codes, list):
+        tactical_codes = []
+        active_player["tactical_codes"] = tactical_codes
+
+    if code not in tactical_codes:
+        return tr("console.code.invalid")
+
+    tactical_codes.remove(code)
+    loot_pool = [
+        "medkit",
+        "energy_cell",
+        "exploit_chip",
+        "energy_drink",
+        "hemo_patch",
+        "neuro_booster",
+        "regen_capsule",
+    ]
+    reward_item = random.choice(loot_pool)
+    active_player.setdefault("inventory", []).append(reward_item)
+
+    sync_profile_inventory_from_player()
+    return tr("console.code.redeemed", code=code, item=reward_item)
+
+
 def open_personal_console():
     launch_console(
         player_name=player_name,
         language=CURRENT_LANGUAGE,
         status_callback=status,
+        code_input_callback=redeem_tactical_code,
     )
 
 
@@ -844,6 +888,7 @@ def main():
             "endurance_energy_scale": float(profile_bonuses['energy_cost_scale']),
             "profile_attributes": dict(profile_bonuses['attributes']),
             "inventory": starting_inventory,
+            "tactical_codes": [],
             "credits": 0,
             "alarm": 0,
             "hacks_success": 0,

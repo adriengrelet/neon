@@ -446,12 +446,22 @@ def take_from_room(player, room, tr, sync_inventory_callback):
 def use_inventory_item(player, item, tr, normalize_primary_stats, sync_inventory_callback):
     aliases = {
         'exploit': 'exploit_chip',
-        'energy': 'energy_cell'
+        'energy': 'energy_cell',
+        'drink': 'energy_drink',
+        'patch': 'hemo_patch',
+        'booster': 'neuro_booster',
+        'capsule': 'regen_capsule',
+        'laser': 'laser_pistol',
+        'pistol': 'laser_pistol',
     }
     item = aliases.get(item, item)
 
     if item not in player['inventory']:
         print(tr("use.absent"))
+        return
+
+    if item == 'laser_pistol':
+        print(tr("use.not_consumable", item=item))
         return
 
     if item == 'medkit':
@@ -460,6 +470,18 @@ def use_inventory_item(player, item, tr, normalize_primary_stats, sync_inventory
         player['energy'] += 25
     elif item == 'exploit_chip':
         player['hack'] += 10
+    elif item == 'energy_drink':
+        player['energy'] += 5
+    elif item == 'hemo_patch':
+        player['hp'] += 5
+    elif item == 'neuro_booster':
+        player['hack'] += 3
+    elif item == 'regen_capsule':
+        player['hp'] += 8
+        player['energy'] += 8
+    else:
+        print(tr("use.cannot_use", item=item))
+        return
 
     normalize_primary_stats()
     player['inventory'].remove(item)
@@ -479,6 +501,16 @@ def show_inventory(player, tr):
             print(tr("inventory.energy_cell"))
         elif obj == 'exploit_chip':
             print(tr("inventory.exploit_chip"))
+        elif obj == 'energy_drink':
+            print(tr("inventory.energy_drink"))
+        elif obj == 'hemo_patch':
+            print(tr("inventory.hemo_patch"))
+        elif obj == 'neuro_booster':
+            print(tr("inventory.neuro_booster"))
+        elif obj == 'regen_capsule':
+            print(tr("inventory.regen_capsule"))
+        elif obj == 'laser_pistol':
+            print(tr("inventory.laser_pistol"))
 
 
 def show_runtime_player_stats(player, tr, normalize_primary_stats, normalize_credits):

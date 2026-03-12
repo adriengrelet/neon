@@ -66,6 +66,9 @@ def run_attack(*, player, combat_time, reflex_time, tr, get_current_room, normal
 
     if room.enemy == "CORE Sentinel":
         damage_to_core = random.randint(15, 35)
+        if "laser_pistol" in player.get("inventory", []):
+            damage_to_core += 10
+            print(tr("attack.bonus.laser_pistol"))
         room.enemy_hp -= damage_to_core
         print(tr("attack.core.hit", damage=damage_to_core))
         if room.enemy_hp > 0:

@@ -26,11 +26,13 @@ class NeonConsole:
         player_name: str,
         language: str,
         status_callback: Optional[Callable[[], None]] = None,
+        code_input_callback: Optional[Callable[[str], str]] = None,
         prompt_prefix: str = "neon",
     ):
         self.player_name = (player_name or "ANON").strip() or "ANON"
         self.language = (language or "fr").strip().lower() or "fr"
         self.status_callback = status_callback
+        self.code_input_callback = code_input_callback
         self.prompt_prefix = prompt_prefix
 
         self.base_dir = os.path.dirname(os.path.abspath(__file__))
@@ -63,6 +65,7 @@ class NeonConsole:
             "whoami": self.cmd_whoami,
             "mail": self.cmd_mail,
             "nano": self.cmd_nano,
+            "code_input": self.cmd_code_input,
         }
 
     def run(self):
@@ -349,6 +352,7 @@ class NeonConsole:
         print("  history           Show recent commands")
         print("  whoami            Show player identity")
         print("  mail              Quick access to mail folder")
+        print("  code_input <code> Redeem tactical terminal code")
         print("  nano <file>       Interactive text editor")
         print("  help              Show this help")
         print("  exit              Return to game")
@@ -393,6 +397,31 @@ class NeonConsole:
                     print(f.read().rstrip("\\n"))
             except OSError as exc:
                 print(f"Read error: {exc}")
+
+    def cmd_code_input(self, args: List[str]):
+        if not args:
+            print("Usage: code_input <code>")
+            return
+
+        if self.code_input_callback is None:
+            print("Code system unavailable.")
+            return
+
+        code = args[0].strip()
+        if not code:
+            print("Usage: code_input <code>")
+            return
+
+        try:
+            result = self.code_input_callback(code)
+        except Exception as exc:
+            print(f"Code processing error: {exc}")
+            return
+
+        if result:
+            print(str(result))
+        else:
+            print("Code rejected.")
 
     def cmd_nano(self, args: List[str]):
         if not args:
@@ -796,6 +825,16 @@ class NeonConsole:
             return raw[:-1]
         return raw
 
-def launch_console(player_name: str, language: str, status_callback: Optional[Callable[[], None]] = None):
-    shell = NeonConsole(player_name=player_name, language=language, status_callback=status_callback)
+def launch_console(
+    player_name: str,
+    language: str,
+    status_callback: Optional[Callable[[], None]] = None,
+    code_input_callback: Optional[Callable[[str], str]] = None,
+):
+    shell = NeonConsole(
+        player_name=player_name,
+        language=language,
+        status_callback=status_callback,
+        code_input_callback=code_input_callback,
+    )
     shell.run()

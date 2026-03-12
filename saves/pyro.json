@@ -1,7 +1,7 @@
 {
   "player_name": "pyro",
   "created_at": "2026-03-10T12:39:59",
-  "last_seen": "2026-03-11T22:15:19",
+  "last_seen": "2026-03-11T22:55:32",
   "total_runs": 5,
   "megastructures_visited": 5,
   "wins": 2,
@@ -14,10 +14,11 @@
   "total_rooms_visited": 90,
   "total_rom_fragments_collected": 9,
   "last_status": "WIN",
-  "bank_credits": 1615,
+  "bank_credits": 1445,
   "bank_inventory": [
     "energy_cell",
-    "energy_cell"
+    "energy_cell",
+    "regen_capsule"
   ],
   "xp_total": 19525,
   "xp_last_gain": 8762,
