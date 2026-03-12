@@ -12,7 +12,11 @@ The game is run-based but persistent: your profile, bank credits, inventory, XP,
 
 ## Core Features
 
-- 7x7 procedural map, perimeter spawn, dynamic enemies/locks/terminals/items.
+- Procedural sparse map on a canvas with connected active rooms (`None` void cells outside the layout), perimeter spawn, dynamic enemies/locks/terminals/items.
+- Map profile system:
+  - Quick run uses a 12x12 canvas with selectable active room count (25/40/60/80).
+  - Mission runs derive map size/style from mission mail tone and world modifiers (with difficulty scaling).
+- Map generation styles include dense, hybrid, corridor, and branching topologies.
 - Pressure systems: HP, Energy (EN), Hack power (HK), Alarm (AL), Credits.
 - Timed matrix hacking and reflex combat.
 - Mission-driven world modifiers (mail briefings can alter generation rules).
@@ -132,12 +136,17 @@ Below is a practical changelog. The section above explains the game fantasy and 
 - Existing duplicated local stats directories were cleaned up and consolidated to the shared `stats/` directory.
 - Quest mission text and localization strings were refined for EN/ES/FR/IT mission mails and discovery wording.
 - Italian console lore, mail, and mission files were expanded/refined for narrative consistency with other locales.
+- Reworked map generation from fixed full-grid layout to sparse connected room topology on a canvas.
+- Quick runs now include a room-count selector (25/40/60/80) and style-aware generation.
+- Mission runs now use mail-driven map profile metadata (size/style), with difficulty-adjusted room count.
+- Mission mails now expose map envelope/style in EN/ES/FR/IT for clearer RP briefing context.
 
 Global behavior changes:
 
 - There is now one canonical stats storage location: `stats/`.
 - In-console navigation to stats remains available (`cd stats`, `ls`, `tree`) without requiring per-console physical folders.
 - This reduces cross-language desync risk and prevents accidental duplicate stat files.
+- Map layout is no longer a fixed full-grid square: active rooms are generated as a connected subset over a canvas, varying by run mode and mission profile.
 
 ### 2026-03-11
 

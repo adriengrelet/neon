@@ -4,6 +4,7 @@ import os
 import sys
 import time
 import json
+from collections import deque
 from termfx import color as color_text, color_choice_line, normalize_ansi_escapes, supports_ansi
 from console import launch_console
 from player_manage import (
@@ -47,8 +48,11 @@ from world import (
     echo_scan as world_echo_scan,
 )
 
-WIDTH = 7
-HEIGHT = 7
+MISSION_WIDTH = 7
+MISSION_HEIGHT = 7
+QUICK_RUN_CANVAS_WIDTH = 12
+QUICK_RUN_CANVAS_HEIGHT = 12
+QUICK_RUN_ROOM_COUNT = 49
 ALARM_THRESHOLD = 4
 SHOW_STATUS_LINE = 1
 # Will be set by difficulty selection
@@ -263,15 +267,339 @@ class Room:
         self.echo_marker = None
 
 
-def perimeter_spawn():
+CARDINAL_DIRECTIONS = ((1, 0), (-1, 0), (0, 1), (0, -1))
+
+
+def in_bounds(x, y, width, height):
+    return 0 <= x < width and 0 <= y < height
+
+
+def neighbors4(x, y, width, height):
+    for dx, dy in CARDINAL_DIRECTIONS:
+        nx = x + dx
+        ny = y + dy
+        if in_bounds(nx, ny, width, height):
+            yield nx, ny
+
+
+def count_active_neighbors(active_coords, x, y, width, height):
+    return sum(1 for nx, ny in neighbors4(x, y, width, height) if (nx, ny) in active_coords)
+
+
+def creates_full_2x2(active_coords, x, y, width, height):
+    # Avoiding full 2x2 blocks keeps corridors and links visually one-cell wide.
+    local_active = set(active_coords)
+    local_active.add((x, y))
+    for oy in (-1, 0):
+        for ox in (-1, 0):
+            x0 = x + ox
+            y0 = y + oy
+            if not in_bounds(x0, y0, width, height):
+                continue
+            if not in_bounds(x0 + 1, y0 + 1, width, height):
+                continue
+            square = ((x0, y0), (x0 + 1, y0), (x0, y0 + 1), (x0 + 1, y0 + 1))
+            if all(coord in local_active for coord in square):
+                return True
+    return False
+
+
+def l_path_cells(a, b):
+    ax, ay = a
+    bx, by = b
+    path = []
+    x = ax
+    y = ay
+
+    horizontal_first = random.random() < 0.5
+    if horizontal_first:
+        step_x = 1 if bx >= x else -1
+        while x != bx:
+            path.append((x, y))
+            x += step_x
+        step_y = 1 if by >= y else -1
+        while y != by:
+            path.append((x, y))
+            y += step_y
+    else:
+        step_y = 1 if by >= y else -1
+        while y != by:
+            path.append((x, y))
+            y += step_y
+        step_x = 1 if bx >= x else -1
+        while x != bx:
+            path.append((x, y))
+            x += step_x
+
+    path.append((bx, by))
+    return path
+
+
+def pick_dense_cluster_seeds(width, height, cluster_count):
+    seeds = []
+    min_distance = max(3, min(width, height) // 3)
+
+    attempts = 0
+    while len(seeds) < cluster_count and attempts < 400:
+        attempts += 1
+        candidate = (random.randint(1, width - 2), random.randint(1, height - 2))
+        if not seeds:
+            seeds.append(candidate)
+            continue
+        if all(abs(candidate[0] - sx) + abs(candidate[1] - sy) >= min_distance for sx, sy in seeds):
+            seeds.append(candidate)
+
+    while len(seeds) < cluster_count:
+        seeds.append((random.randint(1, width - 2), random.randint(1, height - 2)))
+    return seeds
+
+
+def grow_compact_cluster(seed, quota, active_coords, width, height):
+    cluster = {seed}
+    frontier = [seed]
+
+    while len(cluster) < quota:
+        if not frontier:
+            break
+        base = random.choice(frontier[-min(16, len(frontier)):])
+        bx, by = base
+        candidates = [
+            (nx, ny)
+            for nx, ny in neighbors4(bx, by, width, height)
+            if (nx, ny) not in cluster and (nx, ny) not in active_coords
+        ]
+        if not candidates:
+            frontier.remove(base)
+            continue
+
+        candidates.sort(
+            key=lambda coord: (
+                -count_active_neighbors(cluster, coord[0], coord[1], width, height),
+                abs(coord[0] - seed[0]) + abs(coord[1] - seed[1]),
+            )
+        )
+        chosen = candidates[0]
+        cluster.add(chosen)
+        frontier.append(chosen)
+        if len(frontier) > 120:
+            frontier.pop(0)
+
+    return cluster
+
+
+def generate_dense_clustered_coords(width, height, room_count):
+    room_count = max(1, min(int(room_count), width * height))
+    cluster_count = 2 if room_count < 55 else random.choice((2, 3))
+    seeds = pick_dense_cluster_seeds(width, height, cluster_count)
+
+    active = set(seeds)
+    for i in range(1, cluster_count):
+        connector = l_path_cells(seeds[0], seeds[i])
+        for coord in connector:
+            if in_bounds(coord[0], coord[1], width, height):
+                active.add(coord)
+
+    if len(active) > room_count:
+        kept = set()
+        start = seeds[0]
+        queue = deque([start])
+        while queue and len(kept) < room_count:
+            x, y = queue.popleft()
+            if (x, y) in kept or (x, y) not in active:
+                continue
+            kept.add((x, y))
+            for nx, ny in neighbors4(x, y, width, height):
+                if (nx, ny) in active and (nx, ny) not in kept:
+                    queue.append((nx, ny))
+        return kept
+
+    remaining = room_count - len(active)
+    quotas = [remaining // cluster_count for _ in range(cluster_count)]
+    for i in range(remaining % cluster_count):
+        quotas[i] += 1
+
+    for idx, seed in enumerate(seeds):
+        cluster_quota = 1 + quotas[idx]
+        cluster = grow_compact_cluster(seed, cluster_quota, active, width, height)
+        active.update(cluster)
+
+    while len(active) < room_count:
+        base = random.choice(tuple(active))
+        bx, by = base
+        candidates = [
+            (nx, ny)
+            for nx, ny in neighbors4(bx, by, width, height)
+            if (nx, ny) not in active
+        ]
+        if not candidates:
+            continue
+        candidates.sort(
+            key=lambda coord: -count_active_neighbors(active, coord[0], coord[1], width, height)
+        )
+        active.add(candidates[0])
+
+    return active
+
+
+def generate_connected_room_coords(width, height, room_count, style="hybrid"):
+    room_count = max(1, min(int(room_count), width * height))
+    style_key = str(style or "hybrid").strip().lower()
+    if style_key not in ("dense", "hybrid", "corridor", "branching"):
+        style_key = "hybrid"
+
+    if style_key == "dense":
+        return generate_dense_clustered_coords(width, height, room_count)
+
+    style_frontier_bias = {
+        "dense": 0.80,
+        "hybrid": 0.65,
+        "corridor": 0.25,
+        "branching": 0.45,
+    }
+    frontier_bias = style_frontier_bias[style_key]
+
+    style_neighbor_order = {
+        "dense": "most_neighbors",
+        "hybrid": "random",
+        "corridor": "fewest_neighbors",
+        "branching": "mixed",
+    }
+    neighbor_order = style_neighbor_order[style_key]
+    style_neighbor_cap = {
+        "dense": 3,
+        "hybrid": 2,
+        "corridor": 2,
+        "branching": 2,
+    }
+    max_local_neighbors = style_neighbor_cap[style_key]
+
+    for _attempt in range(80):
+        start = (random.randint(0, width - 1), random.randint(0, height - 1))
+        active = {start}
+        growth_frontier = [start]
+        stalled_steps = 0
+
+        while len(active) < room_count and stalled_steps < room_count * 8:
+            if growth_frontier and random.random() < frontier_bias:
+                recent = growth_frontier[-min(18, len(growth_frontier)):]
+                base_x, base_y = random.choice(recent)
+            else:
+                base_x, base_y = random.choice(tuple(active))
+
+            candidates = [
+                (nx, ny)
+                for nx, ny in neighbors4(base_x, base_y, width, height)
+                if (nx, ny) not in active
+            ]
+            if not candidates:
+                expandable = [
+                    (x, y)
+                    for (x, y) in active
+                    if any((nx, ny) not in active for nx, ny in neighbors4(x, y, width, height))
+                ]
+                if not expandable:
+                    break
+                base_x, base_y = random.choice(expandable)
+                candidates = [
+                    (nx, ny)
+                    for nx, ny in neighbors4(base_x, base_y, width, height)
+                    if (nx, ny) not in active
+                ]
+
+            if not candidates:
+                stalled_steps += 1
+                continue
+
+            candidates = [
+                coord
+                for coord in candidates
+                if not creates_full_2x2(active, coord[0], coord[1], width, height)
+            ]
+            if not candidates:
+                stalled_steps += 1
+                continue
+
+            thin_candidates = [
+                coord
+                for coord in candidates
+                if count_active_neighbors(active, coord[0], coord[1], width, height) <= max_local_neighbors
+            ]
+            if thin_candidates:
+                candidates = thin_candidates
+
+            if neighbor_order == "most_neighbors":
+                candidates.sort(
+                    key=lambda coord: sum(
+                        1 for nn in neighbors4(coord[0], coord[1], width, height) if nn not in active
+                    ),
+                    reverse=True,
+                )
+                chosen = candidates[0]
+            elif neighbor_order == "fewest_neighbors":
+                candidates.sort(
+                    key=lambda coord: sum(
+                        1 for nn in neighbors4(coord[0], coord[1], width, height) if nn not in active
+                    )
+                )
+                chosen = candidates[0]
+            elif neighbor_order == "mixed":
+                if random.random() < 0.6:
+                    candidates.sort(
+                        key=lambda coord: sum(
+                            1 for nn in neighbors4(coord[0], coord[1], width, height) if nn not in active
+                        )
+                    )
+                    chosen = candidates[0]
+                else:
+                    chosen = random.choice(candidates)
+            else:
+                chosen = random.choice(candidates)
+
+            active.add(chosen)
+            growth_frontier.append(chosen)
+            if len(growth_frontier) > 80:
+                growth_frontier.pop(0)
+            stalled_steps = 0
+
+        if len(active) == room_count:
+            return active
+
+    # Emergency fallback: return the best strict attempt seen so the run can still start.
+    return active
+
+
+def build_world_from_active_coords(width, height, active_coords):
+    world = [[None for _ in range(width)] for _ in range(height)]
+    for x, y in active_coords:
+        world[y][x] = Room(x, y)
+    return world
+
+
+def perimeter_spawn(active_coords, width, height):
     edge = []
-    for x in range(WIDTH):
-        edge.append((x, 0))
-        edge.append((x, HEIGHT - 1))
-    for y in range(1, HEIGHT - 1):
-        edge.append((0, y))
-        edge.append((WIDTH - 1, y))
-    return random.choice(edge)
+    for x, y in active_coords:
+        if any((nx, ny) not in active_coords for nx, ny in neighbors4(x, y, width, height)):
+            edge.append((x, y))
+    return random.choice(edge if edge else list(active_coords))
+
+
+def compute_room_distances(active_coords, start, width, height):
+    distances = {start: 0}
+    queue = deque([start])
+    while queue:
+        x, y = queue.popleft()
+        current_dist = distances[(x, y)]
+        for nx, ny in neighbors4(x, y, width, height):
+            if (nx, ny) not in active_coords or (nx, ny) in distances:
+                continue
+            distances[(nx, ny)] = current_dist + 1
+            queue.append((nx, ny))
+    return distances
+
+
+def mission_room_count_for_difficulty(base_room_count, difficulty_multiplier, max_rooms):
+    scaled = int(base_room_count) + max(0, int(difficulty_multiplier) - 1) * 4
+    return max(10, min(scaled, max_rooms))
 
 
 def clear():
@@ -437,6 +765,44 @@ def choose_difficulty():
         DIFFICULTY_MULTIPLIER = 3
 
 
+def choose_quick_run_room_count():
+    print("\n" + menu_text(tr("startup.map_size.title", default="=== TAILLE MAP RUN RAPIDE ===")))
+    print(menu_text(tr("startup.map_size.1", default="1. Petite  (25 cases)")))
+    print(menu_text(tr("startup.map_size.2", default="2. Moyenne (40 cases)")))
+    print(menu_text(tr("startup.map_size.3", default="3. Grande  (60 cases)")))
+    print(menu_text(tr("startup.map_size.4", default="4. Extra   (80 cases)")))
+
+    choice = input(menu_text(tr("startup.map_size.prompt", default="Choisir taille (1-4) : "))).strip()
+    if choice == "1":
+        return 25
+    if choice == "2":
+        return 40
+    if choice == "3":
+        return 60
+    if choice == "4":
+        return 80
+
+    print(menu_text(tr("startup.map_size.invalid", default="Choix invalide, taille moyenne appliquee (40).")))
+    return 40
+
+
+def choose_quick_run_map_style(room_count):
+    room_count = int(room_count)
+    if room_count <= 25:
+        styles = ["corridor", "hybrid"]
+        weights = [0.7, 0.3]
+    elif room_count <= 40:
+        styles = ["corridor", "hybrid", "dense"]
+        weights = [0.35, 0.45, 0.20]
+    elif room_count <= 60:
+        styles = ["hybrid", "branching", "dense"]
+        weights = [0.35, 0.40, 0.25]
+    else:
+        styles = ["branching", "dense", "hybrid"]
+        weights = [0.50, 0.35, 0.15]
+    return random.choices(styles, weights=weights, k=1)[0]
+
+
 def evolution_menu():
     global player_profile
     if player_profile is None or player_profile_path is None:
@@ -556,14 +922,14 @@ def startup_hub(selected_structure, mail_data):
         elif choice == '6':
             if selected_structure and not seen_mail:
                 print(tr("startup.hub.mail_reminder", default="You still have unread mission mail."))
-            return mission_modifiers, pending_pre_run_upgrades, False
+            return mission_modifiers, pending_pre_run_upgrades, False, "quick"
         elif choice == '7':
             if not mission_ready:
                 print(tr("startup.hub.mission_not_ready", default="Read and accept mission mail first."))
                 continue
-            return mission_modifiers, pending_pre_run_upgrades, False
+            return mission_modifiers, pending_pre_run_upgrades, False, "mission"
         elif choice == '0':
-            return {}, [], True
+            return {}, [], True, "quit"
         else:
             print(menu_text(tr("startup.hub.invalid", default="Invalid choice.")))
 
@@ -610,7 +976,6 @@ def show_leaderboard():
 
 def intro():
     clear()
-    show_leaderboard()
     print(get_intro_text())
     input(tr("intro.press_enter"))
 
@@ -824,11 +1189,14 @@ def main():
                 pm_save_player_profile(player_profile, player_profile_path)
             mail_data = build_briefing_mail(player_name, selected_structure, tr, CURRENT_LANGUAGE)
 
-        mission_modifiers, pending_pre_run_upgrades, quit_requested = startup_hub(selected_structure, mail_data)
+        mission_modifiers, pending_pre_run_upgrades, quit_requested, run_mode = startup_hub(selected_structure, mail_data)
         if quit_requested:
             return
 
         choose_difficulty()
+        quick_run_room_count = QUICK_RUN_ROOM_COUNT
+        if run_mode == "quick":
+            quick_run_room_count = choose_quick_run_room_count()
 
         WORLD_RULES = build_world_rules(mission_modifiers)
         profile_bonuses = pm_get_profile_attribute_bonuses(player_profile)
@@ -836,8 +1204,35 @@ def main():
         ALARM_THRESHOLD = WORLD_RULES['alarm_reinforcement_threshold']
         ALARM_MAX = WORLD_RULES['alarm_max'] + int(profile_bonuses['alarm_max_bonus'])
 
+        is_quick_run = run_mode == "quick"
+        if is_quick_run:
+            map_width = QUICK_RUN_CANVAS_WIDTH
+            map_height = QUICK_RUN_CANVAS_HEIGHT
+            map_style = choose_quick_run_map_style(quick_run_room_count)
+            active_coords = generate_connected_room_coords(map_width, map_height, quick_run_room_count, style=map_style)
+        else:
+            map_width = int(WORLD_RULES.get("map_canvas_width", MISSION_WIDTH))
+            map_height = int(WORLD_RULES.get("map_canvas_height", MISSION_HEIGHT))
+            map_style = str(WORLD_RULES.get("map_style", "hybrid"))
+            base_room_count = int(WORLD_RULES.get("map_room_count", MISSION_WIDTH * MISSION_HEIGHT))
+            max_rooms = map_width * map_height
+            mission_room_count = mission_room_count_for_difficulty(base_room_count, DIFFICULTY_MULTIPLIER, max_rooms)
+            active_coords = generate_connected_room_coords(map_width, map_height, mission_room_count, style=map_style)
+
+        quick_map_profile_line = None
+
         # Reset world
-        world = [[Room(x, y) for x in range(WIDTH)] for y in range(HEIGHT)]
+        world = build_world_from_active_coords(map_width, map_height, active_coords)
+        if is_quick_run:
+            style_label = tr(f"quest.map_style.{map_style}", default=map_style)
+            quick_map_profile_line = menu_text(tr(
+                "startup.quick_map_profile",
+                default="Profil map rapide: {style} | {rooms} salles sur {width}x{height}",
+                style=style_label,
+                rooms=len(active_coords),
+                width=map_width,
+                height=map_height,
+            ))
         if selected_structure is None:
             fallback_story = random.choice(tr_value("content.rom_story_archive"))
             selected_structure = {
@@ -850,14 +1245,17 @@ def main():
                 'fragments': list(fallback_story.get('fragments', [])),
             }
         active_story = selected_structure
-        spawn_x, spawn_y = perimeter_spawn()
+        spawn_x, spawn_y = perimeter_spawn(active_coords, map_width, map_height)
         print(tr("main.spawn", x=spawn_x, y=spawn_y))
 
-        while True:
-            core_x = random.randint(0, WIDTH - 1)
-            core_y = random.randint(0, HEIGHT - 1)
-            if abs(core_x - spawn_x) + abs(core_y - spawn_y) >= 3 and (core_x, core_y) != (spawn_x, spawn_y):
-                break
+        distances = compute_room_distances(active_coords, (spawn_x, spawn_y), map_width, map_height)
+        core_candidates = [coord for coord, dist in distances.items() if coord != (spawn_x, spawn_y) and dist >= 3]
+        if not core_candidates:
+            max_dist = max((dist for coord, dist in distances.items() if coord != (spawn_x, spawn_y)), default=0)
+            core_candidates = [coord for coord, dist in distances.items() if dist == max_dist and coord != (spawn_x, spawn_y)]
+        if not core_candidates:
+            core_candidates = [(spawn_x, spawn_y)]
+        core_x, core_y = random.choice(core_candidates)
         print(tr("main.core", x=core_x, y=core_y))
 
         world[core_y][core_x].core = True
@@ -868,7 +1266,7 @@ def main():
 
         # Place 3 ROM fragments from the active story in random rooms (excluding spawn/core).
         candidate_rooms = [
-            (x, y) for y in range(HEIGHT) for x in range(WIDTH)
+            (x, y) for (x, y) in active_coords
             if (x, y) != (spawn_x, spawn_y) and (x, y) != (core_x, core_y)
         ]
         random.shuffle(candidate_rooms)
@@ -921,6 +1319,8 @@ def main():
         player_profile = pm_sync_profile_inventory_from_player(player_profile, player_profile_path, player)
 
         intro()
+        if quick_map_profile_line:
+            print("\n" + quick_map_profile_line)
         print("\n" + tr("main.story_channel", story_id=player['active_story']['id']))
         world_describe(
             world,
@@ -982,8 +1382,8 @@ def main():
                 world_move(
                     world,
                     player,
-                    WIDTH,
-                    HEIGHT,
+                    map_width,
+                    map_height,
                     0,
                     -1,
                     tr,
@@ -995,8 +1395,8 @@ def main():
                 world_move(
                     world,
                     player,
-                    WIDTH,
-                    HEIGHT,
+                    map_width,
+                    map_height,
                     0,
                     1,
                     tr,
@@ -1008,8 +1408,8 @@ def main():
                 world_move(
                     world,
                     player,
-                    WIDTH,
-                    HEIGHT,
+                    map_width,
+                    map_height,
                     1,
                     0,
                     tr,
@@ -1021,8 +1421,8 @@ def main():
                 world_move(
                     world,
                     player,
-                    WIDTH,
-                    HEIGHT,
+                    map_width,
+                    map_height,
                     -1,
                     0,
                     tr,
@@ -1041,15 +1441,15 @@ def main():
                     do_enemy_turn,
                 )
             elif cmd in ('echo', 'ec'):
-                world_echo_scan(world, player, WIDTH, HEIGHT, tr, effective_energy_cost)
-                world_draw_map(world, player, WIDTH, HEIGHT, tr, show_legend=True)
+                world_echo_scan(world, player, map_width, map_height, tr, effective_energy_cost)
+                world_draw_map(world, player, map_width, map_height, tr, show_legend=True)
             elif cmd in ('hack', 'h'):
                 show_hack_request_ascii()
                 run_hack(
                     player=player,
                     world=world,
-                    width=WIDTH,
-                    height=HEIGHT,
+                    width=map_width,
+                    height=map_height,
                     core_x=core_x,
                     core_y=core_y,
                     hex_values=HEX_VALUES,
@@ -1059,7 +1459,7 @@ def main():
                     tr_value=tr_value,
                     get_current_room=lambda: world_current_room(world, player),
                     get_echo_marker=world_get_echo_marker,
-                    draw_map=lambda show_legend=True: world_draw_map(world, player, WIDTH, HEIGHT, tr, show_legend=show_legend),
+                    draw_map=lambda show_legend=True: world_draw_map(world, player, map_width, map_height, tr, show_legend=show_legend),
                     effective_energy_cost=effective_energy_cost,
                     normalize_primary_stats=normalize_primary_stats,
                     normalize_credits=normalize_credits,
@@ -1099,7 +1499,7 @@ def main():
             elif cmd in ('fragments', 'fra'):
                 fragments_menu()
             elif cmd in ('map', 'm'):
-                world_draw_map(world, player, WIDTH, HEIGHT, tr)
+                world_draw_map(world, player, map_width, map_height, tr)
             elif cmd in ('shop', 'sh'):
                 run_in_game_shop(
                     player,

@@ -1,19 +1,19 @@
 {
   "player_name": "pyro",
   "created_at": "2026-03-10T12:39:59",
-  "last_seen": "2026-03-12T14:22:15",
-  "total_runs": 6,
-  "megastructures_visited": 6,
+  "last_seen": "2026-03-12T15:35:47",
+  "total_runs": 7,
+  "megastructures_visited": 7,
   "wins": 3,
   "losses": 1,
   "deaths": 1,
-  "abandons": 2,
-  "total_play_time_seconds": 3610,
+  "abandons": 3,
+  "total_play_time_seconds": 3638,
   "total_hacks_success": 51,
   "total_hacks_failed": 5,
-  "total_rooms_visited": 136,
+  "total_rooms_visited": 137,
   "total_rom_fragments_collected": 12,
-  "last_status": "WIN",
+  "last_status": "QUIT",
   "bank_credits": 1443,
   "bank_inventory": [
     "energy_cell",
@@ -24,8 +24,8 @@
     "energy_cell",
     "exploit_chip"
   ],
-  "xp_total": 29482,
-  "xp_last_gain": 9957,
+  "xp_total": 30486,
+  "xp_last_gain": 1004,
   "level": 3,
   "evolution_points": 0,
   "attributes": {
@@ -34,8 +34,8 @@
     "intrusion": 1,
     "composure": 0
   },
-  "xp_in_level": 2482,
-  "xp_to_next_level": 17518,
+  "xp_in_level": 3486,
+  "xp_to_next_level": 16514,
   "xp_next_level_requirement": 20000,
   "visited_structures": [
     "MS-ION-72",

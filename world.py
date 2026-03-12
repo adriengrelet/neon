@@ -13,6 +13,9 @@ def draw_map(world, player, width, height, tr, show_legend=True):
         line = ""
         for x in range(width):
             room = world[y][x]
+            if room is None:
+                line += "  "
+                continue
             if player['x'] == x and player['y'] == y:
                 line += "P "
             elif room.core and room.visited:
@@ -82,7 +85,7 @@ def move(world, player, width, height, dx, dy, tr, on_enemy_turn, on_enemy_encou
         return
     nx = player['x'] + dx
     ny = player['y'] + dy
-    if 0 <= nx < width and 0 <= ny < height:
+    if 0 <= nx < width and 0 <= ny < height and world[ny][nx] is not None:
         player['x'] = nx
         player['y'] = ny
         on_enemy_turn()
@@ -137,6 +140,8 @@ def echo_scan(world, player, width, height, tr, effective_energy_cost):
             ny = player['y'] + dy
             if 0 <= nx < width and 0 <= ny < height:
                 room = world[ny][nx]
+                if room is None:
+                    continue
                 if room.visited:
                     continue
                 marker = get_echo_marker(room)

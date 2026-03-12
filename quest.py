@@ -25,6 +25,28 @@ BASE_WORLD_RULES = {
     "alarm_step": 1,
     "alarm_reinforcement_threshold": 4,
     "alarm_max": 5,
+    "map_canvas_width": 12,
+    "map_canvas_height": 12,
+    "map_room_count": 49,
+    "map_style": "hybrid",
+}
+
+MISSION_MAP_PROFILES = {
+    "NODE-HERMES": {"map_room_count": 58, "map_style": "dense"},
+    "SIGMA LIAISON": {"map_room_count": 44, "map_style": "corridor"},
+    "CROW-NET": {"map_room_count": 52, "map_style": "branching"},
+    "AZUR PROXY": {"map_room_count": 34, "map_style": "corridor"},
+    "BLACK TRACE": {"map_room_count": 56, "map_style": "hybrid"},
+    "MERCURY HAND": {"map_room_count": 32, "map_style": "corridor"},
+    "ECHO-DELTA": {"map_room_count": 40, "map_style": "hybrid"},
+    "NIGHT COURRIER": {"map_room_count": 62, "map_style": "branching"},
+    "ARCHIVE NULL": {"map_room_count": 60, "map_style": "branching"},
+    "FREELINE": {"map_room_count": 48, "map_style": "dense"},
+    "POLAR SECTOR": {"map_room_count": 54, "map_style": "dense"},
+    "WARDEN LEAK": {"map_room_count": 64, "map_style": "dense"},
+    "DEEP CARTO": {"map_room_count": 50, "map_style": "branching"},
+    "LOCKSPINE": {"map_room_count": 42, "map_style": "corridor"},
+    "RED SPARK": {"map_room_count": 66, "map_style": "branching"},
 }
 
 MAIL_TEMPLATES = [
@@ -430,6 +452,31 @@ def _random_2097_timestamp():
     return f"2097-{month:02d}-{day:02d} {hour:02d}:{minute:02d}"
 
 
+def _mail_map_profile(template):
+    base = {
+        "map_canvas_width": int(BASE_WORLD_RULES.get("map_canvas_width", 12)),
+        "map_canvas_height": int(BASE_WORLD_RULES.get("map_canvas_height", 12)),
+        "map_room_count": int(BASE_WORLD_RULES.get("map_room_count", 49)),
+        "map_style": str(BASE_WORLD_RULES.get("map_style", "hybrid")),
+    }
+    sender_profile = MISSION_MAP_PROFILES.get(template.get("sender"), {})
+    if isinstance(sender_profile, dict):
+        base.update(sender_profile)
+
+    template_modifiers = template.get("modifiers", {})
+    if isinstance(template_modifiers, dict):
+        for key in ("map_canvas_width", "map_canvas_height", "map_room_count", "map_style"):
+            if key in template_modifiers:
+                base[key] = template_modifiers[key]
+
+    base["map_canvas_width"] = max(8, int(base.get("map_canvas_width", 12)))
+    base["map_canvas_height"] = max(8, int(base.get("map_canvas_height", 12)))
+    max_rooms = base["map_canvas_width"] * base["map_canvas_height"]
+    base["map_room_count"] = max(10, min(int(base.get("map_room_count", 49)), max_rooms))
+    base["map_style"] = str(base.get("map_style", "hybrid"))
+    return base
+
+
 def build_briefing_mail(player_name, structure, tr, language="fr"):
     template = random.choice(MAIL_TEMPLATES)
     lang = (language or "fr").strip().lower()
@@ -439,6 +486,15 @@ def build_briefing_mail(player_name, structure, tr, language="fr"):
     mission_id = f"Q{datetime.now().strftime('%Y%m%d%H%M%S')}-{random.randint(100, 999)}"
     timestamp = _random_2097_timestamp()
     subject = f"{subject_base} [{structure.get('id', 'UNKNOWN')}]"
+    map_profile = _mail_map_profile(template)
+    map_modifiers = {
+        "map_canvas_width": map_profile["map_canvas_width"],
+        "map_canvas_height": map_profile["map_canvas_height"],
+        "map_room_count": map_profile["map_room_count"],
+        "map_style": map_profile["map_style"],
+    }
+    combined_modifiers = dict(template["modifiers"])
+    combined_modifiers.update(map_modifiers)
 
     lines = [
         f"{tr('quest.mail.from')}: {template['sender']} <{template['contact']}>",
@@ -454,6 +510,16 @@ def build_briefing_mail(player_name, structure, tr, language="fr"):
             structure_id=structure.get("id", "N/A"),
         ),
         tr("quest.mail.objective"),
+        tr(
+            "quest.mail.map.size",
+            rooms=map_profile["map_room_count"],
+            width=map_profile["map_canvas_width"],
+            height=map_profile["map_canvas_height"],
+        ),
+        tr(
+            "quest.mail.map.style",
+            style=tr(f"quest.map_style.{map_profile['map_style']}", default=map_profile["map_style"]),
+        ),
         "",
         tr("quest.mail.starter.title"),
         tr("quest.mail.starter.credits", credits=template["starter_credits"]),
@@ -474,7 +540,7 @@ def build_briefing_mail(player_name, structure, tr, language="fr"):
         "contact": template["contact"],
         "starter_credits": int(template["starter_credits"]),
         "starter_items": list(template["starter_items"]),
-        "modifiers": dict(template["modifiers"]),
+        "modifiers": combined_modifiers,
         "text": "\n".join(lines),
     }
 
@@ -536,6 +602,15 @@ def build_world_rules(modifiers):
     rules["alarm_step"] = max(1, int(rules.get("alarm_step", 1)))
     rules["alarm_reinforcement_threshold"] = max(1, int(rules.get("alarm_reinforcement_threshold", 4)))
     rules["alarm_max"] = max(rules["alarm_reinforcement_threshold"] + 1, int(rules.get("alarm_max", 5)))
+    rules["map_canvas_width"] = max(8, int(rules.get("map_canvas_width", 12)))
+    rules["map_canvas_height"] = max(8, int(rules.get("map_canvas_height", 12)))
+    rules["map_room_count"] = max(10, int(rules.get("map_room_count", 49)))
+    max_rooms = rules["map_canvas_width"] * rules["map_canvas_height"]
+    rules["map_room_count"] = min(rules["map_room_count"], max_rooms)
+    map_style = str(rules.get("map_style", "hybrid")).strip().lower()
+    if map_style not in ("dense", "hybrid", "corridor", "branching"):
+        map_style = "hybrid"
+    rules["map_style"] = map_style
     return rules
 
 

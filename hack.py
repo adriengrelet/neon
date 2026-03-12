@@ -17,6 +17,8 @@ def reveal_unknown_fragment_markers(world, width, height, player, get_echo_marke
     for y in range(height):
         for x in range(width):
             room = world[y][x]
+            if room is None:
+                continue
             if room.visited or not room.rom_fragment:
                 continue
             if room.rom_fragment["id"] in player["rom_fragments"]:
